@@ -228,33 +228,8 @@ const Home = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Animation variants for pop-up effect
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.85, y: 30 },
-    visible: (index) => ({
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-        delay: index * 0.15,
-      },
-    }),
-  };
-
-  // Animation variants for Athlixir card hover effect
-  const athlixirCardVariants = {
-    rest: { scale: 1, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" },
-    hover: {
-      scale: 1.03,
-      boxShadow: "0 15px 25px -5px rgba(0, 0, 0, 0.2)",
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
   return (
-    <div className="font-poppins min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+    <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
       {/* Inline styles with responsive adjustments */}
       <style>
         {`
@@ -347,237 +322,360 @@ const Home = () => {
       </style>
 
       {/* Hero Section - Fully Responsive */}
-      <section className="px-4 sm:px-6 md:px-8 lg:px-8 py-8 sm:py-10 md:py-12 lg:py-18 bg-white min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[50px] pt-12 sm:pt-16 md:pt-18 lg:pt-20">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-6 sm:gap-8 md:gap-10 lg:gap-10">
-          <div className="flex-1 text-left w-full lg:w-auto">
-            <h2 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase">
+      <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-4 pb-24 sm:pt-6 sm:pb-28 md:pt-8 md:pb-32 lg:pt-12 lg:pb-36 bg-gray-50 flex items-center justify-center overflow-hidden min-h-[calc(100vh-3rem)]">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="text-center max-w-5xl mx-auto">
+            <p className="text-blue-600 text-lg sm:text-lg font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
-            </h2>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold leading-tight mt-2 sm:mt-3 md:mt-4 lg:mt-4">
-            We make brands <br/> that demand attention            </h1>
-            <p className="mt-3 sm:mt-4 md:mt-4 lg:mt-4 text-gray-600 text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed">
-              We specialize in UI/UX design, web development, and creative branding & graphics. Our team combines creativity and code to build sleek websites and bold visuals that make your brand stand out
+            </p>
+            <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-medium leading-tight mb-2 tracking-tight">
+              Your trusted creative partner
+            </h1>
+            <p className="text-xl sm:text-xl md:text-xl text-gray-600 leading-relaxed mb-10 mx-auto">
+              We deliver creative branding, web design, and UI/UX solutions to make the most impact
             </p>
             <Link
               to="/contact"
-              className="mt-4 sm:mt-5 md:mt-6 lg:mt-6 inline-block px-4 sm:px-5 md:px-6 lg:px-6 py-2 sm:py-2.5 md:py-3 lg:py-3 bg-blue-600 font-medium text-white rounded-full hover:bg-blue-700 text-sm sm:text-sm md:text-base lg:text-base transition-colors duration-200"
+              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-gray-200 font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
             >
-              Get in Touch
+              <span className="absolute inset-0 w-full h-full bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                Request a quote <span className="text-2xl">👋</span>
+              </span>
             </Link>
           </div>
-          <div className="w-full lg:flex-1 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[550 px] xl:max-w-[550px] mt-6 lg:mt-0">
-            <video
-              src="https://res.cloudinary.com/dnmvriw3e/video/upload/v1757826916/Home_Video_cymz4e.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-auto rounded-2xl sm:rounded-3xl md:rounded-4xl lg:rounded-4xl shadow-lg object-cover bg-transparent"
-              style={{
-                backgroundColor: 'transparent',
-                WebkitMaskImage: '-webkit-radial-gradient(white, black)',
-              }}
-            />
+        </div>
+        {/* Horizontal Scrolling Text */}
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden bg-gray-50 py-6">
+          <div
+            className="flex w-max whitespace-nowrap animate-scroll pt-2"
+            style={{ willChange: "transform" }}
+          >
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex shrink-0">
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                  CREATIVE SOLUTIONS
+                </span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                  BUSINESS VALUE
+                </span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                  PURPOSEFUL DESIGNS
+                </span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                  STRATEGIC EXPERIENCES
+                </span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                  UI/UX DESIGN
+                </span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                  WEB DEVELOPMENT
+                </span>
+                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <style jsx>{`
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Default (desktop / tablet) */
+  .animate-scroll {
+    animation: scroll 15s linear infinite;
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 640px) {
+    .animate-scroll {
+      animation-duration: 15s; /* slower = smoother */
+    }
+  }
+`}</style>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="bg-gray-50 py-12 px-4 sm:px-6 md:px-8 lg:px-8">
+        <div className="max-w-7xl mx-auto bg-white rounded-[40px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20">
+          {/* Left Column */}
+          <div className="w-full lg:w-1/3 flex flex-col justify-between">
+            {/* Top Label */}
+            <div className="flex items-center gap-3 mb-8 lg:mb-0">
+              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
+              <span className="text-xl font-medium text-black tracking-wide">Who we are</span>
+            </div>
+
+            {/* Showreel Card */}
+            <div className="bg-gray-100 rounded-3xl p-4 mt-auto">
+              {/* White Inner Card */}
+              <div className="bg-white rounded-2xl w-full aspect-[4/3] flex items-center justify-center p-6 mb-4 shadow-sm relative group cursor-pointer overflow-hidden transition-all hover:shadow-md">
+                <div className="flex items-center gap-2 text-xl md:text-2xl font-medium tracking-tight text-black z-10">
+                  <span>We turn</span>
+                  <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-3 h-3 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                      <title>Play</title>
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                  <span>ideas into</span>
+                </div>
+                {/* Subtle gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+
+              {/* Bottom Label */}
+              <div className="flex items-center justify-between px-2 pb-1">
+                <span className="font-medium text-gray-900 text-sm sm:text-base">Techno Vanam Showreel</span>
+                {/* Sound wave graphic */}
+                <div className="flex gap-[3px] items-center h-4">
+                  {[40, 70, 50, 100, 60, 80, 40].map((height, i) => (
+                    <div
+                      key={i}
+                      className="w-[2px] bg-gray-400 rounded-full animate-pulse"
+                      style={{
+                        height: `${height}%`,
+                        animationDelay: `${i * 0.1}s`,
+                      }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="w-full lg:w-2/3 flex flex-col justify-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-6 leading-tight">
+              We are design-first creative studio
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
+              We believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
+            </p>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+              For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
+            </p>
+
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-3 bg-black text-white px-8 py-3.5 rounded-full w-fit hover:bg-gray-800 transition-all duration-300 group"
+            >
+              <span className="font-medium">About us</span>
+              <div className="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center group-hover:border-white transition-colors">
+                {/* Small stylized wave icon inside button */}
+                <div className="flex gap-[2px] items-center h-2">
+                  <div className="w-[1.5px] h-full bg-white rounded-full"></div>
+                  <div className="w-[1.5px] h-[60%] bg-white rounded-full"></div>
+                  <div className="w-[1.5px] h-[80%] bg-white rounded-full"></div>
+                  <div className="w-[1.5px] h-[40%] bg-white rounded-full"></div>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
+
       {/* Our Services - Fully Responsive */}
-<section className="bg-blue-500 py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10 text-white">
-  <div className="max-w-7xl mx-auto">
-    {/* Heading & Button */}
-    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 sm:mb-7 md:mb-8 lg:mb-8 gap-4">
-      <div className="text-left w-full lg:w-auto">
-        <p className="text-sm sm:text-base md:text-lg font-semibold uppercase">
-          Our Services
-        </p>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 sm:mt-2 leading-snug">
-          Creating Interfaces That Inspire, Code That Performs
-        </h2>
-      </div>
-      <Link
-        to="/services"
-        className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-white text-blue-600 rounded-full hover:bg-gray-100 text-sm md:text-base font-medium transition-colors duration-200"
-      >
-        View More
-      </Link>
-    </div>
-
-    {/* Services Layout */}
-    <div className="flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 w-full">
-      {/* Left Large Card */}
-      <div className="w-full lg:w-[48%] xl:w-[500px] bg-purple-100 rounded-2xl shadow-lg flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
-        <div className="p-4 sm:p-5 md:p-6 flex-shrink-0">
-          <h3 className="text-purple-600 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
-            UI/UX Design
-          </h3>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mt-2">
-            We design seamless, intuitive, and user-friendly digital experiences that not only engage and retain users but also enhance your brand's value and identity.
-          </p>
-          <Link
-            to="/services"
-            className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-xs sm:text-sm text-purple-600 font-semibold uppercase tracking-wide hover:text-purple-800"
-          >
-            See services <span>➔</span>
-          </Link>
-        </div>
-        <div className="flex-1 mx-4 sm:mx-5 mb-4 sm:mb-5 min-h-[200px] sm:min-h-[220px] md:min-h-[300px] bg-gray-100 rounded-2xl overflow-hidden">
-          <img
-            src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825637/UIUX_avzdc8.png"
-            alt="UI/UX Design Preview"
-            className="object-contain w-full h-full"
-            loading="lazy"
-          />
-        </div>
-      </div>
-
-      {/* Right Column */}
-      <div className="w-full lg:w-[52%] flex flex-col gap-4 sm:gap-5 md:gap-6">
-        
-        {/* Branding Card */}
-        <div className="bg-orange-100 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden min-h-[220px]">
-          <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
-            <h3 className="text-orange-500 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
-              Branding & Graphics Design
-            </h3>
-            <p className="text-gray-600 text-sm md:text-lg leading-relaxed mt-2">
-              We craft bold, creative visuals that help your brand stand out and communicate with impact.
-            </p>
+      <section className="bg-blue-500 pt-24 pb-8 sm:pt-28 sm:pb-12 md:pt-32 md:pb-14 lg:pt-36 lg:pb-16 px-4 sm:px-6 md:px-8 lg:px-10 text-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading & Button */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 sm:mb-7 md:mb-8 lg:mb-8 gap-4">
+            <div className="text-left w-full lg:w-auto">
+              <p className="text-sm sm:text-base md:text-lg font-semibold uppercase">
+                Our Services
+              </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 sm:mt-2 leading-snug">
+                Creating Interfaces That Inspire, Code That Performs
+              </h2>
+            </div>
             <Link
               to="/services"
-              className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm text-orange-600 font-semibold uppercase hover:text-orange-700"
+              className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-white text-blue-600 rounded-full hover:bg-gray-100 text-sm md:text-base font-medium transition-colors duration-200"
             >
-              See services <span>➔</span>
+              View More
             </Link>
           </div>
-          <div className="hidden md:flex w-full md:w-1/2 bg-gray-100 items-center justify-center overflow-hidden">
-            <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Branding_gpllkb.png"
-              alt="Branding Design"
-              className="object-contain w-full h-full"
-              loading="lazy"
-            />
-          </div>
-          {/* Mobile image */}
-          <div className="md:hidden flex mx-4 mb-4 bg-gray-100 rounded-xl overflow-hidden h-[150px]">
-            <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Branding_gpllkb.png"
-              alt="Branding Design Preview"
-              className="object-contain w-full h-full"
-              loading="lazy"
-            />
-          </div>
-        </div>
 
-        {/* Web Development Card */}
-        <div className="bg-sky-100 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden min-h-[220px]">
-          <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
-            <h3 className="text-sky-600 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
-              Web Development
-            </h3>
-            <p className="text-gray-600 text-sm md:text-lg leading-relaxed mt-2">
-              We develop fast, responsive, and scalable websites that strengthen your online presence.
-            </p>
-            <Link
-              to="#"
-              onClick={e => { e.preventDefault(); setShowPopup(true); }}
-              className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm text-sky-600 font-semibold uppercase hover:text-sky-700"
-            >
-              See services <span>➔</span>
-            </Link>
-          </div>
-          <div className="hidden md:flex w-full md:w-1/2 bg-gray-100 items-center justify-center overflow-hidden">
-            <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825638/Web_Development_z7wnga.png"
-              alt="Web Development"
-              className="object-contain w-full h-full"
-              loading="lazy"
-            />
-          </div>
-          {/* Mobile image */}
-          <div className="md:hidden flex mx-4 mb-4 bg-gray-100 rounded-xl overflow-hidden h-[150px]">
-            <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825638/Web_Development_z7wnga.png"
-              alt="Web Development Preview"
-              className="object-contain w-full h-full"
-              loading="lazy"
-            />
+          {/* Services Layout */}
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 w-full">
+            {/* Left Large Card */}
+            <div className="w-full lg:w-[48%] xl:w-[500px] bg-purple-100 rounded-2xl shadow-lg flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
+              <div className="p-4 sm:p-5 md:p-6 flex-shrink-0">
+                <h3 className="text-purple-600 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
+                  UI/UX Design
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mt-2">
+                  We design seamless, intuitive, and user-friendly digital experiences that not only engage and retain users but also enhance your brand's value and identity.
+                </p>
+                <Link
+                  to="/services"
+                  className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-xs sm:text-sm text-purple-600 font-semibold uppercase tracking-wide hover:text-purple-800"
+                >
+                  See services <span>➔</span>
+                </Link>
+              </div>
+              <div className="flex-1 mx-4 sm:mx-5 mb-4 sm:mb-5 min-h-[200px] sm:min-h-[220px] md:min-h-[300px] bg-gray-100 rounded-2xl overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825637/UIUX_avzdc8.png"
+                  alt="UI/UX Design Preview"
+                  className="object-contain w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="w-full lg:w-[52%] flex flex-col gap-4 sm:gap-5 md:gap-6">
+
+              {/* Branding Card */}
+              <div className="bg-orange-100 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden min-h-[220px]">
+                <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
+                  <h3 className="text-orange-500 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
+                    Branding & Graphics Design
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed mt-2">
+                    We craft bold, creative visuals that help your brand stand out and communicate with impact.
+                  </p>
+                  <Link
+                    to="/services"
+                    className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm text-orange-600 font-semibold uppercase hover:text-orange-700"
+                  >
+                    See services <span>➔</span>
+                  </Link>
+                </div>
+                <div className="hidden md:flex w-full md:w-1/2 bg-gray-100 items-center justify-center overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Branding_gpllkb.png"
+                    alt="Branding Design"
+                    className="object-contain w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Mobile image */}
+                <div className="md:hidden flex mx-4 mb-4 bg-gray-100 rounded-xl overflow-hidden h-[150px]">
+                  <img
+                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Branding_gpllkb.png"
+                    alt="Branding Design Preview"
+                    className="object-contain w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Web Development Card */}
+              <div className="bg-sky-100 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden min-h-[220px]">
+                <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
+                  <h3 className="text-sky-600 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
+                    Web Development
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed mt-2">
+                    We develop fast, responsive, and scalable websites that strengthen your online presence.
+                  </p>
+                  <Link
+                    to="#"
+                    onClick={e => { e.preventDefault(); setShowPopup(true); }}
+                    className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm text-sky-600 font-semibold uppercase hover:text-sky-700"
+                  >
+                    See services <span>➔</span>
+                  </Link>
+                </div>
+                <div className="hidden md:flex w-full md:w-1/2 bg-gray-100 items-center justify-center overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825638/Web_Development_z7wnga.png"
+                    alt="Web Development"
+                    className="object-contain w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Mobile image */}
+                <div className="md:hidden flex mx-4 mb-4 bg-gray-100 rounded-xl overflow-hidden h-[150px]">
+                  <img
+                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825638/Web_Development_z7wnga.png"
+                    alt="Web Development Preview"
+                    className="object-contain w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* Why Work With Us - Fully Responsive */}
-<section className="py-8 sm:py-12 md:py-14 lg:py-15 flex flex-col items-center bg-white">
-  <div className="max-w-7xl w-full px-4 sm:px-6 md:px-8 lg:px-8 flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-8">
-    <div className="flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-4 text-left">
-      <h2 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase">
-        Why work with us
-      </h2>
-      <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-black leading-tight max-w-full lg:max-w-2xl">
-        We guide you through every step — from concept to creation
-      </h3>
-      <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-4 text-gray-600 text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed max-w-full lg:max-w-3xl">
-        With dozens of successful design and development projects, we've built a straightforward and effective process that ensures your brand looks great, functions flawlessly, and connects with your audience.
-      </p>
-    </div>
-
-    <div className="flex flex-col gap-8 sm:gap-12 md:gap-14 lg:gap-16 mt-8 sm:mt-12 md:mt-16 lg:mt-20">
-      {steps.map((step, index) => (
-        <motion.div
-          key={step.id}
-          custom={index}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.2 }}
-          variants={cardVariants}
-          style={{ willChange: 'transform, opacity' }}
-          className="flex flex-col lg:flex-row gap-6 sm:gap-7 md:gap-8 lg:gap-8 items-center justify-between bg-white shadow-md border border-[#EBEFF6] rounded-2xl sm:rounded-3xl lg:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12"
-        >
-          {/* Text + Icon Section */}
-          <div className="flex flex-col items-start w-full lg:w-1/2 text-left">
-            {/* Icon */}
-            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 lg:w-24 lg:h-24 mb-4 lg:mb-6">
-              <img
-                src={step.icon}
-                alt={`${step.title} icon`}
-                className="w-full h-full object-contain"
-                loading="lazy"
-              />
-            </div>
-            {/* Heading + Description */}
-            <h4 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-[#19213D] mb-2">
-              {step.title}
-            </h4>
-            <p className="text-sm sm:text-base md:text-lg lg:text-lg text-[#667097] leading-relaxed">
-              {step.description}
+      <section className="py-8 sm:py-12 md:py-14 lg:py-15 flex flex-col items-center bg-gray-50">
+        <div className="max-w-7xl w-full px-4 sm:px-6 md:px-8 lg:px-8 flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-8">
+          <div className="flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-4 text-left">
+            <h2 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase">
+              Why work with us
+            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-black leading-tight max-w-full lg:max-w-2xl">
+              We guide you through every step — from concept to creation
+            </h3>
+            <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-4 text-gray-600 text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed max-w-full lg:max-w-3xl">
+              With dozens of successful design and development projects, we've built a straightforward and effective process that ensures your brand looks great, functions flawlessly, and connects with your audience.
             </p>
           </div>
 
-          {/* Image Section */}
-          <div
-            className={`relative w-full sm:w-[400px] md:w-[450px] lg:w-[480px] h-[200px] sm:h-[250px] md:h-[300px] lg:h-[340px] ${step.bgColor} rounded-2xl sm:rounded-3xl lg:rounded-3xl overflow-hidden flex items-center justify-center mt-6 lg:mt-0`}
-          >
-            <img
-              src={step.img}
-              alt={`${step.title} illustration`}
-              className="w-full h-full object-contain opacity-100"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/10"></div>
+          <div className="flex flex-col gap-8 sm:gap-12 md:gap-14 lg:gap-16 mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+            {steps.map((step, index) => (
+              <div
+                key={step.id}
+                className="flex flex-col lg:flex-row gap-6 sm:gap-7 md:gap-8 lg:gap-8 items-center justify-between bg-white shadow-md border border-[#EBEFF6] rounded-2xl sm:rounded-3xl lg:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12"
+              >
+                {/* Text + Icon Section */}
+                <div className="flex flex-col items-start w-full lg:w-1/2 text-left">
+                  {/* Icon */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 lg:w-24 lg:h-24 mb-4 lg:mb-6">
+                    <img
+                      src={step.icon}
+                      alt={`${step.title} icon`}
+                      className="w-full h-full object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Heading + Description */}
+                  <h4 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-[#19213D] mb-2">
+                    {step.title}
+                  </h4>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-lg text-[#667097] leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+
+                {/* Image Section */}
+                <div
+                  className={`relative w-full sm:w-[400px] md:w-[450px] lg:w-[480px] h-[200px] sm:h-[250px] md:h-[300px] lg:h-[340px] ${step.bgColor} rounded-2xl sm:rounded-3xl lg:rounded-3xl overflow-hidden flex items-center justify-center mt-6 lg:mt-0`}
+                >
+                  <img
+                    src={step.img}
+                    alt={`${step.title} illustration`}
+                    className="w-full h-full object-contain opacity-100"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/10"></div>
+                </div>
+              </div>
+            ))}
           </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
 
       {/* Projects Marquee Section - Fully Responsive */}
-      <div className="font-poppins py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-white">
+      <div className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12 md:mb-14 lg:mb-16">
             <h3 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase text-center">
@@ -632,74 +730,73 @@ const Home = () => {
       </div>
 
       {/* Our Products - Fully Responsive */}
-<section className="bg-white py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
-  {/* Top section remains center aligned */}
-  <div className="max-w-6xl mx-auto text-center">
-    <p className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase">
-      ~Our Products~
-    </p>
-    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-black leading-tight mb-3 sm:mb-4 md:mb-4 lg:mb-4">
-      Products by <span className="text-blue-600">Techno Vanam</span>
-    </h2>
-    <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-4 text-gray-600 text-sm sm:text-base md:text-lg lg:text-lg max-w-4xl mx-auto leading-relaxed">
-      At Techno Vanam, we go beyond client work — we create, launch, and scale our own digital products, trusted by thousands around the world.
-    </p>
-  </div>
+      <section className="bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12">
+        {/* Top section */}
+        <div className="max-w-6xl mx-auto text-center mb-12 sm:mb-16">
+          <p className="text-blue-600 text-xs sm:text-sm md:text-base font-semibold uppercase tracking-wider mb-3">
+            Our Products
+          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            Products by <span className="text-blue-600">Techno Vanam</span>
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            We go beyond client work — creating and scaling digital products trusted by communities worldwide.
+          </p>
+        </div>
 
-  {/* Motion section now left aligned */}
-  <motion.div
-    className="mt-8 sm:mt-12 md:mt-14 lg:mt-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl sm:rounded-3xl lg:rounded-3xl p-6 sm:p-8 md:p-9 lg:p-10 flex flex-col lg:flex-row items-start justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-6xl mx-auto shadow-xl text-left"
-    variants={athlixirCardVariants}
-    initial="rest"
-    whileHover="hover"
-  >
-    <div className="w-full lg:w-[55%] max-w-2xl">
-      <h3 className="text-blue-600 text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-extrabold mb-4 sm:mb-5 md:mb-6 lg:mb-6 tracking-tight">
-        ATHLIXIR
-      </h3>
-      <p className="text-gray-700 text-sm sm:text-sm md:text-md lg:text-md mb-6 sm:mb-8 md:mb-9 lg:mb-10 leading-relaxed">
-        Athlixir is in development, crafted to empower over 50+ athlete communities in Tier-2 and Tier-3 regions. Our cutting-edge platform harnesses AI to analyze 300,000+ performance data points, delivering personalized training, precise injury tracking, and verified recognition.
-      </p>
-      <div className="flex flex-col sm:flex-row lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-10 mb-6 sm:mb-7 md:mb-8 lg:mb-8">
-        <div>
-          <p className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-blue-600">50+</p>
-          <p className="text-xs sm:text-sm md:text-sm lg:text-sm font-medium text-gray-600 tracking-wide">
-            Target Athlete Communities
-          </p>
+        {/* Athlixir Card */}
+        <div className="max-w-6xl mx-auto bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl overflow-hidden border border-gray-100">
+          <div className="flex flex-col lg:flex-row">
+            {/* Left Content */}
+            <div className="w-full lg:w-1/2 p-8 sm:p-10 md:p-12 lg:p-14">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-6">
+                ATHLIXIR
+              </h3>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-8">
+                Athlixir is in development, crafted to empower over 50+ athlete communities in Tier-2 and Tier-3 regions. Our cutting-edge platform harnesses AI to analyze 300,000+ performance data points, delivering personalized training, precise injury tracking, and verified recognition.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
+                  <p className="text-3xl sm:text-4xl font-bold text-blue-600 mb-1">50+</p>
+                  <p className="text-sm text-gray-600 font-medium">Target Athlete Communities</p>
+                </div>
+                <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
+                  <p className="text-3xl sm:text-4xl font-bold text-blue-600 mb-1">300,000+</p>
+                  <p className="text-sm text-gray-600 font-medium">AI-Powered Performance Insights</p>
+                </div>
+              </div>
+
+              {/* CTA Link */}
+              <Link
+                to="/product1"
+                className="inline-flex items-center gap-2 text-blue-600 text-base font-semibold hover:text-blue-700 transition-colors group"
+              >
+                COMING SOON — JOIN THE JOURNEY
+                <svg
+                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Right Image */}
+            <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[500px]">
+              <img
+                src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
+                alt="Preview of Athlixir platform"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <p className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-blue-600">300,000+</p>
-          <p className="text-xs sm:text-sm md:text-sm lg:text-sm font-medium text-gray-600 tracking-wide">
-            AI-Powered Performance Insights
-          </p>
-        </div>
-      </div>
-      <Link
-        to="/product1"
-        className="inline-flex items-center text-blue-600 text-sm sm:text-base md:text-base lg:text-base font-semibold hover:text-blue-700 transition-colors duration-300"
-      >
-        COMING SOON — JOIN THE JOURNEY
-        <svg
-          className="ml-2 w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-5 lg:h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </Link>
-    </div>
-    <div className="w-full lg:w-[45%] aspect-[4/3] rounded-xl sm:rounded-2xl lg:rounded-2xl overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-100/20 to-transparent z-10"></div>
-      <img
-        src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
-        alt="Preview of Athlixir platform"
-        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-        loading="lazy"
-      />
-    </div>
-  </motion.div>
-</section>
+      </section>
 
 
       {/* CTA Section - Commented Out (keeping as requested) */}
