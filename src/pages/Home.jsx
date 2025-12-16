@@ -486,129 +486,314 @@ const Home = () => {
       </section>
 
 
-      {/* Our Services - Fully Responsive */}
-      <section className="bg-blue-500 pt-24 pb-8 sm:pt-28 sm:pb-12 md:pt-32 md:pb-14 lg:pt-36 lg:pb-16 px-4 sm:px-6 md:px-8 lg:px-10 text-white">
+      {/* Our Services - Clean Hover Design */}
+      <section className="bg-gray-50 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          {/* Heading & Button */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 sm:mb-7 md:mb-8 lg:mb-8 gap-4">
-            <div className="text-left w-full lg:w-auto">
-              <p className="text-sm sm:text-base md:text-lg font-semibold uppercase">
-                Our Services
-              </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 sm:mt-2 leading-snug">
-                Creating Interfaces That Inspire, Code That Performs
-              </h2>
-            </div>
-            <Link
-              to="/services"
-              className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-white text-blue-600 rounded-full hover:bg-gray-100 text-sm md:text-base font-medium transition-colors duration-200"
-            >
-              View More
-            </Link>
-          </div>
+          {/* Container with white background and rounded corners */}
+          <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16">
 
-          {/* Services Layout */}
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 w-full">
-            {/* Left Large Card */}
-            <div className="w-full lg:w-[48%] xl:w-[500px] bg-purple-100 rounded-2xl shadow-lg flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
-              <div className="p-4 sm:p-5 md:p-6 flex-shrink-0">
-                <h3 className="text-purple-600 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
-                  UI/UX Design
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mt-2">
-                  We design seamless, intuitive, and user-friendly digital experiences that not only engage and retain users but also enhance your brand's value and identity.
-                </p>
-                <Link
-                  to="/services"
-                  className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-xs sm:text-sm text-purple-600 font-semibold uppercase tracking-wide hover:text-purple-800"
-                >
-                  See services <span>➔</span>
-                </Link>
-              </div>
-              <div className="flex-1 mx-4 sm:mx-5 mb-4 sm:mb-5 min-h-[200px] sm:min-h-[220px] md:min-h-[300px] bg-gray-100 rounded-2xl overflow-hidden">
-                <img
-                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825637/UIUX_avzdc8.png"
-                  alt="UI/UX Design Preview"
-                  className="object-contain w-full h-full"
-                  loading="lazy"
-                />
-              </div>
+            {/* Header Section */}
+            <div className="flex items-start gap-3 mb-8">
+              <div className="w-1.5 h-1.5 rounded-full bg-black mt-2"></div>
+              <span className="text-lg sm:text-xl font-medium text-black tracking-wide">Our services</span>
             </div>
 
-            {/* Right Column */}
-            <div className="w-full lg:w-[52%] flex flex-col gap-4 sm:gap-5 md:gap-6">
 
-              {/* Branding Card */}
-              <div className="bg-orange-100 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden min-h-[220px]">
-                <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
-                  <h3 className="text-orange-500 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
-                    Branding & Graphics Design
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed mt-2">
-                    We craft bold, creative visuals that help your brand stand out and communicate with impact.
-                  </p>
-                  <Link
-                    to="/services"
-                    className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm text-orange-600 font-semibold uppercase hover:text-orange-700"
-                  >
-                    See services <span>➔</span>
-                  </Link>
-                </div>
-                <div className="hidden md:flex w-full md:w-1/2 bg-gray-100 items-center justify-center overflow-hidden">
-                  <img
-                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Branding_gpllkb.png"
-                    alt="Branding Design"
-                    className="object-contain w-full h-full"
-                    loading="lazy"
-                  />
-                </div>
-                {/* Mobile image */}
-                <div className="md:hidden flex mx-4 mb-4 bg-gray-100 rounded-xl overflow-hidden h-[150px]">
-                  <img
-                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Branding_gpllkb.png"
-                    alt="Branding Design Preview"
-                    className="object-contain w-full h-full"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
+            {/* Main Heading */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-medium text-black mb-16 leading-tight max-w-3xl">
+              We create solutions but most importantly we identify problems.
+            </h2>
 
-              {/* Web Development Card */}
-              <div className="bg-sky-100 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden min-h-[220px]">
-                <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
-                  <h3 className="text-sky-600 text-base sm:text-lg md:text-xl uppercase font-semibold tracking-wide">
-                    Web Development
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed mt-2">
-                    We develop fast, responsive, and scalable websites that strengthen your online presence.
-                  </p>
-                  <Link
-                    to="#"
-                    onClick={e => { e.preventDefault(); setShowPopup(true); }}
-                    className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm text-sky-600 font-semibold uppercase hover:text-sky-700"
-                  >
-                    See services <span>➔</span>
-                  </Link>
+            {/* Add Service Animation Styles */}
+            <style jsx>{`
+              .grid-standart-services {
+                position: relative;
+                overflow: hidden;
+                transition: color 0.3s ease;
+              }
+
+              .grid-standart-services:hover {
+                color: #000;
+              }
+
+              /* Background animation layer */
+              .h-service-bg {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 0%;
+                background: #f5f5f5;
+                z-index: 0;
+                transition: height 0.4s ease;
+              }
+
+              /* Arrow */
+              .s-arrow {
+                transition: transform 0.4s ease;
+              }
+
+              /* Service number and title */
+              .service-number,
+              .service-title {
+                transition: transform 0.4s ease;
+              }
+
+              /* Divider line (optional) */
+              .img-project-line {
+                opacity: 0;
+                margin-left: -10px;
+                transition: all 0.4s ease;
+              }
+
+              /* 🔥 HOVER EFFECT (DESKTOP ONLY) */
+              @media (min-width: 766px) {
+                .grid-standart-services:hover .h-service-bg {
+                  height: 100%;
+                }
+
+                .grid-standart-services:hover .s-arrow {
+                  transform: translateX(-170%);
+                }
+
+                .grid-standart-services:hover .service-number,
+                .grid-standart-services:hover .service-title {
+                  transform: translateX(20px);
+                }
+
+                .grid-standart-services:hover .img-project-line {
+                  opacity: 1;
+                  margin-left: 0;
+                }
+              }
+            `}</style>
+
+            {/* Add Service Animation Styles */}
+            <style jsx>{`
+              .grid-standart-services {
+                position: relative;
+                overflow: hidden;
+                transition: color 0.3s ease, border-radius 0.4s ease, border-color 0.4s ease;
+                border-radius: 0; /* Default: no rounding */
+              }
+
+              .grid-standart-services:hover {
+                color: #000;
+                border-radius: 0.75rem; /* Rounded on hover */
+                border-color: transparent; /* Hide bottom border on hover */
+              }
+
+              /* Background animation layer */
+              .h-service-bg {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 0%;
+                background: #E5E9EB; /* New hover background color */
+                z-index: 0;
+                transition: height 0.4s ease;
+              }
+
+              /* Arrow */
+              .s-arrow {
+                transition: transform 0.4s ease;
+              }
+
+              /* Service number and title */
+              .service-number,
+              .service-title {
+                transition: transform 0.4s ease;
+              }
+
+              /* Divider line (optional) */
+              .img-project-line {
+                opacity: 0;
+                margin-left: -10px;
+                transition: all 0.4s ease;
+              }
+
+              /* 🔥 HOVER EFFECT (DESKTOP ONLY) */
+              @media (min-width: 766px) {
+                .grid-standart-services:hover .h-service-bg {
+                  height: 100%;
+                }
+
+                .grid-standart-services:hover .s-arrow {
+                  transform: translateX(-170%);
+                }
+
+                .grid-standart-services:hover .service-number,
+                .grid-standart-services:hover .service-title {
+                  transform: translateX(20px);
+                }
+
+                .grid-standart-services:hover .img-project-line {
+                  opacity: 1;
+                  margin-left: 0;
+                }
+              }
+            `}</style>
+
+            {/* Services List */}
+            <div className="space-y-0 mb-12">
+              {/* Service 01 - Website Design */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                {/* Background animation layer */}
+                <div className="h-service-bg"></div>
+
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">01</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      Website Design
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="hidden md:flex w-full md:w-1/2 bg-gray-100 items-center justify-center overflow-hidden">
-                  <img
-                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825638/Web_Development_z7wnga.png"
-                    alt="Web Development"
-                    className="object-contain w-full h-full"
-                    loading="lazy"
-                  />
+              </Link>
+
+              {/* Service 02 - Branding */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">02</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      Branding
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
-                {/* Mobile image */}
-                <div className="md:hidden flex mx-4 mb-4 bg-gray-100 rounded-xl overflow-hidden h-[150px]">
-                  <img
-                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825638/Web_Development_z7wnga.png"
-                    alt="Web Development Preview"
-                    className="object-contain w-full h-full"
-                    loading="lazy"
-                  />
+              </Link>
+
+              {/* Service 03 - UX/UI */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">03</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      UX/UI
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
+              </Link>
+
+              {/* Service 04 - Motion Design */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">04</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      Motion Design
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Service 05 - SEO */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">05</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      SEO
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Service 06 - Content Creation */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">06</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      Content Creation
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Service 07 - Landing Page */}
+              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">07</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      Landing Page
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Service 08 - Webflow Development */}
+              <Link to="/services" className="grid-standart-services block">
+                <div className="h-service-bg"></div>
+                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
+                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">08</span>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                      Webflow Development
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
             </div>
+
+            {/* All Services Button */}
+            <div className="flex justify-center">
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300"
+              >
+                All Services
+              </Link>
+            </div>
+
           </div>
         </div>
       </section>
