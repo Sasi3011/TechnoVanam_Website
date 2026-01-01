@@ -5,7 +5,7 @@ import { Mail, Code, Cpu, Layers, Monitor, Smartphone, Globe, Zap } from 'lucide
 const Maintenance = () => {
     // Generate random positions for floating particles
     const particles = useMemo(() => {
-        return Array.from({ length: 30 }).map((_, i) => ({
+        return Array.from({ length: 20 }).map((_, i) => ({
             id: i,
             x: Math.random() * 100,
             y: Math.random() * 100,
@@ -33,7 +33,7 @@ const Maintenance = () => {
     ];
 
     return (
-        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between p-6 sm:p-12 overflow-hidden font-['MazzardH'] selection:bg-blue-500/30">
+        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-6 sm:p-12 overflow-hidden font-['MazzardH'] selection:bg-blue-500/30">
 
             {/* --- PREMIUM BACKDROPS --- */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -47,7 +47,7 @@ const Maintenance = () => {
                         key={i}
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{
-                            opacity: [0, 0.6, 0],
+                            opacity: [0, 0.5, 0],
                             y: [0, -100, 0],
                             x: [0, 50, 0],
                             rotate: 360
@@ -58,10 +58,10 @@ const Maintenance = () => {
                             delay: item.delay,
                             ease: "linear"
                         }}
-                        className="absolute text-blue-400/60 z-0 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                        className="absolute text-blue-400/40 z-0 drop-shadow-[0_0_15px_rgba(59,130,246,0.2)]"
                         style={{ top: item.top, left: item.left }}
                     >
-                        <item.Icon size={48 + Math.random() * 40} />
+                        <item.Icon size={32 + Math.random() * 20} className="sm:w-16 sm:h-16" />
                     </motion.div>
                 ))}
 
@@ -109,22 +109,22 @@ const Maintenance = () => {
             </div>
 
             {/* --- TOP: STATUS --- */}
-            <div className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0">
+            <div className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0 pt-4">
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="flex items-center gap-3 px-6 py-2 rounded-full border border-white/5 bg-white/[0.03] backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.05)]"
+                    className="flex items-center gap-3 px-5 py-2 rounded-full border border-white/5 bg-white/[0.03] backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.05)]"
                 >
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
-                    <span className="text-white text-[10px] font-bold uppercase tracking-[0.4em]">
+                    <span className="text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em]">
                         Digital Evolution in Progress
                     </span>
                 </motion.div>
             </div>
 
             {/* --- CENTER: TYPOGRAPHY --- */}
-            <div className="w-full text-center space-y-8 relative z-10 flex-grow flex flex-col justify-center max-w-7xl px-4">
+            <div className="w-full text-center space-y-6 sm:space-y-8 relative z-10 flex-grow flex flex-col justify-center max-w-7xl px-2 sm:px-4">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -132,9 +132,9 @@ const Maintenance = () => {
                     className="relative"
                 >
                     {/* Subtle Glow Behind Text */}
-                    <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full scale-150 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full scale-110 sm:scale-150 pointer-events-none"></div>
 
-                    <h1 className="text-[13vw] sm:text-7xl md:text-8xl lg:text-[10rem] font-bold text-white leading-[0.8] tracking-[-0.04em]">
+                    <h1 className="text-[12vw] sm:text-7xl md:text-8xl lg:text-[10rem] font-bold text-white leading-[1.1] sm:leading-[0.8] tracking-[-0.04em]">
                         <motion.span
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
@@ -158,7 +158,7 @@ const Maintenance = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9 }}
-                    className="text-white text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light px-4"
+                    className="text-white text-sm sm:text-lg md:text-xl max-w-[280px] sm:max-w-2xl mx-auto leading-relaxed font-light px-2"
                 >
                     Techno Vanam is being meticulously rebuilt to deliver an unparalleled
                     state-of-the-art digital experience.
@@ -170,21 +170,21 @@ const Maintenance = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.1 }}
-                className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0 pb-4"
+                className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0 pb-6 sm:pb-4"
             >
                 <a
                     href="mailto:official@technovanam.com"
-                    className="group flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
+                    className="group flex items-center gap-3 px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
                 >
-                    <Mail size={16} className="text-blue-500" />
-                    <span className="text-white text-sm font-light group-hover:text-blue-400 transition-colors">official@technovanam.com</span>
+                    <Mail size={14} className="text-blue-500 sm:w-4 sm:h-4" />
+                    <span className="text-white text-xs sm:text-sm font-light group-hover:text-blue-400 transition-colors uppercase tracking-wider">official@technovanam.com</span>
                 </a>
 
                 <div className="flex flex-col items-center space-y-1">
-                    <div className="flex items-center gap-4 text-[9px] text-white tracking-[0.6em] uppercase font-bold">
+                    <div className="flex items-center gap-4 text-[8px] sm:text-[9px] text-white tracking-[0.6em] uppercase font-bold">
                         Techno Vanam
                     </div>
-                    <p className="text-[9px] text-white tracking-[0.2em] font-medium uppercase">
+                    <p className="text-[8px] sm:text-[9px] text-white tracking-[0.2em] font-medium uppercase opacity-60">
                         2026 all rights reserved
                     </p>
                 </div>
