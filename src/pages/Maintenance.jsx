@@ -1,0 +1,196 @@
+import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Code, Cpu, Layers, Monitor, Smartphone, Globe, Zap } from 'lucide-react';
+
+const Maintenance = () => {
+    // Generate random positions for floating particles
+    const particles = useMemo(() => {
+        return Array.from({ length: 30 }).map((_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            size: Math.random() * 3 + 1,
+            duration: Math.random() * 15 + 10,
+        }));
+    }, []);
+
+    // Icons for the "running" background
+    const bgIcons = [
+        { Icon: Code, top: '15%', left: '10%', delay: 0 },
+        { Icon: Cpu, top: '45%', left: '80%', delay: 2 },
+        { Icon: Layers, top: '75%', left: '20%', delay: 4 },
+        { Icon: Monitor, top: '25%', left: '70%', delay: 1 },
+        { Icon: Smartphone, top: '65%', left: '85%', delay: 3 },
+        { Icon: Globe, top: '85%', left: '40%', delay: 5 },
+        { Icon: Zap, top: '5%', left: '60%', delay: 6 },
+    ];
+
+    // Light beams for "running" animation
+    const beams = [
+        { id: 1, top: '10%', delay: 0, duration: 8 },
+        { id: 2, top: '40%', delay: 2, duration: 12 },
+        { id: 3, top: '70%', delay: 5, duration: 10 },
+    ];
+
+    return (
+        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between p-6 sm:p-12 overflow-hidden font-['MazzardH'] selection:bg-blue-500/30">
+
+            {/* --- PREMIUM BACKDROPS --- */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {/* Deep Gradient Glows */}
+                <div className="absolute top-[-10%] right-[-5%] w-[70%] h-[70%] bg-blue-900/10 rounded-full blur-[160px] animate-pulse"></div>
+                <div className="absolute bottom-[-10%] left-[-5%] w-[70%] h-[70%] bg-blue-900/10 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '4s' }}></div>
+
+                {/* --- RUNNING ICONS --- */}
+                {bgIcons.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{
+                            opacity: [0, 0.6, 0],
+                            y: [0, -100, 0],
+                            x: [0, 50, 0],
+                            rotate: 360
+                        }}
+                        transition={{
+                            duration: 12 + Math.random() * 8,
+                            repeat: Infinity,
+                            delay: item.delay,
+                            ease: "linear"
+                        }}
+                        className="absolute text-blue-400/60 z-0 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                        style={{ top: item.top, left: item.left }}
+                    >
+                        <item.Icon size={48 + Math.random() * 40} />
+                    </motion.div>
+                ))}
+
+                {/* --- MOVING RUNNING BEAMS --- */}
+                {beams.map((beam) => (
+                    <motion.div
+                        key={beam.id}
+                        initial={{ x: '-100%', opacity: 0 }}
+                        animate={{ x: '200%', opacity: [0, 0.2, 0] }}
+                        transition={{
+                            duration: beam.duration,
+                            repeat: Infinity,
+                            delay: beam.delay,
+                            ease: "linear"
+                        }}
+                        className="absolute h-[1px] w-[40%] bg-gradient-to-r from-transparent via-blue-500 to-transparent z-0"
+                        style={{ top: beam.top, transform: 'rotate(-25deg)' }}
+                    />
+                ))}
+
+                {/* Floating Particles */}
+                {particles.map((p) => (
+                    <motion.div
+                        key={p.id}
+                        initial={{ opacity: 0, x: `${p.x}%`, y: `${p.y}%` }}
+                        animate={{
+                            opacity: [0.1, 0.5, 0.1],
+                            y: [`${p.y}%`, `${p.y - 15}%`, `${p.y}%`],
+                        }}
+                        transition={{
+                            duration: p.duration,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                        className="absolute rounded-full bg-blue-400/30 blur-[1px]"
+                        style={{ width: p.size, height: p.size }}
+                    />
+                ))}
+
+                {/* Noise Texture Overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none brightness-150 contrast-150" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}></div>
+
+                {/* Mesh Grid Pattern */}
+                <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at center, #1e40af 0.5px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+            </div>
+
+            {/* --- TOP: STATUS --- */}
+            <div className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0">
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex items-center gap-3 px-6 py-2 rounded-full border border-white/5 bg-white/[0.03] backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.05)]"
+                >
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                    <span className="text-white text-[10px] font-bold uppercase tracking-[0.4em]">
+                        Digital Evolution in Progress
+                    </span>
+                </motion.div>
+            </div>
+
+            {/* --- CENTER: TYPOGRAPHY --- */}
+            <div className="w-full text-center space-y-8 relative z-10 flex-grow flex flex-col justify-center max-w-7xl px-4">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 1 }}
+                    className="relative"
+                >
+                    {/* Subtle Glow Behind Text */}
+                    <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full scale-150 pointer-events-none"></div>
+
+                    <h1 className="text-[13vw] sm:text-7xl md:text-8xl lg:text-[10rem] font-bold text-white leading-[0.8] tracking-[-0.04em]">
+                        <motion.span
+                            initial={{ x: -20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className="block"
+                        >
+                            Maintenance
+                        </motion.span>
+                        <motion.span
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.7, duration: 0.8 }}
+                            className="text-transparent bg-clip-text bg-gradient-to-br from-blue-300 via-blue-500 to-blue-900 inline-block drop-shadow-[0_0_30px_rgba(59,130,246,0.1)]"
+                        >
+                            InProgress
+                        </motion.span>
+                    </h1>
+                </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9 }}
+                    className="text-white text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light px-4"
+                >
+                    Techno Vanam is being meticulously rebuilt to deliver an unparalleled
+                    state-of-the-art digital experience.
+                </motion.p>
+            </div>
+
+            {/* --- BOTTOM: MINIMALIST FOOTER --- */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.1 }}
+                className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0 pb-4"
+            >
+                <a
+                    href="mailto:official@technovanam.com"
+                    className="group flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
+                >
+                    <Mail size={16} className="text-blue-500" />
+                    <span className="text-white text-sm font-light group-hover:text-blue-400 transition-colors">official@technovanam.com</span>
+                </a>
+
+                <div className="flex flex-col items-center space-y-1">
+                    <div className="flex items-center gap-4 text-[9px] text-white tracking-[0.6em] uppercase font-bold">
+                        Techno Vanam
+                    </div>
+                    <p className="text-[9px] text-white tracking-[0.2em] font-medium uppercase">
+                        2026 all rights reserved
+                    </p>
+                </div>
+            </motion.div>
+        </div>
+    );
+};
+
+export default Maintenance;

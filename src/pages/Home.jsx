@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe } from "lucide-react";
 
 const steps = [
   {
@@ -504,113 +505,42 @@ const Home = () => {
               We create solutions but most importantly we identify problems.
             </h2>
 
-            {/* Add Service Animation Styles */}
-            <style jsx>{`
-              .grid-standart-services {
-                position: relative;
-                overflow: hidden;
-                transition: color 0.3s ease;
-              }
-
-              .grid-standart-services:hover {
-                color: #000;
-              }
-
-              /* Background animation layer */
-              .h-service-bg {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 0%;
-                background: #f5f5f5;
-                z-index: 0;
-                transition: height 0.4s ease;
-              }
-
-              /* Arrow */
-              .s-arrow {
-                transition: transform 0.4s ease;
-              }
-
-              /* Service number and title */
-              .service-number,
-              .service-title {
-                transition: transform 0.4s ease;
-              }
-
-              /* Divider line (optional) */
-              .img-project-line {
-                opacity: 0;
-                margin-left: -10px;
-                transition: all 0.4s ease;
-              }
-
-              /* 🔥 HOVER EFFECT (DESKTOP ONLY) */
-              @media (min-width: 766px) {
-                .grid-standart-services:hover .h-service-bg {
-                  height: 100%;
-                }
-
-                .grid-standart-services:hover .s-arrow {
-                  transform: translateX(-170%);
-                }
-
-                .grid-standart-services:hover .service-number,
-                .grid-standart-services:hover .service-title {
-                  transform: translateX(20px);
-                }
-
-                .grid-standart-services:hover .img-project-line {
-                  opacity: 1;
-                  margin-left: 0;
-                }
-              }
-            `}</style>
-
-            {/* Add Service Animation Styles */}
+            {/* Service Animation Styles */}
             <style jsx>{`
               .grid-standart-services {
                 position: relative;
                 overflow: hidden;
                 transition: color 0.3s ease, border-radius 0.4s ease, border-color 0.4s ease;
-                border-radius: 0; /* Default: no rounding */
+                border-radius: 0;
               }
 
               .grid-standart-services:hover {
-                color: #000;
-                border-radius: 0.75rem; /* Rounded on hover */
-                border-color: transparent; /* Hide bottom border on hover */
+                color: #2563EB; /* Blue text on hover */
+                border-radius: 0.75rem;
+                border-color: transparent;
               }
 
-              /* Background animation layer */
+              /* Background animation layer - light blue */
               .h-service-bg {
                 position: absolute;
                 left: 0;
                 bottom: 0;
                 width: 100%;
                 height: 0%;
-                background: #E5E9EB; /* New hover background color */
+                background: #EFF6FF; /* Light blue hover background */
                 z-index: 0;
                 transition: height 0.4s ease;
               }
 
               /* Arrow */
               .s-arrow {
-                transition: transform 0.4s ease;
+                transition: transform 0.4s ease, color 0.3s ease;
               }
 
-              /* Service number and title */
+              /* Service number (icon) and title */
               .service-number,
               .service-title {
-                transition: transform 0.4s ease;
-              }
-
-              /* Divider line (optional) */
-              .img-project-line {
-                opacity: 0;
-                margin-left: -10px;
-                transition: all 0.4s ease;
+                transition: transform 0.4s ease, color 0.3s ease;
               }
 
               /* 🔥 HOVER EFFECT (DESKTOP ONLY) */
@@ -626,11 +556,6 @@ const Home = () => {
                 .grid-standart-services:hover .service-number,
                 .grid-standart-services:hover .service-title {
                   transform: translateX(20px);
-                }
-
-                .grid-standart-services:hover .img-project-line {
-                  opacity: 1;
-                  margin-left: 0;
                 }
               }
             `}</style>
@@ -638,19 +563,21 @@ const Home = () => {
             {/* Services List */}
             <div className="space-y-0 mb-12">
               {/* Service 01 - Website Design */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 {/* Background animation layer */}
                 <div className="h-service-bg"></div>
 
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">01</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <Layout size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       Website Design
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -658,17 +585,19 @@ const Home = () => {
               </Link>
 
               {/* Service 02 - Branding */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">02</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <Palette size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       Branding
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -676,17 +605,19 @@ const Home = () => {
               </Link>
 
               {/* Service 03 - UX/UI */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">03</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <PanelsTopLeft size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       UX/UI
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -694,17 +625,19 @@ const Home = () => {
               </Link>
 
               {/* Service 04 - Motion Design */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">04</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <Video size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       Motion Design
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -712,17 +645,19 @@ const Home = () => {
               </Link>
 
               {/* Service 05 - SEO */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">05</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <TrendingUp size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       SEO
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -730,17 +665,19 @@ const Home = () => {
               </Link>
 
               {/* Service 06 - Content Creation */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">06</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <PenTool size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       Content Creation
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -748,17 +685,19 @@ const Home = () => {
               </Link>
 
               {/* Service 07 - Landing Page */}
-              <Link to="/services" className="grid-standart-services block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">07</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <Smartphone size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       Landing Page
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -766,17 +705,19 @@ const Home = () => {
               </Link>
 
               {/* Service 08 - Webflow Development */}
-              <Link to="/services" className="grid-standart-services block">
+              <Link to="/services" className="grid-standart-services group block">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-112 sm:gap-116 md:gap-120 flex-1">
-                    <span className="service-number text-lg sm:text-2xl font-medium text-black w-8">08</span>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black">
+                  <div className="flex items-center gap-120 flex-1">
+                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                      <Globe size={24} />
+                    </div>
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
                       Webflow Development
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
