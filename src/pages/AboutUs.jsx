@@ -73,7 +73,7 @@ export default function About() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-transparent">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 -mt-18 pt-2">
         <div className="text-center max-w-4xl mx-auto">
@@ -161,7 +161,7 @@ export default function About() {
         {/* Mission & Vision Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 sm:p-10">
+          <div className="bg-transparent border border-gray-200 rounded-2xl p-8 sm:p-10">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Our Mission
             </h3>
@@ -195,7 +195,7 @@ export default function About() {
           </div>
 
           {/* Vision */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 sm:p-10">
+          <div className="bg-transparent border border-gray-200 rounded-2xl p-8 sm:p-10">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Our Vision
             </h3>
@@ -227,7 +227,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-gray-50 py-12 sm:py-14 lg:py-16">
+      <section className="bg-transparent py-12 sm:py-14 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-blue-600 text-sm font-semibold uppercase tracking-wider mb-3">

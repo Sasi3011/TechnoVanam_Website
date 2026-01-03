@@ -85,7 +85,7 @@ const ProjectCard = ({ project, reverse }) => (
 export default function Portfolio() {
   return (
     <>
-      <section className="w-full flex flex-col items-center py-20 px-8">
+      <section className="w-full flex flex-col items-center py-20 px-8 bg-transparent">
         <div className="w-full max-w-7xl text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Portfolio

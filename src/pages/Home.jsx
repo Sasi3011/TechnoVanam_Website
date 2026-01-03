@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe } from "lucide-react";
+import { Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe, ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -319,11 +319,38 @@ const Home = () => {
               height: 100%;
             }
           }
+          /* Flip Card CSS */
+          .perspective-1000 {
+            perspective: 1000px;
+          }
+          .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+          }
+          .group:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+          .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2rem;
+          }
+          .flip-card-back {
+            transform: rotateY(180deg);
+          }
         `}
       </style>
 
       {/* Hero Section - Fully Responsive */}
-      <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-4 pb-24 sm:pt-6 sm:pb-28 md:pt-8 md:pb-32 lg:pt-12 lg:pb-36 bg-gray-50 flex items-center justify-center overflow-hidden min-h-[calc(100vh-3rem)]">
+      <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden min-h-[calc(100vh-3rem)]">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center max-w-5xl mx-auto">
             <p className="text-blue-600 text-lg sm:text-lg font-semibold uppercase tracking-wider mb-4">
@@ -337,7 +364,7 @@ const Home = () => {
             </p>
             <Link
               to="/contact"
-              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-gray-200 font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
+              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-[#DBEAFE] font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
             >
               <span className="absolute inset-0 w-full h-full bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
@@ -347,7 +374,7 @@ const Home = () => {
           </div>
         </div>
         {/* Horizontal Scrolling Text */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden bg-gray-50 py-6">
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden bg-transparent py-6">
           <div
             className="flex w-max whitespace-nowrap animate-scroll pt-2"
             style={{ willChange: "transform" }}
@@ -407,7 +434,7 @@ const Home = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="bg-gray-50 py-12 px-4 sm:px-6 md:px-8 lg:px-8">
+      <section className="bg-transparent pt-32 pb-16 px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="max-w-7xl mx-auto bg-white rounded-[40px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col justify-between">
@@ -488,7 +515,7 @@ const Home = () => {
 
 
       {/* Our Services - Clean Hover Design */}
-      <section className="bg-gray-50 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
+      <section className="bg-transparent py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
           <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16">
@@ -740,58 +767,71 @@ const Home = () => {
       </section>
 
 
-      {/* Why Work With Us - Fully Responsive */}
-      <section className="py-8 sm:py-12 md:py-14 lg:py-15 flex flex-col items-center bg-gray-50">
-        <div className="max-w-7xl w-full px-4 sm:px-6 md:px-8 lg:px-8 flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-8">
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-4 text-left">
-            <h2 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase">
-              Why work with us
-            </h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-black leading-tight max-w-full lg:max-w-2xl">
-              We guide you through every step — from concept to creation
-            </h3>
-            <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-4 text-gray-600 text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed max-w-full lg:max-w-3xl">
-              With dozens of successful design and development projects, we've built a straightforward and effective process that ensures your brand looks great, functions flawlessly, and connects with your audience.
+      {/* Why Work With Us - Flipping Cards Design */}
+      <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 px-4">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                <span className="text-blue-600 text-sm font-bold uppercase tracking-[0.2em]">Why work with us</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1]">
+                We guide you through <br />
+                <span className="text-gray-400">every step of the way</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-lg text-gray-500 leading-relaxed pb-2">
+              Our proven process transforms complex challenges into seamless digital solutions that drive real business growth.
             </p>
           </div>
 
-          <div className="flex flex-col gap-8 sm:gap-12 md:gap-14 lg:gap-16 mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {steps.map((step, index) => (
-              <div
-                key={step.id}
-                className="flex flex-col lg:flex-row gap-6 sm:gap-7 md:gap-8 lg:gap-8 items-center justify-between bg-white shadow-md border border-[#EBEFF6] rounded-2xl sm:rounded-3xl lg:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12"
-              >
-                {/* Text + Icon Section */}
-                <div className="flex flex-col items-start w-full lg:w-1/2 text-left">
-                  {/* Icon */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 lg:w-24 lg:h-24 mb-4 lg:mb-6">
-                    <img
-                      src={step.icon}
-                      alt={`${step.title} icon`}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                    />
+              <div key={step.id} className="group h-[320px] lg:h-[350px] perspective-1000">
+                <div className="flip-card-inner rounded-[2rem]">
+                  {/* Card Front */}
+                  <div className="flip-card-front bg-white border border-blue-100/50 p-8 flex flex-col justify-between transition-colors group-hover:bg-[#F0F7FF]">
+                    <div className="flex justify-between items-start">
+                      <span className="text-2xl font-bold text-blue-200 group-hover:text-blue-500 transition-colors">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div className="w-16 h-16 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                        <img
+                          src={step.icon}
+                          alt={`${step.title} icon`}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {step.title.split('. ')[1] || step.title}
+                      </h3>
+                      <div className="w-8 h-1 bg-blue-600/20 mt-4 group-hover:w-16 group-hover:bg-blue-600 transition-all duration-500"></div>
+                    </div>
                   </div>
-                  {/* Heading + Description */}
-                  <h4 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-[#19213D] mb-2">
-                    {step.title}
-                  </h4>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-lg text-[#667097] leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
 
-                {/* Image Section */}
-                <div
-                  className={`relative w-full sm:w-[400px] md:w-[450px] lg:w-[480px] h-[200px] sm:h-[250px] md:h-[300px] lg:h-[340px] ${step.bgColor} rounded-2xl sm:rounded-3xl lg:rounded-3xl overflow-hidden flex items-center justify-center mt-6 lg:mt-0`}
-                >
-                  <img
-                    src={step.img}
-                    alt={`${step.title} illustration`}
-                    className="w-full h-full object-contain opacity-100"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/10"></div>
+                  {/* Card Back */}
+                  <div className="flip-card-back bg-blue-600 p-8 flex flex-col justify-between text-left">
+                    <div className="flex flex-col gap-2">
+                      <span className="text-2xl font-bold text-blue-200 opacity-80">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <h4 className="text-white text-3xl font-bold">
+                        {step.title.split('. ')[1] || step.title}
+                      </h4>
+                    </div>
+
+                    <div className="flex flex-col gap-6">
+                      <p className="text-blue-50 text-base lg:text-lg leading-relaxed font-medium">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -801,7 +841,7 @@ const Home = () => {
 
 
       {/* Projects Marquee Section - Fully Responsive */}
-      <div className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-gray-50">
+      <div className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12 md:mb-14 lg:mb-16">
             <h3 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase text-center">
@@ -855,70 +895,129 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Our Products - Fully Responsive */}
-      <section className="bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12">
-        {/* Top section */}
-        <div className="max-w-6xl mx-auto text-center mb-12 sm:mb-16">
-          <p className="text-blue-600 text-xs sm:text-sm md:text-base font-semibold uppercase tracking-wider mb-3">
-            Our Products
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-            Products by <span className="text-blue-600">Techno Vanam</span>
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            We go beyond client work — creating and scaling digital products trusted by communities worldwide.
-          </p>
-        </div>
+      {/* Our Products - Premium UI Redesign */}
+      <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20 px-4">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                <span className="text-blue-600 text-sm font-bold uppercase tracking-[0.2em] font-sans">Our Products</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                Products by <br />
+                <span className="text-gray-400">Techno Vanam</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-lg text-gray-500 leading-relaxed pb-2 font-medium">
+              We go beyond client projects — building and scaling strategic digital products that solve real-world problems.
+            </p>
+          </div>
 
-        {/* Athlixir Card */}
-        <div className="max-w-6xl mx-auto bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl overflow-hidden border border-gray-100">
-          <div className="flex flex-col lg:flex-row">
-            {/* Left Content */}
-            <div className="w-full lg:w-1/2 p-8 sm:p-10 md:p-12 lg:p-14">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-6">
-                ATHLIXIR
-              </h3>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-8">
-                Athlixir is in development, crafted to empower over 50+ athlete communities in Tier-2 and Tier-3 regions. Our cutting-edge platform harnesses AI to analyze 300,000+ performance data points, delivering personalized training, precise injury tracking, and verified recognition.
-              </p>
+          <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-700 flex flex-col gap-32">
+            {/* Athlixir Product Section */}
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+              {/* Left Content Column */}
+              <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
+                  </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                  <p className="text-3xl sm:text-4xl font-bold text-blue-600 mb-1">50+</p>
-                  <p className="text-sm text-gray-600 font-medium">Target Athlete Communities</p>
+                  <div className="relative inline-block mb-6 group">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      Athlixir
+                    </h3>
+                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 group-hover:scale-x-110 transition-transform duration-500"></div>
+                  </div>
+
+                  <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
+                    Athlixir is an AI-powered smart living platform for athletes. It brings performance tracking, injury analysis, and talent recognition into one unified ecosystem — helping 50+ athlete communities grow more intelligently.
+                  </p>
                 </div>
-                <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                  <p className="text-3xl sm:text-4xl font-bold text-blue-600 mb-1">300,000+</p>
-                  <p className="text-sm text-gray-600 font-medium">AI-Powered Performance Insights</p>
+
+                <div className="flex justify-between items-center mt-auto relative top-32">
+                  <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+                    Web Design
+                  </div>
+                  <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+                    01
+                  </span>
                 </div>
               </div>
 
-              {/* CTA Link */}
-              <Link
-                to="/product1"
-                className="inline-flex items-center gap-2 text-blue-600 text-base font-semibold hover:text-blue-700 transition-colors group"
-              >
-                COMING SOON — JOIN THE JOURNEY
-                <svg
-                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              {/* Right Image/Mockup Column */}
+              <div className="w-full lg:w-[55%] bg-[#F3F4F6] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
+                <div className="relative w-full max-h-full group flex items-center justify-center">
+                  <img
+                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
+                    alt="Athlixir Platform Interface"
+                    className="w-auto h-auto max-w-full max-h-[300px] lg:max-h-[350px] rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.15)] relative z-10"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Right Image */}
-            <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[500px]">
-              <img
-                src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
-                alt="Preview of Athlixir platform"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+            {/* Youth Entrepreneurship Section */}
+            <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-14 items-center">
+              {/* Left Content Column (mirrored) */}
+              <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
+                  </div>
+
+                  <div className="relative inline-block mb-6 group">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      Youth entrepreneurship platform
+                    </h3>
+                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 group-hover:scale-x-110 transition-transform duration-500"></div>
+                  </div>
+
+                  <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
+                    An interactive ecosystem designed to empower the next generation of leaders. It provides mentorship, resource mapping, and business simulation tools to bridge the gap between education and real-world impact.
+                  </p>
+                </div>
+
+                <div className="flex justify-between items-center mt-auto relative top-32">
+                  <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+                    LMS Platform
+                  </div>
+                  <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+                    02
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Image/Mockup Column (mirrored) */}
+              <div className="w-full lg:w-[55%] bg-[#EBEBEB] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
+                <div className="relative w-full max-h-full group flex items-center justify-center">
+                  <img
+                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
+                    alt="Platform Interface"
+                    className="w-auto h-auto max-w-full max-h-[300px] lg:max-h-[350px] rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.15)] relative z-10"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* All Products Button */}
+            <div className="flex justify-center pt-8 border-t border-gray-100">
+              <Link
+                to="/portfolio"
+                className="group relative px-12 py-5 bg-black text-white rounded-full font-bold text-lg overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl"
+              >
+                <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                <span className="relative z-10 flex items-center gap-3">
+                  All Products
+                  <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
+                </span>
+              </Link>
             </div>
           </div>
         </div>

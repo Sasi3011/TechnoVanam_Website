@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @font-face {
   font-family: 'MazzardH';
@@ -15,8 +16,25 @@
 }
 
 /* Base Font Family */
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-jump {
+  animation: jump 2s infinite ease-in-out;
+}
+
 body {
   font-family: "MazzardH", "Poppins", sans-serif;
+  background-color: #F0F7FF;
 }
 
 /* Optional Utility Class: Hide scrollbar when needed */
