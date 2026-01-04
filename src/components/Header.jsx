@@ -39,7 +39,6 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
-      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -64,7 +63,6 @@ const Header = () => {
               </div>
               <span
                 className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 leading-none tracking-tight"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
                 Techno Vanam
               </span>

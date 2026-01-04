@@ -790,7 +790,7 @@ const Home = () => {
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-85 lg:gap-85 mb-16 px-4">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 mb-16 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
               <div className="w-2 h-2 rounded-full bg-blue-600 mt-2"></div>
@@ -918,11 +918,11 @@ const Home = () => {
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-85 lg:gap-85 mb-20 px-4">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 mb-20 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
               <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5"></div>
-              <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold ">Our Products</span>
+              <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">Our Products</span>
             </div>
 
             {/* Right: Main Heading */}
@@ -946,7 +946,7 @@ const Home = () => {
                   </div>
 
                   <div className="relative inline-block mb-6 group">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
                       Athlixir
                     </h3>
                     <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
@@ -991,7 +991,7 @@ const Home = () => {
                   </div>
 
                   <div className="relative inline-block mb-6 group">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
                       Youth entrepreneurship platform
                     </h3>
                     <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
