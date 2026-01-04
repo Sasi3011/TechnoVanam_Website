@@ -356,7 +356,7 @@ const Home = () => {
       <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden min-h-[calc(100vh-3rem)]">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-blue-600 text-lg sm:text-lg font-semibold uppercase tracking-wider mb-4">
+            <p className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-medium leading-tight mb-2 tracking-tight">
@@ -442,27 +442,39 @@ const Home = () => {
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col justify-between">
             {/* Top Label */}
-            <div className="flex items-center gap-3 mb-8 lg:mb-0">
-              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
-              <span className="text-xl font-medium text-black tracking-wide">Who we are</span>
+            <div className="flex items-center gap-3 mb-8 lg:mb-7">
+              <div className="w-2 h-2 rounded-full bg-black"></div>
+              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-black tracking-wide">Who we are</span>
             </div>
 
             {/* Showreel Card */}
             <div className="bg-gray-100 rounded-3xl p-4 mt-auto">
               {/* White Inner Card */}
               <div className="bg-white rounded-2xl w-full aspect-[4/3] flex items-center justify-center p-6 mb-4 shadow-sm relative group cursor-pointer overflow-hidden transition-all hover:shadow-md">
-                <div className="flex items-center gap-2 text-xl md:text-2xl font-medium tracking-tight text-black z-10">
-                  <span>We turn</span>
-                  <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-3 h-3 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                {/* Video Background */}
+                <video
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src="/path-to-your-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-6 h-6 text-white fill-current " viewBox="0 0 24 24">
                       <title>Play</title>
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  <span>ideas into</span>
                 </div>
+
                 {/* Subtle gradient overlay for depth */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
               </div>
 
               {/* Bottom Label */}
@@ -486,7 +498,7 @@ const Home = () => {
           </div>
 
           {/* Right Column */}
-          <div className="w-full lg:w-2/3 flex flex-col justify-center">
+          <div className="w-full lg:w-2/3 flex flex-col justify-center ml-35">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-6 leading-tight">
               We are design-first creative studio
             </h2>
@@ -525,13 +537,11 @@ const Home = () => {
 
             {/* Header Section */}
             <div className="flex items-start gap-3 mb-8">
-              <div className="w-1.5 h-1.5 rounded-full bg-black mt-2"></div>
-              <span className="text-lg sm:text-xl font-medium text-black tracking-wide">Our services</span>
+              <div className="w-2 h-2 rounded-full bg-black mt-2.5"></div>
+              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-black tracking-wide">Our services</span>
             </div>
-
-
             {/* Main Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-medium text-black mb-16 leading-tight max-w-3xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-16 leading-tight max-w-3xl">
               We create solutions but most importantly we identify problems.
             </h2>
 
@@ -778,16 +788,13 @@ const Home = () => {
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                <span className="text-blue-600 text-sm font-bold uppercase tracking-[0.2em]">Why work with us</span>
+                <span className="text-blue-600 text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-semibold uppercase ">Why work with us</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1]">
                 We guide you through <br />
                 <span className="text-gray-400">every step of the way</span>
               </h2>
             </div>
-            <p className="max-w-md text-lg text-gray-500 leading-relaxed pb-2">
-              Our proven process transforms complex challenges into seamless digital solutions that drive real business growth.
-            </p>
           </div>
 
           {/* Cards Grid */}
@@ -906,7 +913,7 @@ const Home = () => {
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                <span className="text-blue-600 text-sm font-bold uppercase tracking-[0.2em]">Our Products</span>
+                <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase  font-sans">Our Products</span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1]">
                 Products by <br />
