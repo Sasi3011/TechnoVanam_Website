@@ -535,15 +535,21 @@ const Home = () => {
           {/* Container with white background and rounded corners */}
           <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16">
 
-            {/* Header Section */}
-            <div className="flex items-start gap-3 mb-8">
-              <div className="w-2 h-2 rounded-full bg-black mt-2.5"></div>
-              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-black tracking-wide">Our services</span>
+            {/* Header Section - Parallel Layout */}
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-16">
+              {/* Left: Label */}
+              <div className="flex items-start gap-3 lg:w-1/3">
+                <div className="w-2 h-2 rounded-full bg-black mt-2.5"></div>
+                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-black tracking-wide">Our services</span>
+              </div>
+
+              {/* Right: Main Heading */}
+              <div className="lg:w-7/12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-tight ">
+                  We create solutions but most importantly we identify problems.
+                </h2>
+              </div>
             </div>
-            {/* Main Heading */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-16 leading-tight max-w-3xl">
-              We create solutions but most importantly we identify problems.
-            </h2>
 
             {/* Service Animation Styles */}
             <style jsx>{`
@@ -783,13 +789,16 @@ const Home = () => {
       {/* Why Work With Us - Flipping Cards Design */}
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 px-4">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                <span className="text-blue-600 text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-semibold uppercase ">Why work with us</span>
-              </div>
+          {/* Section Header - Parallel Layout */}
+          <div className="flex flex-col lg:flex-row gap-85 lg:gap-85 mb-16 px-4">
+            {/* Left: Label */}
+            <div className="flex items-start gap-3 lg:w-1/3">
+              <div className="w-2 h-2 rounded-full bg-blue-600 mt-2"></div>
+              <span className="text-blue-600 text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-semibold uppercase">Why work with us</span>
+            </div>
+
+            {/* Right: Main Heading */}
+            <div className="">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1]">
                 We guide you through <br />
                 <span className="text-gray-400">every step of the way</span>
@@ -908,21 +917,21 @@ const Home = () => {
       {/* Our Products - Premium UI Redesign */}
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20 px-4">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase  font-sans">Our Products</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          {/* Section Header - Parallel Layout */}
+          <div className="flex flex-col lg:flex-row gap-85 lg:gap-85 mb-20 px-4">
+            {/* Left: Label */}
+            <div className="flex items-start gap-3 lg:w-1/3">
+              <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5"></div>
+              <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold ">Our Products</span>
+            </div>
+
+            {/* Right: Main Heading */}
+            <div className="">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 Products by <br />
                 <span className="text-gray-400">Techno Vanam</span>
               </h2>
             </div>
-            <p className="max-w-md text-lg text-gray-500 leading-relaxed pb-2 font-medium">
-              We go beyond client projects — building and scaling strategic digital products that solve real-world problems.
-            </p>
           </div>
 
           <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-700 flex flex-col gap-32">
@@ -940,7 +949,7 @@ const Home = () => {
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Athlixir
                     </h3>
-                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 group-hover:scale-x-110 transition-transform duration-500"></div>
+                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
                   </div>
 
                   <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
@@ -985,7 +994,7 @@ const Home = () => {
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Youth entrepreneurship platform
                     </h3>
-                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 group-hover:scale-x-110 transition-transform duration-500"></div>
+                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
                   </div>
 
                   <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
