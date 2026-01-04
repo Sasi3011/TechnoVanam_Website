@@ -51,11 +51,11 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
           <div className="lg:col-span-2">
-            <h4 className="font-bold text-lg mb-6">Company:</h4>
+            <h4 className="font-bold text-xl mb-6">Company:</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium">
+                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>
@@ -65,11 +65,11 @@ const Footer = () => {
 
           {/* Services Column */}
           <div className="lg:col-span-2">
-            <h4 className="font-bold text-lg mb-6">Services:</h4>
+            <h4 className="font-bold text-xl mb-6">Services:</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium">
+                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>
@@ -79,11 +79,11 @@ const Footer = () => {
 
           {/* Industries Column */}
           <div className="lg:col-span-3">
-            <h4 className="font-bold text-lg mb-6">Industries:</h4>
+            <h4 className="font-bold text-xl mb-6">Industries:</h4>
             <ul className="space-y-3">
               {footerLinks.industries.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium">
+                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>
@@ -94,23 +94,23 @@ const Footer = () => {
           {/* Newsletter Column */}
           <div className="md:col-span-4 lg:col-span-5 flex flex-col items-start lg:items-end w-full">
             <div className="w-full max-w-sm lg:text-left">
-              <h4 className="font-bold text-xl mb-6">Subscribe to our news and updates</h4>
+              <h4 className="font-bold text-2xl mb-6">Subscribe to our news and updates</h4>
               <div className="relative border-b-2 border-gray-300 pb-2 mb-4 group hover:border-black transition-colors duration-300">
                 <input
                   type="email"
                   placeholder="Your email here"
-                  className="bg-transparent w-full outline-none text-lg pr-10 border-none focus:ring-0 placeholder:text-gray-400 py-2"
+                  className="bg-transparent w-full outline-none text-xl pr-10 border-none focus:ring-0 placeholder:text-gray-400 py-2"
                 />
                 <button className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:scale-110 transition-transform text-black">
                   <ArrowRight size={24} />
                 </button>
               </div>
-              <p className="text-xs text-[#50577E] leading-relaxed mb-10">
-                By signing up, you agree to our <Link to="/" className="underline hover:text-black">Privacy Policy</Link>. We respect your data. Unsubscribe anytime.
+              <p className="text-sm text-[#50577E] leading-relaxed mb-10">
+                By signing up, you agree to our <Link to="/privacy" className="underline hover:text-black">Privacy Policy</Link>. We respect your data. Unsubscribe anytime.
               </p>
 
               <div className="mt-8">
-                <h4 className="font-bold text-xl mb-6">Follow us on:</h4>
+                <h4 className="font-bold text-2xl mb-6">Follow us on:</h4>
                 <div className="flex gap-4">
                   {[
                     { icon: <Dribbble size={20} />, link: "#" },
@@ -142,13 +142,13 @@ const Footer = () => {
               className="h-10 w-auto object-contain transition-transform group-hover:rotate-[360deg] duration-1000"
               loading="lazy"
             />
-            <span className="text-2xl font-bold tracking-tight text-[#19213D]">techno vanam</span>
+            <span className="text-3xl font-bold tracking-tight text-[#19213D]">techno vanam</span>
           </div>
 
-          <div className="flex items-center gap-4 text-base font-medium">
+          <div className="flex items-center gap-4 text-lg font-medium">
             <span className="text-gray-400">© 2025 Techno Vanam. All rights reserved</span>
             <div className="w-2 h-2 rounded-full bg-black"></div>
-            <Link to="/" className="text-black font-bold hover:underline transition-colors">Privacy Policy</Link>
+            <Link to="/privacy" className="text-black font-bold hover:underline transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>

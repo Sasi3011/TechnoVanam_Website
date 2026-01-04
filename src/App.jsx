@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Product1 from "./pages/Products/Product1";
 import Product2 from "./pages/Products/Product2";
 import Maintenance from "./pages/Maintenance";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import MainLayout from "./layout/MainLayout";
 
@@ -57,6 +58,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product1" element={<Product1 />} />
         <Route path="/product2" element={<Product2 />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </MainLayout>
