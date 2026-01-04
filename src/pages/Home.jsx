@@ -2,6 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe, ArrowRight } from "lucide-react";
+import Testimonials from "../components/Testimonials";
+
+
 
 const steps = [
   {
@@ -1010,18 +1013,21 @@ const Home = () => {
             <div className="flex justify-center pt-8 border-t border-gray-100">
               <Link
                 to="/portfolio"
-                className="group relative px-12 py-5 bg-black text-white rounded-full font-bold text-lg overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl"
+                className="group relative px-8 py-3.5 bg-[#DBEAFE] text-black rounded-full font-bold text-base overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-sm"
               >
                 <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                <span className="relative z-10 flex items-center gap-3">
+                <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
                   All Products
-                  <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
+                  <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform duration-500" />
                 </span>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      <Testimonials />
+
 
 
       {/* CTA Section - Commented Out (keeping as requested) */}
