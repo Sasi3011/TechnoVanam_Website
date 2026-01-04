@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
+
 @font-face {
   font-family: 'MazzardH';
   src: url('/fonts/Mazzard Font/MazzardH-Regular.otf') format('opentype');
@@ -32,7 +32,7 @@
 }
 
 body {
-  font-family: "MazzardH", "Poppins", sans-serif;
+  font-family: "MazzardH", sans-serif;
   background-color: #F0F7FF;
 }
 

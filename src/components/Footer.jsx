@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f2f4f6] text-[#19213D] pt-20 pb-10 px-6 sm:px-10 lg:px-20 font-sans" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <footer className="bg-[#F0F7FF] text-[#19213D] pt-20 pb-10 px-6 sm:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
@@ -101,7 +101,7 @@ const Footer = () => {
                   placeholder="Your email here"
                   className="bg-transparent w-full outline-none text-lg pr-10 border-none focus:ring-0 placeholder:text-gray-400 py-2"
                 />
-                <button className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:scale-110 transition-transform">
+                <button className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:scale-110 transition-transform text-black">
                   <ArrowRight size={24} />
                 </button>
               </div>
@@ -142,7 +142,7 @@ const Footer = () => {
               className="h-10 w-auto object-contain transition-transform group-hover:rotate-[360deg] duration-1000"
               loading="lazy"
             />
-            <span className="text-2xl font-bold tracking-tight">techno vanam</span>
+            <span className="text-2xl font-bold tracking-tight text-[#19213D]">techno vanam</span>
           </div>
 
           <div className="flex items-center gap-4 text-base font-medium">

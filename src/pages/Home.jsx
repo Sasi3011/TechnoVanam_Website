@@ -906,9 +906,9 @@ const Home = () => {
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                <span className="text-blue-600 text-sm font-bold uppercase tracking-[0.2em] font-sans">Our Products</span>
+                <span className="text-blue-600 text-sm font-bold uppercase tracking-[0.2em]">Our Products</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1]">
                 Products by <br />
                 <span className="text-gray-400">Techno Vanam</span>
               </h2>
@@ -930,7 +930,7 @@ const Home = () => {
                   </div>
 
                   <div className="relative inline-block mb-6 group">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
                       Athlixir
                     </h3>
                     <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 group-hover:scale-x-110 transition-transform duration-500"></div>
@@ -975,7 +975,7 @@ const Home = () => {
                   </div>
 
                   <div className="relative inline-block mb-6 group">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
                       Youth entrepreneurship platform
                     </h3>
                     <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 group-hover:scale-x-110 transition-transform duration-500"></div>
