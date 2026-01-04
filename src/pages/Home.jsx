@@ -790,7 +790,7 @@ const Home = () => {
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 mb-16 px-4">
+          <div className="flex flex-col lg:flex-row gap-85 lg:gap-85 mb-16 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
               <div className="w-2 h-2 rounded-full bg-blue-600 mt-2"></div>
@@ -918,7 +918,7 @@ const Home = () => {
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 mb-20 px-4">
+          <div className="flex flex-col lg:flex-row gap-85 lg:gap-85 mb-20 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
               <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5"></div>
