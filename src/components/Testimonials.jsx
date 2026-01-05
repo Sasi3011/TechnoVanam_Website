@@ -69,8 +69,8 @@ export default function Testimonials() {
         <section className="bg-[#F0F7FF] py-24 w-full overflow-hidden">
             {/* Header */}
             <div className="flex items-center gap-3 mb-10 px-8 sm:px-16 md:px-24 text-blue-600">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                <span className="text-lg uppercase tracking-tight font-medium">
+                <div className="w-2 h-2 rounded-full bg-blue-600" />
+                <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">
                     Testimonials
                 </span>
             </div>
