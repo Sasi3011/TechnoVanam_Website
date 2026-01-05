@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe, ArrowRight } from "lucide-react";
 import Testimonials from "../components/Testimonials";
+import HomeContact from "../components/HomeContact";
 
 
 
@@ -1040,76 +1041,7 @@ const Home = () => {
 
       <Testimonials />
 
-
-
-      {/* CTA Section - Commented Out (keeping as requested) */}
-      {/* <section className="w-full flex justify-center items-center min-h-[700px] bg-[#e9ebef] px-6">
-        <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-12 py-12">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 60 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8 }} 
-            className="w-full md:w-1/2 h-[500px] overflow-hidden"
-          >
-            <video
-              src={SocialMediaImage}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover rounded-3xl shadow-lg bg-transparent"
-              style={{
-                backgroundColor: 'transparent',
-                WebkitMaskImage: '-webkit-radial-gradient(white, black)',
-              }}
-            >
-              Your browser does not support the video tag.
-            </video>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 60 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.8 }} 
-            className="w-full md:w-1/2 text-blue-600 px-4"
-          >
-            <h2 className="text-5xl font-extrabold leading-snug mb-6 text-blue-600">
-              Ready to launch<br />
-              something amazing<br />
-              with Techno Vanam?
-            </h2>
-            <p className="text-lg text-blue-500 leading-relaxed mb-8">
-              Our creative experts are here to design, develop, and deliver high-performing digital experiences tailored to your brand. Let's build something great together.
-            </p>
-            <Link to="/contact">
-              <button className="group relative inline-flex items-center px-8 py-4 text-blue-600 border-2 border-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition duration-300 ease-in-out shadow-md hover:shadow-xl transform hover:scale-105">
-                Contact Us
-                <span className="ml-2 transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-                <span className="absolute top-0 left-0 w-full h-full bg-blue-600 opacity-10 rounded-full blur-md animate-ping"></span>
-              </button>
-            </Link>
-          </motion.div>
-
-        </div>
-      </section> */}
-
-      {/* Popup Component - Keeping as requested */}
-      {/* <HighClassPopup 
-        open={showPopup} 
-        onClose={() => setShowPopup(false)} 
-        title="Service is currently unavailable" 
-        description="This service is currently unavailable. Please check back later." 
-        icon={
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-12 h-12 text-red-500">
-            <circle cx="12" cy="12" r="10" fill="currentColor" />
-            <rect x="11" y="7" width="2" height="6" rx="1" fill="#fff" />
-            <rect x="11" y="15" width="2" height="2" rx="1" fill="#fff" />
-          </svg>
-        }
-      /> */}
+      <HomeContact />
 
     </div>
   );
