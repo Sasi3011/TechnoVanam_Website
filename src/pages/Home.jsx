@@ -860,7 +860,7 @@ const Home = () => {
 
 
       {/* Projects Marquee Section - Fully Responsive */}
-      <div className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-transparent">
+      {/* <div className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12 md:mb-14 lg:mb-16">
             <h3 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase text-center">
@@ -873,8 +873,6 @@ const Home = () => {
               Take a glimpse into the digital experiences we've created — combining design, technology, and strategy to bring ideas to life.
             </p>
           </div>
-
-          {/* First Marquee Row */}
           <div className="marquee-container mb-4 sm:mb-5 md:mb-6 lg:mb-6">
             <div ref={firstRowRef} className="marquee">
               {[...firstRowProjects, ...firstRowProjects].map((project, index) => (
@@ -892,8 +890,6 @@ const Home = () => {
               ))}
             </div>
           </div>
-
-          {/* Second Marquee Row */}
           <div className="marquee-container">
             <div ref={secondRowRef} className="marquee-reverse">
               {[...secondRowProjects, ...secondRowProjects].map((project, index) => (
@@ -912,7 +908,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Our Products - Premium UI Redesign */}
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
