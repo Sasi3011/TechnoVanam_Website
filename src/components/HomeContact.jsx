@@ -112,7 +112,7 @@ const HomeContact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative bg-white rounded-[2.5rem] p-6 sm:p-10 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-blue-50/50 overflow-hidden"
+                    className="relative bg-white rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-blue-50/50 overflow-hidden"
                 >
                     {/* Decorative background elements */}
                     <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
@@ -195,8 +195,8 @@ const HomeContact = () => {
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-gray-800 placeholder-gray-400 ${formSubmitted && !name.trim()
-                                                    ? "border-red-500 bg-red-50/10"
-                                                    : "border-gray-50 bg-gray-50 focus:bg-white focus:border-blue-500"
+                                                ? "border-red-500 bg-red-50/10"
+                                                : "border-gray-50 bg-gray-50 focus:bg-white focus:border-blue-500"
                                                 }`}
                                         />
                                     </div>
@@ -212,8 +212,8 @@ const HomeContact = () => {
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-gray-800 placeholder-gray-400 ${formSubmitted && !email.trim()
-                                                    ? "border-red-500 bg-red-50/10"
-                                                    : "border-gray-50 bg-gray-50 focus:bg-white focus:border-blue-500"
+                                                ? "border-red-500 bg-red-50/10"
+                                                : "border-gray-50 bg-gray-50 focus:bg-white focus:border-blue-500"
                                                 }`}
                                         />
                                     </div>
@@ -261,8 +261,8 @@ const HomeContact = () => {
                                                     type="button"
                                                     onClick={() => toggleService(service.name)}
                                                     className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${isSelected
-                                                            ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-200Scale-105"
-                                                            : "bg-white border-gray-100 text-gray-600 hover:border-blue-200"
+                                                        ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-200Scale-105"
+                                                        : "bg-white border-gray-100 text-gray-600 hover:border-blue-200"
                                                         }`}
                                                 >
                                                     <img
@@ -294,8 +294,8 @@ const HomeContact = () => {
                                                 type="button"
                                                 onClick={() => setProjectType(type)}
                                                 className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${projectType === type
-                                                        ? "bg-blue-600 border-blue-600 text-white shadow-md"
-                                                        : "bg-white border-gray-100 text-gray-600 hover:border-blue-200"
+                                                    ? "bg-blue-600 border-blue-600 text-white shadow-md"
+                                                    : "bg-white border-gray-100 text-gray-600 hover:border-blue-200"
                                                     }`}
                                             >
                                                 {type}
@@ -316,8 +316,8 @@ const HomeContact = () => {
                                                 type="button"
                                                 onClick={() => setDeadline(option)}
                                                 className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${deadline === option
-                                                        ? "bg-blue-600 border-blue-600 text-white shadow-md"
-                                                        : "bg-white border-gray-100 text-gray-600 hover:border-blue-200"
+                                                    ? "bg-blue-600 border-blue-600 text-white shadow-md"
+                                                    : "bg-white border-gray-100 text-gray-600 hover:border-blue-200"
                                                     }`}
                                             >
                                                 {option}
@@ -337,8 +337,8 @@ const HomeContact = () => {
                                         value={message}
                                         onChange={handleTextareaChange}
                                         className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-gray-800 placeholder-gray-400 ${formSubmitted && message.trim() === ""
-                                                ? "border-red-500 bg-red-50/10"
-                                                : "border-gray-50 bg-gray-50 focus:bg-white focus:border-blue-500"
+                                            ? "border-red-500 bg-red-50/10"
+                                            : "border-gray-50 bg-gray-50 focus:bg-white focus:border-blue-500"
                                             }`}
                                     />
                                     <div className="flex justify-end pr-2">

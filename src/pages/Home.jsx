@@ -1,7 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe, ArrowRight } from "lucide-react";
+import {
+  Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe, ArrowRight,
+  Lightbulb, Search, Paintbrush, Cog, Rocket, MessageCircle
+} from "lucide-react";
 import Testimonials from "../components/Testimonials";
 import HomeContact from "../components/HomeContact";
 
@@ -14,8 +17,9 @@ const steps = [
     description:
       "We start by understanding your goals, vision, and challenges. Then, we create a clear action plan tailored to your project's needs.",
     bgColor: "bg-[#FFEFA8]",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825609/Project_Idea_Phase_ftrqmm.png",
-    icon: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Idea_Phase_Icon_umhslf.png",
+    icon: Lightbulb,
+    color: "text-amber-500",
+    bgColorLight: "bg-amber-50"
   },
   {
     id: 2,
@@ -23,8 +27,9 @@ const steps = [
     description:
       "Through a detailed questionnaire and business analysis, we learn what makes your brand unique — so we can design solutions that truly fit.",
     bgColor: "bg-[#D9E8FF]",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825615/Project_Research_Phase_ayglwr.png",
-    icon: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Research_Phase_Icon_cb9p9g.png",
+    icon: Search,
+    color: "text-sky-500",
+    bgColorLight: "bg-sky-50"
   },
   {
     id: 3,
@@ -32,8 +37,9 @@ const steps = [
     description:
       "Whether it's a website, app, or creative poster, our designers craft intuitive interfaces and eye-catching visuals that reflect your brand identity.",
     bgColor: "bg-[#FFDADE]",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825610/Project_Design_Phase_oljltz.png",
-    icon: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825607/Design_Phase_Icon_nzlu5f.png",
+    icon: Paintbrush,
+    color: "text-rose-500",
+    bgColorLight: "bg-rose-50"
   },
   {
     id: 4,
@@ -41,8 +47,9 @@ const steps = [
     description:
       "Our developers bring your project to life with fast, responsive, and SEO-optimized websites built using the latest technologies and best practices.",
     bgColor: "bg-[#D9E8FF]",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825609/Project_Development_Phase_nt2emc.png",
-    icon: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825607/Development_Phase_Icon_vgedby.png",
+    icon: Cog,
+    color: "text-cyan-500",
+    bgColorLight: "bg-cyan-50"
   },
   {
     id: 5,
@@ -50,8 +57,9 @@ const steps = [
     description:
       "We ensure a smooth launch with thorough testing and optimization, delivering a product that's ready to make an impact from day one.",
     bgColor: "bg-[#A79BF4]",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825611/Project_Launch_Phase_avvee6.png",
-    icon: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Launch_Phase_Icon_lt0zmy.png",
+    icon: Rocket,
+    color: "text-fuchsia-500",
+    bgColorLight: "bg-fuchsia-50"
   },
   {
     id: 6,
@@ -59,8 +67,9 @@ const steps = [
     description:
       "Post-launch, we provide ongoing support to keep your project running smoothly, with updates, maintenance, and enhancements as needed.",
     bgColor: "bg-[#E9FDE4]",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825634/Support_Phase_czkwbv.png",
-    icon: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825634/Support_Phase_Icon_rjswru.png",
+    icon: MessageCircle,
+    color: "text-lime-500",
+    bgColorLight: "bg-lime-50"
   },
 ];
 
@@ -788,73 +797,75 @@ const Home = () => {
 
 
       {/* Why Work With Us - Flipping Cards Design */}
-      <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-8">
+      <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-85 lg:gap-110 mb-16 px-4">
-            {/* Left: Label */}
-            <div className="flex items-start gap-3 lg:w-1/3">
-              <div className="w-2 h-2 rounded-full bg-blue-600 mt-2"></div>
-              <span className="text-blue-600 text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl font-semibold uppercase">Why work with us</span>
+          {/* Container with white background and rounded corners */}
+          <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100">
+
+            {/* Section Header - Parallel Layout */}
+            <div className="flex flex-col lg:flex-row justify-between mb-16">
+              {/* Left: Label */}
+              <div className="flex items-start gap-3 lg:w-1/3">
+                <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5"></div>
+                <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase">Why work with us</span>
+              </div>
+
+              {/* Right: Main Heading */}
+              <div className="lg:w-1/2 lg:text-right">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-tight">
+                  We guide you through <br />
+                  <span className="text-gray-400">every step of the way</span>
+                </h2>
+              </div>
             </div>
 
-            {/* Right: Main Heading */}
-            <div className="">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1]">
-                We guide you through <br />
-                <span className="text-gray-400">every step of the way</span>
-              </h2>
-            </div>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {steps.map((step, index) => (
-              <div key={step.id} className="group h-[320px] lg:h-[350px] perspective-1000">
-                <div className="flip-card-inner rounded-[2rem]">
-                  {/* Card Front */}
-                  <div className="flip-card-front bg-white border border-blue-100/50 p-8 flex flex-col justify-between transition-colors group-hover:bg-[#F0F7FF]">
-                    <div className="flex justify-between items-start">
-                      <span className="text-2xl font-bold text-blue-200 group-hover:text-blue-500 transition-colors">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <div className="w-16 h-16 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
-                        <img
-                          src={step.icon}
-                          alt={`${step.title} icon`}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {steps.map((step, index) => (
+                <div key={step.id} className="group h-[320px] lg:h-[320px] perspective-1000">
+                  <div className="flip-card-inner rounded-[2rem]">
+                    {/* Card Front */}
+                    <div className="flip-card-front bg-gray-50/50 border border-gray-100 p-8 flex flex-col justify-between transition-colors group-hover:bg-[#F0F7FF]">
+                      <div className="flex justify-between items-start">
+                        <motion.span
+                          initial={{ fontSize: "1.5rem" }}
+                          whileInView={{ fontSize: "3.75rem" }}
+                          transition={{ duration: 0.7, ease: "easeInOut", delay: index * 0.05 }}
+                          viewport={{ once: false, amount: 0.5 }}
+                          className="font-black text-blue-100 group-hover:text-blue-200 transition-all duration-700 select-none leading-none inline-block origin-left"
+                        >
+                          {String(index + 1).padStart(2, '0')}
+                        </motion.span>
+                      </div>
+                      <div>
+                        <h3 className="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                          {step.title.split('. ')[1] || step.title}
+                        </h3>
+                        <div className="w-8 h-1 bg-blue-600/20 mt-4 group-hover:w-16 group-hover:bg-blue-600 transition-all duration-500"></div>
                       </div>
                     </div>
-                    <div>
-                      <h3 className="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {step.title.split('. ')[1] || step.title}
-                      </h3>
-                      <div className="w-8 h-1 bg-blue-600/20 mt-4 group-hover:w-16 group-hover:bg-blue-600 transition-all duration-500"></div>
-                    </div>
-                  </div>
 
-                  {/* Card Back */}
-                  <div className="flip-card-back bg-blue-600 p-8 flex flex-col justify-between text-left">
-                    <div className="flex flex-col gap-2">
-                      <span className="text-2xl font-bold text-blue-200 opacity-80">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <h4 className="text-white text-3xl font-bold">
-                        {step.title.split('. ')[1] || step.title}
-                      </h4>
-                    </div>
+                    {/* Card Back */}
+                    <div className="flip-card-back bg-blue-600 p-8 flex flex-col justify-between text-left">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-4xl font-black text-blue-200/50">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <h4 className="text-white text-3xl font-bold">
+                          {step.title.split('. ')[1] || step.title}
+                        </h4>
+                      </div>
 
-                    <div className="flex flex-col gap-6">
-                      <p className="text-blue-50 text-base lg:text-lg leading-relaxed font-medium">
-                        {step.description}
-                      </p>
+                      <div className="flex flex-col gap-6">
+                        <p className="text-blue-50 text-sm leading-relaxed font-medium">
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -931,7 +942,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-700 flex flex-col gap-32">
+          <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 transition-all duration-700 flex flex-col gap-32">
             {/* Athlixir Product Section */}
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
               {/* Left Content Column */}

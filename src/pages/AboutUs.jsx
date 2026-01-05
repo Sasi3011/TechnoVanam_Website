@@ -1,6 +1,13 @@
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Lightbulb, TrendingUp, Shield, Users, Heart, Smile } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+
+import phoneImg from "../assets/expertise/phone.png";
+import tabletImg from "../assets/expertise/tablet.png";
+import ind1 from "../assets/expertise/industry1.png";
+import ind2 from "../assets/expertise/industry2.png";
+import ind3 from "../assets/expertise/industry3.png";
 
 const teamMembers = [
   {
@@ -64,7 +71,121 @@ const values = [
   },
 ];
 
+const approachSteps = [
+  {
+    number: "01",
+    title: "Deep Dive",
+    description: "In-depth exploration of business and the product."
+  },
+  {
+    number: "02",
+    title: "Pre-Production",
+    description: "Identification of the core problems, pain points, and art direction."
+  },
+  {
+    number: "03",
+    title: "Design Proposition",
+    description: "Presenting concept solutions."
+  },
+  {
+    number: "04",
+    title: "Design Development",
+    description: "Further development of the concept to final product."
+  },
+  {
+    number: "05",
+    title: "Delivery and Testing",
+    description: "Design finalization, testing, delivery and handover."
+  }
+];
+
+const CircularTeam = () => {
+  const avatars = [
+    "https://i.pravatar.cc/150?u=12",
+    "https://i.pravatar.cc/150?u=24",
+    "https://i.pravatar.cc/150?u=36",
+    "https://i.pravatar.cc/150?u=48",
+    "https://i.pravatar.cc/150?u=60",
+    "https://i.pravatar.cc/150?u=72",
+  ];
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center">
+      <div className="absolute inset-0 border border-dashed border-gray-200 rounded-full animate-[spin_40s_linear_infinite]" />
+      <div className="absolute inset-10 border border-dashed border-gray-100 rounded-full animate-[spin_30s_linear_infinite_reverse]" />
+      <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center relative z-10 shadow-inner">
+        <div className="w-10 h-10 bg-blue-600 rounded-full shadow-lg flex items-center justify-center">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-4 h-4 bg-white/30 rounded-full"
+          />
+        </div>
+      </div>
+      {avatars.map((url, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-10 h-10 rounded-full overflow-hidden shadow-md border-2 border-white"
+          animate={{
+            rotate: (i * 60) + (360),
+          }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          style={{
+            top: "calc(50% - 20px)",
+            left: "calc(50% - 20px)",
+            translateY: -90,
+          }}
+        >
+          <img src={url} alt="" className="w-full h-full object-cover" />
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+const ExpertiseSlideshow = ({ images }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden flex items-center justify-center pt-8">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={index}
+          src={images[index]}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="w-[90%] h-auto rounded-lg shadow-2xl"
+        />
+      </AnimatePresence>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {images.map((_, i) => (
+          <div
+            key={i}
+            className={`h-1 rounded-full transition-all duration-300 ${i === index ? 'w-8 bg-white' : 'w-4 bg-white/30'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function About() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
+
   const scrollToNextSection = () => {
     const nextSection = document.getElementById('transform-section');
     if (nextSection) {
@@ -78,11 +199,8 @@ export default function About() {
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 -mt-18 pt-2">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-            We are <span className="text-blue-600">Techno Vanam</span>
+            We are design-first<br />creative studio
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed">
-            We're not just an agency — we're a creative tech studio passionate about crafting impactful digital products. From empowering startups to building our own innovations, we design, develop, and launch experiences that move people and businesses forward.
-          </p>
         </div>
 
         {/* Animated Scroll Down Button */}
@@ -92,9 +210,6 @@ export default function About() {
           aria-label="Scroll to next section"
         >
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-sm font-medium text-gray-500 group-hover:text-blue-600 transition-colors">
-              Scroll Down
-            </span>
             <div className="w-10 h-10 rounded-full border-2 border-blue-600 flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300">
               <svg
                 className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors"
@@ -226,43 +341,156 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="bg-transparent py-12 sm:py-14 lg:py-16">
+      {/* Our Approach Section */}
+      <section className="bg-[#E9EDF0] py-20 sm:py-24 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <p className="text-blue-600 text-sm font-semibold uppercase tracking-wider mb-3">
-              Our Team
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Meet the People Behind Techno Vanam
+          {/* Header */}
+          <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
+            <div className="flex items-center gap-3">
+              <span className="w-2.5 h-2.5 bg-black rounded-full shadow-[0_0_8px_rgba(0,0,0,0.1)]" />
+              <span className="text-xl font-medium tracking-tight text-gray-900">Our Approach</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 leading-[1.1] max-w-4xl">
+              First step to solving a problem is recognizing there is one.
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              We love what we do and we do it with passion. We value experimentation and smart innovation.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+            {approachSteps.map((step, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-[2rem] p-6 lg:p-7 flex flex-col justify-between aspect-square shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-black rounded-full" />
+                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 tracking-tight leading-tight">{step.title}</h3>
+                </div>
+
+                <div className="mt-auto">
+                  <div className="w-full h-[1px] bg-gray-100 mb-4 group-hover:bg-gray-200 transition-colors" />
+                  <div className="flex justify-between items-end gap-2">
+                    <p className="text-gray-500 text-[13px] lg:text-sm leading-snug">
+                      {step.description}
+                    </p>
+                    <span className="text-gray-300 text-base lg:text-lg font-medium tabular-nums group-hover:text-gray-900 transition-colors duration-500 shrink-0">
+                      {step.number}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Expertise Section */}
+      <section ref={sectionRef} className="relative h-[400vh] bg-[#E9EDF0]">
+        <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12">
+            <div className="flex items-center gap-3">
+              <span className="w-2.5 h-2.5 bg-black rounded-full" />
+              <span className="text-xl font-medium tracking-tight text-gray-900">Our Expertise</span>
+            </div>
+          </div>
+
+          <motion.div style={{ x }} className="flex gap-8 px-8 sm:px-16 lg:px-24">
+            {/* Card 1: 20+ Team */}
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-white rounded-[3rem] p-10 flex flex-col shadow-xl">
+              <div className="mb-8">
+                <h3 className="text-6xl font-bold text-gray-900 mb-2">20+</h3>
+                <p className="text-xl text-gray-500 font-medium">Team of talented creative experts</p>
+              </div>
+              <div className="flex-grow">
+                <CircularTeam />
+              </div>
+            </div>
+
+            {/* Card 2: 5+ Years */}
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-white rounded-[3rem] p-10 flex flex-col shadow-xl overflow-hidden group">
+              <div className="mb-8">
+                <h3 className="text-6xl font-bold text-gray-900 mb-2">5+ Years</h3>
+                <p className="text-xl text-gray-500 font-medium">Experience in transforming businesses</p>
+              </div>
+              <div className="flex-grow flex items-end justify-center">
+                <motion.img
+                  src={phoneImg}
+                  alt="Phone"
+                  className="w-[120%] h-auto object-contain transform translate-y-10 group-hover:translate-y-0 transition-transform duration-700"
+                />
+              </div>
+            </div>
+
+            {/* Card 3: 100+ Projects */}
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-white rounded-[3rem] p-10 flex flex-col shadow-xl overflow-hidden group">
+              <div className="mb-8">
+                <h3 className="text-6xl font-bold text-gray-900 mb-2">100+</h3>
+                <p className="text-xl text-gray-500 font-medium">Successfully completed projects</p>
+              </div>
+              <div className="flex-grow flex items-end justify-center">
+                <motion.img
+                  src={tabletImg}
+                  alt="Tablet"
+                  className="w-[110%] h-auto object-contain transform translate-y-12 rotate-[-5deg] group-hover:rotate-0 transition-all duration-700"
+                />
+              </div>
+            </div>
+
+            {/* Card 4: 15+ Industries (Dark Mode & Slideshow) */}
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#1A1A1A] rounded-[3rem] p-10 flex flex-col shadow-2xl overflow-hidden group">
+              <div className="mb-8">
+                <h3 className="text-6xl font-bold text-white mb-2">15+ Industries</h3>
+                <p className="text-xl text-gray-400 font-medium">Diverse experience across multiple sectors</p>
+              </div>
+              <div className="flex-grow">
+                <ExpertiseSlideshow images={[ind1, ind2, ind3]} />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="bg-[#F0F7FF] py-20 sm:py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header to match reference image */}
+          <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
+            <div className="flex items-center gap-3">
+              <span className="w-2.5 h-2.5 bg-black rounded-full shadow-[0_0_8px_rgba(0,0,0,0.15)]" />
+              <span className="text-xl font-medium tracking-tight text-gray-900">Who we are</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 leading-[1.1] max-w-4xl">
+              We are explorers. We constantly seek ways to make an impact towards solving problems through creativity.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-                <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+              <div key={index} className="bg-white rounded-[2.5rem] p-4 sm:p-5 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] border border-black/5 hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.15)] transition-all duration-500 group">
+                <div className="aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 relative">
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6 flex items-center justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                    <p className="text-gray-500 text-sm">( {member.role} )</p>
+                <div className="px-3 pb-4 flex items-end justify-between">
+                  <div className="space-y-1">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">{member.name}</h3>
+                    <p className="text-gray-400 text-base sm:text-lg font-medium tracking-tight">( {member.role} )</p>
                   </div>
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+                    className="w-10 h-10 bg-[#0077b5] rounded-xl flex items-center justify-center hover:bg-[#005885] transition-all duration-300 transform group-hover:scale-110 shadow-lg"
                   >
-                    <Linkedin className="w-5 h-5 text-white" />
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5 text-white fill-current"
+                    >
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
                   </a>
                 </div>
               </div>
