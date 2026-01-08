@@ -14,7 +14,7 @@ export default function Products2() {
   };
 
   return (
-    <div className="flex flex-col items-center pt-16 gap-16 w-full px-4 sm:px-6 lg:px-0">
+    <div className="flex flex-col items-center pt-24 gap-16 w-full px-4 sm:px-6 lg:px-0">
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8 px-4">
         {/* Label */}

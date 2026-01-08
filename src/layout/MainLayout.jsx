@@ -35,7 +35,7 @@ const MainLayout = ({ children }) => {
     <>
       <CursorFollower />
       <Header />
-      <main className="pt-12">{children}</main>
+      <main className="pt-0">{children}</main>
       <Footer />
 
       {/* Fixed Scroll to Top Button */}
