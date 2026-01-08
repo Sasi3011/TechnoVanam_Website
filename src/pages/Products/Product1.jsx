@@ -18,7 +18,7 @@ const Product1 = () => {
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
         {/* Label */}
-        <div className="text-sm md:text-base lg:text-lg text-blue-600 font-semibold uppercase tracking-wider">
+        <div className="text-sm md:text-base lg:text-lg text-brand-600 font-semibold uppercase tracking-wider">
           ~ Products ~
         </div>
 
@@ -29,12 +29,12 @@ const Product1 = () => {
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825654/logo_lkfqmn.png"
+              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
               alt="Logo"
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
+              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
               loading="lazy"
             />
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap font-archivo">
               Techno Vanam
             </span>
           </div>
@@ -54,7 +54,7 @@ const Product1 = () => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-end w-full sm:w-auto">
           <button
             onClick={handleLatestReleasesClick}
-            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-[#2388FF] rounded-full shadow-sm text-[#2388FF] hover:bg-[#1f7ae0] hover:text-white transition duration-200 min-w-[140px] sm:min-w-[160px]"
+            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-brand-600 rounded-full shadow-sm text-brand-600 hover:bg-brand-700 hover:text-white transition duration-200 min-w-[140px] sm:min-w-[160px]"
           >
             <span className="text-sm sm:text-base font-medium">
               🌐 Latest Releases
@@ -72,16 +72,16 @@ const Product1 = () => {
       </div>
 
       {/* In Progress Section */}
-      <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between bg-[#F4F2FF] border border-[#B4CDF6] shadow-lg rounded-2xl lg:rounded-[32px] p-6 sm:p-8 lg:pl-10 lg:pr-0 min-h-[400px] lg:h-[480px] gap-6 lg:gap-0">
+      <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between bg-brand-50 border border-brand-200 shadow-lg rounded-2xl lg:rounded-[32px] p-6 sm:p-8 lg:pl-10 lg:pr-0 min-h-[400px] lg:h-[480px] gap-6 lg:gap-0">
         {/* Left Text Block */}
         <div className="flex flex-col gap-6 sm:gap-8 lg:gap-8 w-full lg:w-[600px] text-justify sm:text-justify md:text-justify lg:text-left">
-          <h2 className="text-[#2388FF] text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-left">
+          <h2 className="text-brand-600 text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-left">
             In Progress
           </h2>
           <p className="text-[#3B4A68] text-sm sm:text-base lg:text-lg leading-relaxed max-w-none lg:max-w-lg mx-auto lg:mx-0">
             We're currently building powerful solutions behind the scenes. While we haven't launched any products yet, exciting things are on the way—starting with Athlixir, our AI-powered platform for athlete performance and development.
           </p>
-          
+
           <>
             <style>
               {`
@@ -99,7 +99,7 @@ const Product1 = () => {
                   display: inline-block;
                   overflow: hidden;
                   white-space: nowrap;
-                  border-right: 2px solid #2388FF;
+                  border-right: 2px solid var(--color-brand-600);
                   animation:
                     typing 6s steps(39, end) infinite,
                     blink 0.7s step-end infinite;
@@ -130,7 +130,7 @@ const Product1 = () => {
               `}
             </style>
 
-            <div className="text-[#2388FF] text-base sm:text-lg lg:text-xl font-bold uppercase leading-relaxed typing-text text-left">
+            <div className="text-brand-600 text-base sm:text-lg lg:text-xl font-bold uppercase leading-relaxed typing-text text-left">
               <span className="block sm:hidden">Stay tuned</span>
               <span className="hidden sm:block">Stay tuned — the journey has just begun.</span>
             </div>
@@ -152,7 +152,7 @@ const Product1 = () => {
       <div className="h-4 sm:h-6 lg:h-8"></div>
 
       {/* CTA Section - Commented out as in original */}
-      {/* <section className="w-full flex flex-col items-center h-[600px] bg-blue-600">
+      {/* <section className="w-full flex flex-col items-center h-[600px] bg-brand-600">
         <div className="w-full max-w-7xl flex flex-row items-center justify-between gap-8">
           
           <div className="w-1/2 h-[600px]">
@@ -168,7 +168,7 @@ const Product1 = () => {
             </video>
           </div>
 
-          <div className="w-1/2 text-white text-left px-8pt-20 pb-20">
+          <div className="w-1/2 text-white text-left px-8 pt-20 pb-20">
             <h2 className="text-5xl font-bold leading-tight">
               Ready to launch something amazing with Techno Vanam?
             </h2>
@@ -177,7 +177,7 @@ const Product1 = () => {
             </p>
             <div className="pt-6 flex justify-start">
               <Link to="/contact">
-                <button className="flex items-center gap-2 px-7 py-4 bg-white text-blue-600 font-bold text-base rounded-full border-2 shadow-md hover:bg-gray-100 hover:bg-transparent hover:text-white transition">
+                <button className="flex items-center gap-2 px-7 py-4 bg-white text-brand-600 font-bold text-base rounded-full border-2 shadow-md hover:bg-gray-100 hover:bg-transparent hover:text-white transition">
                   Contact Us
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

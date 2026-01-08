@@ -33,13 +33,13 @@ const Maintenance = () => {
     ];
 
     return (
-        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-6 sm:p-12 overflow-hidden selection:bg-blue-500/30">
+        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-6 sm:p-12 overflow-hidden selection:bg-brand-500/30">
 
             {/* --- PREMIUM BACKDROPS --- */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {/* Deep Gradient Glows */}
-                <div className="absolute top-[-10%] right-[-5%] w-[70%] h-[70%] bg-blue-900/10 rounded-full blur-[160px] animate-pulse"></div>
-                <div className="absolute bottom-[-10%] left-[-5%] w-[70%] h-[70%] bg-blue-900/10 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '4s' }}></div>
+                <div className="absolute top-[-10%] right-[-5%] w-[70%] h-[70%] bg-brand-900/10 rounded-full blur-[160px] animate-pulse"></div>
+                <div className="absolute bottom-[-10%] left-[-5%] w-[70%] h-[70%] bg-brand-900/10 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '4s' }}></div>
 
                 {/* --- RUNNING ICONS --- */}
                 {bgIcons.map((item, i) => (
@@ -58,7 +58,7 @@ const Maintenance = () => {
                             delay: item.delay,
                             ease: "linear"
                         }}
-                        className="absolute text-blue-400/40 z-0 drop-shadow-[0_0_15px_rgba(59,130,246,0.2)]"
+                        className="absolute text-brand-400/40 z-0 drop-shadow-[0_0_15px_rgba(113,211,0,0.2)]"
                         style={{ top: item.top, left: item.left }}
                     >
                         <item.Icon size={32 + Math.random() * 20} className="sm:w-16 sm:h-16" />
@@ -77,7 +77,7 @@ const Maintenance = () => {
                             delay: beam.delay,
                             ease: "linear"
                         }}
-                        className="absolute h-[1px] w-[40%] bg-gradient-to-r from-transparent via-blue-500 to-transparent z-0"
+                        className="absolute h-[1px] w-[40%] bg-gradient-to-r from-transparent via-brand-500 to-transparent z-0"
                         style={{ top: beam.top, transform: 'rotate(-25deg)' }}
                     />
                 ))}
@@ -96,7 +96,7 @@ const Maintenance = () => {
                             repeat: Infinity,
                             ease: "linear"
                         }}
-                        className="absolute rounded-full bg-blue-400/30 blur-[1px]"
+                        className="absolute rounded-full bg-brand-400/30 blur-[1px]"
                         style={{ width: p.size, height: p.size }}
                     />
                 ))}
@@ -105,7 +105,7 @@ const Maintenance = () => {
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none brightness-150 contrast-150" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}></div>
 
                 {/* Mesh Grid Pattern */}
-                <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at center, #1e40af 0.5px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+                <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at center, #2f5600 0.5px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
             </div>
 
             {/* --- TOP: STATUS --- */}
@@ -114,9 +114,9 @@ const Maintenance = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="flex items-center gap-3 px-5 py-2 rounded-full border border-white/5 bg-white/[0.03] backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.05)]"
+                    className="flex items-center gap-3 px-5 py-2 rounded-full border border-white/5 bg-white/[0.03] backdrop-blur-md shadow-[0_0_20px_rgba(113,211,0,0.05)]"
                 >
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></div>
                     <span className="text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em]">
                         Digital Evolution in Progress
                     </span>
@@ -132,7 +132,7 @@ const Maintenance = () => {
                     className="relative"
                 >
                     {/* Subtle Glow Behind Text */}
-                    <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full scale-110 sm:scale-150 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-brand-600/5 blur-[100px] rounded-full scale-110 sm:scale-150 pointer-events-none"></div>
 
                     <h1 className="text-[12vw] sm:text-7xl md:text-8xl lg:text-[10rem] font-bold text-white leading-[1.1] sm:leading-[0.8] tracking-[-0.04em]">
                         <motion.span
@@ -147,7 +147,7 @@ const Maintenance = () => {
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.7, duration: 0.8 }}
-                            className="text-transparent bg-clip-text bg-gradient-to-br from-blue-300 via-blue-500 to-blue-900 inline-block drop-shadow-[0_0_30px_rgba(59,130,246,0.1)]"
+                            className="text-transparent bg-clip-text bg-gradient-to-br from-brand-300 via-brand-500 to-brand-900 inline-block drop-shadow-[0_0_30px_rgba(113,211,0,0.1)]"
                         >
                             InProgress
                         </motion.span>
@@ -174,14 +174,14 @@ const Maintenance = () => {
             >
                 <a
                     href="mailto:official@technovanam.com"
-                    className="group flex items-center gap-3 px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
+                    className="group flex items-center gap-3 px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-brand-500/30 transition-all duration-500"
                 >
-                    <Mail size={14} className="text-blue-500 sm:w-4 sm:h-4" />
-                    <span className="text-white text-xs sm:text-sm font-light group-hover:text-blue-400 transition-colors uppercase tracking-wider">official@technovanam.com</span>
+                    <Mail size={14} className="text-brand-500 sm:w-4 sm:h-4" />
+                    <span className="text-white text-xs sm:text-sm font-light group-hover:text-brand-400 transition-colors uppercase tracking-wider">official@technovanam.com</span>
                 </a>
 
                 <div className="flex flex-col items-center space-y-1">
-                    <div className="flex items-center gap-4 text-[8px] sm:text-[9px] text-white tracking-[0.6em] uppercase font-bold">
+                    <div className="flex items-center gap-4 text-[8px] sm:text-[9px] text-white tracking-[0.6em] uppercase font-bold font-archivo">
                         Techno Vanam
                     </div>
                     <p className="text-[8px] sm:text-[9px] text-white tracking-[0.2em] font-medium uppercase opacity-60">

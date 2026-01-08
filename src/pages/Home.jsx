@@ -26,10 +26,10 @@ const steps = [
     title: "2. Research",
     description:
       "Through a detailed questionnaire and business analysis, we learn what makes your brand unique — so we can design solutions that truly fit.",
-    bgColor: "bg-[#D9E8FF]",
+    bgColor: "bg-brand-50",
     icon: Search,
-    color: "text-sky-500",
-    bgColorLight: "bg-sky-50"
+    color: "text-brand-500",
+    bgColorLight: "bg-brand-50"
   },
   {
     id: 3,
@@ -46,10 +46,10 @@ const steps = [
     title: "4. Development",
     description:
       "Our developers bring your project to life with fast, responsive, and SEO-optimized websites built using the latest technologies and best practices.",
-    bgColor: "bg-[#D9E8FF]",
+    bgColor: "bg-brand-50",
     icon: Cog,
-    color: "text-cyan-500",
-    bgColorLight: "bg-cyan-50"
+    color: "text-brand-500",
+    bgColorLight: "bg-brand-50"
   },
   {
     id: 5,
@@ -366,7 +366,7 @@ const Home = () => {
       <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden min-h-[calc(100vh-3rem)]">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
+            <p className="text-[#71d300] text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-medium leading-tight mb-2 tracking-tight">
@@ -377,9 +377,9 @@ const Home = () => {
             </p>
             <Link
               to="/contact"
-              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-[#DBEAFE] font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
+              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-brand-100 font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
             >
-              <span className="absolute inset-0 w-full h-full bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+              <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                 Request a quote <span className="text-2xl">👋</span>
               </span>
@@ -571,7 +571,7 @@ const Home = () => {
               }
 
               .grid-standart-services:hover {
-                color: #2563EB; /* Blue text on hover */
+                color: var(--color-brand-600); /* Brand green text on hover */
                 border-radius: 0.75rem;
                 border-color: transparent;
               }
@@ -583,7 +583,7 @@ const Home = () => {
                 bottom: 0;
                 width: 100%;
                 height: 0%;
-                background: #EFF6FF; /* Light blue hover background */
+                background: var(--color-brand-50); /* Brand green hover background */
                 z-index: 0;
                 transition: height 0.4s ease;
               }
@@ -625,15 +625,15 @@ const Home = () => {
 
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Layout size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       Website Design
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -645,15 +645,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Palette size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       Branding
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -665,15 +665,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <PanelsTopLeft size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       UX/UI
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -685,15 +685,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Video size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       Motion Design
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -705,15 +705,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <TrendingUp size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       SEO
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -725,15 +725,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <PenTool size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       Content Creation
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -745,15 +745,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Smartphone size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       Landing Page
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -765,15 +765,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-120 flex-1">
-                    <div className="service-number text-black group-hover:text-blue-600 transition-colors w-8">
+                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Globe size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-blue-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
                       Webflow Development
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -806,8 +806,8 @@ const Home = () => {
             <div className="flex flex-col lg:flex-row justify-between mb-16">
               {/* Left: Label */}
               <div className="flex items-start gap-3 lg:w-1/3">
-                <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5"></div>
-                <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase">Why work with us</span>
+                <div className="w-2 h-2 rounded-full bg-brand-600 mt-2.5"></div>
+                <span className="text-brand-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase">Why work with us</span>
               </div>
 
               {/* Right: Main Heading */}
@@ -825,30 +825,30 @@ const Home = () => {
                 <div key={step.id} className="group h-[320px] lg:h-[320px] perspective-1000">
                   <div className="flip-card-inner rounded-[2rem]">
                     {/* Card Front */}
-                    <div className="flip-card-front bg-gray-50/50 border border-gray-100 p-8 flex flex-col justify-between transition-colors group-hover:bg-[#F0F7FF]">
+                    <div className="flip-card-front bg-gray-50/50 border border-gray-100 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-50">
                       <div className="flex justify-between items-start">
                         <motion.span
                           initial={{ fontSize: "1.5rem" }}
                           whileInView={{ fontSize: "3.75rem" }}
                           transition={{ duration: 0.7, ease: "easeInOut", delay: index * 0.05 }}
                           viewport={{ once: false, amount: 0.5 }}
-                          className="font-black text-blue-100 group-hover:text-blue-200 transition-all duration-700 select-none leading-none inline-block origin-left"
+                          className="font-black text-brand-100 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block origin-left"
                         >
                           {String(index + 1).padStart(2, '0')}
                         </motion.span>
                       </div>
                       <div>
-                        <h3 className="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-3xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors">
                           {step.title.split('. ')[1] || step.title}
                         </h3>
-                        <div className="w-8 h-1 bg-blue-600/20 mt-4 group-hover:w-16 group-hover:bg-blue-600 transition-all duration-500"></div>
+                        <div className="w-8 h-1 bg-brand-600/20 mt-4 group-hover:w-16 group-hover:bg-brand-600 transition-all duration-500"></div>
                       </div>
                     </div>
 
                     {/* Card Back */}
-                    <div className="flip-card-back bg-blue-600 p-8 flex flex-col justify-between text-left">
+                    <div className="flip-card-back bg-brand-600 p-8 flex flex-col justify-between text-left">
                       <div className="flex flex-col gap-2">
-                        <span className="text-4xl font-black text-blue-200/50">
+                        <span className="text-4xl font-black text-brand-200/50">
                           {String(index + 1).padStart(2, '0')}
                         </span>
                         <h4 className="text-white text-3xl font-bold">
@@ -857,7 +857,7 @@ const Home = () => {
                       </div>
 
                       <div className="flex flex-col gap-6">
-                        <p className="text-blue-50 text-sm leading-relaxed font-medium">
+                        <p className="text-brand-50 text-sm leading-relaxed font-medium">
                           {step.description}
                         </p>
                       </div>
@@ -875,7 +875,7 @@ const Home = () => {
       {/* <div className="py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-8 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12 md:mb-14 lg:mb-16">
-            <h3 className="text-blue-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase text-center">
+            <h3 className="text-brand-600 text-sm sm:text-base md:text-lg lg:text-lg font-semibold uppercase text-center">
               ~ Crafted Solutions ~
             </h3>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-black leading-tight text-center mb-3 sm:mb-4 md:mb-4 lg:mb-4">
@@ -929,8 +929,8 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row gap-85 lg:gap-145 mb-20 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
-              <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5"></div>
-              <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">Our Products</span>
+              <div className="w-2 h-2 rounded-full bg-brand-600 mt-2.5"></div>
+              <span className="text-brand-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">Our Products</span>
             </div>
 
             {/* Right: Main Heading */}
@@ -949,7 +949,7 @@ const Home = () => {
               <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
                 <div>
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <div className="w-2 h-2 rounded-full bg-brand-600"></div>
                     <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
                   </div>
 
@@ -994,7 +994,7 @@ const Home = () => {
               <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
                 <div>
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <div className="w-2 h-2 rounded-full bg-brand-600"></div>
                     <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
                   </div>
 
@@ -1037,9 +1037,9 @@ const Home = () => {
             <div className="flex justify-center pt-8 border-t border-gray-100">
               <Link
                 to="/portfolio"
-                className="group relative px-8 py-3.5 bg-[#DBEAFE] text-black rounded-full font-bold text-base overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-sm"
+                className="group relative px-8 py-3.5 bg-brand-100 text-black rounded-full font-bold text-base overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-sm"
               >
-                <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                <div className="absolute inset-0 bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
                   All Products
                   <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform duration-500" />

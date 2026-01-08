@@ -45,8 +45,8 @@ const values = [
     title: "Ownership",
     description: "Every project we take on is our responsibility. We lead with accountability and integrity.",
     icon: Shield,
-    color: "text-blue-500",
-    bgColor: "bg-blue-50",
+    color: "text-brand-500",
+    bgColor: "bg-brand-50",
   },
   {
     title: "Team Work",
@@ -113,8 +113,8 @@ const CircularTeam = () => {
     <div className="relative w-full h-full flex items-center justify-center">
       <div className="absolute inset-0 border border-dashed border-gray-200 rounded-full animate-[spin_40s_linear_infinite]" />
       <div className="absolute inset-10 border border-dashed border-gray-100 rounded-full animate-[spin_30s_linear_infinite_reverse]" />
-      <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center relative z-10 shadow-inner">
-        <div className="w-10 h-10 bg-blue-600 rounded-full shadow-lg flex items-center justify-center">
+      <div className="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center relative z-10 shadow-inner">
+        <div className="w-10 h-10 bg-brand-600 rounded-full shadow-lg flex items-center justify-center">
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -210,9 +210,9 @@ export default function About() {
           aria-label="Scroll to next section"
         >
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <div className="w-10 h-10 rounded-full border-2 border-blue-600 flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300">
+            <div className="w-10 h-10 rounded-full border-2 border-brand-600 flex items-center justify-center group-hover:bg-brand-600 transition-all duration-300">
               <svg
-                className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors"
+                className="w-5 h-5 text-brand-600 group-hover:text-white transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -230,7 +230,7 @@ export default function About() {
       </section>
 
       {/* Transform Section */}
-      <section id="transform-section" className="bg-blue-600 py-16 sm:py-20 lg:py-24">
+      <section id="transform-section" className="bg-brand-600 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -285,8 +285,8 @@ export default function About() {
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -296,8 +296,8 @@ export default function About() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
@@ -319,20 +319,20 @@ export default function About() {
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                <div className="w-5 h-5 rounded-full border-2 border-brand-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-2 h-2 bg-brand-600 rounded-full"></div>
                 </div>
                 <span className="text-gray-600">Empowering creators through smart, intuitive platforms</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                <div className="w-5 h-5 rounded-full border-2 border-brand-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-2 h-2 bg-brand-600 rounded-full"></div>
                 </div>
                 <span className="text-gray-600">Driving meaningful change with every project</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                <div className="w-5 h-5 rounded-full border-2 border-brand-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-2 h-2 bg-brand-600 rounded-full"></div>
                 </div>
                 <span className="text-gray-600">Making digital innovation accessible to everyone</span>
               </li>
@@ -342,7 +342,7 @@ export default function About() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="bg-[#E9EDF0] py-20 sm:py-24 lg:py-32 overflow-hidden">
+      <section className="bg-[#f7fff0] py-20 sm:py-24 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
@@ -385,7 +385,7 @@ export default function About() {
       </section>
 
       {/* Our Expertise Section */}
-      <section ref={sectionRef} className="relative h-[400vh] bg-[#E9EDF0]">
+      <section ref={sectionRef} className="relative h-[400vh] bg-[#f7fff0]">
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12">
             <div className="flex items-center gap-3">
@@ -451,7 +451,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-[#F0F7FF] py-20 sm:py-24 lg:py-32">
+      <section className="bg-[#f7fff0] py-20 sm:py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header to match reference image */}
           <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
@@ -534,17 +534,17 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 py-16 sm:py-20 lg:py-24">
+      <section className="bg-brand-600 py-16 sm:py-20 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Start Your Project?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8">
+          <p className="text-lg sm:text-xl text-brand-100 mb-8">
             Let's build something amazing together. Get in touch with our team today.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-600 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg"
           >
             Get in Touch
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

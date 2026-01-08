@@ -9,7 +9,7 @@ const HighClassPopup = ({ open, onClose, title, description, icon }) => {
         <h2 className="text-lg font-semibold text-gray-900 mb-2 text-center">{title}</h2>
         <p className="text-gray-500 text-sm mb-6 text-center">{description}</p>
         <button
-          className="w-full py-2 rounded-xl bg-blue-600 text-white font-semibold text-base shadow hover:bg-blue-700 transition"
+          className="w-full py-2 rounded-xl bg-brand-600 text-white font-semibold text-base shadow hover:bg-brand-700 transition"
           onClick={onClose}
         >
           Got it

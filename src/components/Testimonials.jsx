@@ -66,11 +66,11 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="bg-[#F0F7FF] py-24 w-full overflow-hidden">
+        <section className="bg-[#f7fff0] py-24 w-full overflow-hidden">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-10 px-8 sm:px-16 md:px-24 text-blue-600">
-                <div className="w-2 h-2 rounded-full bg-blue-600" />
-                <span className="text-blue-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">
+            <div className="flex items-center gap-3 mb-10 px-8 sm:px-16 md:px-24 text-brand-600">
+                <div className="w-2 h-2 rounded-full bg-brand-600" />
+                <span className="text-brand-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">
                     Testimonials
                 </span>
             </div>
@@ -139,9 +139,9 @@ export default function Testimonials() {
             <div className="px-8 sm:px-16 md:px-24">
                 <div className="flex items-center gap-12">
                     {/* Progress Bar */}
-                    <div className="flex-1 h-[3px] bg-blue-100 rounded-full overflow-hidden relative">
+                    <div className="flex-1 h-[3px] bg-brand-100 rounded-full overflow-hidden relative">
                         <motion.div
-                            className="absolute top-0 left-0 h-full bg-blue-600"
+                            className="absolute top-0 left-0 h-full bg-brand-600"
                             style={{ scaleX, originX: 0, width: "100%" }}
                         />
                     </div>
@@ -150,14 +150,14 @@ export default function Testimonials() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-md hover:bg-blue-700 transition-colors border border-blue-500"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
                             aria-label="Previous testimonial"
                         >
                             <ArrowLeft size={20} />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-md hover:bg-blue-700 transition-colors border border-blue-500"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
                             aria-label="Next testimonial"
                         >
                             <ArrowRight size={20} />

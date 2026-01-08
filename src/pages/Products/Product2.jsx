@@ -18,7 +18,7 @@ export default function Products2() {
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8 px-4">
         {/* Label */}
-        <div className="text-sm md:text-base lg:text-lg text-blue-600 font-semibold uppercase tracking-wider">
+        <div className="text-sm md:text-base lg:text-lg text-brand-600 font-semibold uppercase tracking-wider">
           ~ Products ~
         </div>
 
@@ -29,12 +29,12 @@ export default function Products2() {
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825654/logo_lkfqmn.png"
+              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
               alt="Logo"
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
+              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
               loading="lazy"
             />
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap font-archivo">
               Techno Vanam
             </span>
           </div>
@@ -64,7 +64,7 @@ export default function Products2() {
           </button>
           <button
             onClick={handleWhatWeWorkingOnClick}
-            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-[#2388FF] rounded-full shadow-sm text-[#2388FF] hover:bg-[#1f7ae0] hover:text-white transition duration-200 min-w-[140px] sm:min-w-[160px]"
+            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-brand-600 rounded-full shadow-sm text-brand-600 hover:bg-brand-700 hover:text-white transition duration-200 min-w-[140px] sm:min-w-[160px]"
           >
             <span className="text-sm sm:text-base font-medium">
               🔒 What We’re Working On
@@ -74,10 +74,10 @@ export default function Products2() {
       </div>
 
       {/* Product Card */}
-      <div className="bg-[#F4F2FF] border border-[#B4CDF6] shadow-lg rounded-[20px] w-full max-w-[1200px] p-6 sm:p-10 lg:p-12 gap-8">
+      <div className="bg-brand-50 border border-brand-200 shadow-lg rounded-[20px] w-full max-w-[1200px] p-6 sm:p-10 lg:p-12 gap-8">
         {/* Text Block */}
         <div className="flex flex-col gap-6">
-          <h2 className="text-[#2388FF] text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug">
+          <h2 className="text-brand-600 text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug">
             ATHLIXIR
           </h2>
           <p className="text-[#3B4A68] text-sm sm:text-base md:text-lg leading-relaxed">
@@ -98,13 +98,13 @@ export default function Products2() {
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex flex-col gap-1 flex-1">
                 <p className="text-[#19213D] font-bold text-lg">50+</p>
-                <p className="text-blue-600 text-sm sm:text-base">
+                <p className="text-brand-600 text-sm sm:text-base">
                   Target athlete communities
                 </p>
               </div>
               <div className="flex flex-col gap-1 flex-1">
                 <p className="text-[#19213D] font-bold text-lg">300,000+</p>
-                <p className="text-blue-600 text-sm sm:text-base">
+                <p className="text-brand-600 text-sm sm:text-base">
                   Projected performance insights powered by AI
                 </p>
               </div>
@@ -113,13 +113,13 @@ export default function Products2() {
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex flex-col gap-1 flex-1">
                 <p className="text-[#19213D] font-bold text-lg">100%</p>
-                <p className="text-blue-600 text-sm sm:text-base">
+                <p className="text-brand-600 text-sm sm:text-base">
                   Focused on Unlocking Grassroots Sports Potential
                 </p>
               </div>
               <div className="flex flex-col gap-1 flex-1">
                 <p className="text-[#19213D] font-bold text-lg">1</p>
-                <p className="text-blue-600 text-sm sm:text-base">
+                <p className="text-brand-600 text-sm sm:text-base">
                   Unified Platform for Growth, Recognition & Performance
                 </p>
               </div>
@@ -128,10 +128,10 @@ export default function Products2() {
 
           {/* Coming Soon */}
           <div className="flex items-center gap-2 mt-6">
-            <p className="text-blue-600 text-base sm:text-lg lg:text-xl font-bold uppercase tracking-wide">
+            <p className="text-brand-600 text-base sm:text-lg lg:text-xl font-bold uppercase tracking-wide">
               COMING SOON
             </p>
-            <Rocket className="w-5 h-5 text-[#2388FF]" />
+            <Rocket className="w-5 h-5 text-brand-600" />
           </div>
         </div>
       </div>

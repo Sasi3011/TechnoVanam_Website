@@ -44,7 +44,7 @@ const CursorFollower = () => {
     return (
         <div
             ref={cursorRef}
-            className="fixed top-0 left-0 w-3 h-3 bg-blue-600 rounded-full pointer-events-none z-[999999]"
+            className="fixed top-0 left-0 w-3 h-3 bg-brand-600 rounded-full pointer-events-none z-[999999]"
             style={{
                 top: 0,
                 left: 0,

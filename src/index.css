@@ -1,4 +1,21 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112.5,400;112.5,500;112.5,600;112.5,700;112.5,800&display=swap');
+
+@theme {
+  --color-brand-50: #f1fbea;
+  --color-brand-100: #e2f6d5;
+  --color-brand-200: #c5eda9;
+  --color-brand-300: #a8e47e;
+  --color-brand-400: #8bdb52;
+  --color-brand-500: #71d300;
+  --color-brand-600: #5ba900;
+  --color-brand-700: #457f00;
+  --color-brand-800: #2f5600;
+  --color-brand-900: #1a2c00;
+  --color-brand-950: #0d2702;
+
+  --shadow-brand: 0 4px 15px rgba(113, 211, 0, 0.4);
+}
 
 @font-face {
   font-family: 'MazzardH';
@@ -31,9 +48,14 @@
   animation: jump 2s infinite ease-in-out;
 }
 
+.font-archivo {
+  font-family: 'Archivo', sans-serif;
+  font-stretch: 112.5%;
+}
+
 body {
   font-family: "MazzardH", sans-serif;
-  background-color: #F0F7FF;
+  background-color: #f7fff0;
 }
 
 /* Optional Utility Class: Hide scrollbar when needed */
@@ -82,20 +104,20 @@ header {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #1e40af, #3b82f6, #60a5fa);
-  /* Blue-themed gradient */
+  background: linear-gradient(45deg, #2f5600, #71d300, #a8e47e);
+  /* Green-themed gradient */
   border-radius: 12px;
   border: 3px solid rgba(255, 255, 255, 0.2);
   /* Subtle white border for contrast */
   background-clip: content-box;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(59, 130, 246, 0.5);
-  /* Blue glow */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(113, 211, 0, 0.5);
+  /* Green glow */
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(59, 130, 246, 0.7);
-  /* Enhanced blue glow on hover */
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(113, 211, 0, 0.7);
+  /* Enhanced green glow on hover */
   transform: scale(1.05);
   /* Slight scale-up effect */
 }
@@ -124,8 +146,8 @@ header {
 * {
   scrollbar-width: medium;
   /* Thinner scrollbar */
-  scrollbar-color: #3b82f6 transparent;
-  /* Blue thumb with transparent track */
+  scrollbar-color: #71d300 transparent;
+  /* Green thumb with transparent track */
 }
 
 /* For Firefox */
@@ -155,16 +177,16 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #1e40af, #3b82f6, #60a5fa);
+  background: linear-gradient(45deg, #2f5600, #71d300, #a8e47e);
   border-radius: 12px;
   border: 3px solid rgba(255, 255, 255, 0.2);
   background-clip: content-box;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(59, 130, 246, 0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(113, 211, 0, 0.5);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(59, 130, 246, 0.7);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(113, 211, 0, 0.7);
   transform: scale(1.05);
 }
 
@@ -172,24 +194,10 @@ html {
   animation: pulse 1s infinite;
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-
 /* Firefox scrollbar styles */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #3b82f6 transparent;
+  scrollbar-color: #71d300 transparent;
 }
 
 /* Optional Utility: Hide scrollbar if needed */
@@ -218,6 +226,7 @@ html {
 .animate-bounce-dot {
   animation: bounce-dot 2s infinite;
 }
+
 
 /* @keyframes fadeIn {
   to {

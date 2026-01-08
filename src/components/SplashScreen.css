@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e40af 0%, #60a5fa 100%);
+  background: linear-gradient(135deg, #0d2702 0%, #2f5600 100%);
   background-size: 200% 200%;
   animation: splash-bg-move 6s ease-in-out infinite;
   color: #fff;
@@ -41,9 +41,9 @@
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, #fff 60%, #60a5fa 100%);
+  background: linear-gradient(135deg, #fff 60%, #71d300 100%);
   opacity: 0.95;
-  box-shadow: 0 0 16px 4px #60a5fa, 0 0 32px 8px #1e40af44;
+  box-shadow: 0 0 16px 4px #71d300, 0 0 32px 8px #2f560044;
   animation: splash-bounce 1.2s infinite cubic-bezier(.68, -0.55, .27, 1.55), splash-glow 1.2s infinite alternate;
 }
 
@@ -73,11 +73,11 @@
 
 @keyframes splash-glow {
   0% {
-    box-shadow: 0 0 16px 4px #60a5fa, 0 0 32px 8px #1e40af44;
+    box-shadow: 0 0 16px 4px #71d300, 0 0 32px 8px #2f560044;
   }
 
   100% {
-    box-shadow: 0 0 32px 8px #60a5fa, 0 0 48px 16px #1e40af88;
+    box-shadow: 0 0 32px 8px #71d300, 0 0 48px 16px #2f560088;
   }
 }
 
@@ -86,7 +86,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 16px rgba(30, 64, 175, 0.2), 0 0 32px #60a5fa88;
+  text-shadow: 0 2px 16px rgba(13, 39, 2, 0.2), 0 0 32px #71d30088;
   animation: splash-title-fade 2s ease-in-out;
 }
 
@@ -107,7 +107,7 @@
   font-weight: 400;
   opacity: 0.85;
   letter-spacing: 0.05em;
-  text-shadow: 0 1px 8px #1e40af44;
+  text-shadow: 0 1px 8px #2f560044;
   animation: splash-desc-fade 2.2s 0.5s ease-in-out backwards;
 }
 

@@ -9,7 +9,7 @@ const SplashScreen = () => (
       <div className="splash-dot"></div>
       <div className="splash-dot"></div>
     </div>
-    <h1 className="splash-title">Techno Vanam</h1>
+    <h1 className="splash-title font-archivo">Techno Vanam</h1>
     <p className="splash-desc">Loading your experience...</p>
   </div>
 );

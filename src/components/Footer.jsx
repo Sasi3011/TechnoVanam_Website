@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#F0F7FF] text-[#19213D] pt-20 pb-10 px-6 sm:px-10 lg:px-20">
+    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
@@ -122,7 +122,7 @@ const Footer = () => {
                     <a
                       key={i}
                       href={social.link}
-                      className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 shadow-sm"
+                      className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-brand-600 hover:border-brand-600 hover:text-white transition-all duration-300 shadow-sm"
                     >
                       {social.icon}
                     </a>
@@ -137,12 +137,13 @@ const Footer = () => {
         <div className="relative pt-10 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3 group">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825654/logo_lkfqmn.png"
+              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
               alt="Techno Vanam Logo"
-              className="h-10 w-auto object-contain transition-transform group-hover:rotate-[360deg] duration-1000"
-              loading="lazy"
+              className="w-8 h-8 object-contain"
             />
-            <span className="text-3xl font-bold tracking-tight text-[#19213D]">techno vanam</span>
+            <span className="text-xl font-bold text-brand-950 font-archivo">
+              Techno Vanam
+            </span>
           </div>
 
           <div className="flex items-center gap-4 text-lg font-medium">

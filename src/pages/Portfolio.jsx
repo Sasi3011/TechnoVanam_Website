@@ -34,7 +34,7 @@ const projects = [
       "Upside is the perfect way to earn cash back on over 50,000 locations.",
     link: "/portfolio/upside",
     image: UpsideImage,
-    linkColor: "text-[#2869FF]",
+    linkColor: "text-brand-600",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function Portfolio() {
         <div className="w-full max-w-[1320px] flex flex-col items-center gap-10">
           {/* Header */}
           <div className="w-full max-w-[580px] text-center">
-            <h2 className="text-[42px] leading-[52px] font-bold text-[#19213D]">
+            <h2 className="text-[42px] leading-[52px] font-bold text-brand-950">
               Let’s bring your vision to life
             </h2>
           </div>
@@ -136,7 +136,7 @@ export default function Portfolio() {
 
               {/* Title */}
               <div className="mb-3 w-full max-w-[540px]">
-                <h3 className="text-[32px] leading-[42px] font-bold text-[#19213D]">
+                <h3 className="text-[32px] leading-[42px] font-bold text-brand-950">
                   Ideas deserve more than just code
                 </h3>
               </div>
@@ -150,7 +150,7 @@ export default function Portfolio() {
 
               {/* Button */}
               <Link to="/contact">
-                <button className="flex items-center justify-center gap-1 px-[39px] py-[27px] bg-[#4A3AFF] text-white font-bold text-[18px] rounded-full shadow-[0px_2px_6px_rgba(74,58,255,0.2)] border border-[#4A3AFF] w-[259.81px] h-[72px]">
+                <button className="flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-600 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-600 w-[259.81px] h-[72px]">
                   Let’s Build Together
                   <svg
                     className="w-5 h-5 transform -scale-y-100"
@@ -181,7 +181,7 @@ export default function Portfolio() {
 
               {/* Title */}
               <div className="mb-3 w-full max-w-[540px]">
-                <h3 className="text-[32px] leading-[42px] font-bold text-[#19213D]">
+                <h3 className="text-[32px] leading-[42px] font-bold text-brand-950">
                   You won’t find templates here
                 </h3>
               </div>
@@ -195,7 +195,7 @@ export default function Portfolio() {
 
               {/* Button */}
               <Link to="/contact">
-                <button className="flex items-center justify-center gap-1 px-[39px] py-[27px] bg-[#2388FF] text-white font-bold text-[18px] rounded-full shadow-[0px_2px_6px_rgba(255,45,70,0.15)] border border-[#2388FF] w-[240px] h-[72px]">
+                <button className="flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-600 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-600 w-[240px] h-[72px]">
                   Start Your Journey
                   <svg
                     className="w-5 h-5 transform -scale-y-100"

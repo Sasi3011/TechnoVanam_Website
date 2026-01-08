@@ -41,7 +41,7 @@ const MainLayout = ({ children }) => {
       {/* Fixed Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-[60] w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-500 shadow-2xl hover:scale-110 active:scale-95 hover:bg-blue-700 animate-jump ${showScrollTop ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
+        className={`fixed bottom-8 right-8 z-[60] w-10 h-10 md:w-12 md:h-12 bg-brand-600 text-white rounded-full flex items-center justify-center transition-all duration-500 shadow-2xl hover:scale-110 active:scale-95 hover:bg-brand-700 animate-jump ${showScrollTop ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
           }`}
         aria-label="Scroll to top"
       >

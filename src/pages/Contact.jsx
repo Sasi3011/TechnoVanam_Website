@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 const servicesList = [
   { name: "Web Design", color: "border-red-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/Web_Design_Service_Contact_lbyojo.png" },
   { name: "UI/UX Design", color: "border-green-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/UX_Design_Service_Contact_pxltn3.png" },
-  { name: "Development", color: "border-blue-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825593/Development_Service_Contact_f3lrum.png" },
+  { name: "Development", color: "border-brand-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825593/Development_Service_Contact_f3lrum.png" },
   { name: "Branding", color: "border-yellow-400", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/Branding_Service_Contact_y7thya.png" },
 ];
 
@@ -115,7 +115,7 @@ export default function Contact() {
     <section className="min-h-[calc(100vh-3rem)] flex flex-col pt-6 sm:pt-12 md:pt-16 lg:pt-20 pb-20">
       <div className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8">
         {/* Contact label */}
-        <p className="text-sm sm:text-base md:text-lg text-blue-600 font-semibold uppercase">
+        <p className="text-sm sm:text-base md:text-lg text-brand-600 font-semibold uppercase">
           Contact us
         </p>
 
@@ -168,7 +168,7 @@ export default function Contact() {
                 onChange={(e) => setName(e.target.value)}
                 className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 ${formSubmitted && !name.trim()
                   ? "border-red-500"
-                  : "border-gray-200 hover:border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  : "border-gray-200 hover:border-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
                   }`}
               />
             </div>
@@ -195,7 +195,7 @@ export default function Contact() {
                 onChange={(e) => setEmail(e.target.value)}
                 className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 ${formSubmitted && !email.trim()
                   ? "border-red-500"
-                  : "border-gray-200 hover:border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  : "border-gray-200 hover:border-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
                   }`}
               />
             </div>
@@ -215,7 +215,7 @@ export default function Contact() {
                 placeholder="Enter your company name"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
               />
             </div>
 
@@ -234,7 +234,7 @@ export default function Contact() {
                 placeholder="Enter your website URL"
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
-                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
               />
             </div>
           </div>
@@ -285,7 +285,7 @@ export default function Contact() {
                 (type, index) => (
                   <label
                     key={index}
-                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-gray-300 hover:border-blue-500 cursor-pointer transition-all"
+                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-gray-300 hover:border-brand-500 cursor-pointer transition-all"
                   >
                     <input
                       type="radio"
@@ -293,7 +293,7 @@ export default function Contact() {
                       value={type}
                       checked={projectType === type}
                       onChange={(e) => setProjectType(e.target.value)}
-                      className="form-radio text-blue-600 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-blue-600 hover:border-blue-500"
+                      className="form-radio text-brand-600 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-600 hover:border-brand-500"
                     />
                     <span className="text-xs sm:text-sm md:text-base font-semibold text-gray-700">
                       {type}
@@ -314,7 +314,7 @@ export default function Contact() {
                 (deadlineOption, index) => (
                   <label
                     key={index}
-                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-gray-300 hover:border-blue-500 cursor-pointer transition-all text-xs sm:text-sm md:text-base font-semibold text-gray-700"
+                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-gray-300 hover:border-brand-500 cursor-pointer transition-all text-xs sm:text-sm md:text-base font-semibold text-gray-700"
                   >
                     <input
                       type="radio"
@@ -322,7 +322,7 @@ export default function Contact() {
                       value={deadlineOption}
                       checked={deadline === deadlineOption}
                       onChange={(e) => setDeadline(e.target.value)}
-                      className="form-radio text-blue-600 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-blue-600 hover:border-blue-500"
+                      className="form-radio text-brand-600 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-600 hover:border-brand-500"
                     />
                     {deadlineOption}
                   </label>
@@ -354,7 +354,7 @@ export default function Contact() {
               placeholder="Write here..."
               className={`w-full resize-none px-3 sm:px-4 py-2 sm:py-3 md:py-4 rounded-md border-2 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 ${formSubmitted && message.trim() === ""
                 ? "border-red-500 focus:border-red-500 focus:ring-red-100"
-                : "border-gray-200 hover:border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                : "border-gray-200 hover:border-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
                 }`}
             />
             <div className="text-xs sm:text-sm md:text-base mt-2 text-gray-500">
@@ -366,7 +366,7 @@ export default function Contact() {
           <div className="mt-6 flex justify-center sm:justify-start">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg rounded-full shadow hover:bg-blue-700 transition-all flex items-center gap-2"
+              className="bg-brand-600 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg rounded-full shadow hover:bg-brand-700 transition-all flex items-center gap-2"
             >
               Send message <Send className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>

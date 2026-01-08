@@ -54,15 +54,14 @@ const Header = () => {
             >
               <div className="relative">
                 <img
-                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825654/logo_lkfqmn.png"
+                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
                   alt="Techno Vanam Logo"
-                  className="h-8 sm:h-10 w-auto object-contain relative z-10"
+                  className="h-6 sm:h-8 w-auto object-contain relative z-10"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-blue-400/20 blur-lg rounded-full scale-0 group-hover:scale-150 transition-transform duration-500"></div>
               </div>
               <span
-                className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 leading-none tracking-tight"
+                className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-brand-900 to-gray-900 leading-none tracking-tight font-archivo"
               >
                 Techno Vanam
               </span>
@@ -78,8 +77,8 @@ const Header = () => {
                   to={item.to}
                   className={({ isActive }) =>
                     `relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
-                      ? "text-blue-600 bg-white shadow-sm"
-                      : "text-gray-600 hover:text-blue-600 hover:bg-white/50"
+                      ? "text-brand-600 bg-white shadow-sm"
+                      : "text-gray-600 hover:text-brand-600 hover:bg-white/50"
                     }`
                   }
                 >
@@ -93,7 +92,7 @@ const Header = () => {
           <div className="flex-1 flex justify-end items-center gap-4">
             <Link
               to="/contact"
-              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-blue-600 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-blue-700 lg:hover:shadow-[0_4px_15px_rgba(37,99,235,0.4)] lg:active:scale-95 lg:flex lg:items-center"
+              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-600 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-brand-700 lg:hover:shadow-[0_4px_15px_rgba(113,211,0,0.4)] lg:active:scale-95 lg:flex lg:items-center"
               aria-label="Contact Us"
             >
               <span className="relative z-10">Get in Touch</span>
@@ -126,8 +125,8 @@ const Header = () => {
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${isActive
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      ? "text-brand-600 bg-brand-50"
+                      : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
                     }`
                   }
                 >
@@ -137,7 +136,7 @@ const Header = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="mt-4 w-full py-4 bg-blue-600 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-transform"
+                className="mt-4 w-full py-4 bg-brand-600 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform"
                 aria-label="Contact Us"
               >
                 Get in Touch
