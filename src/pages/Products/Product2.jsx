@@ -23,7 +23,7 @@ export default function Products2() {
         </div>
 
         {/* Heading + Logo */}
-        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4 font-archivo">
           <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
             Products by
           </span>

@@ -82,7 +82,7 @@ const Services = () => {
         <div className="w-full max-w-7xl flex flex-col items-center">
           <div className="w-full flex flex-col items-start gap-4 sm:gap-6">
             <div className="w-full text-left">
-              <p className="text-sm sm:text-base md:text-lg text-brand-600 font-semibold uppercase">
+              <p className="text-sm sm:text-base md:text-lg text-brand-500 font-semibold uppercase">
                 Services
               </p>
               <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mt-2 md:mt-3">
@@ -112,7 +112,7 @@ const Services = () => {
                   {service.name === 'Web Development' ? (
                     <button
                       type="button"
-                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-600 font-bold uppercase tracking-wide hover:text-brand-700 transition-colors duration-200 mt-2"
+                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-500 font-bold uppercase tracking-wide hover:text-brand-600 transition-colors duration-200 mt-2"
                     >
                       Get in touch
                       <span className="text-base sm:text-lg">➔</span>
@@ -120,7 +120,7 @@ const Services = () => {
                   ) : (
                     <Link
                       to="/contact"
-                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-600 font-bold uppercase tracking-wide hover:text-brand-700 transition-colors duration-200 mt-2"
+                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-500 font-bold uppercase tracking-wide hover:text-brand-600 transition-colors duration-200 mt-2"
                     >
                       Get in touch
                       <span className="text-base sm:text-lg">➔</span>

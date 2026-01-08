@@ -1,6 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112.5,400;112.5,500;112.5,600;112.5,700;112.5,800&display=swap');
-
+@import "tailwindcss";
 @theme {
   --color-brand-50: #f1fbea;
   --color-brand-100: #e2f6d5;
@@ -55,7 +54,11 @@
 
 body {
   font-family: "MazzardH", sans-serif;
-  background-color: #f7fff0;
+  background-color: #fbfff7;
+  /* fcfffa fix */
+  /* fdfffb white and green combi (unique) */
+  /* fbfff7 */
+  /* f9fbf7 */
 }
 
 /* Optional Utility Class: Hide scrollbar when needed */

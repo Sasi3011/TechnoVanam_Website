@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20">
+    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20 font-archivo">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}

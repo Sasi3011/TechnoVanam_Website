@@ -34,7 +34,7 @@ const projects = [
       "Upside is the perfect way to earn cash back on over 50,000 locations.",
     link: "/portfolio/upside",
     image: UpsideImage,
-    linkColor: "text-brand-600",
+    linkColor: "text-brand-500",
   },
 ];
 
@@ -150,17 +150,20 @@ export default function Portfolio() {
 
               {/* Button */}
               <Link to="/contact">
-                <button className="flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-600 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-600 w-[259.81px] h-[72px]">
-                  Let’s Build Together
-                  <svg
-                    className="w-5 h-5 transform -scale-y-100"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
-                  </svg>
+                <button className="relative group overflow-hidden flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-500 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-500 w-[259.81px] h-[72px] transition-all hover:bg-brand-600 active:scale-95">
+                  <span className="relative z-10 flex items-center gap-1">
+                    Let’s Build Together
+                    <svg
+                      className="w-5 h-5 transform -scale-y-100"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                 </button>
               </Link>
             </div>
@@ -195,17 +198,20 @@ export default function Portfolio() {
 
               {/* Button */}
               <Link to="/contact">
-                <button className="flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-600 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-600 w-[240px] h-[72px]">
-                  Start Your Journey
-                  <svg
-                    className="w-5 h-5 transform -scale-y-100"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
-                  </svg>
+                <button className="relative group overflow-hidden flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-500 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-500 w-[240px] h-[72px] transition-all hover:bg-brand-600 active:scale-95">
+                  <span className="relative z-10 flex items-center gap-1">
+                    Start Your Journey
+                    <svg
+                      className="w-5 h-5 transform -scale-y-100"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                 </button>
               </Link>
             </div>

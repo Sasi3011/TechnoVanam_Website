@@ -1,30 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Product1 = () => {
-  const navigate = useNavigate();
-
-  const handleLatestReleasesClick = () => {
-    navigate('/product1');
-  };
-
-  const handleWhatWeWorkingOnClick = () => {
-    navigate('/product2');
-  };
-
   return (
-    <div className="flex flex-col items-center pt-8 md:pt-12 lg:pt-16 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8">
+    <div className="flex flex-col items-center pt-16 md:pt-24 lg:pt-32 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8">
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
         {/* Label */}
-        <div className="text-sm md:text-base lg:text-lg text-brand-600 font-semibold uppercase tracking-wider">
-          ~ Products ~
-        </div>
 
         {/* Heading + Logo */}
         <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4">
-          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
+          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-archivo">
             Products by
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
@@ -46,156 +33,101 @@ const Product1 = () => {
         </p>
       </div>
 
-      {/* Tabs */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-4 bg-white border border-[#EBEFF6] shadow-md rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 sm:py-3">
-        <p className="text-black text-lg sm:text-xl font-semibold px-2 sm:px-6 text-center sm:text-left w-full sm:w-auto">
-          Latest Releases
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-end w-full sm:w-auto">
-          <button
-            onClick={handleLatestReleasesClick}
-            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-brand-600 rounded-full shadow-sm text-brand-600 hover:bg-brand-700 hover:text-white transition duration-200 min-w-[140px] sm:min-w-[160px]"
-          >
-            <span className="text-sm sm:text-base font-medium">
-              🌐 Latest Releases
-            </span>
-          </button>
-          <button
-            onClick={handleWhatWeWorkingOnClick}
-            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-[#EBEFF6] rounded-full shadow-sm text-[#868DA6] hover:bg-[#f2f4f8] hover:text-[#2F2F2F] transition duration-200 min-w-[140px] sm:min-w-[160px]"
-          >
-            <span className="text-sm sm:text-base font-medium">
-              🔒 What We're Working On
-            </span>
-          </button>
-        </div>
-      </div>
+      {/* Products Section from Home */}
+      <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 transition-all duration-700 flex flex-col gap-32 w-full max-w-7xl">
+        {/* Athlixir Product Section */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+          {/* Left Content Column */}
+          <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-2 h-2 rounded-full bg-brand-600"></div>
+                <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
+              </div>
 
-      {/* In Progress Section */}
-      <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between bg-brand-50 border border-brand-200 shadow-lg rounded-2xl lg:rounded-[32px] p-6 sm:p-8 lg:pl-10 lg:pr-0 min-h-[400px] lg:h-[480px] gap-6 lg:gap-0">
-        {/* Left Text Block */}
-        <div className="flex flex-col gap-6 sm:gap-8 lg:gap-8 w-full lg:w-[600px] text-justify sm:text-justify md:text-justify lg:text-left">
-          <h2 className="text-brand-600 text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-left">
-            In Progress
-          </h2>
-          <p className="text-[#3B4A68] text-sm sm:text-base lg:text-lg leading-relaxed max-w-none lg:max-w-lg mx-auto lg:mx-0">
-            We're currently building powerful solutions behind the scenes. While we haven't launched any products yet, exciting things are on the way—starting with Athlixir, our AI-powered platform for athlete performance and development.
-          </p>
+              <div className="relative inline-block mb-6 group">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+                  Athlixir
+                </h3>
+                <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
+              </div>
 
-          <>
-            <style>
-              {`
-                @keyframes typing {
-                  0% { width: 0ch }
-                  50% { width: 37ch }
-                  100% { width: 0ch }
-                }
-
-                @keyframes blink {
-                  50% { border-color: transparent }
-                }
-
-                .typing-text {
-                  display: inline-block;
-                  overflow: hidden;
-                  white-space: nowrap;
-                  border-right: 2px solid var(--color-brand-600);
-                  animation:
-                    typing 6s steps(39, end) infinite,
-                    blink 0.7s step-end infinite;
-                }
-
-                /* Mobile view: no animation */
-                @media (max-width: 640px) {
-                  .typing-text {
-                    border-right: none;
-                    animation: none;
-                  }
-                }
-
-                /* Tablet specific typing animation */
-                @media (min-width: 641px) and (max-width: 1024px) {
-                  @keyframes typing-tablet {
-                    0% { width: 0ch }
-                    50% { width: 35ch }
-                    100% { width: 0ch }
-                  }
-
-                  .typing-text {
-                    animation:
-                      typing-tablet 6s steps(37, end) infinite,
-                      blink 0.7s step-end infinite;
-                  }
-                }
-              `}
-            </style>
-
-            <div className="text-brand-600 text-base sm:text-lg lg:text-xl font-bold uppercase leading-relaxed typing-text text-left">
-              <span className="block sm:hidden">Stay tuned</span>
-              <span className="hidden sm:block">Stay tuned — the journey has just begun.</span>
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
+                Athlixir is an AI-powered smart living platform for athletes. It brings performance tracking, injury analysis, and talent recognition into one unified ecosystem — helping 50+ athlete communities grow more intelligently.
+              </p>
             </div>
-          </>
+
+            <div className="flex justify-between items-center mt-auto relative top-32">
+              <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+                Web Design
+              </div>
+              <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+                01
+              </span>
+            </div>
+          </div>
+
+          {/* Right Image/Mockup Column */}
+          <div className="w-full lg:w-[55%] bg-[#F3F4F6] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
+            <div className="relative w-full max-h-full group flex items-center justify-center">
+              <img
+                src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
+                alt="Athlixir Platform Interface"
+                className="w-auto h-auto max-w-full max-h-[300px] lg:max-h-[350px] rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.15)] relative z-10"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Right Image Block */}
-        <div className="flex items-center justify-center w-full lg:w-auto">
-          <img
-            src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
-            alt="Startup Illustration"
-            className="w-full max-w-md sm:max-w-lg lg:w-[600px] h-64 sm:h-80 lg:h-[480px] object-cover rounded-2xl lg:rounded-[32px]"
-            loading="lazy"
-          />
+        {/* Youth Entrepreneurship Section */}
+        <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-14 items-center">
+          {/* Left Content Column (mirrored) */}
+          <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-2 h-2 rounded-full bg-brand-600"></div>
+                <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
+              </div>
+
+              <div className="relative inline-block mb-6 group">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+                  Youth entrepreneurship platform
+                </h3>
+                <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
+              </div>
+
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
+                An interactive ecosystem designed to empower the next generation of leaders. It provides mentorship, resource mapping, and business simulation tools to bridge the gap between education and real-world impact.
+              </p>
+            </div>
+
+            <div className="flex justify-between items-center mt-auto relative top-32">
+              <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+                LMS Platform
+              </div>
+              <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+                02
+              </span>
+            </div>
+          </div>
+
+          {/* Right Image/Mockup Column (mirrored) */}
+          <div className="w-full lg:w-[55%] bg-[#EBEBEB] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
+            <div className="relative w-full max-h-full group flex items-center justify-center">
+              <img
+                src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
+                alt="Platform Interface"
+                className="w-auto h-auto max-w-full max-h-[300px] lg:max-h-[350px] rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.15)] relative z-10"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Spacer */}
       <div className="h-4 sm:h-6 lg:h-8"></div>
-
-      {/* CTA Section - Commented out as in original */}
-      {/* <section className="w-full flex flex-col items-center h-[600px] bg-brand-600">
-        <div className="w-full max-w-7xl flex flex-row items-center justify-between gap-8">
-          
-          <div className="w-1/2 h-[600px]">
-            <video
-              src={SocialMediaImage}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-contain"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <div className="w-1/2 text-white text-left px-8 pt-20 pb-20">
-            <h2 className="text-5xl font-bold leading-tight">
-              Ready to launch something amazing with Techno Vanam?
-            </h2>
-            <p className="text-lg mt-4">
-              Our creative experts are here to design, develop, and deliver high-performing digital experiences tailored to your brand. Let's build something great together.
-            </p>
-            <div className="pt-6 flex justify-start">
-              <Link to="/contact">
-                <button className="flex items-center gap-2 px-7 py-4 bg-white text-brand-600 font-bold text-base rounded-full border-2 shadow-md hover:bg-gray-100 hover:bg-transparent hover:text-white transition">
-                  Contact Us
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    className="w-4 h-4 transform -scale-y-100"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
-                  </svg>
-                </button>
-              </Link>
-            </div>
-          </div>
-
-        </div>
-      </section> */}
     </div>
   );
 };

@@ -37,8 +37,8 @@ const PrivacyPolicy = () => {
                     className="mb-16"
                 >
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-2 h-2 rounded-full bg-brand-600"></div>
-                        <span className="text-brand-600 text-sm font-bold uppercase tracking-widest">Privacy Policy</span>
+                        <div className="w-2 h-2 rounded-full bg-brand-500"></div>
+                        <span className="text-brand-500 text-sm font-bold uppercase tracking-widest">Privacy Policy</span>
                     </div>
                     <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
                         Your privacy is <br /> our priority.
@@ -59,7 +59,7 @@ const PrivacyPolicy = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="flex flex-col sm:flex-row gap-6 sm:gap-10"
                         >
-                            <div className="w-12 h-12 shrink-0 rounded-2xl bg-white border border-brand-100 flex items-center justify-center text-brand-600 shadow-sm">
+                            <div className="w-12 h-12 shrink-0 rounded-2xl bg-white border border-brand-100 flex items-center justify-center text-brand-500 shadow-sm">
                                 <section.icon size={24} />
                             </div>
                             <div className="flex-1">
@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
                 >
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+                            <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-500">
                                 <Bell size={20} />
                             </div>
                             <p className="text-sm text-gray-400 font-medium">
@@ -91,7 +91,7 @@ const PrivacyPolicy = () => {
 
                         <a
                             href="mailto:official@technovanam.com"
-                            className="flex items-center gap-3 text-gray-900 font-bold hover:text-brand-600 transition-colors"
+                            className="flex items-center gap-3 text-gray-900 font-bold hover:text-brand-500 transition-colors"
                         >
                             <Mail size={18} />
                             official@technovanam.com

@@ -115,7 +115,7 @@ export default function Contact() {
     <section className="min-h-[calc(100vh-3rem)] flex flex-col pt-6 sm:pt-12 md:pt-16 lg:pt-20 pb-20">
       <div className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8">
         {/* Contact label */}
-        <p className="text-sm sm:text-base md:text-lg text-brand-600 font-semibold uppercase">
+        <p className="text-sm sm:text-base md:text-lg text-brand-500 font-semibold uppercase">
           Contact us
         </p>
 
@@ -293,7 +293,7 @@ export default function Contact() {
                       value={type}
                       checked={projectType === type}
                       onChange={(e) => setProjectType(e.target.value)}
-                      className="form-radio text-brand-600 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-600 hover:border-brand-500"
+                      className="form-radio text-brand-500 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-500 hover:border-brand-500"
                     />
                     <span className="text-xs sm:text-sm md:text-base font-semibold text-gray-700">
                       {type}
@@ -322,7 +322,7 @@ export default function Contact() {
                       value={deadlineOption}
                       checked={deadline === deadlineOption}
                       onChange={(e) => setDeadline(e.target.value)}
-                      className="form-radio text-brand-600 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-600 hover:border-brand-500"
+                      className="form-radio text-brand-500 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-500 hover:border-brand-500"
                     />
                     {deadlineOption}
                   </label>
@@ -366,9 +366,12 @@ export default function Contact() {
           <div className="mt-6 flex justify-center sm:justify-start">
             <button
               type="submit"
-              className="bg-brand-600 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg rounded-full shadow hover:bg-brand-700 transition-all flex items-center gap-2"
+              className="relative group overflow-hidden bg-brand-500 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg rounded-full shadow hover:bg-brand-600 active:scale-95 transition-all flex items-center gap-2"
             >
-              Send message <Send className="w-4 sm:w-5 h-4 sm:h-5" />
+              <span className="relative z-10 flex items-center gap-2">
+                Send message <Send className="w-4 sm:w-5 h-4 sm:h-5" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
             </button>
           </div>
         </form>

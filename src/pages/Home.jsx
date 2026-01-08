@@ -8,8 +8,6 @@ import {
 import Testimonials from "../components/Testimonials";
 import HomeContact from "../components/HomeContact";
 
-
-
 const steps = [
   {
     id: 1,
@@ -377,12 +375,12 @@ const Home = () => {
             </p>
             <Link
               to="/contact"
-              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-brand-100 font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
+              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-[#194700] font-semibold text-white rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 active:scale-95 shadow-sm"
             >
-              <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-              <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                Request a quote <span className="text-2xl">👋</span>
+              <span className="relative z-10">
+                Request a quote <span className="text-2xl ml-1">👋</span>
               </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
             </Link>
           </div>
         </div>
@@ -453,8 +451,8 @@ const Home = () => {
           <div className="w-full lg:w-1/3 flex flex-col justify-between">
             {/* Top Label */}
             <div className="flex items-center gap-3 mb-8 lg:mb-7">
-              <div className="w-2 h-2 rounded-full bg-black"></div>
-              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-black tracking-wide">Who we are</span>
+              <div className="w-2 h-2 rounded-full bg-[#71d300]"></div>
+              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-[#71d300] tracking-wide">Who we are</span>
             </div>
 
             {/* Showreel Card */}
@@ -509,7 +507,7 @@ const Home = () => {
 
           {/* Right Column */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center ml-35">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#71d300] mb-6 leading-tight">
               We are design-first creative studio
             </h2>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
@@ -521,18 +519,10 @@ const Home = () => {
 
             <Link
               to="/about"
-              className="inline-flex items-center gap-3 bg-black text-white px-8 py-3.5 rounded-full w-fit hover:bg-gray-800 transition-all duration-300 group"
+              className="relative group overflow-hidden inline-flex items-center gap-3 bg-brand-500 text-white px-8 py-3.5 rounded-full w-fit transition-all duration-300 hover:bg-brand-600 active:scale-95"
             >
-              <span className="font-medium">About us</span>
-              <div className="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center group-hover:border-white transition-colors">
-                {/* Small stylized wave icon inside button */}
-                <div className="flex gap-[2px] items-center h-2">
-                  <div className="w-[1.5px] h-full bg-white rounded-full"></div>
-                  <div className="w-[1.5px] h-[60%] bg-white rounded-full"></div>
-                  <div className="w-[1.5px] h-[80%] bg-white rounded-full"></div>
-                  <div className="w-[1.5px] h-[40%] bg-white rounded-full"></div>
-                </div>
-              </div>
+              <span className="relative z-10 font-medium">About us</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
             </Link>
           </div>
         </div>
@@ -785,9 +775,10 @@ const Home = () => {
             <div className="flex justify-center">
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300"
+                className="relative group overflow-hidden inline-flex items-center justify-center px-8 py-3.5 bg-brand-500 text-white rounded-full font-medium transition-all duration-300 hover:bg-brand-600 active:scale-95"
               >
-                All Services
+                <span className="relative z-10">All Services</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
               </Link>
             </div>
 
@@ -929,13 +920,13 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row gap-85 lg:gap-145 mb-20 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
-              <div className="w-2 h-2 rounded-full bg-brand-600 mt-2.5"></div>
-              <span className="text-brand-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">Our Products</span>
+              <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
+              <span className="text-brand-500 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">Our Products</span>
             </div>
 
             {/* Right: Main Heading */}
             <div className="">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1] font-archivo">
                 Products by <br />
                 <span className="text-gray-400">Techno Vanam</span>
               </h2>
@@ -1037,13 +1028,13 @@ const Home = () => {
             <div className="flex justify-center pt-8 border-t border-gray-100">
               <Link
                 to="/portfolio"
-                className="group relative px-8 py-3.5 bg-brand-100 text-black rounded-full font-bold text-base overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-sm"
+                className="group relative px-8 py-3.5 bg-brand-500 text-white rounded-full font-bold text-base overflow-hidden transition-all duration-500 hover:bg-brand-600 active:scale-95 shadow-sm"
               >
-                <div className="absolute inset-0 bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+                <span className="relative z-10 flex items-center gap-2">
                   All Products
                   <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform duration-500" />
                 </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
               </Link>
             </div>
           </div>
