@@ -1,9 +1,8 @@
-import React from "react";
+import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import HighClassPopup from '../components/HighClassPopup';
-import { useState } from 'react';
-import { ArrowDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowDown, ArrowLeft, ArrowRight, Plus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const servicesList = [
   {
@@ -92,8 +91,139 @@ const industriesList = [
   },
 ];
 
+const testimonials = [
+  {
+    text: "Eloqwnt crushed it with the UX/UI for our planet9 app. Super sleek, intuitive, and on-point—exactly what we needed. If youre all about next-level design and perfection, theyre the ones to call!",
+    name: "Ganjina Oripova",
+    role: "Co-Founder at Planet9",
+    image: "https://i.pravatar.cc/150?u=ganjina",
+    linkedin: "#"
+  },
+  {
+    text: "The work was great, it was done in a timely basis, and Eloqwnt was very easy & flexible to work with. We had hugely positively responses from the community after the rebrand.",
+    name: "Steven Pu",
+    role: "CEO, Taraxa",
+    image: "https://i.pravatar.cc/150?u=steven",
+    linkedin: "#"
+  },
+  {
+    text: "All deliverables were completed on time, and positive feedback was received during focus group sessions. Eloqwnt was thorough — they went through each task in detail to ensure everything aligned with the client's vision. Their efficiency and commitment to quality were evident throughout the project.",
+    name: "Juan Paolo Legaspi",
+    role: "Managing Director, Fractal",
+    image: "https://i.pravatar.cc/150?u=juan",
+    linkedin: "#"
+  },
+  {
+    text: "Working with the team has been a game-changer for our digital presence. Their attention to detail and creative approach to problem-solving is truly unmatched in the industry today.",
+    name: "Sarah Chen",
+    role: "Product Lead, TechFlow",
+    image: "https://i.pravatar.cc/150?u=sarah",
+    linkedin: "#"
+  }
+];
+
+const faqData = {
+  left: [
+    {
+      question: "Do you offer revisions?",
+      answer: "Yes, we offer multiple rounds of revisions to ensure the final design aligns perfectly with your vision and goals."
+    },
+    {
+      question: "What do you need from me to start the project?",
+      answer: "We typically need your brand guidelines, project goals, any specific content or assets, and a clear understanding of your target audience."
+    },
+    {
+      question: "How long does it take to design a website?",
+      answer: "A standard website design project usually takes between 4 to 8 weeks, depending on complexity and the scope of work."
+    },
+    {
+      question: "What is user experience (UX) design?",
+      answer: "UX design is the process of creating products that provide meaningful and relevant experiences to users, focusing on usability and accessibility."
+    },
+    {
+      question: "How can I optimize my website's speed?",
+      answer: "We optimize speed through code minification, image compression, efficient hosting, and implementing modern performance best practices."
+    }
+  ],
+  right: [
+    {
+      question: "How long does branding take?",
+      answer: "A comprehensive branding project typically takes 3 to 6 weeks, covering research, identity design, and brand collateral."
+    },
+    {
+      question: "What industries do you specialize in?",
+      answer: "We specialize in SaaS, Tech Startups, E-commerce, and Creative Agencies, but we work with various industries looking for premium design."
+    },
+    {
+      question: "How can my website enhance my branding?",
+      answer: "Your website is your digital storefront; a cohesive design reinforces your brand identity and builds trust with your audience."
+    },
+    {
+      question: "What is a content management system (CMS)?",
+      answer: "A CMS is a software application that allows users to create, manage, and modify content on a website without needing specialized technical knowledge."
+    },
+    {
+      question: "Why is website design important?",
+      answer: "Good design improves user engagement, boosts credibility, helps with SEO, and ultimately drives better business results."
+    }
+  ]
+};
+
+const FAQItem = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-t border-gray-200">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between py-8 text-left group"
+      >
+        <span className="text-xl sm:text-2xl font-medium text-gray-900 pr-8 group-hover:text-brand-600 transition-colors">
+          {question}
+        </span>
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-black text-white rotate-45' : 'bg-[#ecf1f4] text-black'}`}>
+          <Plus className="w-6 h-6" />
+        </div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <p className="text-gray-600 text-lg pb-8 leading-relaxed max-w-2xl">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const Services = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const scrollRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+      setScrollProgress(progress);
+    }
+  };
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      const scrollAmount = direction === 'left' ? -clientWidth : clientWidth;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const scrollToServices = () => {
     const section = document.getElementById('services-list');
@@ -308,6 +438,161 @@ const Services = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Clients Section */}
+      <section className="w-full bg-[#ecf1f4] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col gap-16">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-black"></div>
+            <span className="text-sm font-semibold text-black uppercase tracking-wider">Our clients</span>
+          </div>
+
+          <div className="relative group/nav">
+            <div
+              ref={scrollRef}
+              onScroll={handleScroll}
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  className="min-w-full sm:min-w-[450px] lg:min-w-[500px] bg-white rounded-[2rem] p-10 flex flex-col justify-between h-[500px] snap-start shadow-sm"
+                >
+                  <p className="text-gray-900 text-xl sm:text-xl leading-relaxed font-medium">
+                    {t.text}
+                  </p>
+
+                  <div className="flex items-center justify-between mt-8">
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="w-14 h-14 rounded-full object-cover"
+                      />
+                      <div>
+                        <h4 className="text-gray-900 font-bold text-lg">{t.name}</h4>
+                        <p className="text-gray-500 font-medium">{t.role}</p>
+                      </div>
+                    </div>
+                    {t.linkedin && (
+                      <a
+                        href={t.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                      >
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Progress Bar and Controls */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mt-4">
+              <div className="w-full sm:w-[60%] h-[2px] bg-gray-200 relative overflow-hidden">
+                <div
+                  className="absolute top-0 left-0 h-full bg-black transition-all duration-300"
+                  style={{ width: `${scrollProgress}%` }}
+                />
+              </div>
+
+              <div className="flex gap-4">
+                <button
+                  onClick={() => scroll('left')}
+                  className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => scroll('right')}
+                  className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="w-full bg-white py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col gap-12 mb-20 px-8 sm:px-12 md:px-16 lg:px-0">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-black"></div>
+              <span className="text-sm font-semibold text-black uppercase tracking-wider">FAQ</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black leading-tight">
+              Frequently<br />Asked Questions
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-20 px-4 sm:px-8 md:px-12 lg:px-0">
+            <div className="flex flex-col">
+              {faqData.left.map((item, index) => (
+                <FAQItem key={index} {...item} />
+              ))}
+            </div>
+            <div className="flex flex-col border-b border-gray-200 lg:border-none">
+              {faqData.right.map((item, index) => (
+                <FAQItem key={index} {...item} />
+              ))}
+              <div className="hidden lg:block border-t border-gray-200"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="w-full bg-[#ecf1f4] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-white rounded-[40px] px-8 sm:px-12 md:px-16 py-16 sm:py-20 lg:py-24 flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-black"></div>
+              <span className="text-sm font-semibold text-black uppercase tracking-wider">Interested?</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black leading-tight max-w-sm">
+              Let's work together!
+            </h2>
+          </div>
+
+          {/* Right Content */}
+          <div className="max-w-xl space-y-12">
+            <p className="text-gray-900 text-xl sm:text-2xl leading-relaxed font-medium">
+              Let's bring your vision to life and transform your ideas into a powerful, unforgettable brand that drives growth and success!
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="group relative inline-block px-8 py-4 bg-brand-100 font-medium text-black rounded-full text-lg overflow-hidden shadow-sm"
+              >
+                <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                  Schedule a call <span className="text-2xl">👋</span>
+                </span>
+              </Link>
+              <Link
+                to="/pricing"
+                className="group relative inline-block px-8 py-4 bg-white border border-gray-200 font-medium text-black rounded-full text-lg overflow-hidden shadow-sm"
+              >
+                <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                  Get pricing info <span className="text-2xl">💸</span>
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
