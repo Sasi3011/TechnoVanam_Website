@@ -64,6 +64,13 @@ const coreOfferings = [
   { id: "08", name: "Webflow Development", desc: "Functional, interactive, and high-performance websites built on Webflow for maximum speed and creative flexibility." },
 ];
 
+const stats = [
+  { id: "01", value: "100+", label: "Projects Completed" },
+  { id: "02", value: "98%", label: "Client Satisfaction Rate" },
+  { id: "03", value: "25+", label: "Experts In Our Team" },
+  { id: "04", value: "8/10", label: "Clients Return For More" },
+];
+
 const industriesList = [
   {
     labelColor: "text-brand-500",
@@ -223,6 +230,86 @@ const Services = () => {
             transform: rotateY(180deg);
           }
         `}</style>
+      </section>
+
+      {/* Expertise Section */}
+      <section className="w-full bg-[#ecf1f4] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-white rounded-[40px] px-8 sm:px-12 md:px-12  flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          {/* Left Content */}
+          <div className="w-full lg:w-1/2 space-y-8 py-8 sm:py-12 md:py-16">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
+              <span className="text-sm font-semibold text-black tracking-wider">Expertise</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl md:text-4xl font-medium text-black leading-tight">
+              We solve real problems
+            </h2>
+
+            <p className="text-gray-600 text-[17px] leading-relaxed max-w-xl mb-40">
+              We combine years of expertise in UX/UI, Motion design, Webflow development, and Web design to build high-performance digital experiences that not only look great but drive engagement and results for our clients.
+            </p>
+
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#ecf1f4] text-black rounded-full font-medium hover:bg-gray-200 transition-colors"
+            >
+              Let's talk 👋
+            </Link>
+          </div>
+
+          {/* Right Content - Video Placeholder */}
+          <div className="w-[65%] aspect-video bg-black rounded-[32px] overflow-hidden py-0 h-[500px]">
+            {/* Future video will go here */}
+          </div>
+        </div>
+      </section>
+
+      {/* Numbers Section */}
+      <section className="w-full bg-[#ecf1f4] pb-24 sm:pb-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-white rounded-[40px] px-8 sm:px-12 md:px-16 py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          {/* Left Content */}
+          <div className="w-full lg:w-1/2 space-y-4 pb-32">
+            <div className="flex items-center gap-2 pb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
+              <span className="text-sm font-medium text-black tracking-wider leading-none">What makes us different?</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl md:text-5xl font-medium text-black leading-tight">
+              Eloqwnt<br />
+              In Numbers
+            </h2>
+
+            <p className="text-gray-600 text-[17px] leading-relaxed max-w-md">
+              Design is more than aesthetics—it's about measurable impact. Here's how we make a difference.
+            </p>
+
+            <div className="pt-4">
+              <Link
+                to="/contact"
+                className="group relative inline-block px-4 sm:px-6 py-2 sm:py-3 bg-brand-100 font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
+              >
+                <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                  Let's talk <span className="text-2xl">👋</span>
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Content - Stats Grid */}
+          <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {stats.map((stat) => (
+              <div key={stat.id} className="bg-[#ecf1f4] rounded-[2rem] p-6 flex flex-col justify-between h-[240px] relative group border border-transparent hover:border-brand-200 transition-colors duration-300">
+                <span className="absolute top-8 right-8 text-sm font-medium text-gray-400 group-hover:text-gray-600 transition-colors">{stat.id}</span>
+                <div className="mt-auto space-y-2">
+                  <h3 className="text-5xl font-medium text-gray-900 leading-none">{stat.value}</h3>
+                  <p className="text-gray-600 font-medium leading-tight pr-4">{stat.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Capabilities Detail Section */}
