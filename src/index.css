@@ -53,9 +53,16 @@
   font-stretch: 112.5%;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "MazzardH", sans-serif;
-  background-color: #f7fff0;
+  background-color: white;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Optional Utility Class: Hide scrollbar when needed */
@@ -81,95 +88,18 @@ html {
 /* Exclude scrollbar styling from header */
 header::-webkit-scrollbar {
   display: none;
-  /* Hide scrollbar in header for WebKit browsers */
 }
 
 header {
   -ms-overflow-style: none;
-  /* IE/Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
-
-/* WebKit Browsers (Chrome, Safari, Edge Chromium) */
-::-webkit-scrollbar {
-  width: 20px;
-  /* Increased width */
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-  /* Fully transparent track */
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #2f5600, #71d300, #a8e47e);
-  /* Green-themed gradient */
-  border-radius: 12px;
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  /* Subtle white border for contrast */
-  background-clip: content-box;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(113, 211, 0, 0.5);
-  /* Green glow */
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(113, 211, 0, 0.7);
-  /* Enhanced green glow on hover */
-  transform: scale(1.05);
-  /* Slight scale-up effect */
-}
-
-/* Custom animation for scrollbar thumb */
-@keyframes pulse {
-  0% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-
-::-webkit-scrollbar-thumb:active {
-  animation: pulse 1s infinite;
-  /* Pulsing effect when active */
-}
-
-/* Firefox Support */
-* {
-  scrollbar-width: medium;
-  /* Thinner scrollbar */
-  scrollbar-color: #71d300 transparent;
-  /* Green thumb with transparent track */
-}
-
-/* For Firefox */
-body,
-* {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE 10+ */
-}
-
-/* Smooth Scroll for anchor links and navigation */
-html {
-  scroll-behavior: smooth;
-}
-
-/* ======= CUSTOM SCROLLBAR STYLES ======= */
 
 /* WebKit Browsers (Chrome, Safari, Edge Chromium) */
 ::-webkit-scrollbar {
   width: 12px;
   height: 8px;
+  /* Safe height for horizontal scrollbar if it ever appears */
 }
 
 ::-webkit-scrollbar-track {
@@ -194,10 +124,15 @@ html {
   animation: pulse 1s infinite;
 }
 
-/* Firefox scrollbar styles */
+/* Firefox support */
 * {
-  scrollbar-width: auto;
+  scrollbar-width: thin;
   scrollbar-color: #71d300 transparent;
+}
+
+/* Force hide horizontal scrollbar even if content overflows slightly */
+body {
+  scrollbar-gutter: stable;
 }
 
 /* Optional Utility: Hide scrollbar if needed */

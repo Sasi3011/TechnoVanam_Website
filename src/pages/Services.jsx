@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HighClassPopup from '../components/HighClassPopup';
 import { useState } from 'react';
+import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 const servicesList = [
   {
@@ -51,6 +53,17 @@ const servicesList = [
   },
 ];
 
+const coreOfferings = [
+  { id: "01", name: "Website Design", desc: "We design stunning, responsive websites that elevate your online presence and create seamless experiences across all devices." },
+  { id: "02", name: "Branding", desc: "We craft unique visual identities, logos, and messaging to build recognition, trust, and long-term success." },
+  { id: "03", name: "UX/UI", desc: "From wireframes to final UI, we design intuitive, attractive apps that enhance usability and connect deeply with your users." },
+  { id: "04", name: "Motion Design", desc: "Engaging animations and cinematic motion graphics that bring your brand story to life through dynamic storytelling." },
+  { id: "05", name: "SEO", desc: "Strategic search engine optimization to boost your organic rankings, drive targeted traffic, and grow your digital footprint." },
+  { id: "06", name: "Content Creation", desc: "Compelling brand storytelling through premium copy, visuals, and digital assets designed to resonate with your audience." },
+  { id: "07", name: "Landing Page", desc: "High-converting, performance-focused landing pages designed to turn visitors into loyal customers with precision." },
+  { id: "08", name: "Webflow Development", desc: "Functional, interactive, and high-performance websites built on Webflow for maximum speed and creative flexibility." },
+];
+
 const industriesList = [
   {
     labelColor: "text-brand-500",
@@ -75,23 +88,147 @@ const industriesList = [
 const Services = () => {
   const [showPopup, setShowPopup] = useState(false);
 
+  const scrollToServices = () => {
+    const section = document.getElementById('services-list');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      {/* Services Section */}
-      <section className="w-full flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
-        <div className="w-full max-w-7xl flex flex-col items-center">
-          <div className="w-full flex flex-col items-start gap-4 sm:gap-6">
-            <div className="w-full text-left">
-              <p className="text-sm sm:text-base md:text-lg text-brand-600 font-semibold uppercase">
-                Services
-              </p>
-              <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mt-2 md:mt-3">
-                What we do
-              </h2>
-              <p className="text-gray-500 mt-3 md:mt-4 text-sm sm:text-base md:text-lg leading-relaxed">
-                At Technovanam, our end-to-end design and development services are crafted to empower your business, enhance your digital presence, and drive growth. We blend smart strategy, modern technology, and user-focused design to elevate your brand and help you thrive in today's competitive landscape.
-              </p>
+      {/* Hero Section */}
+      <section className="w-full h-[100vh] flex flex-col items-center justify-center bg-white ">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-6xl font-medium text-gray-900 tracking-tight font-archivo pb-18"
+          >
+            Explore Our Services
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-lg sm:text-xl md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium mt-20 mb-0"
+          >
+            Solutions to help your brand<br /> stand out and grow
+          </motion.p>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="absolute bottom-25 left-1/2 -translate-x-1/2"
+        >
+          <button
+            onClick={scrollToServices}
+            className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform duration-300 shadow-lg group"
+            aria-label="Scroll to services"
+          >
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
+          </button>
+        </motion.div>
+      </section>
+
+      {/* Core Creative Offerings Section */}
+      <section className="w-full bg-[#f8fafc] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
+              <span className="text-sm font-semibold text-black uppercase tracking-wider">Our Services</span>
             </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black max-w-2xl leading-tight">
+              Our Core Creative Offerings
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {coreOfferings.map((service, index) => (
+              <div key={service.id} className="group h-[320px] perspective-1000">
+                <div className="flip-card-inner rounded-[2rem]">
+                  {/* Card Front */}
+                  <div className="flip-card-front bg-gray-50/50 border border-gray-100 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-50">
+                    <div className="flex justify-between items-start">
+                      <motion.span
+                        initial={{ fontSize: "1.5rem" }}
+                        whileInView={{ fontSize: "3.75rem" }}
+                        transition={{ duration: 0.7, ease: "easeInOut", delay: index * 0.05 }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        className="font-black text-brand-100 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block origin-left"
+                      >
+                        {service.id}
+                      </motion.span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors">
+                        {service.name}
+                      </h3>
+                      <div className="w-8 h-1 bg-brand-600/20 mt-4 group-hover:w-16 group-hover:bg-brand-600 transition-all duration-500"></div>
+                    </div>
+                  </div>
+
+                  {/* Card Back */}
+                  <div className="flip-card-back bg-brand-600 p-8 flex flex-col justify-between text-left">
+                    <div className="flex flex-col gap-2">
+                      <span className="text-4xl font-black text-brand-200/50">
+                        {service.id}
+                      </span>
+                      <h4 className="text-white text-2xl font-bold">
+                        {service.name}
+                      </h4>
+                    </div>
+
+                    <div className="flex flex-col gap-6">
+                      <p className="text-brand-50 text-sm leading-relaxed font-medium">
+                        {service.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style>{`
+          .perspective-1000 {
+            perspective: 1000px;
+          }
+          .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+          }
+          .group:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+          .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+          }
+          .flip-card-back {
+            transform: rotateY(180deg);
+          }
+        `}</style>
+      </section>
+
+      {/* Capabilities Detail Section */}
+      <section className="w-full flex flex-col items-center py-24 px-4 sm:px-6 md:px-8 bg-white" id="services-list">
+        <div className="w-full max-w-7xl flex flex-col items-center">
+          <div className="w-full flex flex-col items-start gap-12 sm:gap-20">
 
             {servicesList.map((service, index) => (
               <div
