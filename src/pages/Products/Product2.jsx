@@ -29,7 +29,7 @@ export default function Products2() {
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+              src="/Logo.png"
               alt="Logo"
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
               loading="lazy"

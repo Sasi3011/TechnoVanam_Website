@@ -4,11 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const Product1 = () => {
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col items-center pt-16 md:pt-24 lg:pt-32 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8">
-=======
     <div className="flex flex-col items-center pt-24 md:pt-32 lg:pt-40 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8">
->>>>>>> 881fb2f450c116d05bbbc1f4c6d05e91dc2b9f32
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
         {/* Label */}
@@ -20,7 +16,7 @@ const Product1 = () => {
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+              src="/Logo.png"
               alt="Logo"
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
               loading="lazy"

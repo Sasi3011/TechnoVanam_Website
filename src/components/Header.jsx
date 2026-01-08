@@ -122,7 +122,7 @@ const Header = () => {
             >
               <div className="relative">
                 <img
-                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+                  src="/Logo.png"
                   alt="Techno Vanam Logo"
                   className="h-6 sm:h-8 w-auto object-contain relative z-10"
                   loading="lazy"
@@ -138,23 +138,6 @@ const Header = () => {
 
           {/* Center: Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center items-center">
-<<<<<<< HEAD
-            <div className="flex items-center bg-[#fafafa] rounded-full p-1 border border-white/20">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
-                      ? "text-brand-600 bg-white shadow-sm"
-                      : "text-gray-600 hover:text-brand-600 hover:bg-white/50"
-                    }`
-                  }
-                >
-                  {item.name}
-                </NavLink>
-              ))}
-=======
             <div className="flex items-center bg-gray-100/50 rounded-full p-1 border border-white/20">
               {navItems.map((item) => {
                 if (item.name === "Services") {
@@ -313,7 +296,6 @@ const Header = () => {
                   </NavLink>
                 );
               })}
->>>>>>> 881fb2f450c116d05bbbc1f4c6d05e91dc2b9f32
             </div>
           </nav>
 

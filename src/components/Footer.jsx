@@ -137,7 +137,7 @@ const Footer = () => {
         <div className="relative pt-10 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3 group">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+              src="/Logo.png"
               alt="Techno Vanam Logo"
               className="w-8 h-8 object-contain"
             />

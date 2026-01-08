@@ -234,22 +234,6 @@ const Services = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* Services Section */}
-      <section className="w-full flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
-        <div className="w-full max-w-7xl flex flex-col items-center">
-          <div className="w-full flex flex-col items-start gap-4 sm:gap-6">
-            <div className="w-full text-left">
-              <p className="text-sm sm:text-base md:text-lg text-brand-500 font-semibold uppercase">
-                Services
-              </p>
-              <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mt-2 md:mt-3">
-                What we do
-              </h2>
-              <p className="text-gray-500 mt-3 md:mt-4 text-sm sm:text-base md:text-lg leading-relaxed">
-                At Technovanam, our end-to-end design and development services are crafted to empower your business, enhance your digital presence, and drive growth. We blend smart strategy, modern technology, and user-focused design to elevate your brand and help you thrive in today's competitive landscape.
-              </p>
-=======
       {/* Hero Section */}
       <section className="w-full h-[100vh] flex flex-col items-center justify-center bg-white ">
         <div className="max-w-7xl mx-auto text-center">
@@ -296,7 +280,6 @@ const Services = () => {
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
               <span className="text-sm font-semibold text-black uppercase tracking-wider">Our Services</span>
->>>>>>> 881fb2f450c116d05bbbc1f4c6d05e91dc2b9f32
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black max-w-2xl leading-tight">
               Our Core Creative Offerings
