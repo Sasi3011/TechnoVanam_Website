@@ -367,7 +367,7 @@ const Home = () => {
             <p className="text-[#71d300] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
             </p>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight">
               Your trusted creative partner
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
@@ -478,7 +478,7 @@ const Home = () => {
 
           {/* Right Column */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] mb-6 leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] mb-6 leading-tight">
               We are design-first creative studio
             </h2>
             <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
@@ -519,7 +519,7 @@ const Home = () => {
 
               {/* Right: Main Heading */}
               <div className="lg:col-span-8 pl-40">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
                   We create solutions but most importantly we identify problems.
                 </h2>
               </div>
@@ -776,8 +776,8 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-8 pl-52">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-brand-500 leading-tight">
+              <div className="lg:col-span-8 pl-80">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-brand-500 leading-tight">
                   We guide you through <br />
                   <span className="text-brand-500">every step of the way</span>
                 </h2>
@@ -899,8 +899,8 @@ const Home = () => {
             </div>
 
             {/* Right: Main Heading */}
-            <div className="lg:col-span-8 pl-72">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] font-archivo">
+            <div className="lg:col-span-8 pl-90">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-[1.1] font-archivo">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
               </h2>
