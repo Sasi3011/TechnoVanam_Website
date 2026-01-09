@@ -66,7 +66,7 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="bg-[#f7fff0] py-24 w-full overflow-hidden">
+        <section className="bg-[#fdfffb] py-24 w-full overflow-hidden">
             {/* Header */}
             <div className="flex items-center gap-3 mb-10 px-8 sm:px-16 md:px-24 text-brand-600">
                 <div className="w-2 h-2 rounded-full bg-brand-600" />

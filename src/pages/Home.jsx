@@ -241,7 +241,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+    <div className="min-h-screen w-full max-w-full overflow-hidden">
       {/* Inline styles with responsive adjustments */}
       <style>
         {`
@@ -361,7 +361,7 @@ const Home = () => {
       </style>
 
       {/* Hero Section - Fully Responsive */}
-      <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden min-h-[calc(100vh-3rem)]">
+      <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100vh]">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center max-w-5xl mx-auto">
             <p className="text-[#71d300] text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
@@ -375,12 +375,12 @@ const Home = () => {
             </p>
             <Link
               to="/contact"
-              className="group relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-[#194700] font-semibold text-white rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 active:scale-95 shadow-sm"
+              className="btn-primary"
             >
               <span className="relative z-10">
                 Request a quote <span className="text-2xl ml-1">👋</span>
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+              <div className="btn-primary-shine"></div>
             </Link>
           </div>
         </div>
@@ -445,8 +445,8 @@ const Home = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="bg-transparent pt-32 pb-16 px-4 sm:px-6 md:px-8 lg:px-8">
-        <div className="max-w-7xl mx-auto bg-white rounded-[40px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20">
+      <section className="bg-transparent py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
+        <div className="max-w-7xl mx-auto bg-white rounded-[40px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20 border border-gray-100 shadow-sm">
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col justify-between">
             {/* Top Label */}
@@ -456,57 +456,29 @@ const Home = () => {
             </div>
 
             {/* Showreel Card */}
-            <div className="bg-gray-100 rounded-3xl p-4 mt-auto">
-              {/* White Inner Card */}
-              <div className="bg-white rounded-2xl w-full aspect-[4/3] flex items-center justify-center p-6 mb-4 shadow-sm relative group cursor-pointer overflow-hidden transition-all hover:shadow-md">
-                {/* Video Background */}
-                <video
-                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src="/path-to-your-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+            {/* Logo Card */}
+            <div className="bg-brand-50 rounded-3xl p-4 mt-auto border border-brand-100/50">
+              {/* White Inner Card with Logo */}
+              <div className="bg-[#0d2702] rounded-2xl w-full aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 hover:shadow-md border border-gray-50">
+                <img
+                  src="/Logo.png"
+                  alt="Techno Vanam Logo"
+                  className="w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                />
 
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-6 h-6 text-white fill-current " viewBox="0 0 24 24">
-                      <title>Play</title>
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Subtle gradient overlay for depth */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               {/* Bottom Label */}
               <div className="flex items-center justify-between px-2 pb-1">
-                <span className="font-medium text-gray-900 text-sm sm:text-base">Techno Vanam Showreel</span>
-                {/* Sound wave graphic */}
-                <div className="flex gap-[3px] items-center h-4">
-                  {[40, 70, 50, 100, 60, 80, 40].map((height, i) => (
-                    <div
-                      key={i}
-                      className="w-[2px] bg-gray-400 rounded-full animate-pulse"
-                      style={{
-                        height: `${height}%`,
-                        animationDelay: `${i * 0.1}s`,
-                      }}
-                    ></div>
-                  ))}
-                </div>
+                <span className="font-bold text-brand-950 text-sm tracking-tight uppercase">Designing Digital Future</span>
               </div>
             </div>
           </div>
 
           {/* Right Column */}
-          <div className="w-full lg:w-2/3 flex flex-col justify-center ml-35">
+          <div className="w-full lg:w-2/3 flex flex-col justify-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#71d300] mb-6 leading-tight">
               We are design-first creative studio
             </h2>
@@ -519,10 +491,13 @@ const Home = () => {
 
             <Link
               to="/about"
-              className="relative group overflow-hidden inline-flex items-center gap-3 bg-brand-500 text-white px-8 py-3.5 rounded-full w-fit transition-all duration-300 hover:bg-brand-600 active:scale-95"
+              className="btn-primary w-fit"
             >
-              <span className="relative z-10 font-medium">About us</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+              <span className="relative z-10 font-bold flex items-center gap-3">
+                About us
+                <img src="/Logo.png" alt="" className="h-4 w-4" />
+              </span>
+              <div className="btn-primary-shine"></div>
             </Link>
           </div>
         </div>
@@ -533,19 +508,19 @@ const Home = () => {
       <section className="bg-transparent py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
-          <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16">
+          <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100 shadow-sm">
 
             {/* Header Section - Parallel Layout */}
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-60 mb-16">
               {/* Left: Label */}
               <div className="flex items-start gap-3 lg:w-1/3">
-                <div className="w-2 h-2 rounded-full bg-black mt-2.5"></div>
-                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-black tracking-wide">Our services</span>
+                <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
+                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-brand-500 tracking-wide">Our services</span>
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:w-7/12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-tight ">
+              <div className="lg:w-7/12 lg:pl-40">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#71d300] leading-tight ">
                   We create solutions but most importantly we identify problems.
                 </h2>
               </div>
@@ -614,7 +589,7 @@ const Home = () => {
                 <div className="h-service-bg"></div>
 
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Layout size={24} />
                     </div>
@@ -634,7 +609,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Palette size={24} />
                     </div>
@@ -654,7 +629,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <PanelsTopLeft size={24} />
                     </div>
@@ -674,7 +649,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Video size={24} />
                     </div>
@@ -694,7 +669,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <TrendingUp size={24} />
                     </div>
@@ -714,7 +689,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <PenTool size={24} />
                     </div>
@@ -734,7 +709,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Smartphone size={24} />
                     </div>
@@ -754,7 +729,7 @@ const Home = () => {
               <Link to="/services" className="grid-standart-services group block">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-120 flex-1">
+                  <div className="flex items-center gap-6 flex-1">
                     <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
                       <Globe size={24} />
                     </div>
@@ -775,10 +750,10 @@ const Home = () => {
             <div className="flex justify-center">
               <Link
                 to="/services"
-                className="relative group overflow-hidden inline-flex items-center justify-center px-8 py-3.5 bg-brand-500 text-white rounded-full font-medium transition-all duration-300 hover:bg-brand-600 active:scale-95"
+                className="btn-primary"
               >
                 <span className="relative z-10">All Services</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+                <div className="btn-primary-shine"></div>
               </Link>
             </div>
 
@@ -798,14 +773,14 @@ const Home = () => {
               {/* Left: Label */}
               <div className="flex items-start gap-3 lg:w-1/3">
                 <div className="w-2 h-2 rounded-full bg-brand-600 mt-2.5"></div>
-                <span className="text-brand-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase">Why work with us</span>
+                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-brand-500 font-semibold ">Why work with us</span>
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:w-1/2 lg:text-right">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-tight">
+              <div className="lg:w-7/12 lg:pl-70">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-brand-500 leading-tight">
                   We guide you through <br />
-                  <span className="text-gray-400">every step of the way</span>
+                  <span className="text-brand-500">every step of the way</span>
                 </h2>
               </div>
             </div>
@@ -823,7 +798,7 @@ const Home = () => {
                           whileInView={{ fontSize: "3.75rem" }}
                           transition={{ duration: 0.7, ease: "easeInOut", delay: index * 0.05 }}
                           viewport={{ once: false, amount: 0.5 }}
-                          className="font-black text-brand-100 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block origin-left"
+                          className="font-black text-brand-500 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block origin-left"
                         >
                           {String(index + 1).padStart(2, '0')}
                         </motion.span>
@@ -837,7 +812,7 @@ const Home = () => {
                     </div>
 
                     {/* Card Back */}
-                    <div className="flip-card-back bg-brand-600 p-8 flex flex-col justify-between text-left">
+                    <div className="flip-card-back bg-brand-950 p-8 flex flex-col justify-between text-left">
                       <div className="flex flex-col gap-2">
                         <span className="text-4xl font-black text-brand-200/50">
                           {String(index + 1).padStart(2, '0')}
@@ -917,18 +892,18 @@ const Home = () => {
       <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-85 lg:gap-145 mb-20 px-4">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 mb-20 px-4">
             {/* Left: Label */}
             <div className="flex items-start gap-3 lg:w-1/3">
               <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
-              <span className="text-brand-500 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">Our Products</span>
+              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-[#71d300] font-semibold">Our Products</span>
             </div>
 
             {/* Right: Main Heading */}
-            <div className="">
+            <div className="lg:w-7/12 lg:pl-90">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1] font-archivo">
                 Products by <br />
-                <span className="text-gray-400">Techno Vanam</span>
+                <span className="text-[#71d300]">Techno Vanam</span>
               </h2>
             </div>
           </div>
@@ -1028,13 +1003,13 @@ const Home = () => {
             <div className="flex justify-center pt-8 border-t border-gray-100">
               <Link
                 to="/portfolio"
-                className="group relative px-8 py-3.5 bg-brand-500 text-white rounded-full font-bold text-base overflow-hidden transition-all duration-500 hover:bg-brand-600 active:scale-95 shadow-sm"
+                className="btn-primary"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   All Products
-                  <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform duration-500" />
+                  <ArrowRight size={20} />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+                <div className="btn-primary-shine"></div>
               </Link>
             </div>
           </div>

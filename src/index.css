@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112.5,400;112.5,500;112.5,600;112.5,700;112.5,800&display=swap');
 @import "tailwindcss";
+
 @theme {
   --color-brand-50: #f1fbea;
   --color-brand-100: #e2f6d5;
@@ -59,9 +60,9 @@ html {
 
 body {
   font-family: "MazzardH", sans-serif;
-  background-color: white;
+  background-color: #fdfffb;
   overflow-x: hidden;
-  max-width: 100vw;
+  width: 100%;
 }
 
 /* Optional Utility Class: Hide scrollbar when needed */
@@ -131,7 +132,20 @@ header {
 
 /* Force hide horizontal scrollbar even if content overflows slightly */
 body {
-  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+/* ======= GLOBAL BUTTON STYLES ======= */
+.btn-primary {
+  @apply relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-[#194700] font-semibold text-white rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-[#0d2702] active:scale-95 shadow-sm;
+}
+
+.btn-primary-shine {
+  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] transition-transform duration-700 ease-in-out;
+}
+
+.btn-primary:hover .btn-primary-shine {
+  @apply translate-x-[100%];
 }
 
 /* Optional Utility: Hide scrollbar if needed */

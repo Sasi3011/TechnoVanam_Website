@@ -667,7 +667,7 @@ const Services = () => {
       </section> */}
 
       {/* Industries Section */}
-      <section className="w-full flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
+      {/* <section className="w-full flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
         <div className="w-full max-w-7xl flex flex-col items-center gap-4 sm:gap-6">
           <div className="text-center max-w-2xl px-4">
             <h2 className="text-brand-500 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider">
@@ -679,10 +679,10 @@ const Services = () => {
             <p className="text-gray-500 text-sm sm:text-base md:text-lg mt-3 sm:mt-4 leading-relaxed">
               We've collaborated across various sectors — with deep expertise in delivering tailored solutions for these key industries.
             </p>
-          </div>
+          </div> */}
 
           {/* Industries Cards - Responsive Grid */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-4 sm:mt-6">
+          {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-4 sm:mt-6">
             {industriesList.map((item, index) => (
               <div
                 key={index}
@@ -709,7 +709,7 @@ const Services = () => {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section - Commented out as in original */}
       {/* <section className="w-full flex flex-col items-center h-[600px] bg-brand-600">
