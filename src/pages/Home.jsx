@@ -518,7 +518,7 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-8 pl-40">
+              <div className="lg:col-span-7 lg:col-start-6">
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
                   We create solutions but most importantly we identify problems.
                 </h2>
@@ -776,7 +776,7 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-8 pl-80">
+              <div className="lg:col-span-6 lg:col-start-7">
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-brand-500 leading-tight">
                   We guide you through <br />
                   <span className="text-brand-500">every step of the way</span>
@@ -899,7 +899,7 @@ const Home = () => {
             </div>
 
             {/* Right: Main Heading */}
-            <div className="lg:col-span-8 pl-90">
+            <div className="lg:col-span-6 lg:col-start-7">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-[1.1] font-archivo">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
