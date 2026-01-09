@@ -445,7 +445,7 @@ const Home = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="bg-transparent py-12 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-12">
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-gray-100 shadow-sm">
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col">
@@ -504,7 +504,7 @@ const Home = () => {
 
 
       {/* Our Services - Clean Hover Design */}
-      <section className="bg-transparent py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
           <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100 shadow-sm">
@@ -518,7 +518,7 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-8 pl-40">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] leading-tight">
                   We create solutions but most importantly we identify problems.
                 </h2>
@@ -762,7 +762,7 @@ const Home = () => {
 
 
       {/* Why Work With Us - Flipping Cards Design */}
-      <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-10">
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
           <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100">
@@ -776,7 +776,7 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-8 pl-52">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-brand-500 leading-tight">
                   We guide you through <br />
                   <span className="text-brand-500">every step of the way</span>
@@ -888,10 +888,10 @@ const Home = () => {
       </div> */}
 
       {/* Our Products - Premium UI Redesign */}
-      <section className="bg-transparent py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-12">
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 sm:mb-20 px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-2 sm:mb-4 md:mb-6 lg:mb-8 px-4">
             {/* Left: Label */}
             <div className="lg:col-span-4 flex items-start gap-3">
               <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
@@ -899,7 +899,7 @@ const Home = () => {
             </div>
 
             {/* Right: Main Heading */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 pl-72">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] font-archivo">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
