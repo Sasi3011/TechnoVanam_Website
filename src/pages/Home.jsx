@@ -361,16 +361,16 @@ const Home = () => {
       </style>
 
       {/* Hero Section - Fully Responsive */}
-      <section className="relative px-4 sm:px-6 md:px-8 lg:px-8 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100vh]">
+      <section className="relative px-4 sm:px-6 md:px-8 lg:px-12 pt-32 pb-24 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden min-h-screen">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-[#71d300] text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
+            <p className="text-[#71d300] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-7xl font-medium leading-tight mb-2 tracking-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] mb-6 tracking-tight">
               Your trusted creative partner
             </h1>
-            <p className="text-xl sm:text-xl md:text-xl text-gray-600 leading-relaxed mb-10 mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
               We deliver creative branding, web design, and UI/UX solutions to make the most impact
             </p>
             <Link
@@ -445,25 +445,24 @@ const Home = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="bg-transparent py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="max-w-7xl mx-auto bg-white rounded-[40px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20 border border-gray-100 shadow-sm">
+      <section className="bg-transparent py-12 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-gray-100 shadow-sm">
           {/* Left Column */}
-          <div className="w-full lg:w-1/3 flex flex-col justify-between">
+          <div className="w-full lg:w-1/3 flex flex-col">
             {/* Top Label */}
-            <div className="flex items-center gap-3 mb-8 lg:mb-7">
+            <div className="flex items-center gap-3 mb-8">
               <div className="w-2 h-2 rounded-full bg-[#71d300]"></div>
-              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-[#71d300] tracking-wide">Who we are</span>
+              <span className="text-xl sm:text-2xl font-semibold text-[#71d300] tracking-wide">Who we are</span>
             </div>
 
-            {/* Showreel Card */}
             {/* Logo Card */}
             <div className="bg-brand-50 rounded-3xl p-4 mt-auto border border-brand-100/50">
               {/* White Inner Card with Logo */}
-              <div className="bg-[#0d2702] rounded-2xl w-full aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 hover:shadow-md border border-gray-50">
+              <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 hover:shadow-md border border-gray-50">
                 <img
                   src="/Logo.png"
                   alt="Techno Vanam Logo"
-                  className="w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
                 />
 
                 {/* Subtle gradient overlay */}
@@ -472,20 +471,20 @@ const Home = () => {
 
               {/* Bottom Label */}
               <div className="flex items-center justify-between px-2 pb-1">
-                <span className="font-bold text-brand-950 text-sm tracking-tight uppercase">Designing Digital Future</span>
+                <span className="font-bold text-brand-950 text-xs sm:text-sm tracking-tight uppercase">Designing Digital Future</span>
               </div>
             </div>
           </div>
 
           {/* Right Column */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#71d300] mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] mb-6 leading-tight">
               We are design-first creative studio
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
               We believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
             </p>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
               For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
             </p>
 
@@ -495,7 +494,7 @@ const Home = () => {
             >
               <span className="relative z-10 font-bold flex items-center gap-3">
                 About us
-                <img src="/Logo.png" alt="" className="h-4 w-4" />
+                <ArrowRight size={20} />
               </span>
               <div className="btn-primary-shine"></div>
             </Link>
@@ -511,16 +510,16 @@ const Home = () => {
           <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100 shadow-sm">
 
             {/* Header Section - Parallel Layout */}
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-60 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
               {/* Left: Label */}
-              <div className="flex items-start gap-3 lg:w-1/3">
+              <div className="lg:col-span-4 flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
-                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-brand-500 tracking-wide">Our services</span>
+                <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Our services</span>
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:w-7/12 lg:pl-40">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#71d300] leading-tight ">
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] leading-tight">
                   We create solutions but most importantly we identify problems.
                 </h2>
               </div>
@@ -769,16 +768,16 @@ const Home = () => {
           <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100">
 
             {/* Section Header - Parallel Layout */}
-            <div className="flex flex-col lg:flex-row justify-between mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
               {/* Left: Label */}
-              <div className="flex items-start gap-3 lg:w-1/3">
+              <div className="lg:col-span-4 flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-brand-600 mt-2.5"></div>
-                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-brand-500 font-semibold ">Why work with us</span>
+                <span className="text-xl sm:text-2xl font-semibold text-brand-500">Why work with us</span>
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:w-7/12 lg:pl-70">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-brand-500 leading-tight">
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-brand-500 leading-tight">
                   We guide you through <br />
                   <span className="text-brand-500">every step of the way</span>
                 </h2>
@@ -889,113 +888,109 @@ const Home = () => {
       </div> */}
 
       {/* Our Products - Premium UI Redesign */}
-      <section className="bg-transparent py-24 px-4 sm:px-6 md:px-8 lg:px-12">
+      <section className="bg-transparent py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header - Parallel Layout */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-32 mb-20 px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 sm:mb-20 px-4">
             {/* Left: Label */}
-            <div className="flex items-start gap-3 lg:w-1/3">
+            <div className="lg:col-span-4 flex items-start gap-3">
               <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
-              <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-[#71d300] font-semibold">Our Products</span>
+              <span className="text-xl sm:text-2xl font-semibold text-[#71d300]">Our Products</span>
             </div>
 
             {/* Right: Main Heading */}
-            <div className="lg:w-7/12 lg:pl-90">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black leading-[1.1] font-archivo">
+            <div className="lg:col-span-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] font-archivo">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
               </h2>
             </div>
           </div>
 
-          <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 transition-all duration-700 flex flex-col gap-32">
+          <div className="bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-gray-100 flex flex-col gap-16 sm:gap-24 lg:gap-32">
             {/* Athlixir Product Section */}
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left Content Column */}
-              <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
+              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
-                  <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
-                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
+                    <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
                   </div>
 
-                  <div className="relative inline-block mb-6 group">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+                  <div className="relative inline-block mb-4 group">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                       Athlixir
                     </h3>
-                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
+                    <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gray-900"></div>
                   </div>
 
-                  <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
+                  <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     Athlixir is an AI-powered smart living platform for athletes. It brings performance tracking, injury analysis, and talent recognition into one unified ecosystem — helping 50+ athlete communities grow more intelligently.
                   </p>
                 </div>
 
-                <div className="flex justify-between items-center mt-auto relative top-32">
-                  <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+                <div className="flex justify-between items-center sm:mt-4">
+                  <div className="px-4 sm:px-6 py-2 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     Web Design
                   </div>
-                  <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 opacity-[0.05] select-none leading-none">
                     01
                   </span>
                 </div>
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-[55%] bg-[#F3F4F6] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
-                <div className="relative w-full max-h-full group flex items-center justify-center">
-                  <img
-                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
-                    alt="Athlixir Platform Interface"
-                    className="w-auto h-auto max-w-full max-h-[300px] lg:max-h-[350px] rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.15)] relative z-10"
-                    loading="lazy"
-                  />
-                </div>
+              <div className="w-full lg:w-1/2 bg-[#F3F4F6] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
+                <img
+                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
+                  alt="Athlixir Platform Interface"
+                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
             </div>
 
             {/* Youth Entrepreneurship Section */}
-            <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-14 items-center">
-              {/* Left Content Column (mirrored) */}
-              <div className="w-full lg:w-[45%] flex flex-col justify-between pt-0 pb-4 px-2 -mt-24">
+            <div className="flex flex-col lg:flex-row-reverse gap-10 lg:gap-16 items-center">
+              {/* Left Content Column (mirrored logic) */}
+              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
-                  <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
-                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
+                    <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
                   </div>
 
-                  <div className="relative inline-block mb-6 group">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+                  <div className="relative inline-block mb-4 group">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                       Youth entrepreneurship platform
                     </h3>
-                    <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
+                    <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gray-900"></div>
                   </div>
 
-                  <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
+                  <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     An interactive ecosystem designed to empower the next generation of leaders. It provides mentorship, resource mapping, and business simulation tools to bridge the gap between education and real-world impact.
                   </p>
                 </div>
 
-                <div className="flex justify-between items-center mt-auto relative top-32">
-                  <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+                <div className="flex justify-between items-center sm:mt-4">
+                  <div className="px-4 sm:px-6 py-2 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     LMS Platform
                   </div>
-                  <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 opacity-[0.05] select-none leading-none">
                     02
                   </span>
                 </div>
               </div>
 
-              {/* Right Image/Mockup Column (mirrored) */}
-              <div className="w-full lg:w-[55%] bg-[#EBEBEB] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
-                <div className="relative w-full max-h-full group flex items-center justify-center">
-                  <img
-                    src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
-                    alt="Platform Interface"
-                    className="w-auto h-auto max-w-full max-h-[300px] lg:max-h-[350px] rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.15)] relative z-10"
-                    loading="lazy"
-                  />
-                </div>
+              {/* Right Image/Mockup Column */}
+              <div className="w-full lg:w-1/2 bg-[#EBEBEB] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
+                <img
+                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
+                  alt="Platform Interface"
+                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
             </div>
 
