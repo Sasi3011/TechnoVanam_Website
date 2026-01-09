@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20">
+    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20 font-archivo">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
@@ -137,7 +137,7 @@ const Footer = () => {
         <div className="relative pt-10 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3 group">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+              src="/Logo.png"
               alt="Techno Vanam Logo"
               className="w-8 h-8 object-contain"
             />

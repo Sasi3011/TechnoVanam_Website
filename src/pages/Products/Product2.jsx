@@ -23,13 +23,13 @@ export default function Products2() {
         </div>
 
         {/* Heading + Logo */}
-        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4 font-archivo">
           <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
             Products by
           </span>
           <div className="flex items-center gap-2 sm:gap-3">
             <img
-              src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+              src="/Logo.png"
               alt="Logo"
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
               loading="lazy"

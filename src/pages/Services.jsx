@@ -634,7 +634,7 @@ const Services = () => {
                   {service.name === 'Web Development' ? (
                     <button
                       type="button"
-                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-600 font-bold uppercase tracking-wide hover:text-brand-700 transition-colors duration-200 mt-2"
+                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-500 font-bold uppercase tracking-wide hover:text-brand-600 transition-colors duration-200 mt-2"
                     >
                       Get in touch
                       <span className="text-base sm:text-lg">➔</span>
@@ -642,7 +642,7 @@ const Services = () => {
                   ) : (
                     <Link
                       to="/contact"
-                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-600 font-bold uppercase tracking-wide hover:text-brand-700 transition-colors duration-200 mt-2"
+                      className="flex items-center justify-start gap-2 text-sm sm:text-base text-brand-500 font-bold uppercase tracking-wide hover:text-brand-600 transition-colors duration-200 mt-2"
                     >
                       Get in touch
                       <span className="text-base sm:text-lg">➔</span>

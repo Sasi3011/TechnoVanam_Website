@@ -110,7 +110,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div
-          className={`relative flex items-center px-6 py-3 sm:py-4 bg-white/70 backdrop-blur-xl rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300 ${isOpen ? "rounded-[1.5rem]" : "rounded-[2.5rem]"
+          className={`relative flex items-center px-6 py-3 sm:py-4 bg-[#0d2702] backdrop-blur-xl rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300 ${isOpen ? "rounded-[1.5rem]" : "rounded-[2.5rem]"
             }`}
         >
           {/* Left: Logo */}
@@ -122,14 +122,14 @@ const Header = () => {
             >
               <div className="relative">
                 <img
-                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1767865697/Screenshot_2026-01-08_151441-Photoroom_xrcnwh.png"
+                  src="/Logo.png"
                   alt="Techno Vanam Logo"
                   className="h-6 sm:h-8 w-auto object-contain relative z-10"
                   loading="lazy"
                 />
               </div>
               <span
-                className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-brand-900 to-gray-900 leading-none tracking-tight font-archivo"
+                className="text-2xl sm:text-3xl font-bold bg-clip-text text-white leading-none tracking-tight font-archivo"
               >
                 Techno Vanam
               </span>
@@ -303,7 +303,7 @@ const Header = () => {
           <div className="flex-1 flex justify-end items-center gap-4">
             <Link
               to="/contact"
-              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-600 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-brand-700 lg:hover:shadow-[0_4px_15px_rgba(113,211,0,0.4)] lg:active:scale-95 lg:flex lg:items-center"
+              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-500 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-brand-600 lg:active:scale-95 lg:flex lg:items-center"
               aria-label="Contact Us"
             >
               <span className="relative z-10">Get in Touch</span>
@@ -445,7 +445,7 @@ const Header = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="mt-4 w-full py-4 bg-brand-600 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform"
+                className="mt-4 w-full py-4 bg-brand-500 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform"
                 aria-label="Contact Us"
               >
                 Get in Touch

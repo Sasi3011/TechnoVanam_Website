@@ -121,12 +121,12 @@ const HomeContact = () => {
                     <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
                         {/* Left Content */}
                         <div className="w-full lg:w-1/3">
-                            <span className="inline-block px-4 py-1.5 bg-brand-50 text-brand-600 text-sm font-bold rounded-full mb-6 tracking-wide">
+                            <span className="inline-block px-4 py-1.5 bg-brand-50 text-brand-500 text-sm font-bold rounded-full mb-6 tracking-wide">
                                 GET IN TOUCH
                             </span>
                             <h2 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight mb-6">
                                 Ready to start <br />
-                                <span className="text-brand-600">a project?</span>
+                                <span className="text-brand-500">a project?</span>
                             </h2>
                             <p className="text-lg text-gray-500 mb-8 leading-relaxed">
                                 Fill out the form and our team will get back to you within 24 business hours to schedule a discovery call.
@@ -134,7 +134,7 @@ const HomeContact = () => {
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 shadow-sm border border-brand-100/50">
+                                    <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-brand-100/50">
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
@@ -143,7 +143,7 @@ const HomeContact = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 shadow-sm border border-brand-100/50">
+                                    <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-brand-100/50">
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
@@ -261,7 +261,7 @@ const HomeContact = () => {
                                                     type="button"
                                                     onClick={() => toggleService(service.name)}
                                                     className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${isSelected
-                                                        ? "bg-brand-600 border-brand-600 text-white shadow-lg shadow-brand-200 scale-105"
+                                                        ? "bg-brand-500 border-brand-500 text-white shadow-lg shadow-brand-200 scale-105"
                                                         : "bg-white border-gray-100 text-gray-600 hover:border-brand-200"
                                                         }`}
                                                 >
@@ -294,7 +294,7 @@ const HomeContact = () => {
                                                 type="button"
                                                 onClick={() => setProjectType(type)}
                                                 className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${projectType === type
-                                                    ? "bg-brand-600 border-brand-600 text-white shadow-md"
+                                                    ? "bg-brand-500 border-brand-500 text-white shadow-md"
                                                     : "bg-white border-gray-100 text-gray-600 hover:border-brand-200"
                                                     }`}
                                             >
@@ -316,7 +316,7 @@ const HomeContact = () => {
                                                 type="button"
                                                 onClick={() => setDeadline(option)}
                                                 className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${deadline === option
-                                                    ? "bg-brand-600 border-brand-600 text-white shadow-md"
+                                                    ? "bg-brand-500 border-brand-500 text-white shadow-md"
                                                     : "bg-white border-gray-100 text-gray-600 hover:border-brand-200"
                                                     }`}
                                             >
@@ -352,9 +352,9 @@ const HomeContact = () => {
                                 <div className="pt-4">
                                     <button
                                         type="submit"
-                                        className="group relative w-full sm:w-auto px-12 py-5 bg-brand-600 text-white rounded-2xl font-black text-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-brand-100 flex items-center justify-center gap-3"
+                                        className="group relative w-full sm:w-auto px-12 py-5 bg-brand-500 text-white rounded-2xl font-black text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-brand-100 flex items-center justify-center gap-3"
                                     >
-                                        <div className="absolute inset-0 bg-brand-700 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                                         <span className="relative z-10 flex items-center gap-2">
                                             Send Message
                                             <Send size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
