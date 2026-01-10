@@ -31,6 +31,26 @@ const HomeContact = () => {
         }
     }, [location]);
 
+    const [turnstileToken, setTurnstileToken] = useState(null);
+    const turnstileRef = React.useRef(null);
+
+    useEffect(() => {
+        // Initialize Turnstile
+        const renderTurnstile = () => {
+            if (window.turnstile && turnstileRef.current) {
+                window.turnstile.render(turnstileRef.current, {
+                    sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY, // Cloudflare Turnstile Site Key
+                    callback: (token) => {
+                        setTurnstileToken(token);
+                    },
+                });
+            } else {
+                setTimeout(renderTurnstile, 100);
+            }
+        };
+        renderTurnstile();
+    }, []);
+
     const toggleService = (service) => {
         setSelectedServices((prev) =>
             prev.includes(service)
@@ -57,32 +77,38 @@ const HomeContact = () => {
             !name.trim() ||
             !email.trim() ||
             selectedServices.length === 0 ||
-            message.trim() === ""
+            message.trim() === "" ||
+            !turnstileToken
         ) {
             setSubmissionStatus("error");
             return;
         }
 
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("email", email);
-        formData.append("company", company);
-        formData.append("website", website);
-        formData.append("services", selectedServices.join(", "));
-        formData.append("projectType", projectType);
-        formData.append("deadline", deadline);
-        formData.append("message", message);
+        const formData = {
+            name,
+            email,
+            company,
+            website,
+            services: selectedServices.join(", "),
+            projectType,
+            deadline,
+            message,
+            "cf-turnstile-response": turnstileToken
+        };
 
         try {
-            const response = await fetch("https://formspree.io/f/xkgbdaen", {
+            const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
                 method: "POST",
-                body: formData,
                 headers: {
+                    "Content-Type": "application/json",
                     Accept: "application/json",
                 },
+                body: JSON.stringify(formData),
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (result.success === "true" || response.ok) {
                 setSubmissionStatus("success");
                 setName("");
                 setEmail("");
@@ -92,7 +118,11 @@ const HomeContact = () => {
                 setProjectType("");
                 setDeadline("");
                 setMessage("");
+                setTurnstileToken(null);
                 setFormSubmitted(false);
+
+                // Reset Turnstile widget
+                if (window.turnstile) window.turnstile.reset();
 
                 setTimeout(() => setSubmissionStatus(null), 3000);
             } else {
@@ -357,6 +387,13 @@ const HomeContact = () => {
                                         </span>
                                         <div className="btn-primary-shine"></div>
                                     </button>
+                                </div>
+
+                                <div className="mt-4">
+                                    <div ref={turnstileRef}></div>
+                                    {formSubmitted && !turnstileToken && (
+                                        <p className="text-red-500 text-xs font-medium mt-2">Please complete the security check.</p>
+                                    )}
                                 </div>
                             </form>
                         </div>
