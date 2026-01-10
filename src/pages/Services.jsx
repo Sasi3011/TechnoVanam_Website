@@ -169,13 +169,11 @@ const faqData = {
   ]
 };
 
-const FAQItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   return (
     <div className="border-t border-gray-200">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="w-full flex items-center justify-between py-8 text-left group"
       >
         <span className="text-xl sm:text-2xl font-medium text-gray-900 pr-8 group-hover:text-brand-600 transition-colors">
@@ -208,6 +206,11 @@ const Services = () => {
   const [showPopup, setShowPopup] = useState(false);
   const scrollRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (id) => {
+    setOpenFaq(openFaq === id ? null : id);
+  };
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -539,12 +542,22 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-20 px-4 sm:px-8 md:px-12 lg:px-0">
             <div className="flex flex-col">
               {faqData.left.map((item, index) => (
-                <FAQItem key={index} {...item} />
+                <FAQItem
+                  key={`left-${index}`}
+                  {...item}
+                  isOpen={openFaq === `left-${index}`}
+                  onToggle={() => toggleFaq(`left-${index}`)}
+                />
               ))}
             </div>
             <div className="flex flex-col border-b border-gray-200 lg:border-none">
               {faqData.right.map((item, index) => (
-                <FAQItem key={index} {...item} />
+                <FAQItem
+                  key={`right-${index}`}
+                  {...item}
+                  isOpen={openFaq === `right-${index}`}
+                  onToggle={() => toggleFaq(`right-${index}`)}
+                />
               ))}
               <div className="hidden lg:block border-t border-gray-200"></div>
             </div>
@@ -598,7 +611,7 @@ const Services = () => {
       </section>
 
       {/* Capabilities Detail Section */}
-      <section className="w-full flex flex-col items-center py-24 px-4 sm:px-6 md:px-8 bg-white" id="services-list">
+      {/* <section className="w-full flex flex-col items-center py-24 px-4 sm:px-6 md:px-8 bg-white" id="services-list">
         <div className="w-full max-w-7xl flex flex-col items-center">
           <div className="w-full flex flex-col items-start gap-12 sm:gap-20">
 
@@ -606,9 +619,9 @@ const Services = () => {
               <div
                 key={index}
                 className={`w-full flex flex-col lg:flex-row items-center justify-between ${service.bgColor} rounded-xl lg:rounded-[20px] overflow-hidden shadow-lg mt-6 sm:mt-8 transition-all duration-300`}
-              >
-                {/* Text Block */}
-                <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col gap-3 sm:gap-4 text-left">
+              > */}
+      {/* Text Block */}
+      {/* <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col gap-3 sm:gap-4 text-left">
                   <h3 className={`${service.color} text-sm sm:text-base md:text-lg uppercase font-bold tracking-wide`}>
                     {service.name}
                   </h3>
@@ -635,10 +648,10 @@ const Services = () => {
                       <span className="text-base sm:text-lg">➔</span>
                     </Link>
                   )}
-                </div>
+                </div> */}
 
-                {/* Image Block */}
-                <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[520px] bg-[#E5E9F0] flex items-center justify-center rounded-xl lg:rounded-2xl mx-4 lg:mx-0 mb-0 lg:mb-0 p-0 sm:p-6 lg:p-0">
+      {/* Image Block */}
+      {/* <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[520px] bg-[#E5E9F0] flex items-center justify-center rounded-xl lg:rounded-2xl mx-4 lg:mx-0 mb-0 lg:mb-0 p-0 sm:p-6 lg:p-0">
                   <img
                     src={service.image}
                     alt={`${service.name} Illustration`}
@@ -651,10 +664,10 @@ const Services = () => {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Industries Section */}
-      <section className="w-full flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
+      {/* <section className="w-full flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
         <div className="w-full max-w-7xl flex flex-col items-center gap-4 sm:gap-6">
           <div className="text-center max-w-2xl px-4">
             <h2 className="text-brand-500 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider">
@@ -666,10 +679,10 @@ const Services = () => {
             <p className="text-gray-500 text-sm sm:text-base md:text-lg mt-3 sm:mt-4 leading-relaxed">
               We've collaborated across various sectors — with deep expertise in delivering tailored solutions for these key industries.
             </p>
-          </div>
+          </div> */}
 
           {/* Industries Cards - Responsive Grid */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-4 sm:mt-6">
+          {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-4 sm:mt-6">
             {industriesList.map((item, index) => (
               <div
                 key={index}
@@ -696,7 +709,7 @@ const Services = () => {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section - Commented out as in original */}
       {/* <section className="w-full flex flex-col items-center h-[600px] bg-brand-600">

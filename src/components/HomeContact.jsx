@@ -105,7 +105,7 @@ const HomeContact = () => {
     };
 
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f7fff0] overflow-hidden">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-12 bg-[#f7fff0] overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}

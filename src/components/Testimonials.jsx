@@ -66,11 +66,11 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="bg-[#f7fff0] py-24 w-full overflow-hidden">
+        <section className="bg-[#fdfffb] py-16 sm:py-24 w-full overflow-hidden">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-10 px-8 sm:px-16 md:px-24 text-brand-600">
+            <div className="flex items-center gap-3 mb-10 px-4 sm:px-6 md:px-8 lg:px-12 text-brand-600 max-w-7xl mx-auto">
                 <div className="w-2 h-2 rounded-full bg-brand-600" />
-                <span className="text-brand-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold">
+                <span className="text-xl sm:text-2xl font-semibold">
                     Testimonials
                 </span>
             </div>
@@ -80,66 +80,67 @@ export default function Testimonials() {
                 <div
                     ref={scrollRef}
                     className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide
-                     px-8 sm:px-16 md:px-24 py-4
-                     scroll-pl-8 sm:scroll-pl-16 md:scroll-pl-24"
+                     px-4 sm:px-6 md:px-8 lg:px-12 py-4
+                     scroll-pl-4 sm:scroll-pl-6 md:scroll-pl-8 lg:scroll-pl-12"
                     style={{
                         WebkitOverflowScrolling: "touch",
                         scrollbarWidth: "none",
                     }}
                 >
-                    {testimonials.map((t) => (
-                        <div
-                            key={t.id}
-                            className="flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start
-                         mr-6 md:mr-8 last:mr-0"
-                        >
-                            <div className="bg-white rounded-[2rem] p-8 md:p-10 h-[300px] md:h-[320px]
-                              flex flex-col justify-between
-                              shadow-[0_4px_20px_rgba(0,0,0,0.01)]
-                              hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)]
-                              transition-all duration-500">
-                                <p className="text-[#1A1A1A] text-sm md:text-base leading-[1.6]">
-                                    {t.content}
-                                </p>
+                    <div className="flex gap-4 sm:gap-6 md:gap-8">
+                        {testimonials.map((t) => (
+                            <div
+                                key={t.id}
+                                className="flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start"
+                            >
+                                <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 min-h-[300px] md:h-[320px]
+                                  flex flex-col justify-between
+                                  shadow-[0_4px_20px_rgba(0,0,0,0.01)]
+                                  hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)]
+                                  transition-all duration-500 border border-gray-50">
+                                    <p className="text-[#1A1A1A] text-sm md:text-base leading-[1.6]">
+                                        {t.content}
+                                    </p>
 
-                                <div className="flex items-center justify-between mt-6">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
-                                            <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+                                    <div className="flex items-center justify-between mt-6">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                                                <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-sm md:text-base text-[#1A1A1A]">
+                                                    {t.author}
+                                                </h4>
+                                                <p className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider">
+                                                    {t.role}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-sm md:text-base text-[#1A1A1A]">
-                                                {t.author}
-                                            </h4>
-                                            <p className="text-gray-400 text-xs uppercase tracking-wider">
-                                                {t.role}
-                                            </p>
-                                        </div>
+
+                                        <a
+                                            href={t.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-9 h-9 rounded-full flex items-center justify-center
+                                   border border-gray-100 bg-white hover:bg-black hover:text-white transition shadow-sm text-black"
+                                        >
+                                            <LinkedinIcon />
+                                        </a>
                                     </div>
-
-                                    <a
-                                        href={t.linkedin}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-9 h-9 rounded-full flex items-center justify-center
-                               border border-gray-100 bg-white hover:bg-black hover:text-white transition shadow-sm text-black"
-                                    >
-                                        <LinkedinIcon />
-                                    </a>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                     {/* Invisible spacer for end alignment */}
-                    <div className="flex-shrink-0 w-1 px-0" />
+                    <div className="flex-shrink-0 w-4 sm:w-8 lg:w-12 px-0" />
                 </div>
             </div>
 
             {/* Footer: Progress Bar and Navigation Buttons */}
-            <div className="px-8 sm:px-16 md:px-24">
-                <div className="flex items-center gap-12">
+            <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
+                <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
                     {/* Progress Bar */}
-                    <div className="flex-1 h-[3px] bg-brand-100 rounded-full overflow-hidden relative">
+                    <div className="w-full sm:flex-1 h-[3px] bg-brand-100 rounded-full overflow-hidden relative">
                         <motion.div
                             className="absolute top-0 left-0 h-full bg-brand-600"
                             style={{ scaleX, originX: 0, width: "100%" }}
@@ -150,17 +151,17 @@ export default function Testimonials() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
+                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
                             aria-label="Previous testimonial"
                         >
-                            <ArrowLeft size={20} />
+                            <ArrowLeft size={18} />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
+                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
                             aria-label="Next testimonial"
                         >
-                            <ArrowRight size={20} />
+                            <ArrowRight size={18} />
                         </button>
                     </div>
                 </div>
