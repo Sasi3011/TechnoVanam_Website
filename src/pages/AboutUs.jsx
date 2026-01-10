@@ -143,6 +143,8 @@ const CircularTeam = () => {
   );
 };
 
+
+
 const ExpertiseSlideshow = ({ images }) => {
   const [index, setIndex] = useState(0);
 
@@ -192,6 +194,25 @@ export default function About() {
       nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+  // Staggered reveal variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: "100%" },
+    visible: {
+      y: 0,
+      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] }
+    }
+  };
 
   return (
     <div className="bg-transparent">
@@ -230,37 +251,53 @@ export default function About() {
       </section>
 
       {/* Transform Section */}
-      <section id="transform-section" className="bg-brand-950 py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 1.2, delay: 0, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-500 mb-4"
-          >
-            design
-          </motion.h2>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-500 mb-4"
-          >
-            We transform digital presence
-          </motion.h2>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 1.2, delay: 1, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-500"
-          >
-            develop
-          </motion.h2>
-        </div>
+      {/* Transform Section */}
+      <section
+        id="transform-section"
+        className="bg-brand-950 py-24 overflow-hidden"
+      >
+        <motion.div
+          className="max-w-7xl mx-auto px-6 text-center"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.6 }} // Re-trigger on scroll, high threshold for 'center' feel
+        >
+
+          {/* DESIGN */}
+          <div className="overflow-hidden">
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-500 mb-2"
+            >
+              design
+            </motion.h2>
+          </div>
+
+          {/* MAIN LINE */}
+          <div className="overflow-hidden my-4">
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-500"
+            >
+              We transform digital presence
+            </motion.h2>
+          </div>
+
+          {/* DEVELOP */}
+          <div className="overflow-hidden">
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-500 mt-2"
+            >
+              develop
+            </motion.h2>
+          </div>
+
+        </motion.div>
       </section>
+
+
 
       {/* What Drives Us */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
