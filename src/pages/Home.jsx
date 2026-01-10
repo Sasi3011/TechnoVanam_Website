@@ -370,7 +370,7 @@ const Home = () => {
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight">
               Your trusted creative partner
             </h1>
-            <p className="text-sm sm:text-xs md:text-base lg:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-xs md:text-base lg:text-lg text-black leading-relaxed mb-10 max-w-3xl mx-auto ">
               We deliver creative branding, web design, and UI/UX solutions to make the most impact
             </p>
             <Link
@@ -746,7 +746,7 @@ const Home = () => {
             </div>
 
             {/* All Services Button */}
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-6 sm:mt-8">
               <Link
                 to="/services"
                 className="btn-primary"
@@ -907,7 +907,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-gray-100 flex flex-col gap-16 sm:gap-24 lg:gap-32">
+          <div className="bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-gray-100 flex flex-col gap-10 sm:gap-14 lg:gap-16">
             {/* Athlixir Product Section */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left Content Column */}
@@ -993,7 +993,7 @@ const Home = () => {
             </div>
 
             {/* All Products Button */}
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-6 sm:mt-8">
               <Link
                 to="/portfolio"
                 className="btn-primary"
