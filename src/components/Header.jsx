@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowRight, Monitor, PenTool, Layout, Layers, Lightbulb, Smartphone, Search, FileText, Users, Share2, Laptop, ShoppingBag, Megaphone, MousePointer2, Grid, Presentation, Box, FileCheck, Brush } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../assets/logo.png"; // Import the logo image
@@ -12,6 +12,19 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/contact");
+    }
+    setIsOpen(false);
+  };
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -301,14 +314,15 @@ const Header = () => {
 
           {/* Right: Contact Button & Mobile Toggle */}
           <div className="flex-1 flex justify-end items-center gap-4">
-            <Link
-              to="/contact"
-              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-500 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-brand-600 lg:active:scale-95 lg:flex lg:items-center"
+            <a
+              href="/contact"
+              onClick={handleContactClick}
+              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-500 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-brand-600 lg:active:scale-95 lg:flex lg:items-center cursor-pointer"
               aria-label="Contact Us"
             >
               <span className="relative z-10">Get in Touch</span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
-            </Link>
+            </a>
 
             {/* Hamburger for Mobile/Tablet */}
             <button
@@ -442,14 +456,14 @@ const Header = () => {
                   </NavLink>
                 );
               })}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-4 w-full py-4 bg-brand-500 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform"
+              <a
+                href="/contact"
+                onClick={handleContactClick}
+                className="mt-4 w-full py-4 bg-brand-500 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform cursor-pointer"
                 aria-label="Contact Us"
               >
                 Get in Touch
-              </Link>
+              </a>
             </nav>
           </div>
         </div>
