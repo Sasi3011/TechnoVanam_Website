@@ -17,18 +17,15 @@
   --shadow-brand: 0 4px 15px rgba(113, 211, 0, 0.4);
 }
 
-@font-face {
-  font-family: 'MazzardH';
-  src: url('/fonts/Mazzard Font/MazzardH-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'MazzardH';
-  src: url('/fonts/Mazzard Font/MazzardH-Bold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
+/* Archivo Font for Entire Website */
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Archivo', sans-serif;
+  font-stretch: 112.5%;
 }
 
 /* Base Font Family */
@@ -59,7 +56,6 @@ html {
 }
 
 body {
-  font-family: "MazzardH", sans-serif;
   background-color: #fdfffb;
   overflow-x: hidden;
   width: 100%;

@@ -8,7 +8,8 @@
   background-size: 200% 200%;
   animation: splash-bg-move 6s ease-in-out infinite;
   color: #fff;
-  font-family: 'Mazzard', sans-serif;
+  font-family: 'Archivo', sans-serif;
+  font-stretch: 112.5%;
   z-index: 9999;
   position: fixed;
   top: 0;
