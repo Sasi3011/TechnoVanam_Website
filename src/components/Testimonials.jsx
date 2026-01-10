@@ -57,7 +57,8 @@ export default function Testimonials() {
 
     const scroll = (direction) => {
         if (scrollRef.current) {
-            const scrollAmount = 450; // Approximating card width + margin
+            const isMobile = window.innerWidth < 640;
+            const scrollAmount = isMobile ? window.innerWidth * 0.85 : 450;
             scrollRef.current.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
                 behavior: 'smooth'
@@ -70,13 +71,13 @@ export default function Testimonials() {
             {/* Header */}
             <div className="flex items-center gap-3 mb-10 px-4 sm:px-6 md:px-8 lg:px-12 text-brand-600 max-w-7xl mx-auto">
                 <div className="w-2 h-2 rounded-full bg-brand-600" />
-                <span className="text-xl sm:text-2xl font-semibold">
+                <h2 className="text-xl sm:text-2xl font-semibold">
                     Testimonials
-                </span>
+                </h2>
             </div>
 
             {/* Scroll container */}
-            <div className="relative mb-16">
+            <div className="relative mb-16 max-w-7xl mx-auto">
                 <div
                     ref={scrollRef}
                     className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide
@@ -91,9 +92,9 @@ export default function Testimonials() {
                         {testimonials.map((t) => (
                             <div
                                 key={t.id}
-                                className="flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start"
+                                className="flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start h-full"
                             >
-                                <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 min-h-[300px] md:h-[320px]
+                                <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 min-h-[300px] h-full
                                   flex flex-col justify-between
                                   shadow-[0_4px_20px_rgba(0,0,0,0.01)]
                                   hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)]
@@ -121,8 +122,8 @@ export default function Testimonials() {
                                             href={t.linkedin}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-9 h-9 rounded-full flex items-center justify-center
-                                   border border-gray-100 bg-white hover:bg-black hover:text-white transition shadow-sm text-black"
+                                            className="w-11 h-11 rounded-full flex items-center justify-center
+                                   border border-blue-600 bg-white hover:bg-blue-600 hover:text-white transition shadow-sm text-blue-600"
                                         >
                                             <LinkedinIcon />
                                         </a>
@@ -151,14 +152,14 @@ export default function Testimonials() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
                             aria-label="Previous testimonial"
                         >
                             <ArrowLeft size={18} />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
                             aria-label="Next testimonial"
                         >
                             <ArrowRight size={18} />
