@@ -105,19 +105,16 @@ const HomeContact = () => {
     };
 
     return (
-        <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-12 bg-[#f7fff0] overflow-hidden">
+        <section id="contact" className="py-8 sm:py-10 px-4 sm:px-6 md:px-8 lg:px-12 bg-[#fdfffb] overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative bg-white rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-brand-50/50 overflow-hidden"
+                    className="relative bg-white rounded-[2.5rem] p-6 sm:p-10 md:p-16 border-[0.9px]  border-brand-100 overflow-hidden"
                 >
-                    {/* Decorative background elements */}
-                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-brand-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-
+                    
                     <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
                         {/* Left Content */}
                         <div className="w-full lg:w-1/3">
