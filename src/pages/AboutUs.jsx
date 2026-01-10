@@ -230,14 +230,14 @@ export default function About() {
       </section>
 
       {/* Transform Section */}
-      <section id="transform-section" className="bg-brand-500 py-16 sm:py-20 lg:py-24">
+      <section id="transform-section" className="bg-brand-950 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 1.2, delay: 0, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white/40 mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-500 mb-4"
           >
             design
           </motion.h2>
@@ -245,8 +245,8 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-500 mb-4"
           >
             We transform digital presence
           </motion.h2>
@@ -254,8 +254,8 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 1.2, delay: 2.4, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white/40"
+            transition={{ duration: 1.2, delay: 1, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-500"
           >
             develop
           </motion.h2>

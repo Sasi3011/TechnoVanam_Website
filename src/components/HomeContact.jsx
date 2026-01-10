@@ -114,7 +114,7 @@ const HomeContact = () => {
                     transition={{ duration: 0.8 }}
                     className="relative bg-white rounded-[2.5rem] p-6 sm:p-10 md:p-16 border-[0.9px]  border-brand-100 overflow-hidden"
                 >
-                    
+
                     <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
                         {/* Left Content */}
                         <div className="w-full lg:w-1/3">
@@ -349,13 +349,13 @@ const HomeContact = () => {
                                 <div className="pt-4">
                                     <button
                                         type="submit"
-                                        className="group relative w-full sm:w-auto px-12 py-5 bg-brand-500 text-white rounded-2xl font-black text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-brand-100 flex items-center justify-center gap-3"
+                                        className="btn-primary w-full sm:w-auto flex items-center justify-center gap-3"
                                     >
-                                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                                         <span className="relative z-10 flex items-center gap-2">
                                             Send Message
                                             <Send size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                                         </span>
+                                        <div className="btn-primary-shine"></div>
                                     </button>
                                 </div>
                             </form>

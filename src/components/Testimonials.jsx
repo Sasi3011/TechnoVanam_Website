@@ -77,7 +77,7 @@ export default function Testimonials() {
             </div>
 
             {/* Scroll container */}
-            <div className="relative mb-16 max-w-7xl mx-auto">
+            <div className="relative mb-16">
                 <div
                     ref={scrollRef}
                     className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide
