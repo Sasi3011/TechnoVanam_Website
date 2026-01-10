@@ -370,7 +370,7 @@ const Home = () => {
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight">
               Your trusted creative partner
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-xs md:text-base lg:text-lg text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
               We deliver creative branding, web design, and UI/UX solutions to make the most impact
             </p>
             <Link
@@ -922,7 +922,6 @@ const Home = () => {
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                       Athlixir
                     </h3>
-                    <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gray-900"></div>
                   </div>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
@@ -934,7 +933,7 @@ const Home = () => {
                   <div className="px-4 sm:px-6 py-2 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     Web Design
                   </div>
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 opacity-[0.05] select-none leading-none">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
                     01
                   </span>
                 </div>
@@ -963,9 +962,8 @@ const Home = () => {
 
                   <div className="relative inline-block mb-4 group">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-                      Youth entrepreneurship platform
+                      Youth Entrepreneurship Platform
                     </h3>
-                    <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gray-900"></div>
                   </div>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
@@ -977,7 +975,7 @@ const Home = () => {
                   <div className="px-4 sm:px-6 py-2 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     LMS Platform
                   </div>
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 opacity-[0.05] select-none leading-none">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
                     02
                   </span>
                 </div>
@@ -995,7 +993,7 @@ const Home = () => {
             </div>
 
             {/* All Products Button */}
-            <div className="flex justify-center pt-8 border-t border-gray-100">
+            <div className="flex justify-center">
               <Link
                 to="/portfolio"
                 className="btn-primary"
