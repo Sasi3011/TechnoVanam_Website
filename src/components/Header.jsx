@@ -142,7 +142,7 @@ const Header = () => {
                 />
               </div>
               <span
-                className="text-2xl sm:text-3xl font-bold bg-clip-text text-white leading-none tracking-tight font-archivo"
+                className="text-2xl sm:text-3xl font-bold bg-clip-text text-white leading-none tracking-tight"
               >
                 Techno Vanam
               </span>

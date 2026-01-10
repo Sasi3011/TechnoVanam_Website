@@ -33,7 +33,7 @@ const Maintenance = () => {
     ];
 
     return (
-        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-6 sm:p-12 overflow-hidden selection:bg-brand-500/30 font-archivo">
+        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-6 sm:p-12 overflow-hidden selection:bg-brand-500/30">
 
             {/* --- PREMIUM BACKDROPS --- */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -121,7 +121,7 @@ const Maintenance = () => {
                         alt="Techno Vanam Logo"
                         className="h-10 sm:h-12 w-auto object-contain"
                     />
-                    <span className="text-2xl sm:text-3xl font-bold text-white font-archivo tracking-tight">
+                    <span className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                         Techno Vanam
                     </span>
                 </motion.div>
@@ -149,7 +149,7 @@ const Maintenance = () => {
                     {/* Subtle Glow Behind Text */}
                     <div className="absolute inset-0 bg-brand-600/5 blur-[100px] rounded-full scale-110 sm:scale-150 pointer-events-none"></div>
 
-                    <h1 className="text-[12vw] sm:text-7xl md:text-8xl lg:text-[10rem] font-bold text-white leading-[1.1] sm:leading-[0.8] tracking-[-0.04em] font-archivo">
+                    <h1 className="text-[12vw] sm:text-7xl md:text-8xl lg:text-[10rem] font-bold text-white leading-[1.1] sm:leading-[0.8] tracking-[-0.04em]">
                         <motion.span
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
@@ -173,7 +173,7 @@ const Maintenance = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9 }}
-                    className="text-white text-sm sm:text-lg md:text-xl max-w-[280px] sm:max-w-2xl mx-auto leading-relaxed font-light px-2 font-archivo"
+                    className="text-white text-sm sm:text-lg md:text-xl max-w-[280px] sm:max-w-2xl mx-auto leading-relaxed font-light px-2"
                 >
                     Techno Vanam is being meticulously rebuilt to deliver an unparalleled
                     state-of-the-art digital experience.
@@ -196,7 +196,7 @@ const Maintenance = () => {
                 </a>
 
                 <div className="flex flex-col items-center space-y-2">
-                    <div className="flex items-center gap-2 text-[12px] text-white tracking-[0.4em] uppercase font-bold font-archivo">
+                    <div className="flex items-center gap-2 text-[12px] text-white tracking-[0.4em] uppercase font-bold">
                         <img src="/Logo.png" alt="" className="h-[12px] w-auto object-contain opacity-80" />
                         Techno Vanam
                     </div>

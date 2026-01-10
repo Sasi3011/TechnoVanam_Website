@@ -900,7 +900,7 @@ const Home = () => {
 
             {/* Right: Main Heading */}
             <div className="lg:col-span-6 lg:col-start-7">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-[1.1] font-archivo">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-[1.1]">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
               </h2>

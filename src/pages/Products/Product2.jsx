@@ -23,7 +23,7 @@ export default function Products2() {
         </div>
 
         {/* Heading + Logo */}
-        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4 font-archivo">
+        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4">
           <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
             Products by
           </span>
@@ -34,7 +34,7 @@ export default function Products2() {
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
               loading="lazy"
             />
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap font-archivo">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap">
               Techno Vanam
             </span>
           </div>

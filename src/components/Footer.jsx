@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20 font-archivo">
+    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
@@ -141,7 +141,7 @@ const Footer = () => {
               alt="Techno Vanam Logo"
               className="w-8 h-8 object-contain"
             />
-            <span className="text-xl font-bold text-brand-950 font-archivo">
+            <span className="text-xl font-bold text-brand-950">
               Techno Vanam
             </span>
           </div>

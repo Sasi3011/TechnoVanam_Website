@@ -15,17 +15,18 @@
   --color-brand-950: #0d2702;
 
   --shadow-brand: 0 4px 15px rgba(113, 211, 0, 0.4);
+
+  --font-sans: "Archivo";
+  --font-serif: "Archivo";
+  --font-mono: "Archivo";
 }
 
-/* Archivo Font for Entire Website */
-html,
-body,
-button,
-input,
-select,
-textarea {
-  font-family: 'Archivo', sans-serif;
-  font-stretch: 112.5%;
+/* Archivo Font for Entire Website - Explicitly remove all other fonts */
+* {
+  font-family: 'Archivo' !important;
+  font-stretch: 112.5% !important;
+  scrollbar-width: thin;
+  scrollbar-color: #71d300 transparent;
 }
 
 /* Base Font Family */
@@ -45,10 +46,7 @@ textarea {
   animation: jump 2s infinite ease-in-out;
 }
 
-.font-archivo {
-  font-family: 'Archivo', sans-serif;
-  font-stretch: 112.5%;
-}
+/* Global Archivo stretch is already handled by * selector */
 
 html {
   scroll-behavior: smooth;
@@ -74,10 +72,6 @@ body {
   /* Chrome/Safari */
 }
 
-/* Smooth Scroll for anchor links and navigation */
-html {
-  scroll-behavior: smooth;
-}
 
 /* ======= CUSTOM SCROLLBAR STYLES ======= */
 
@@ -120,11 +114,6 @@ header {
   animation: pulse 1s infinite;
 }
 
-/* Firefox support */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #71d300 transparent;
-}
 
 /* Force hide horizontal scrollbar even if content overflows slightly */
 body {
@@ -144,15 +133,6 @@ body {
   @apply translate-x-[100%];
 }
 
-/* Optional Utility: Hide scrollbar if needed */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
 
 /* Optional Animation Class */
 @keyframes bounce-dot {

@@ -244,7 +244,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-6xl font-medium text-gray-900 tracking-tight font-archivo pb-18"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-6xl font-medium text-gray-900 tracking-tight pb-18"
           >
             Explore Our Services
           </motion.h1>
@@ -681,8 +681,8 @@ const Services = () => {
             </p>
           </div> */}
 
-          {/* Industries Cards - Responsive Grid */}
-          {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-4 sm:mt-6">
+      {/* Industries Cards - Responsive Grid */}
+      {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center mt-4 sm:mt-6">
             {industriesList.map((item, index) => (
               <div
                 key={index}
