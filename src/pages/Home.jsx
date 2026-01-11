@@ -364,18 +364,18 @@ const Home = () => {
       <section className="relative px-4 sm:px-6 md:px-8 lg:px-12 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-[#71d300] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
+            <p className="text-[#71d300] text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
             </p>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight">
-              Your trusted creative partner
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight lg:whitespace-nowrap">
+              Building Premium Digital Brands
             </h1>
-            <p className="text-sm sm:text-xs md:text-base lg:text-lg text-white/80 leading-relaxed mb-10 max-w-3xl mx-auto ">
-              We deliver creative branding, web design, and UI/UX solutions to make the most impact
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl text-white leading-relaxed mb-10 max-w-3xl lg:max-w-none mx-auto lg:whitespace-nowrap">
+              We deliver UI/UX, Branding, and Digital <span className="block lg:inline">Development that transforms ambitious</span> <span className="block lg:inline">visions into reality</span>
             </p>
             <Link
               to="/contact"
-              className="btn-primary"
+              className="btn-primary flex items-center justify-center mx-auto w-fit"
             >
               <span className="relative z-10">
                 Request a quote <span className="text-2xl ml-1">👋</span>
@@ -392,22 +392,22 @@ const Home = () => {
           >
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex shrink-0">
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
                   CREATIVE SOLUTIONS
                 </span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
                   BUSINESS VALUE
                 </span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
                   PURPOSEFUL DESIGNS
                 </span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
                   STRATEGIC EXPERIENCES
                 </span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
                 <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   UI/UX DESIGN
                 </span>
@@ -547,7 +547,7 @@ const Home = () => {
                 bottom: 0;
                 width: 100%;
                 height: 0%;
-                background: var(--color-brand-50); /* Brand green hover background */
+                background: rgba(255, 255, 255, 0.2); /* Subtle white hover background */
                 z-index: 0;
                 transition: height 0.4s ease;
               }
@@ -563,25 +563,23 @@ const Home = () => {
                 transition: transform 0.4s ease, color 0.3s ease;
               }
 
-              /* 🔥 HOVER EFFECT (DESKTOP ONLY) */
-              @media (min-width: 766px) {
-                .grid-standart-services:hover .h-service-bg {
-                  height: 100%;
-                }
+              /* 🔥 HOVER EFFECT (ALL DEVICES) */
+              .grid-standart-services:hover .h-service-bg {
+                height: 100%;
+              }
 
-                .grid-standart-services:hover .s-arrow {
-                  transform: translateX(-170%);
-                }
+              .grid-standart-services:hover .s-arrow {
+                transform: translateX(-170%);
+              }
 
-                .grid-standart-services:hover .service-number,
-                .grid-standart-services:hover .service-title {
-                  transform: translateX(20px);
-                  color: var(--color-brand-600) !important;
-                }
+              .grid-standart-services:hover .service-number,
+              .grid-standart-services:hover .service-title {
+                transform: translateX(20px);
+                color: var(--color-brand-600) !important;
+              }
 
-                .grid-standart-services {
-                  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
-                }
+              .grid-standart-services {
+                border-bottom-color: rgba(255, 255, 255, 0.05) !important;
               }
             `}</style>
 
@@ -754,7 +752,7 @@ const Home = () => {
             <div className="flex justify-center mt-6 sm:mt-8">
               <Link
                 to="/services"
-                className="btn-primary"
+                className="btn-primary bg-brand-500 text-black font-extrabold"
               >
                 <span className="relative z-10">All Services</span>
                 <div className="btn-primary-shine"></div>
@@ -797,15 +795,9 @@ const Home = () => {
                     {/* Card Front */}
                     <div className="flip-card-front bg-white/5 border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10">
                       <div className="flex justify-between items-start">
-                        <motion.span
-                          initial={{ fontSize: "1.5rem" }}
-                          whileInView={{ fontSize: "3.75rem" }}
-                          transition={{ duration: 0.7, ease: "easeInOut", delay: index * 0.05 }}
-                          viewport={{ once: false, amount: 0.5 }}
-                          className="font-black text-brand-500 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block origin-left"
-                        >
+                        <span className="text-6xl font-black text-brand-500 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block">
                           {String(index + 1).padStart(2, '0')}
-                        </motion.span>
+                        </span>
                       </div>
                       <div>
                         <h3 className="text-3xl font-bold text-white group-hover:text-brand-600 transition-colors">
@@ -816,7 +808,7 @@ const Home = () => {
                     </div>
 
                     {/* Card Back */}
-                    <div className="flip-card-back bg-brand-950 p-8 flex flex-col justify-between text-left">
+                    <div className="flip-card-back bg-[#0a0a0a] border border-brand-500/50 p-8 flex flex-col justify-between text-left">
                       <div className="flex flex-col gap-2">
                         <span className="text-4xl font-black text-brand-200/50">
                           {String(index + 1).padStart(2, '0')}

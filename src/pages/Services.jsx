@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HighClassPopup from '../components/HighClassPopup';
 import { ArrowDown, ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import HomeContact from "../components/HomeContact";
 const servicesList = [
   {
     name: "Web Design",
@@ -770,6 +770,8 @@ const Services = () => {
           </svg>
         }
       />
+
+      <HomeContact />
     </>
   );
 };

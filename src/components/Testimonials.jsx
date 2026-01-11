@@ -80,9 +80,7 @@ export default function Testimonials() {
             <div className="relative mb-16">
                 <div
                     ref={scrollRef}
-                    className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide
-                     px-4 sm:px-6 md:px-8 lg:px-12 py-4
-                     scroll-pl-4 sm:scroll-pl-6 md:scroll-pl-8 lg:scroll-pl-12"
+                    className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-4 scroll-container-align"
                     style={{
                         WebkitOverflowScrolling: "touch",
                         scrollbarWidth: "none",
@@ -171,6 +169,36 @@ export default function Testimonials() {
             <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+
+        .scroll-container-align {
+          padding-left: 1rem;
+          padding-right: 1rem;
+          scroll-padding-left: 1rem;
+        }
+
+        @media (min-width: 640px) {
+          .scroll-container-align {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            scroll-padding-left: 1.5rem;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .scroll-container-align {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            scroll-padding-left: 2rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .scroll-container-align {
+            padding-left: max(3rem, calc((100vw - 80rem) / 2 + 3rem));
+            padding-right: 3rem;
+            scroll-padding-left: max(3rem, calc((100vw - 80rem) / 2 + 3rem));
+          }
         }
       `}</style>
         </section>
