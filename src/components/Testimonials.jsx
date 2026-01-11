@@ -141,7 +141,7 @@ export default function Testimonials() {
                     {/* Progress Bar */}
                     <div className="w-full sm:flex-1 h-[3px] bg-white/5 rounded-full overflow-hidden relative">
                         <motion.div
-                            className="absolute top-0 left-0 h-full bg-brand-600"
+                            className="absolute top-0 left-0 h-full bg-brand-500"
                             style={{ scaleX, originX: 0, width: "100%" }}
                         />
                     </div>
@@ -150,17 +150,23 @@ export default function Testimonials() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
+                            className="relative group overflow-hidden w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-500 flex items-center justify-center text-black shadow-md hover:bg-brand-600 transition-all duration-300 active:scale-95 border border-brand-500"
                             aria-label="Previous testimonial"
                         >
-                            <ArrowLeft size={18} />
+                            <span className="relative z-10">
+                                <ArrowLeft size={20} />
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-600 flex items-center justify-center text-white shadow-md hover:bg-brand-700 transition-colors border border-brand-500"
+                            className="relative group overflow-hidden w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-500 flex items-center justify-center text-black shadow-md hover:bg-brand-600 transition-all duration-300 active:scale-95 border border-brand-500"
                             aria-label="Next testimonial"
                         >
-                            <ArrowRight size={18} />
+                            <span className="relative z-10">
+                                <ArrowRight size={20} />
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                         </button>
                     </div>
                 </div>
