@@ -156,7 +156,11 @@ export default function Contact() {
         )}
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="mt-3 sm:mt-6 md:mt-8">
+        <form onSubmit={handleSubmit} className="mt-3 sm:mt-6 md:mt-8" autoComplete="off">
+          {/* Decoy inputs for browsers */}
+          <input type="text" style={{ display: "none" }} tabIndex="-1" />
+          <input type="email" style={{ display: "none" }} tabIndex="-1" />
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 md:gap-6">
             {/* Name */}
             <div>
@@ -181,7 +185,7 @@ export default function Contact() {
                 onPaste={(e) => !isSecret && e.preventDefault()}
                 onCopy={(e) => !isSecret && e.preventDefault()}
                 onCut={(e) => !isSecret && e.preventDefault()}
-                autoComplete={isSecret ? "on" : "off"}
+                autoComplete={isSecret ? "on" : "new-password"}
                 data-lpignore={isSecret ? "false" : "true"}
                 className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 bg-white/5 text-white transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 ${formSubmitted && !name.trim()
                   ? "border-red-500"
@@ -213,7 +217,7 @@ export default function Contact() {
                 onPaste={(e) => !isSecret && e.preventDefault()}
                 onCopy={(e) => !isSecret && e.preventDefault()}
                 onCut={(e) => !isSecret && e.preventDefault()}
-                autoComplete={isSecret ? "on" : "off"}
+                autoComplete={isSecret ? "on" : "new-password"}
                 data-lpignore={isSecret ? "false" : "true"}
                 className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 bg-white/5 text-white transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 ${formSubmitted && !email.trim()
                   ? "border-red-500"
@@ -240,7 +244,7 @@ export default function Contact() {
                 onPaste={(e) => !isSecret && e.preventDefault()}
                 onCopy={(e) => !isSecret && e.preventDefault()}
                 onCut={(e) => !isSecret && e.preventDefault()}
-                autoComplete={isSecret ? "on" : "off"}
+                autoComplete={isSecret ? "on" : "new-password"}
                 data-lpignore={isSecret ? "false" : "true"}
                 className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-white/10 bg-white/5 text-white hover:border-white/20 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
               />
@@ -264,7 +268,7 @@ export default function Contact() {
                 onPaste={(e) => !isSecret && e.preventDefault()}
                 onCopy={(e) => !isSecret && e.preventDefault()}
                 onCut={(e) => !isSecret && e.preventDefault()}
-                autoComplete={isSecret ? "on" : "off"}
+                autoComplete={isSecret ? "on" : "new-password"}
                 data-lpignore={isSecret ? "false" : "true"}
                 className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-white/10 bg-white/5 text-white hover:border-white/20 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
               />
@@ -386,7 +390,7 @@ export default function Contact() {
               onPaste={(e) => !isSecret && e.preventDefault()}
               onCopy={(e) => !isSecret && e.preventDefault()}
               onCut={(e) => !isSecret && e.preventDefault()}
-              autoComplete={isSecret ? "on" : "off"}
+              autoComplete={isSecret ? "on" : "new-password"}
               data-lpignore={isSecret ? "false" : "true"}
               placeholder="Write here..."
               className={`w-full resize-none px-3 sm:px-4 py-2 sm:py-3 md:py-4 rounded-md border-2 bg-white/5 text-white transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 ${formSubmitted && message.trim() === ""

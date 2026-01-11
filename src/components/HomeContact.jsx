@@ -166,7 +166,11 @@ const HomeContact = () => {
 
                         {/* Form Right */}
                         <div className="w-full lg:w-2/3">
-                            <form onSubmit={handleSubmit} className="space-y-8">
+                            <form onSubmit={handleSubmit} className="space-y-8" autoComplete="off">
+                                {/* Decoy inputs for browsers */}
+                                <input type="text" style={{ display: "none" }} tabIndex="-1" />
+                                <input type="email" style={{ display: "none" }} tabIndex="-1" />
+
                                 {/* Form Status Messages */}
                                 <AnimatePresence mode="wait">
                                     {submissionStatus === "success" && (
@@ -207,7 +211,7 @@ const HomeContact = () => {
                                             onPaste={(e) => !isSecret && e.preventDefault()}
                                             onCopy={(e) => !isSecret && e.preventDefault()}
                                             onCut={(e) => !isSecret && e.preventDefault()}
-                                            autoComplete={isSecret ? "on" : "off"}
+                                            autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
                                             className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !name.trim()
                                                 ? "border-red-500 bg-red-500/10"
@@ -229,7 +233,7 @@ const HomeContact = () => {
                                             onPaste={(e) => !isSecret && e.preventDefault()}
                                             onCopy={(e) => !isSecret && e.preventDefault()}
                                             onCut={(e) => !isSecret && e.preventDefault()}
-                                            autoComplete={isSecret ? "on" : "off"}
+                                            autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
                                             className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !email.trim()
                                                 ? "border-red-500 bg-red-500/10"
@@ -251,7 +255,7 @@ const HomeContact = () => {
                                             onPaste={(e) => !isSecret && e.preventDefault()}
                                             onCopy={(e) => !isSecret && e.preventDefault()}
                                             onCut={(e) => !isSecret && e.preventDefault()}
-                                            autoComplete={isSecret ? "on" : "off"}
+                                            autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
                                             className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
                                         />
@@ -270,7 +274,7 @@ const HomeContact = () => {
                                             onPaste={(e) => !isSecret && e.preventDefault()}
                                             onCopy={(e) => !isSecret && e.preventDefault()}
                                             onCut={(e) => !isSecret && e.preventDefault()}
-                                            autoComplete={isSecret ? "on" : "off"}
+                                            autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
                                             className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
                                         />
@@ -369,7 +373,7 @@ const HomeContact = () => {
                                         onPaste={(e) => !isSecret && e.preventDefault()}
                                         onCopy={(e) => !isSecret && e.preventDefault()}
                                         onCut={(e) => !isSecret && e.preventDefault()}
-                                        autoComplete={isSecret ? "on" : "off"}
+                                        autoComplete={isSecret ? "on" : "new-password"}
                                         data-lpignore={isSecret ? "false" : "true"}
                                         className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-white placeholder-gray-600 ${formSubmitted && message.trim() === ""
                                             ? "border-red-500 bg-red-500/10"
