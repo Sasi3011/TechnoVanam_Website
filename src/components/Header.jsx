@@ -121,28 +121,28 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-9xl mx-auto">
         <div
-          className={`relative flex items-center px-6 py-3 sm:py-4 bg-[#0d2702] backdrop-blur-xl rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300 ${isOpen ? "rounded-[1.5rem]" : "rounded-[2.5rem]"
+          className={`relative flex items-center px-4 py-2 lg:px-6 lg:py-4 backdrop-blur-xl rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300 ${isOpen ? "rounded-[1.5rem]" : "rounded-[2.5rem]"
             }`}
         >
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start">
             <Link
               to="/"
-              className="flex items-center gap-2 group transition-transform duration-300 hover:scale-[1.02]"
+              className="flex items-center gap-2 group "
               aria-label="Techno Vanam Home"
             >
               <div className="relative">
                 <img
                   src="/Logo.png"
                   alt="Techno Vanam Logo"
-                  className="h-6 sm:h-8 w-auto object-contain relative z-10"
+                  className="h-5 lg:h-8 w-auto object-contain relative z-10"
                   loading="lazy"
                 />
               </div>
               <span
-                className="text-2xl sm:text-3xl font-bold bg-clip-text text-white leading-none tracking-tight"
+                className="text-lg lg:text-3xl font-semibold bg-clip-text text-white leading-none tracking-tight"
               >
                 Techno Vanam
               </span>
@@ -151,7 +151,7 @@ const Header = () => {
 
           {/* Center: Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center items-center">
-            <div className="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
+            <div className="flex items-center bg-white/10 rounded-full p-1 border border-white/10 gap-2">
               {navItems.map((item) => {
                 if (item.name === "Services") {
                   return (
@@ -164,9 +164,11 @@ const Header = () => {
                       <NavLink
                         to={item.to}
                         className={({ isActive }) =>
-                          `flex items-center gap-1 px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive || isServicesOpen
-                            ? "text-brand-600 bg-white"
-                            : "text-gray-300 hover:text-brand-600 hover:bg-white/10"
+                          `flex items-center gap-1 px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
+                            ? "text-brand-600 bg-white/20"
+                            : isServicesOpen
+                              ? "text-brand-600 bg-white/5"
+                              : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                           }`
                         }
                       >
@@ -300,8 +302,8 @@ const Header = () => {
                     to={item.to}
                     className={({ isActive }) =>
                       `relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
-                        ? "text-brand-600 bg-white"
-                        : "text-gray-300 hover:text-brand-600 hover:bg-white/10"
+                        ? "text-brand-600 bg-white/20"
+                        : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                       }`
                     }
                   >
@@ -317,7 +319,7 @@ const Header = () => {
             <a
               href="/contact"
               onClick={handleContactClick}
-              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-500 lg:text-white lg:rounded-full lg:text-sm lg:font-semibold lg:transition-all lg:duration-300 lg:hover:bg-brand-600 lg:active:scale-95 lg:flex lg:items-center cursor-pointer"
+              className="hidden lg:relative lg:group lg:overflow-hidden lg:px-6 lg:py-2.5 lg:bg-brand-500 lg:text-black lg:rounded-full lg:text-sm lg:font-extrabold lg:transition-all lg:duration-300 lg:hover:bg-brand-600 lg:active:scale-95 lg:flex lg:items-center cursor-pointer"
               aria-label="Contact Us"
             >
               <span className="relative z-10">Get in Touch</span>
@@ -350,7 +352,7 @@ const Header = () => {
                       <button
                         onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                         className={`flex items-center justify-between px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${isMobileServicesOpen
-                          ? "text-brand-600 bg-brand-500/10"
+                          ? "text-brand-600 bg-white/20"
                           : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                           }`}
                       >
@@ -447,7 +449,7 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
                       `px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${isActive
-                        ? "text-brand-600 bg-brand-500/10"
+                        ? "text-brand-600 bg-white/20"
                         : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                       }`
                     }
@@ -458,8 +460,11 @@ const Header = () => {
               })}
               <a
                 href="/contact"
-                onClick={handleContactClick}
-                className="mt-4 w-full py-4 bg-brand-500 text-white rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform cursor-pointer"
+                onClick={(e) => {
+                  handleContactClick(e);
+                  setIsOpen(false);
+                }}
+                className="mt-4 w-full py-4 bg-brand-500 text-black rounded-2xl text-center text-lg font-bold shadow-lg shadow-brand-500/20 active:scale-[0.98] transition-transform cursor-pointer"
                 aria-label="Contact Us"
               >
                 Get in Touch
