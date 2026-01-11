@@ -8,7 +8,7 @@ import tabletImg from "../assets/expertise/tablet.png";
 import ind1 from "../assets/expertise/industry1.png";
 import ind2 from "../assets/expertise/industry2.png";
 import ind3 from "../assets/expertise/industry3.png";
-
+import HomeContact from "../components/HomeContact";
 const teamMembers = [
   {
     name: "Sasikiran TT",
@@ -301,15 +301,28 @@ export default function About() {
 
       {/* What Drives Us */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             What Drives Us
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             In 2025, we began building our own digital products—driven by the same vision and purpose that fuel everything we do: turning ideas into impactful, user-centered experiences.
           </p>
-        </div>
+        </div> */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+              {/* Left: Label */}
+              <div className="lg:col-span-4 flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
+                <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">What Drives Us</span>
+              </div>
 
+              {/* Right: Main Heading */}
+              <div className="lg:col-span-8 lg:col-start-7">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-brand-950 leading-tight">
+                  In 2025, we started building digital products designed to make ideas come alive.
+                </h2>
+              </div>
+            </div>
         {/* Mission & Vision Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
@@ -593,6 +606,9 @@ export default function About() {
           </Link>
         </div>
       </section>
+
+      <HomeContact />
+
     </div>
   );
 }

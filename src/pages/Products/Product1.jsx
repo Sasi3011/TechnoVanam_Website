@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import HomeContact from "../../components/HomeContact";
 
 const Product1 = () => {
   return (
@@ -124,6 +125,10 @@ const Product1 = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="w-full">
+        <HomeContact />
       </div>
 
       {/* Spacer */}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Rocket } from "lucide-react";
+import HomeContact from "../../components/HomeContact";
 
 export default function Products2() {
   const navigate = useNavigate();
@@ -134,6 +135,10 @@ export default function Products2() {
             <Rocket className="w-5 h-5 text-brand-600" />
           </div>
         </div>
+      </div>
+
+      <div className="w-full">
+        <HomeContact />
       </div>
     </div>
   );
