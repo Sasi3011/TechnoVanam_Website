@@ -21,7 +21,16 @@ const HomeContact = () => {
     const [projectType, setProjectType] = useState("");
     const [deadline, setDeadline] = useState("");
     const [submissionStatus, setSubmissionStatus] = useState(null);
+    const [isSecret, setIsSecret] = useState(window.isSecretEnabled || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
     const location = useLocation();
+
+    useEffect(() => {
+        const handleSecretChange = (e) => {
+            setIsSecret(e.detail || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
+        };
+        window.addEventListener('secretModeChanged', handleSecretChange);
+        return () => window.removeEventListener('secretModeChanged', handleSecretChange);
+    }, []);
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -195,6 +204,11 @@ const HomeContact = () => {
                                             placeholder="Enter your name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
+                                            onPaste={(e) => !isSecret && e.preventDefault()}
+                                            onCopy={(e) => !isSecret && e.preventDefault()}
+                                            onCut={(e) => !isSecret && e.preventDefault()}
+                                            autoComplete={isSecret ? "on" : "off"}
+                                            data-lpignore={isSecret ? "false" : "true"}
                                             className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !name.trim()
                                                 ? "border-red-500 bg-red-500/10"
                                                 : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
@@ -212,6 +226,11 @@ const HomeContact = () => {
                                             placeholder="Enter your email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
+                                            onPaste={(e) => !isSecret && e.preventDefault()}
+                                            onCopy={(e) => !isSecret && e.preventDefault()}
+                                            onCut={(e) => !isSecret && e.preventDefault()}
+                                            autoComplete={isSecret ? "on" : "off"}
+                                            data-lpignore={isSecret ? "false" : "true"}
                                             className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !email.trim()
                                                 ? "border-red-500 bg-red-500/10"
                                                 : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
@@ -229,6 +248,11 @@ const HomeContact = () => {
                                             placeholder="Company name"
                                             value={company}
                                             onChange={(e) => setCompany(e.target.value)}
+                                            onPaste={(e) => !isSecret && e.preventDefault()}
+                                            onCopy={(e) => !isSecret && e.preventDefault()}
+                                            onCut={(e) => !isSecret && e.preventDefault()}
+                                            autoComplete={isSecret ? "on" : "off"}
+                                            data-lpignore={isSecret ? "false" : "true"}
                                             className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
                                         />
                                     </div>
@@ -243,6 +267,11 @@ const HomeContact = () => {
                                             placeholder="https://example.com"
                                             value={website}
                                             onChange={(e) => setWebsite(e.target.value)}
+                                            onPaste={(e) => !isSecret && e.preventDefault()}
+                                            onCopy={(e) => !isSecret && e.preventDefault()}
+                                            onCut={(e) => !isSecret && e.preventDefault()}
+                                            autoComplete={isSecret ? "on" : "off"}
+                                            data-lpignore={isSecret ? "false" : "true"}
                                             className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
                                         />
                                     </div>
@@ -337,6 +366,11 @@ const HomeContact = () => {
                                         placeholder="Tell us a little more about your project goals and requirements..."
                                         value={message}
                                         onChange={handleTextareaChange}
+                                        onPaste={(e) => !isSecret && e.preventDefault()}
+                                        onCopy={(e) => !isSecret && e.preventDefault()}
+                                        onCut={(e) => !isSecret && e.preventDefault()}
+                                        autoComplete={isSecret ? "on" : "off"}
+                                        data-lpignore={isSecret ? "false" : "true"}
                                         className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-white placeholder-gray-600 ${formSubmitted && message.trim() === ""
                                             ? "border-red-500 bg-red-500/10"
                                             : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
