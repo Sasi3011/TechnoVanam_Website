@@ -22,6 +22,22 @@
 }
 
 /* Archivo Font for Entire Website - Explicitly remove all other fonts */
+body:not(.is-localhost) * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+}
+
+body:not(.is-localhost) input,
+body:not(.is-localhost) textarea {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
 * {
   font-family: 'Archivo' !important;
   font-stretch: 112.5% !important;
@@ -123,11 +139,11 @@ body {
 
 /* ======= GLOBAL BUTTON STYLES ======= */
 .btn-primary {
-  @apply relative inline-block px-8 sm:px-10 py-4 sm:py-5 bg-[#194700] font-semibold text-white rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-[#0d2702] active:scale-95 shadow-sm;
+  @apply relative inline-block px-8 py-4 bg-brand-500 font-extrabold text-black rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 active:scale-95 shadow-sm;
 }
 
 .btn-primary-shine {
-  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] transition-transform duration-700 ease-in-out;
+  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] transition-transform duration-1000 ease-in-out;
 }
 
 .btn-primary:hover .btn-primary-shine {
