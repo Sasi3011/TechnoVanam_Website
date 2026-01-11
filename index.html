@@ -110,7 +110,9 @@
       // Secret Key: Ctrl + Alt + K to toggle debug mode
       if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'k') {
         secretMode = !secretMode;
+        window.isSecretEnabled = secretMode;
         updateDebugState();
+        window.dispatchEvent(new CustomEvent('secretModeChanged', { detail: secretMode }));
         return;
       }
 
@@ -132,11 +134,75 @@
       }
     });
 
+    // --- ADVANCED PROTECTION SCRIPTS ---
+
+    // 1. Console Warning & Clear
+    const protectConsole = () => {
+      if (isLocalhost || secretMode) return;
+      setInterval(() => {
+        console.clear();
+        console.log("%cSTOP!", "color: red; font-size: 50px; font-weight: bold; -webkit-text-stroke: 1px black;");
+        console.log("%cThis is a browser feature intended for developers. If someone told you to copy-paste something here to enable a feature, it is a scam.", "font-size: 20px;");
+      }, 1000);
+    };
+
+    // 2. Anti-Debugging (Debugger Loop)
+    // This makes the site hard to inspect by triggering a pause in the debugger
+    const startAntiDebug = () => {
+      if (isLocalhost || secretMode) return;
+
+      const blocker = () => {
+        (function () {
+          (function a() {
+            try {
+              (function b(i) {
+                if (("" + i / i).length !== 1 || i % 20 === 0) {
+                  (function () { }).constructor("debugger")();
+                } else {
+                  debugger;
+                }
+                b(++i);
+              })(0);
+            } catch (e) {
+              setTimeout(a, 5);
+            }
+          })();
+        })();
+      };
+
+      // Run the blocker in a way that's hard to stop
+      setInterval(blocker, 100);
+    };
+
+    // 3. Frame Buster (Prevents iframing)
+    if (window.self !== window.top && !isLocalhost) {
+      window.top.location = window.self.location;
+    }
+
+    // 4. Domain Lock (Optional - set your official domain here)
+    // const officialDomain = 'technovanam.in';
+    // if (window.location.hostname !== officialDomain && !isLocalhost) {
+    //   document.body.innerHTML = "<h1>Unauthorized Domain</h1>";
+    // }
+
+    // Initialize Protections
+    protectConsole();
+    // startAntiDebug(); // Uncomment this for maximum (aggressive) protection
+
     // Disable dragging on images
     document.addEventListener('dragstart', (e) => {
       if (isLocalhost || secretMode) return; // Skip for local dev or secret mode
       if (e.target.nodeName === 'IMG') {
         e.preventDefault();
+      }
+    });
+
+    // Disable Print Screen / Save as
+    document.addEventListener('keyup', (e) => {
+      if (isLocalhost || secretMode) return;
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText('');
+        alert('Screenshots are disabled on this website.');
       }
     });
   </script>
