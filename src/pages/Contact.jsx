@@ -22,28 +22,6 @@ export default function Contact() {
   const [projectType, setProjectType] = useState("");
   const [deadline, setDeadline] = useState("");
   const [submissionStatus, setSubmissionStatus] = useState(null);
-  const [turnstileToken, setTurnstileToken] = useState(null);
-  const location = useLocation();
-  const scrollContainer = document.querySelector(".custom-scrollbar");
-  const turnstileRef = React.useRef(null);
-
-  useEffect(() => {
-    // Initialize Turnstile
-    const renderTurnstile = () => {
-      if (window.turnstile && turnstileRef.current) {
-        window.turnstile.render(turnstileRef.current, {
-          sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY, // Cloudflare Turnstile Site Key
-          callback: (token) => {
-            setTurnstileToken(token);
-          },
-        });
-      } else {
-        setTimeout(renderTurnstile, 100);
-      }
-    };
-    renderTurnstile();
-  }, []);
-
   const toggleService = (service) => {
     setSelectedServices((prev) =>
       prev.includes(service)
@@ -84,8 +62,7 @@ export default function Contact() {
       !name.trim() ||
       !email.trim() ||
       selectedServices.length === 0 ||
-      message.trim() === "" ||
-      !turnstileToken
+      message.trim() === ""
     ) {
       setSubmissionStatus("error");
       return;
@@ -99,8 +76,7 @@ export default function Contact() {
       services: selectedServices.join(", "),
       projectType,
       deadline,
-      message,
-      "cf-turnstile-response": turnstileToken
+      message
     };
 
     try {
@@ -125,11 +101,7 @@ export default function Contact() {
         setProjectType("");
         setDeadline("");
         setMessage("");
-        setTurnstileToken(null);
         setFormSubmitted(false);
-
-        // Reset Turnstile widget
-        if (window.turnstile) window.turnstile.reset();
 
         setTimeout(() => setSubmissionStatus(null), 3000);
       } else {
@@ -396,22 +368,13 @@ export default function Contact() {
           <div className="mt-6 flex justify-center sm:justify-start">
             <button
               type="submit"
-              className="relative group overflow-hidden bg-brand-500 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg rounded-full shadow hover:bg-brand-600 active:scale-95 transition-all flex items-center gap-2"
+              className="btn-primary"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Send message <Send className="w-4 sm:w-5 h-4 sm:h-5" />
+                Send message <Send className="w-5 h-5" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+              <div className="btn-primary-shine"></div>
             </button>
-          </div>
-
-          <div className="mt-4">
-            <div ref={turnstileRef}></div>
-            {formSubmitted && !turnstileToken && (
-              <p className="text-red-500 text-xs sm:text-sm md:text-base mt-2">
-                Please complete the security check.
-              </p>
-            )}
           </div>
         </form>
       </div>

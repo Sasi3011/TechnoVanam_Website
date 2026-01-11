@@ -31,26 +31,6 @@ const HomeContact = () => {
         }
     }, [location]);
 
-    const [turnstileToken, setTurnstileToken] = useState(null);
-    const turnstileRef = React.useRef(null);
-
-    useEffect(() => {
-        // Initialize Turnstile
-        const renderTurnstile = () => {
-            if (window.turnstile && turnstileRef.current) {
-                window.turnstile.render(turnstileRef.current, {
-                    sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY, // Cloudflare Turnstile Site Key
-                    callback: (token) => {
-                        setTurnstileToken(token);
-                    },
-                });
-            } else {
-                setTimeout(renderTurnstile, 100);
-            }
-        };
-        renderTurnstile();
-    }, []);
-
     const toggleService = (service) => {
         setSelectedServices((prev) =>
             prev.includes(service)
@@ -77,8 +57,7 @@ const HomeContact = () => {
             !name.trim() ||
             !email.trim() ||
             selectedServices.length === 0 ||
-            message.trim() === "" ||
-            !turnstileToken
+            message.trim() === ""
         ) {
             setSubmissionStatus("error");
             return;
@@ -92,8 +71,7 @@ const HomeContact = () => {
             services: selectedServices.join(", "),
             projectType,
             deadline,
-            message,
-            "cf-turnstile-response": turnstileToken
+            message
         };
 
         try {
@@ -118,11 +96,7 @@ const HomeContact = () => {
                 setProjectType("");
                 setDeadline("");
                 setMessage("");
-                setTurnstileToken(null);
                 setFormSubmitted(false);
-
-                // Reset Turnstile widget
-                if (window.turnstile) window.turnstile.reset();
 
                 setTimeout(() => setSubmissionStatus(null), 3000);
             } else {
@@ -387,13 +361,6 @@ const HomeContact = () => {
                                         </span>
                                         <div className="btn-primary-shine"></div>
                                     </button>
-                                </div>
-
-                                <div className="mt-4">
-                                    <div ref={turnstileRef}></div>
-                                    {formSubmitted && !turnstileToken && (
-                                        <p className="text-red-500 text-xs font-medium mt-2">Please complete the security check.</p>
-                                    )}
                                 </div>
                             </form>
                         </div>

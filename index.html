@@ -6,14 +6,140 @@
   <link rel="icon" type="image/png" href="/Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; img-src 'self' data: https://res.cloudinary.com https://api.dicebear.com https://i.pravatar.cc; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formsubmit.co https://challenges.cloudflare.com;">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; frame-src 'self'; img-src 'self' data: https://res.cloudinary.com https://api.dicebear.com https://i.pravatar.cc; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formsubmit.co;">
   <title>Techno Vanam</title>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <style>
+    #custom-cm {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 180px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .cm-item {
+      padding: 10px 14px;
+      color: #ccc;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .cm-item:hover {
+      background: rgba(113, 211, 0, 0.1);
+      color: #71d300;
+    }
+
+    .cm-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 4px 0;
+    }
+  </style>
+
+  <div id="custom-cm">
+    <div class="cm-item" onclick="window.history.back()">Back</div>
+    <div class="cm-item" onclick="window.location.reload()">Reload</div>
+    <div class="cm-divider"></div>
+    <div class="cm-item" onclick="window.open('https://wa.me/918610500527', '_blank')">WhatsApp Me</div>
+    <div class="cm-item" onclick="window.location.href='/contact'">Get a Quote</div>
+  </div>
+
+  <script>
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    let secretMode = false;
+
+    const updateDebugState = () => {
+      if (isLocalhost || secretMode) {
+        document.body.classList.add('is-localhost');
+      } else {
+        document.body.classList.remove('is-localhost');
+      }
+    };
+
+    if (isLocalhost) updateDebugState();
+
+    const cm = document.getElementById('custom-cm');
+
+    // Show custom menu on right click
+    document.addEventListener('contextmenu', (e) => {
+      if (isLocalhost || secretMode) return; // Skip for local dev or secret mode
+
+      // Allow context menu only for input fields and textareas
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      e.preventDefault();
+      cm.style.display = 'block';
+      cm.style.left = e.clientX + 'px';
+      cm.style.top = e.clientY + 'px';
+
+      // Keep inside viewport
+      const rect = cm.getBoundingClientRect();
+      if (rect.right > window.innerWidth) cm.style.left = (e.clientX - rect.width) + 'px';
+      if (rect.bottom > window.innerHeight) cm.style.top = (e.clientY - rect.height) + 'px';
+    });
+
+    // Close menu on click anywhere
+    document.addEventListener('click', () => {
+      cm.style.display = 'none';
+    });
+
+    // Close menu on scroll
+    window.addEventListener('scroll', () => {
+      cm.style.display = 'none';
+    }, { passive: true });
+
+    // Disable copy/paste/save/inspect shortcuts
+    document.addEventListener('keydown', (e) => {
+      // Secret Key: Ctrl + Alt + K to toggle debug mode
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'k') {
+        secretMode = !secretMode;
+        updateDebugState();
+        return;
+      }
+
+      if (isLocalhost || secretMode) return; // Skip for local dev or secret mode
+
+      // Block Ctrl+S, Ctrl+U, Ctrl+C
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u' || e.key === 'c')) {
+        e.preventDefault();
+      }
+
+      // Block F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+
+      // Block Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+        e.preventDefault();
+      }
+    });
+
+    // Disable dragging on images
+    document.addEventListener('dragstart', (e) => {
+      if (isLocalhost || secretMode) return; // Skip for local dev or secret mode
+      if (e.target.nodeName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+  </script>
 </body>
 
 </html>
