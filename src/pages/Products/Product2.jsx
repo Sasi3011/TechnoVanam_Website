@@ -14,7 +14,7 @@ export default function Products2() {
   };
 
   return (
-    <div className="flex flex-col items-center pt-24 gap-16 w-full px-4 sm:px-6 lg:px-0">
+    <div className="flex flex-col items-center pt-24 gap-16 w-full px-4 sm:px-6 lg:px-0 bg-black min-h-screen">
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8 px-4">
         {/* Label */}
@@ -23,7 +23,7 @@ export default function Products2() {
         </div>
 
         {/* Heading + Logo */}
-        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-white font-bold gap-2 sm:gap-3 lg:gap-4">
           <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
             Products by
           </span>
@@ -41,7 +41,7 @@ export default function Products2() {
         </div>
 
         {/* Description */}
-        <p className="text-justify sm:text-justify md:text-justify lg:text-center text-[#667097] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-5xl px-2">
+        <p className="text-justify sm:text-justify md:text-justify lg:text-center text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-5xl px-2">
           At Techno Vanam, we don’t just create for clients—we build for ourselves too.
           Our digital products are crafted to enhance workflows, spark creativity, and
           solve real-world problems for designers, developers, and businesses alike.
@@ -49,14 +49,14 @@ export default function Products2() {
       </div>
 
       {/* Tabs */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-4 bg-white border border-[#EBEFF6] shadow-md rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 sm:py-3">
-        <p className="text-black text-lg sm:text-xl font-semibold px-2 sm:px-6 text-center sm:text-left w-full sm:w-auto">
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-4 bg-[#0a0a0a] border border-white/5 shadow-md rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 sm:py-3">
+        <p className="text-white text-lg sm:text-xl font-semibold px-2 sm:px-6 text-center sm:text-left w-full sm:w-auto">
           What We’re Working On
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-end w-full sm:w-auto">
           <button
             onClick={handleLatestReleasesClick}
-            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-[#EBEFF6] rounded-full shadow-sm text-[#868DA6] hover:bg-[#f2f4f8] hover:text-[#2F2F2F] transition duration-200 min-w-[140px] sm:min-w-[160px]"
+            className="flex justify-center items-center px-4 sm:px-5 py-2.5 sm:py-3 border border-white/5 rounded-full shadow-sm text-gray-400 hover:bg-white/5 hover:text-white transition duration-200 min-w-[140px] sm:min-w-[160px]"
           >
             <span className="text-sm sm:text-base font-medium">
               🌐 Latest Releases
@@ -74,13 +74,13 @@ export default function Products2() {
       </div>
 
       {/* Product Card */}
-      <div className="bg-brand-50 border border-brand-200 shadow-lg rounded-[20px] w-full max-w-[1200px] p-6 sm:p-10 lg:p-12 gap-8">
+      <div className="bg-[#0a0a0a] border border-white/5 shadow-lg rounded-[20px] w-full max-w-[1200px] p-6 sm:p-10 lg:p-12 gap-8 mb-20">
         {/* Text Block */}
         <div className="flex flex-col gap-6">
           <h2 className="text-brand-600 text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug">
             ATHLIXIR
           </h2>
-          <p className="text-[#3B4A68] text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed">
             Athlixir is currently in development — a groundbreaking platform built to
             empower 50+ athlete communities across Tier-2 and Tier-3 regions in India
             and beyond. We're engineering a powerful ecosystem capable of analyzing
@@ -97,13 +97,13 @@ export default function Products2() {
           <div className="flex flex-col gap-6 mt-4">
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex flex-col gap-1 flex-1">
-                <p className="text-[#19213D] font-bold text-lg">50+</p>
+                <p className="text-white font-bold text-lg">50+</p>
                 <p className="text-brand-600 text-sm sm:text-base">
                   Target athlete communities
                 </p>
               </div>
               <div className="flex flex-col gap-1 flex-1">
-                <p className="text-[#19213D] font-bold text-lg">300,000+</p>
+                <p className="text-white font-bold text-lg">300,000+</p>
                 <p className="text-brand-600 text-sm sm:text-base">
                   Projected performance insights powered by AI
                 </p>
@@ -112,13 +112,13 @@ export default function Products2() {
 
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex flex-col gap-1 flex-1">
-                <p className="text-[#19213D] font-bold text-lg">100%</p>
+                <p className="text-white font-bold text-lg">100%</p>
                 <p className="text-brand-600 text-sm sm:text-base">
                   Focused on Unlocking Grassroots Sports Potential
                 </p>
               </div>
               <div className="flex flex-col gap-1 flex-1">
-                <p className="text-[#19213D] font-bold text-lg">1</p>
+                <p className="text-white font-bold text-lg">1</p>
                 <p className="text-brand-600 text-sm sm:text-base">
                   Unified Platform for Growth, Recognition & Performance
                 </p>

@@ -4,13 +4,13 @@ import { ArrowRight } from "lucide-react";
 
 const Product1 = () => {
   return (
-    <div className="flex flex-col items-center pt-24 md:pt-32 lg:pt-40 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8">
+    <div className="flex flex-col items-center pt-24 md:pt-32 lg:pt-40 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8 bg-black">
       {/* Section 1: Header */}
       <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
         {/* Label */}
 
         {/* Heading + Logo */}
-        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-gray-900 font-bold gap-2 sm:gap-3 lg:gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-white font-bold gap-2 sm:gap-3 lg:gap-4">
           <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
             Products by
           </span>
@@ -28,13 +28,13 @@ const Product1 = () => {
         </div>
 
         {/* Description */}
-        <p className="text-justify sm:text-justify md:text-justify lg:text-center text-[#667097] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-5xl px-2">
+        <p className="text-justify sm:text-justify md:text-justify lg:text-center text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-5xl px-2">
           At Techno Vanam, we don't just create for clients—we build for ourselves too. Our digital products are crafted to enhance workflows, spark creativity, and solve real-world problems for designers, developers, and businesses alike.
         </p>
       </div>
 
       {/* Products Section from Home */}
-      <div className="bg-white rounded-[4rem] p-8 lg:p-20 border border-gray-100 transition-all duration-700 flex flex-col gap-32 w-full max-w-7xl">
+      <div className="bg-[#0a0a0a] rounded-[4rem] p-8 lg:p-20 border border-white/5 transition-all duration-700 flex flex-col gap-32 w-full max-w-7xl">
         {/* Athlixir Product Section */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-center">
           {/* Left Content Column */}
@@ -46,10 +46,10 @@ const Product1 = () => {
               </div>
 
               <div className="relative inline-block mb-6 group">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
                   Athlixir
                 </h3>
-                <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
+                <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-[#71d300] transform scale-x-100 transition-transform duration-500"></div>
               </div>
 
               <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
@@ -58,17 +58,17 @@ const Product1 = () => {
             </div>
 
             <div className="flex justify-between items-center mt-auto relative top-32">
-              <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+              <div className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm tracking-wide shadow-sm">
                 Web Design
               </div>
-              <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+              <span className="text-4xl lg:text-5xl font-black text-white opacity-[0.05] select-none">
                 01
               </span>
             </div>
           </div>
 
           {/* Right Image/Mockup Column */}
-          <div className="w-full lg:w-[55%] bg-[#F3F4F6] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
+          <div className="w-full lg:w-[55%] bg-[#1a1a1a] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
             <div className="relative w-full max-h-full group flex items-center justify-center">
               <img
                 src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
@@ -91,10 +91,10 @@ const Product1 = () => {
               </div>
 
               <div className="relative inline-block mb-6 group">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
                   Youth entrepreneurship platform
                 </h3>
-                <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-gray-900 transform scale-x-100 transition-transform duration-500"></div>
+                <div className="absolute -bottom-2 left-0 w-full h-[3px] bg-[#71d300] transform scale-x-100 transition-transform duration-500"></div>
               </div>
 
               <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-lg mb-8">
@@ -103,17 +103,17 @@ const Product1 = () => {
             </div>
 
             <div className="flex justify-between items-center mt-auto relative top-32">
-              <div className="px-6 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-sm tracking-wide shadow-sm">
+              <div className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm tracking-wide shadow-sm">
                 LMS Platform
               </div>
-              <span className="text-4xl lg:text-5xl font-black text-gray-900 opacity-[0.05] select-none">
+              <span className="text-4xl lg:text-5xl font-black text-white opacity-[0.05] select-none">
                 02
               </span>
             </div>
           </div>
 
           {/* Right Image/Mockup Column (mirrored) */}
-          <div className="w-full lg:w-[55%] bg-[#EBEBEB] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
+          <div className="w-full lg:w-[55%] bg-[#1a1a1a] rounded-[2.5rem] p-4 sm:p-6 md:py-8 md:px-10 lg:py-12 lg:px-12 flex items-center justify-center overflow-hidden h-auto lg:h-[450px]">
             <div className="relative w-full max-h-full group flex items-center justify-center">
               <img
                 src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"

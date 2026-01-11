@@ -142,7 +142,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-[calc(100vh-3rem)] flex flex-col pt-6 sm:pt-12 md:pt-16 lg:pt-20 pb-20">
+    <section className="min-h-[calc(100vh-3rem)] bg-black flex flex-col pt-6 sm:pt-12 md:pt-16 lg:pt-20 pb-20">
       <div className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8">
         {/* Contact label */}
         <p className="text-sm sm:text-base md:text-lg text-brand-500 font-semibold uppercase">
@@ -150,12 +150,12 @@ export default function Contact() {
         </p>
 
         {/* Main heading */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 sm:mt-3">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 sm:mt-3">
           Connect With Us <span className="inline-block">👋</span>
         </h1>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-lg text-gray-500 mt-2 sm:mt-3">
+        <p className="text-sm sm:text-base md:text-lg text-gray-400 mt-2 sm:mt-3">
           Fill the form below and one of our team members will get back to you
           within 24 business hours <br className="hidden sm:block" />
           to schedule a project discovery call.
@@ -180,7 +180,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2"
+                className="block text-sm sm:text-base md:text-lg font-semibold text-white mb-2"
               >
                 What's your name?<span className="text-red-500"> *</span>
               </label>
@@ -196,9 +196,9 @@ export default function Contact() {
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 ${formSubmitted && !name.trim()
+                className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 bg-white/5 text-white transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 ${formSubmitted && !name.trim()
                   ? "border-red-500"
-                  : "border-gray-200 hover:border-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                  : "border-white/10 hover:border-white/20 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
                   }`}
               />
             </div>
@@ -207,7 +207,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2"
+                className="block text-sm sm:text-base md:text-lg font-semibold text-white mb-2"
               >
                 What's your email?<span className="text-red-500"> *</span>
               </label>
@@ -223,9 +223,9 @@ export default function Contact() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 ${formSubmitted && !email.trim()
+                className={`w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 bg-white/5 text-white transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 ${formSubmitted && !email.trim()
                   ? "border-red-500"
-                  : "border-gray-200 hover:border-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                  : "border-white/10 hover:border-white/20 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
                   }`}
               />
             </div>
@@ -234,7 +234,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="company"
-                className="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2"
+                className="block text-sm sm:text-base md:text-lg font-semibold text-white mb-2"
               >
                 What's your company?
               </label>
@@ -245,7 +245,7 @@ export default function Contact() {
                 placeholder="Enter your company name"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-white/10 bg-white/5 text-white hover:border-white/20 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
               />
             </div>
 
@@ -253,7 +253,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="website"
-                className="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2"
+                className="block text-sm sm:text-base md:text-lg font-semibold text-white mb-2"
               >
                 What's your current website?
               </label>
@@ -264,14 +264,14 @@ export default function Contact() {
                 placeholder="Enter your website URL"
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
-                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                className="w-full px-2 sm:px-4 py-1.5 sm:py-2 md:py-3 rounded-md border-2 border-white/10 bg-white/5 text-white hover:border-white/20 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
               />
             </div>
           </div>
 
           {/* Services */}
           <div className="mt-6">
-            <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2">
+            <p className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2">
               What services are you looking for?<span className="text-red-500"> *</span>
             </p>
             {formSubmitted && selectedServices.length === 0 && (
@@ -287,7 +287,7 @@ export default function Contact() {
                     key={index}
                     type="button"
                     onClick={() => toggleService(service.name)}
-                    className={`flex flex-col items-center justify-between p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-3xl bg-white shadow cursor-pointer border-2 sm:border-4 transition-all duration-300 ease-in-out min-h-[120px] sm:min-h-[140px] md:min-h-[180px] lg:min-h-[200px] ${isSelected ? service.color : "border-gray-200 hover:border-gray-400"
+                    className={`flex flex-col items-center justify-between p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-3xl bg-[#0a0a0a] shadow cursor-pointer border-2 transition-all duration-300 ease-in-out min-h-[120px] sm:min-h-[140px] md:min-h-[180px] lg:min-h-[200px] ${isSelected ? service.color : "border-white/10 hover:border-white/20"
                       }`}
                   >
                     <img
@@ -296,7 +296,7 @@ export default function Contact() {
                       loading="lazy"
                       className="mb-3 sm:mb-4 md:mb-6 w-16 sm:w-20 md:w-24 lg:w-28 h-16 sm:h-20 md:h-24 lg:h-28 object-cover rounded-lg shadow-sm"
                     />
-                    <span className="text-xs sm:text-sm md:text-base font-semibold text-gray-700 text-center">
+                    <span className={`text-xs sm:text-sm md:text-base font-semibold text-center ${isSelected ? 'text-white' : 'text-gray-400'}`}>
                       {service.name}
                     </span>
                   </button>
@@ -307,7 +307,7 @@ export default function Contact() {
 
           {/* Project Type */}
           <div className="mt-6">
-            <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2">
+            <p className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2">
               What kind of project are you looking for?
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-5">
@@ -315,7 +315,7 @@ export default function Contact() {
                 (type, index) => (
                   <label
                     key={index}
-                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-gray-300 hover:border-brand-500 cursor-pointer transition-all"
+                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-white/10 hover:border-brand-500 cursor-pointer transition-all bg-white/5"
                   >
                     <input
                       type="radio"
@@ -323,9 +323,9 @@ export default function Contact() {
                       value={type}
                       checked={projectType === type}
                       onChange={(e) => setProjectType(e.target.value)}
-                      className="form-radio text-brand-500 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-500 hover:border-brand-500"
+                      className="form-radio text-brand-500 w-4 sm:w-5 h-4 sm:h-5 border-white/20 bg-white/10 checked:border-brand-500 hover:border-brand-500"
                     />
-                    <span className="text-xs sm:text-sm md:text-base font-semibold text-gray-700">
+                    <span className="text-xs sm:text-sm md:text-base font-semibold text-gray-300">
                       {type}
                     </span>
                   </label>
@@ -336,7 +336,7 @@ export default function Contact() {
 
           {/* Deadline */}
           <div className="mt-6">
-            <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2">
+            <p className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2">
               When is the project deadline?
             </p>
             <div className="flex flex-wrap gap-3 md:gap-5">
@@ -344,7 +344,7 @@ export default function Contact() {
                 (deadlineOption, index) => (
                   <label
                     key={index}
-                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-gray-300 hover:border-brand-500 cursor-pointer transition-all text-xs sm:text-sm md:text-base font-semibold text-gray-700"
+                    className="flex-1 min-w-[100px] sm:min-w-[120px] flex items-center gap-3 px-3 sm:px-6 py-2 rounded-3xl border-2 border-white/10 hover:border-brand-500 cursor-pointer transition-all bg-white/5 text-xs sm:text-sm md:text-base font-semibold text-gray-300"
                   >
                     <input
                       type="radio"
@@ -352,7 +352,7 @@ export default function Contact() {
                       value={deadlineOption}
                       checked={deadline === deadlineOption}
                       onChange={(e) => setDeadline(e.target.value)}
-                      className="form-radio text-brand-500 w-4 sm:w-5 h-4 sm:h-5 border-gray-300 checked:border-brand-500 hover:border-brand-500"
+                      className="form-radio text-brand-500 w-4 sm:w-5 h-4 sm:h-5 border-white/20 bg-white/10 checked:border-brand-500 hover:border-brand-500"
                     />
                     {deadlineOption}
                   </label>
@@ -365,7 +365,7 @@ export default function Contact() {
           <div className="mt-6">
             <label
               htmlFor="message"
-              className="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-2"
+              className="block text-sm sm:text-base md:text-lg font-semibold text-white mb-2"
             >
               Tell us a little more about your project
               <span className="text-red-500"> *</span>
@@ -382,9 +382,9 @@ export default function Contact() {
               value={message}
               onChange={handleTextareaChange}
               placeholder="Write here..."
-              className={`w-full resize-none px-3 sm:px-4 py-2 sm:py-3 md:py-4 rounded-md border-2 transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-400 ${formSubmitted && message.trim() === ""
-                ? "border-red-500 focus:border-red-500 focus:ring-red-100"
-                : "border-gray-200 hover:border-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+              className={`w-full resize-none px-3 sm:px-4 py-2 sm:py-3 md:py-4 rounded-md border-2 bg-white/5 text-white transition-all outline-none placeholder:text-xs sm:placeholder:text-base md:placeholder:text-lg placeholder-gray-600 ${formSubmitted && message.trim() === ""
+                ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
+                : "border-white/10 hover:border-white/20 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
                 }`}
             />
             <div className="text-xs sm:text-sm md:text-base mt-2 text-gray-500">

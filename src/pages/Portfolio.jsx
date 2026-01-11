@@ -41,7 +41,7 @@ const projects = [
 const ProjectCard = ({ project, reverse }) => (
   <Link
     to={project.link}
-    className={`flex flex-row ${reverse ? "flex-row-reverse" : ""} rounded-3xl overflow-hidden shadow-sm bg-white hover:shadow-lg transition duration-300 w-full max-w-[1200px] mx-auto`}
+    className={`flex flex-row ${reverse ? "flex-row-reverse" : ""} rounded-3xl overflow-hidden shadow-sm bg-[#1a1a1a] hover:shadow-lg transition duration-300 w-full max-w-[1200px] mx-auto border border-white/5`}
   >
     {/* Text Section */}
     <div className="p-8 w-1/2 flex flex-col justify-center">
@@ -51,7 +51,7 @@ const ProjectCard = ({ project, reverse }) => (
         className="w-[140px] mb-6"
         loading="lazy"
       />
-      <p className="text-[#667097] text-lg leading-7 mb-6">
+      <p className="text-gray-400 text-lg leading-7 mb-6">
         {project.description}
       </p>
       <span
@@ -85,12 +85,12 @@ const ProjectCard = ({ project, reverse }) => (
 export default function Portfolio() {
   return (
     <>
-      <section className="w-full flex flex-col items-center py-20 px-8 bg-transparent">
+      <section className="w-full flex flex-col items-center py-20 px-8 bg-black text-white">
         <div className="w-full max-w-7xl text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Portfolio
           </h2>
-          <p className="text-gray-500 text-lg max-w-[640px] mx-auto">
+          <p className="text-gray-400 text-lg max-w-[640px] mx-auto">
             Our amazing team of designers and developers have produced some remarkable pieces of work.
           </p>
         </div>
@@ -102,18 +102,18 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center py-20 px-8">
+      <section className="w-full flex flex-col items-center py-20 px-8 bg-black">
         <div className="w-full max-w-[1320px] flex flex-col items-center gap-10">
           {/* Header */}
           <div className="w-full max-w-[580px] text-center">
-            <h2 className="text-[42px] leading-[52px] font-bold text-brand-950">
+            <h2 className="text-[42px] leading-[52px] font-bold text-white">
               Let’s bring your vision to life
             </h2>
           </div>
 
           {/* Subheading */}
           <div className="w-full max-w-[520px] text-center">
-            <p className="text-lg leading-[30px] text-[#667097]">
+            <p className="text-lg leading-[30px] text-gray-400">
               Explore how Technovanam builds custom solutions — or reach out and let’s create something exceptional.
             </p>
           </div>
@@ -121,7 +121,7 @@ export default function Portfolio() {
           {/* Cards Container */}
           <div className="w-full flex flex-row justify-center gap-7">
             {/* Card 1 */}
-            <div className="w-[calc(50%-14px)] max-w-[622px] bg-white border border-[#EBEFF6] rounded-[32px] shadow-[0px_6px_20px_rgba(20,20,43,0.06)] p-[55px_41px] flex flex-col min-h-[462px]">
+            <div className="w-[calc(50%-14px)] max-w-[622px] bg-[#0a0a0a] border border-white/5 rounded-[32px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] p-[55px_41px] flex flex-col min-h-[462px]">
               {/* Logo */}
               <div className="mb-6">
                 <div className="w-[80px] h-[80px] flex justify-center items-center mb-6">
@@ -136,14 +136,14 @@ export default function Portfolio() {
 
               {/* Title */}
               <div className="mb-3 w-full max-w-[540px]">
-                <h3 className="text-[32px] leading-[42px] font-bold text-brand-950">
+                <h3 className="text-[32px] leading-[42px] font-bold text-white">
                   Ideas deserve more than just code
                 </h3>
               </div>
 
               {/* Description */}
               <div className="mb-8 w-full max-w-[540px]">
-                <p className="text-lg leading-[30px] text-[#667097]">
+                <p className="text-lg leading-[30px] text-gray-400">
                   We help startups and businesses bring big visions to life through thoughtful design and smart development. Whether you're starting fresh or scaling fast — we’re built for it.
                 </p>
               </div>
@@ -169,7 +169,7 @@ export default function Portfolio() {
             </div>
 
             {/* Card 2 */}
-            <div className="w-[calc(50%-14px)] max-w-[622px] bg-white border border-[#EBEFF6] rounded-[32px] shadow-[0px_6px_20px_rgba(20,20,43,0.06)] p-[55px_41px] flex flex-col min-h-[462px]">
+            <div className="w-[calc(50%-14px)] max-w-[622px] bg-[#0a0a0a] border border-white/5 rounded-[32px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] p-[55px_41px] flex flex-col min-h-[462px]">
               {/* Logo */}
               <div className="mb-6">
                 <div className="w-[80px] h-[80px] flex justify-center items-center mb-6">
@@ -184,14 +184,14 @@ export default function Portfolio() {
 
               {/* Title */}
               <div className="mb-3 w-full max-w-[540px]">
-                <h3 className="text-[32px] leading-[42px] font-bold text-brand-950">
+                <h3 className="text-[32px] leading-[42px] font-bold text-white">
                   You won’t find templates here
                 </h3>
               </div>
 
               {/* Description */}
               <div className="mb-8 w-full max-w-[540px]">
-                <p className="text-lg leading-[30px] text-[#667097]">
+                <p className="text-lg leading-[30px] text-gray-400">
                   We don’t showcase random past work — we focus on your future. Everything we create is tailored, strategic, and built from the ground up to serve a real purpose.
                 </p>
               </div>

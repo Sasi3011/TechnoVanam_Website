@@ -54,7 +54,8 @@ html {
 }
 
 body {
-  background-color: #fdfffb;
+  background-color: #000000;
+  color: #E2E8F0;
   overflow-x: hidden;
   width: 100%;
 }

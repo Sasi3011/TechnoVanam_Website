@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f7fff0] text-brand-950 pt-20 pb-10 px-6 sm:px-10 lg:px-20">
+    <footer className="bg-black text-white pt-20 pb-10 px-6 sm:px-10 lg:px-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
@@ -55,7 +55,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium text-lg">
+                  <Link to={link.to} className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>
@@ -69,7 +69,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium text-lg">
+                  <Link to={link.to} className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>
@@ -83,7 +83,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.industries.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-[#50577E] hover:text-black transition-colors font-medium text-lg">
+                  <Link to={link.to} className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>
@@ -95,18 +95,18 @@ const Footer = () => {
           <div className="md:col-span-4 lg:col-span-5 flex flex-col items-start lg:items-end w-full">
             <div className="w-full max-w-sm lg:text-left">
               <h4 className="font-bold text-2xl mb-6">Subscribe to our news and updates</h4>
-              <div className="relative border-b-2 border-gray-300 pb-2 mb-4 group hover:border-black transition-colors duration-300">
+              <div className="relative border-b-2 border-white/20 pb-2 mb-4 group hover:border-brand-500 transition-colors duration-300">
                 <input
                   type="email"
                   placeholder="Your email here"
-                  className="bg-transparent w-full outline-none text-xl pr-10 border-none focus:ring-0 placeholder:text-gray-400 py-2"
+                  className="bg-transparent w-full outline-none text-xl pr-10 border-none focus:ring-0 placeholder:text-gray-600 text-white py-2"
                 />
-                <button className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:scale-110 transition-transform text-black">
+                <button className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:scale-110 transition-transform text-white">
                   <ArrowRight size={24} />
                 </button>
               </div>
-              <p className="text-sm text-[#50577E] leading-relaxed mb-10">
-                By signing up, you agree to our <Link to="/privacy" className="underline hover:text-black">Privacy Policy</Link>. We respect your data. Unsubscribe anytime.
+              <p className="text-sm text-gray-400 leading-relaxed mb-10">
+                By signing up, you agree to our <Link to="/privacy" className="underline hover:text-brand-500">Privacy Policy</Link>. We respect your data. Unsubscribe anytime.
               </p>
 
               <div className="mt-8">
@@ -134,22 +134,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="relative pt-10 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="relative pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3 group">
             <img
               src="/Logo.png"
               alt="Techno Vanam Logo"
               className="w-8 h-8 object-contain"
             />
-            <span className="text-xl font-bold text-brand-950">
+            <span className="text-xl font-bold text-white">
               Techno Vanam
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-lg font-medium">
-            <span className="text-gray-400">© 2025 Techno Vanam. All rights reserved</span>
-            <div className="w-2 h-2 rounded-full bg-black"></div>
-            <Link to="/privacy" className="text-black font-bold hover:underline transition-colors">Privacy Policy</Link>
+            <span className="text-gray-500">© 2025 Techno Vanam. All rights reserved</span>
+            <div className="w-2 h-2 rounded-full bg-brand-500"></div>
+            <Link to="/privacy" className="text-white font-bold hover:text-brand-500 hover:underline transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>

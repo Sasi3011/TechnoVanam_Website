@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#f7fff0] pt-40 pb-32 px-6 sm:px-10">
+        <div className="min-h-screen bg-black pt-40 pb-32 px-6 sm:px-10">
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
                 <motion.div
@@ -40,10 +40,10 @@ const PrivacyPolicy = () => {
                         <div className="w-2 h-2 rounded-full bg-brand-500"></div>
                         <span className="text-brand-500 text-sm font-bold uppercase tracking-widest">Privacy Policy</span>
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
                         Your privacy is <br /> our priority.
                     </h1>
-                    <p className="text-lg text-gray-500 leading-relaxed font-medium">
+                    <p className="text-lg text-gray-400 leading-relaxed font-medium">
                         At Techno Vanam, we value your trust. This policy outlines how we collect, use, and protect your information to ensure a secure digital experience.
                     </p>
                 </motion.div>
@@ -59,12 +59,12 @@ const PrivacyPolicy = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="flex flex-col sm:flex-row gap-6 sm:gap-10"
                         >
-                            <div className="w-12 h-12 shrink-0 rounded-2xl bg-white border border-brand-100 flex items-center justify-center text-brand-500 shadow-sm">
+                            <div className="w-12 h-12 shrink-0 rounded-2xl bg-[#0a0a0a] border border-white/5 flex items-center justify-center text-brand-500 shadow-sm">
                                 <section.icon size={24} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{section.title}</h3>
-                                <p className="text-gray-600 leading-relaxed font-medium">
+                                <h3 className="text-xl font-bold text-white mb-3">{section.title}</h3>
+                                <p className="text-gray-400 leading-relaxed font-medium">
                                     {section.content}
                                 </p>
                             </div>
@@ -77,11 +77,11 @@ const PrivacyPolicy = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mt-20 pt-10 border-t border-gray-200"
+                    className="mt-20 pt-10 border-t border-white/5"
                 >
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-500">
+                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-brand-500">
                                 <Bell size={20} />
                             </div>
                             <p className="text-sm text-gray-400 font-medium">
@@ -91,7 +91,7 @@ const PrivacyPolicy = () => {
 
                         <a
                             href="mailto:official@technovanam.com"
-                            className="flex items-center gap-3 text-gray-900 font-bold hover:text-brand-500 transition-colors"
+                            className="flex items-center gap-3 text-white font-bold hover:text-brand-500 transition-colors"
                         >
                             <Mail size={18} />
                             official@technovanam.com

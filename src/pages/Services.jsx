@@ -171,15 +171,15 @@ const faqData = {
 
 const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   return (
-    <div className="border-t border-gray-200">
+    <div className="border-t border-white/10">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-8 text-left group"
       >
-        <span className="text-xl sm:text-2xl font-medium text-gray-900 pr-8 group-hover:text-brand-600 transition-colors">
+        <span className="text-xl sm:text-2xl font-medium text-white pr-8 group-hover:text-brand-500 transition-colors">
           {question}
         </span>
-        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-black text-white rotate-45' : 'bg-[#ecf1f4] text-black'}`}>
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-brand-500 text-black rotate-45' : 'bg-white/5 text-white'}`}>
           <Plus className="w-6 h-6" />
         </div>
       </button>
@@ -192,7 +192,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="text-gray-600 text-lg pb-8 leading-relaxed max-w-2xl">
+            <p className="text-gray-400 text-lg pb-8 leading-relaxed max-w-2xl">
               {answer}
             </p>
           </motion.div>
@@ -238,13 +238,13 @@ const Services = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full h-[100vh] flex flex-col items-center justify-center bg-white ">
+      <section className="w-full h-[100vh] flex flex-col items-center justify-center bg-black ">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-6xl font-medium text-gray-900 tracking-tight pb-18"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-6xl font-medium text-white tracking-tight pb-18"
           >
             Explore Our Services
           </motion.h1>
@@ -252,7 +252,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-lg sm:text-xl md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium mt-20 mb-0"
+            className="text-lg sm:text-xl md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium mt-20 mb-0"
           >
             Solutions to help your brand<br /> stand out and grow
           </motion.p>
@@ -276,15 +276,15 @@ const Services = () => {
       </section>
 
       {/* Core Creative Offerings Section */}
-      <section className="w-full bg-[#f8fafc] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+      <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
-              <span className="text-sm font-semibold text-black uppercase tracking-wider">Our Services</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+              <span className="text-sm font-semibold text-white uppercase tracking-wider">Our Services</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black max-w-2xl leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-white max-w-2xl leading-tight">
               Our Core Creative Offerings
             </h2>
           </div>
@@ -294,7 +294,7 @@ const Services = () => {
               <div key={service.id} className="group h-[320px] perspective-1000">
                 <div className="flip-card-inner rounded-[2rem]">
                   {/* Card Front */}
-                  <div className="flip-card-front bg-gray-50/50 border border-gray-100 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-50">
+                  <div className="flip-card-front bg-[#0a0a0a] border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10">
                     <div className="flex justify-between items-start">
                       <motion.span
                         initial={{ fontSize: "1.5rem" }}
@@ -307,7 +307,7 @@ const Services = () => {
                       </motion.span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors">
+                      <h3 className="text-2xl font-bold text-white group-hover:text-brand-500 transition-colors">
                         {service.name}
                       </h3>
                       <div className="w-8 h-1 bg-brand-600/20 mt-4 group-hover:w-16 group-hover:bg-brand-600 transition-all duration-500"></div>
@@ -366,26 +366,26 @@ const Services = () => {
       </section>
 
       {/* Expertise Section */}
-      <section className="w-full bg-[#ecf1f4] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-white rounded-[40px] px-8 sm:px-12 md:px-12  flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-12  flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 space-y-8 py-8 sm:py-12 md:py-16">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
-              <span className="text-sm font-semibold text-black tracking-wider">Expertise</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+              <span className="text-sm font-semibold text-white tracking-wider">Expertise</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-4xl font-medium text-black leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-4xl font-medium text-white leading-tight">
               We solve real problems
             </h2>
 
-            <p className="text-gray-600 text-[17px] leading-relaxed max-w-xl mb-40">
+            <p className="text-gray-400 text-[17px] leading-relaxed max-w-xl mb-40">
               We combine years of expertise in UX/UI, Motion design, Webflow development, and Web design to build high-performance digital experiences that not only look great but drive engagement and results for our clients.
             </p>
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#ecf1f4] text-black rounded-full font-medium hover:bg-gray-200 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-full font-medium hover:bg-white/10 transition-colors"
             >
               Let's talk 👋
             </Link>
@@ -399,31 +399,31 @@ const Services = () => {
       </section>
 
       {/* Numbers Section */}
-      <section className="w-full bg-[#ecf1f4] pb-24 sm:pb-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-white rounded-[40px] px-8 sm:px-12 md:px-16 py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <section className="w-full bg-black pb-24 sm:pb-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-16 py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 space-y-4 pb-32">
             <div className="flex items-center gap-2 pb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
-              <span className="text-sm font-medium text-black tracking-wider leading-none">What makes us different?</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+              <span className="text-sm font-medium text-white tracking-wider leading-none">What makes us different?</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-5xl font-medium text-black leading-tight">
-              Eloqwnt<br />
+            <h2 className="text-4xl sm:text-5xl md:text-5xl font-medium text-white leading-tight">
+              Techno Vanam<br />
               In Numbers
             </h2>
 
-            <p className="text-gray-600 text-[17px] leading-relaxed max-w-md">
+            <p className="text-gray-400 text-[17px] leading-relaxed max-w-md">
               Design is more than aesthetics—it's about measurable impact. Here's how we make a difference.
             </p>
 
             <div className="pt-4">
               <Link
                 to="/contact"
-                className="group relative inline-block px-4 sm:px-6 py-2 sm:py-3 bg-brand-100 font-medium text-black rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
+                className="group relative inline-block px-4 sm:px-6 py-2 sm:py-3 bg-brand-500 font-medium text-white rounded-full text-base sm:text-lg overflow-hidden shadow-sm"
               >
                 <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
                   Let's talk <span className="text-2xl">👋</span>
                 </span>
               </Link>
@@ -433,11 +433,11 @@ const Services = () => {
           {/* Right Content - Stats Grid */}
           <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-6">
             {stats.map((stat) => (
-              <div key={stat.id} className="bg-[#ecf1f4] rounded-[2rem] p-6 flex flex-col justify-between h-[240px] relative group border border-transparent hover:border-brand-200 transition-colors duration-300">
-                <span className="absolute top-8 right-8 text-sm font-medium text-gray-400 group-hover:text-gray-600 transition-colors">{stat.id}</span>
+              <div key={stat.id} className="bg-black/40 rounded-[2rem] p-6 flex flex-col justify-between h-[240px] relative group border border-white/5 hover:border-brand-500/30 transition-colors duration-300">
+                <span className="absolute top-8 right-8 text-sm font-medium text-gray-600 group-hover:text-gray-400 transition-colors">{stat.id}</span>
                 <div className="mt-auto space-y-2">
-                  <h3 className="text-5xl font-medium text-gray-900 leading-none">{stat.value}</h3>
-                  <p className="text-gray-600 font-medium leading-tight pr-4">{stat.label}</p>
+                  <h3 className="text-5xl font-medium text-white leading-none">{stat.value}</h3>
+                  <p className="text-gray-400 font-medium leading-tight pr-4">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -446,11 +446,11 @@ const Services = () => {
       </section>
 
       {/* Our Clients Section */}
-      <section className="w-full bg-[#ecf1f4] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
+      <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-black"></div>
-            <span className="text-sm font-semibold text-black uppercase tracking-wider">Our clients</span>
+            <div className="w-2 h-2 rounded-full bg-brand-500"></div>
+            <span className="text-sm font-semibold text-white uppercase tracking-wider">Our clients</span>
           </div>
 
           <div className="relative group/nav">
@@ -463,9 +463,9 @@ const Services = () => {
               {testimonials.map((t, i) => (
                 <div
                   key={i}
-                  className="min-w-full sm:min-w-[450px] lg:min-w-[500px] bg-white rounded-[2rem] p-10 flex flex-col justify-between h-[500px] snap-start shadow-sm"
+                  className="min-w-full sm:min-w-[450px] lg:min-w-[500px] bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 flex flex-col justify-between h-[500px] snap-start shadow-sm"
                 >
-                  <p className="text-gray-900 text-xl sm:text-xl leading-relaxed font-medium">
+                  <p className="text-white text-xl sm:text-xl leading-relaxed font-medium">
                     {t.text}
                   </p>
 
@@ -477,8 +477,8 @@ const Services = () => {
                         className="w-14 h-14 rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="text-gray-900 font-bold text-lg">{t.name}</h4>
-                        <p className="text-gray-500 font-medium">{t.role}</p>
+                        <h4 className="text-white font-bold text-lg">{t.name}</h4>
+                        <p className="text-gray-400 font-medium">{t.role}</p>
                       </div>
                     </div>
                     {t.linkedin && (
@@ -500,9 +500,9 @@ const Services = () => {
 
             {/* Progress Bar and Controls */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mt-4">
-              <div className="w-full sm:w-[60%] h-[2px] bg-gray-200 relative overflow-hidden">
+              <div className="w-full sm:w-[60%] h-[2px] bg-white/10 relative overflow-hidden">
                 <div
-                  className="absolute top-0 left-0 h-full bg-black transition-all duration-300"
+                  className="absolute top-0 left-0 h-full bg-brand-500 transition-all duration-300"
                   style={{ width: `${scrollProgress}%` }}
                 />
               </div>
@@ -510,13 +510,13 @@ const Services = () => {
               <div className="flex gap-4">
                 <button
                   onClick={() => scroll('left')}
-                  className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                  className="w-12 h-12 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors shadow-sm text-white"
                 >
                   <ArrowLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => scroll('right')}
-                  className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                  className="w-12 h-12 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors shadow-sm text-white"
                 >
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -527,14 +527,14 @@ const Services = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="w-full bg-white py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+      <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-12 mb-20 px-8 sm:px-12 md:px-16 lg:px-0">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-black"></div>
-              <span className="text-sm font-semibold text-black uppercase tracking-wider">FAQ</span>
+              <div className="w-2 h-2 rounded-full bg-brand-500"></div>
+              <span className="text-sm font-semibold text-white uppercase tracking-wider">FAQ</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-tight">
               Frequently<br />Asked Questions
             </h2>
           </div>
@@ -559,46 +559,46 @@ const Services = () => {
                   onToggle={() => toggleFaq(`right-${index}`)}
                 />
               ))}
-              <div className="hidden lg:block border-t border-gray-200"></div>
+              <div className="hidden lg:block border-t border-white/10"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="w-full bg-[#ecf1f4] py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-white rounded-[40px] px-8 sm:px-12 md:px-16 py-16 sm:py-20 lg:py-24 flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20">
+      <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-16 py-16 sm:py-20 lg:py-24 flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-black"></div>
-              <span className="text-sm font-semibold text-black uppercase tracking-wider">Interested?</span>
+              <div className="w-2 h-2 rounded-full bg-brand-500"></div>
+              <span className="text-sm font-semibold text-white uppercase tracking-wider">Interested?</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black leading-tight max-w-sm">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-tight max-w-sm">
               Let's work together!
             </h2>
           </div>
 
           {/* Right Content */}
           <div className="max-w-xl space-y-12">
-            <p className="text-gray-900 text-xl sm:text-2xl leading-relaxed font-medium">
+            <p className="text-gray-400 text-xl sm:text-2xl leading-relaxed font-medium">
               Let's bring your vision to life and transform your ideas into a powerful, unforgettable brand that drives growth and success!
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="group relative inline-block px-8 py-4 bg-brand-100 font-medium text-black rounded-full text-lg overflow-hidden shadow-sm"
+                className="group relative inline-block px-8 py-4 bg-brand-500 font-medium text-white rounded-full text-lg overflow-hidden shadow-sm"
               >
                 <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
                   Schedule a call <span className="text-2xl">👋</span>
                 </span>
               </Link>
               <Link
                 to="/pricing"
-                className="group relative inline-block px-8 py-4 bg-white border border-gray-200 font-medium text-black rounded-full text-lg overflow-hidden shadow-sm"
+                className="group relative inline-block px-8 py-4 bg-white/5 border border-white/10 font-medium text-white rounded-full text-lg overflow-hidden shadow-sm"
               >
                 <span className="absolute inset-0 w-full h-full bg-brand-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">

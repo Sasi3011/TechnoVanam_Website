@@ -241,7 +241,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-hidden">
+    <div className="min-h-screen w-full max-w-full overflow-hidden bg-black text-white">
       {/* Inline styles with responsive adjustments */}
       <style>
         {`
@@ -370,7 +370,7 @@ const Home = () => {
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight">
               Your trusted creative partner
             </h1>
-            <p className="text-sm sm:text-xs md:text-base lg:text-lg text-black leading-relaxed mb-10 max-w-3xl mx-auto ">
+            <p className="text-sm sm:text-xs md:text-base lg:text-lg text-white/80 leading-relaxed mb-10 max-w-3xl mx-auto ">
               We deliver creative branding, web design, and UI/UX solutions to make the most impact
             </p>
             <Link
@@ -392,30 +392,30 @@ const Home = () => {
           >
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex shrink-0">
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   CREATIVE SOLUTIONS
                 </span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   BUSINESS VALUE
                 </span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   PURPOSEFUL DESIGNS
                 </span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   STRATEGIC EXPERIENCES
                 </span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   UI/UX DESIGN
                 </span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   WEB DEVELOPMENT
                 </span>
-                <span className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
               </div>
             ))}
           </div>
@@ -446,7 +446,7 @@ const Home = () => {
 
       {/* Who We Are Section */}
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-white/10 shadow-sm">
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col">
             {/* Top Label */}
@@ -481,10 +481,10 @@ const Home = () => {
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] mb-6 leading-tight">
               We are design-first creative studio
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
+            <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
               We believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
             </p>
-            <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
+            <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
               For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
             </p>
 
@@ -507,7 +507,7 @@ const Home = () => {
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
-          <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100 shadow-sm">
+          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10 shadow-sm">
 
             {/* Header Section - Parallel Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
@@ -576,6 +576,11 @@ const Home = () => {
                 .grid-standart-services:hover .service-number,
                 .grid-standart-services:hover .service-title {
                   transform: translateX(20px);
+                  color: var(--color-brand-600) !important;
+                }
+
+                .grid-standart-services {
+                  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
                 }
               }
             `}</style>
@@ -589,15 +594,15 @@ const Home = () => {
 
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <Layout size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       Website Design
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -605,19 +610,19 @@ const Home = () => {
               </Link>
 
               {/* Service 02 - Branding */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <Palette size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       Branding
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -625,19 +630,19 @@ const Home = () => {
               </Link>
 
               {/* Service 03 - UX/UI */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <PanelsTopLeft size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       UX/UI
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -645,19 +650,19 @@ const Home = () => {
               </Link>
 
               {/* Service 04 - Motion Design */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <Video size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       Motion Design
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -665,19 +670,19 @@ const Home = () => {
               </Link>
 
               {/* Service 05 - SEO */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <TrendingUp size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       SEO
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -685,19 +690,19 @@ const Home = () => {
               </Link>
 
               {/* Service 06 - Content Creation */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <PenTool size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       Content Creation
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -705,19 +710,19 @@ const Home = () => {
               </Link>
 
               {/* Service 07 - Landing Page */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
+              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <Smartphone size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       Landing Page
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -729,15 +734,15 @@ const Home = () => {
                 <div className="h-service-bg"></div>
                 <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
                   <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-black group-hover:text-brand-600 transition-colors w-8">
+                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
                       <Globe size={24} />
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-black group-hover:text-brand-600 transition-colors">
+                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
                       Webflow Development
                     </h3>
                   </div>
                   <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-black group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
@@ -764,8 +769,8 @@ const Home = () => {
       {/* Why Work With Us - Flipping Cards Design */}
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          {/* Container with white background and rounded corners */}
-          <div className="bg-white rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-gray-100">
+          {/* Container with dark background and rounded corners */}
+          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10">
 
             {/* Section Header - Parallel Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
@@ -790,7 +795,7 @@ const Home = () => {
                 <div key={step.id} className="group h-[320px] lg:h-[320px] perspective-1000">
                   <div className="flip-card-inner rounded-[2rem]">
                     {/* Card Front */}
-                    <div className="flip-card-front bg-gray-50/50 border border-gray-100 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-50">
+                    <div className="flip-card-front bg-white/5 border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10">
                       <div className="flex justify-between items-start">
                         <motion.span
                           initial={{ fontSize: "1.5rem" }}
@@ -803,7 +808,7 @@ const Home = () => {
                         </motion.span>
                       </div>
                       <div>
-                        <h3 className="text-3xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors">
+                        <h3 className="text-3xl font-bold text-white group-hover:text-brand-600 transition-colors">
                           {step.title.split('. ')[1] || step.title}
                         </h3>
                         <div className="w-8 h-1 bg-brand-600/20 mt-4 group-hover:w-16 group-hover:bg-brand-600 transition-all duration-500"></div>
@@ -900,14 +905,14 @@ const Home = () => {
 
             {/* Right: Main Heading */}
             <div className="lg:col-span-6 lg:col-start-7">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-[1.1]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-[1.1]">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
               </h2>
             </div>
           </div>
 
-          <div className="bg-white rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-gray-100 flex flex-col gap-10 sm:gap-14 lg:gap-16">
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-white/10 flex flex-col gap-10 sm:gap-14 lg:gap-16">
             {/* Athlixir Product Section */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left Content Column */}
@@ -919,7 +924,7 @@ const Home = () => {
                   </div>
 
                   <div className="relative inline-block mb-4 group">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
                       Athlixir
                     </h3>
                   </div>
@@ -930,7 +935,7 @@ const Home = () => {
                 </div>
 
                 <div className="flex justify-between items-center sm:mt-4">
-                  <div className="px-4 sm:px-6 py-2 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-xs sm:text-sm tracking-wide shadow-sm">
+                  <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     Web Design
                   </div>
                   <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
@@ -940,7 +945,7 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#F3F4F6] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
+              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
                 <img
                   src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
                   alt="Athlixir Platform Interface"
@@ -961,18 +966,18 @@ const Home = () => {
                   </div>
 
                   <div className="relative inline-block mb-4 group">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
                       Youth Entrepreneurship Platform
                     </h3>
                   </div>
 
-                  <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
+                  <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
                     An interactive ecosystem designed to empower the next generation of leaders. It provides mentorship, resource mapping, and business simulation tools to bridge the gap between education and real-world impact.
                   </p>
                 </div>
 
                 <div className="flex justify-between items-center sm:mt-4">
-                  <div className="px-4 sm:px-6 py-2 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-bold text-xs sm:text-sm tracking-wide shadow-sm">
+                  <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     LMS Platform
                   </div>
                   <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
@@ -982,7 +987,7 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#EBEBEB] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
+              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
                 <img
                   src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
                   alt="Platform Interface"

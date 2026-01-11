@@ -135,47 +135,47 @@ const HomeContact = () => {
     };
 
     return (
-        <section id="contact" className="py-8 sm:py-10 px-4 sm:px-6 md:px-8 lg:px-12 bg-[#fdfffb] overflow-hidden">
+        <section id="contact" className="py-8 sm:py-10 px-4 sm:px-6 md:px-8 lg:px-12 bg-black overflow-hidden border-t border-white/5">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative bg-white rounded-[2.5rem] p-6 sm:p-10 md:p-16 border-[0.9px]  border-brand-100 overflow-hidden"
+                    className="relative bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-white/10 overflow-hidden"
                 >
 
                     <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
                         {/* Left Content */}
                         <div className="w-full lg:w-1/3">
-                            <span className="inline-block px-4 py-1.5 bg-brand-50 text-brand-500 text-sm font-bold rounded-full mb-6 tracking-wide">
+                            <span className="inline-block px-4 py-1.5 bg-brand-500/10 text-brand-500 text-sm font-bold rounded-full mb-6 tracking-wide">
                                 GET IN TOUCH
                             </span>
-                            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight mb-6">
+                            <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
                                 Ready to start <br />
                                 <span className="text-brand-500">a project?</span>
                             </h2>
-                            <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+                            <p className="text-lg text-gray-400 mb-8 leading-relaxed">
                                 Fill out the form and our team will get back to you within 24 business hours to schedule a discovery call.
                             </p>
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-brand-100/50">
+                                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-white/10">
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Expert Team</h4>
-                                        <p className="text-sm text-gray-500">Dedicated professionals for your project.</p>
+                                        <h4 className="font-bold text-white">Expert Team</h4>
+                                        <p className="text-sm text-gray-400">Dedicated professionals for your project.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-brand-100/50">
+                                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-white/10">
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Fast Response</h4>
-                                        <p className="text-sm text-gray-500">We value your time and respond quickly.</p>
+                                        <h4 className="font-bold text-white">Fast Response</h4>
+                                        <p className="text-sm text-gray-400">We value your time and respond quickly.</p>
                                     </div>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@ const HomeContact = () => {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     {/* Name Input */}
                                     <div className="space-y-2">
-                                        <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                        <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             What's your name? <span className="text-red-500">*</span>
                                         </label>
                                         <input
@@ -221,16 +221,16 @@ const HomeContact = () => {
                                             placeholder="Enter your name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
-                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-gray-800 placeholder-gray-400 ${formSubmitted && !name.trim()
-                                                ? "border-red-500 bg-red-50/10"
-                                                : "border-gray-50 bg-gray-50 focus:bg-white focus:border-brand-500"
+                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !name.trim()
+                                                ? "border-red-500 bg-red-500/10"
+                                                : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
                                                 }`}
                                         />
                                     </div>
 
                                     {/* Email Input */}
                                     <div className="space-y-2">
-                                        <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                        <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             What's your email? <span className="text-red-500">*</span>
                                         </label>
                                         <input
@@ -238,16 +238,16 @@ const HomeContact = () => {
                                             placeholder="Enter your email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-gray-800 placeholder-gray-400 ${formSubmitted && !email.trim()
-                                                ? "border-red-500 bg-red-50/10"
-                                                : "border-gray-50 bg-gray-50 focus:bg-white focus:border-brand-500"
+                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !email.trim()
+                                                ? "border-red-500 bg-red-500/10"
+                                                : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
                                                 }`}
                                         />
                                     </div>
 
                                     {/* Company Input */}
                                     <div className="space-y-2">
-                                        <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                        <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             What's your company?
                                         </label>
                                         <input
@@ -255,13 +255,13 @@ const HomeContact = () => {
                                             placeholder="Company name"
                                             value={company}
                                             onChange={(e) => setCompany(e.target.value)}
-                                            className="w-full px-6 py-4 rounded-2xl border-2 border-gray-50 bg-gray-50 focus:bg-white focus:border-brand-500 transition-all outline-none text-gray-800 placeholder-gray-400"
+                                            className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
                                         />
                                     </div>
 
                                     {/* Website Input */}
                                     <div className="space-y-2">
-                                        <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                        <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             Current website URL
                                         </label>
                                         <input
@@ -269,14 +269,14 @@ const HomeContact = () => {
                                             placeholder="https://example.com"
                                             value={website}
                                             onChange={(e) => setWebsite(e.target.value)}
-                                            className="w-full px-6 py-4 rounded-2xl border-2 border-gray-50 bg-gray-50 focus:bg-white focus:border-brand-500 transition-all outline-none text-gray-800 placeholder-gray-400"
+                                            className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Services Section */}
                                 <div className="space-y-4">
-                                    <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                    <label className="text-sm sm:text-base font-bold text-white ml-1">
                                         What services are you looking for? <span className="text-red-500">*</span>
                                     </label>
                                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -288,8 +288,8 @@ const HomeContact = () => {
                                                     type="button"
                                                     onClick={() => toggleService(service.name)}
                                                     className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${isSelected
-                                                        ? "bg-brand-500 border-brand-500 text-white shadow-lg shadow-brand-200 scale-105"
-                                                        : "bg-white border-gray-100 text-gray-600 hover:border-brand-200"
+                                                        ? "bg-brand-500 border-brand-500 text-black shadow-lg shadow-brand-500/20 scale-105"
+                                                        : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50"
                                                         }`}
                                                 >
                                                     <img
@@ -297,7 +297,7 @@ const HomeContact = () => {
                                                         alt={service.name}
                                                         className={`w-12 h-12 mb-3 object-contain rounded-lg transition-all ${isSelected ? "brightness-0 invert" : ""}`}
                                                     />
-                                                    <span className="text-xs sm:text-sm font-bold text-center">
+                                                    <span className={`text-xs sm:text-sm font-bold text-center ${isSelected ? 'text-black' : 'text-gray-400'}`}>
                                                         {service.name}
                                                     </span>
                                                 </button>
@@ -311,7 +311,7 @@ const HomeContact = () => {
 
                                 {/* Project Type Section */}
                                 <div className="space-y-4">
-                                    <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                    <label className="text-sm sm:text-base font-bold text-white ml-1">
                                         What kind of project is this?
                                     </label>
                                     <div className="flex flex-wrap gap-4">
@@ -321,8 +321,8 @@ const HomeContact = () => {
                                                 type="button"
                                                 onClick={() => setProjectType(type)}
                                                 className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${projectType === type
-                                                    ? "bg-brand-500 border-brand-500 text-white shadow-md"
-                                                    : "bg-white border-gray-100 text-gray-600 hover:border-brand-200"
+                                                    ? "bg-brand-500 border-brand-500 text-black shadow-md"
+                                                    : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50"
                                                     }`}
                                             >
                                                 {type}
@@ -333,7 +333,7 @@ const HomeContact = () => {
 
                                 {/* Deadline Section */}
                                 <div className="space-y-4">
-                                    <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                    <label className="text-sm sm:text-base font-bold text-white ml-1">
                                         What is your project deadline?
                                     </label>
                                     <div className="flex flex-wrap gap-4">
@@ -343,8 +343,8 @@ const HomeContact = () => {
                                                 type="button"
                                                 onClick={() => setDeadline(option)}
                                                 className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${deadline === option
-                                                    ? "bg-brand-500 border-brand-500 text-white shadow-md"
-                                                    : "bg-white border-gray-100 text-gray-600 hover:border-brand-200"
+                                                    ? "bg-brand-500 border-brand-500 text-black shadow-md"
+                                                    : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50"
                                                     }`}
                                             >
                                                 {option}
@@ -355,7 +355,7 @@ const HomeContact = () => {
 
                                 {/* Message Textarea */}
                                 <div className="space-y-2">
-                                    <label className="text-sm sm:text-base font-bold text-gray-800 ml-1">
+                                    <label className="text-sm sm:text-base font-bold text-white ml-1">
                                         Project Details <span className="text-red-500">*</span>
                                     </label>
                                     <textarea
@@ -363,9 +363,9 @@ const HomeContact = () => {
                                         placeholder="Tell us a little more about your project goals and requirements..."
                                         value={message}
                                         onChange={handleTextareaChange}
-                                        className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-gray-800 placeholder-gray-400 ${formSubmitted && message.trim() === ""
-                                            ? "border-red-500 bg-red-50/10"
-                                            : "border-gray-50 bg-gray-50 focus:bg-white focus:border-brand-500"
+                                        className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-white placeholder-gray-600 ${formSubmitted && message.trim() === ""
+                                            ? "border-red-500 bg-red-500/10"
+                                            : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
                                             }`}
                                     />
                                     <div className="flex justify-end pr-2">

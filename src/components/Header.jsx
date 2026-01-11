@@ -151,7 +151,7 @@ const Header = () => {
 
           {/* Center: Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center items-center">
-            <div className="flex items-center bg-gray-100/50 rounded-full p-1 border border-white/20">
+            <div className="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
               {navItems.map((item) => {
                 if (item.name === "Services") {
                   return (
@@ -165,8 +165,8 @@ const Header = () => {
                         to={item.to}
                         className={({ isActive }) =>
                           `flex items-center gap-1 px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive || isServicesOpen
-                            ? "text-brand-600 bg-white shadow-sm"
-                            : "text-gray-600 hover:text-brand-600 hover:bg-white/50"
+                            ? "text-brand-600 bg-white"
+                            : "text-gray-300 hover:text-brand-600 hover:bg-white/10"
                           }`
                         }
                       >
@@ -181,7 +181,7 @@ const Header = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 15, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute mt-4 left-1/2 -translate-x-1/2 top-full w-[max(800px,calc(100vw-120px))] max-w-[1100px] bg-white/95 backdrop-blur-xl border border-white/40 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-[2.5rem] overflow-hidden p-8"
+                            className="absolute mt-4 left-1/2 -translate-x-1/2 top-full w-[max(800px,calc(100vw-120px))] max-w-[1100px] bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2.5rem] overflow-hidden p-8"
                           >
                             <div className="grid grid-cols-3 gap-8">
                               {/* Column 1: Services */}
@@ -195,15 +195,15 @@ const Header = () => {
                                     <Link
                                       key={idx}
                                       to={service.to}
-                                      className="flex items-start gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors group"
+                                      className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-colors group"
                                       onClick={() => setIsServicesOpen(false)}
                                     >
-                                      <div className="p-2 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-400 group-hover:text-brand-600 transition-colors">
+                                      <div className="p-2 bg-white/5 rounded-xl border border-white/10 text-gray-500 group-hover:text-brand-600 transition-colors">
                                         {service.icon}
                                       </div>
                                       <div>
-                                        <div className="font-medium text-gray-900 leading-tight">{service.name}</div>
-                                        <div className="text-xs text-gray-500 mt-1 group-hover:text-black transition-colors duration-300">{service.desc}</div>
+                                        <div className="font-medium text-white leading-tight">{service.name}</div>
+                                        <div className="text-xs text-gray-400 mt-1 group-hover:text-white transition-colors duration-300">{service.desc}</div>
                                       </div>
                                     </Link>
                                   ))}
@@ -273,15 +273,15 @@ const Header = () => {
                                     <Link
                                       key={idx}
                                       to={service.to}
-                                      className="flex items-start gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors group"
+                                      className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-colors group"
                                       onClick={() => setIsServicesOpen(false)}
                                     >
-                                      <div className="p-2 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-400 group-hover:text-brand-600 transition-colors">
+                                      <div className="p-2 bg-white/5 rounded-xl border border-white/10 text-gray-500 group-hover:text-brand-600 transition-colors">
                                         {service.icon}
                                       </div>
                                       <div>
-                                        <div className="font-medium text-gray-900 leading-tight">{service.name}</div>
-                                        <div className="text-xs text-gray-500 mt-1 group-hover:text-black transition-colors duration-300">{service.desc}</div>
+                                        <div className="font-medium text-white leading-tight">{service.name}</div>
+                                        <div className="text-xs text-gray-400 mt-1 group-hover:text-white transition-colors duration-300">{service.desc}</div>
                                       </div>
                                     </Link>
                                   ))}
@@ -300,8 +300,8 @@ const Header = () => {
                     to={item.to}
                     className={({ isActive }) =>
                       `relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
-                        ? "text-brand-600 bg-white shadow-sm"
-                        : "text-gray-600 hover:text-brand-600 hover:bg-white/50"
+                        ? "text-brand-600 bg-white"
+                        : "text-gray-300 hover:text-brand-600 hover:bg-white/10"
                       }`
                     }
                   >
@@ -326,7 +326,7 @@ const Header = () => {
 
             {/* Hamburger for Mobile/Tablet */}
             <button
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-gray-100/80 text-gray-800 hover:bg-gray-200 transition-colors focus:outline-none"
+              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
@@ -341,7 +341,7 @@ const Header = () => {
           className={`lg:hidden absolute left-4 right-4 mt-2 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isOpen ? "max-h-[80vh] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4"
             }`}
         >
-          <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-6 border border-white/40 shadow-xl overflow-y-auto max-h-[70vh]">
+          <div className="bg-[#0a0a0a]/95 backdrop-blur-2xl rounded-[2rem] p-6 border border-white/10 shadow-xl overflow-y-auto max-h-[70vh]">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => {
                 if (item.name === "Services") {
@@ -350,8 +350,8 @@ const Header = () => {
                       <button
                         onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                         className={`flex items-center justify-between px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${isMobileServicesOpen
-                          ? "text-brand-600 bg-brand-50"
-                          : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
+                          ? "text-brand-600 bg-brand-500/10"
+                          : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                           }`}
                       >
                         {item.name}
@@ -375,10 +375,10 @@ const Header = () => {
                                     key={svc.name}
                                     to={svc.to}
                                     onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors group"
+                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
                                   >
-                                    <div className="text-gray-400">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-700 group-hover:text-black transition-colors">{svc.name}</span>
+                                    <div className="text-gray-500">{svc.icon}</div>
+                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -392,10 +392,10 @@ const Header = () => {
                                     key={svc.name}
                                     to={svc.to}
                                     onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors group"
+                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
                                   >
-                                    <div className="text-gray-400">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-700 group-hover:text-black transition-colors">{svc.name}</span>
+                                    <div className="text-gray-500">{svc.icon}</div>
+                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -409,10 +409,10 @@ const Header = () => {
                                     key={svc.name}
                                     to={svc.to}
                                     onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors group"
+                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
                                   >
-                                    <div className="text-gray-400">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-700 group-hover:text-black transition-colors">{svc.name}</span>
+                                    <div className="text-gray-500">{svc.icon}</div>
+                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -426,10 +426,10 @@ const Header = () => {
                                     key={svc.name}
                                     to={svc.to}
                                     onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors group"
+                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
                                   >
-                                    <div className="text-gray-400">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-700 group-hover:text-black transition-colors">{svc.name}</span>
+                                    <div className="text-gray-500">{svc.icon}</div>
+                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -447,8 +447,8 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
                       `px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${isActive
-                        ? "text-brand-600 bg-brand-50"
-                        : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
+                        ? "text-brand-600 bg-brand-500/10"
+                        : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                       }`
                     }
                   >

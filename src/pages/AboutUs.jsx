@@ -189,7 +189,7 @@ export default function About() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
 
   const scrollToNextSection = () => {
-    const nextSection = document.getElementById('transform-section');
+    const nextSection = document.getElementById('drives-us-section');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -219,7 +219,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             We are design-first<br />creative studio
           </h1>
         </div>
@@ -250,62 +250,17 @@ export default function About() {
         </button>
       </section>
 
-      {/* Transform Section */}
-      {/* Transform Section */}
-      <section
-        id="transform-section"
-        className="bg-brand-950 py-24 overflow-hidden"
-      >
-        <motion.div
-          className="max-w-7xl mx-auto px-6 text-center"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.6 }} // Re-trigger on scroll, high threshold for 'center' feel
-        >
 
-          {/* DESIGN */}
-          <div className="overflow-hidden">
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-500 mb-2"
-            >
-              design
-            </motion.h2>
-          </div>
-
-          {/* MAIN LINE */}
-          <div className="overflow-hidden my-4">
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-500"
-            >
-              We transform digital presence
-            </motion.h2>
-          </div>
-
-          {/* DEVELOP */}
-          <div className="overflow-hidden">
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-500 mt-2"
-            >
-              develop
-            </motion.h2>
-          </div>
-
-        </motion.div>
-      </section>
 
 
 
       {/* What Drives Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
+      <section id="drives-us-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             What Drives Us
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
             In 2025, we began building our own digital products—driven by the same vision and purpose that fuel everything we do: turning ideas into impactful, user-centered experiences.
           </p>
         </div>
@@ -313,45 +268,45 @@ export default function About() {
         {/* Mission & Vision Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
-          <div className="bg-transparent border border-gray-200 rounded-2xl p-8 sm:p-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Our Mission
             </h3>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-8">
               We believe great design is the foundation of every successful brand. At Techno Vanam, we craft intuitive user experiences, build high-performance websites, and design graphics that leave a lasting impression.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Design-led Development</h4>
-                  <p className="text-gray-600 text-sm">We blend aesthetics and technology to create products users love.</p>
+                  <h4 className="font-semibold text-white mb-1">Design-led Development</h4>
+                  <p className="text-gray-400 text-sm">We blend aesthetics and technology to create products users love.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Scalable & Creative</h4>
-                  <p className="text-gray-600 text-sm">From startups to enterprises, we deliver flexible and impactful solutions.</p>
+                  <h4 className="font-semibold text-white mb-1">Scalable & Creative</h4>
+                  <p className="text-gray-400 text-sm">From startups to enterprises, we deliver flexible and impactful solutions.</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Vision */}
-          <div className="bg-transparent border border-gray-200 rounded-2xl p-8 sm:p-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Our Vision
             </h3>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-8">
               To build a digital ecosystem where design, technology, and human-centric thinking shape better experiences for all. We envision a future where businesses can access high-quality digital tools that drive growth.
             </p>
             <ul className="space-y-3">
@@ -359,19 +314,19 @@ export default function About() {
                 <div className="w-5 h-5 rounded-full border-2 border-brand-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
                 </div>
-                <span className="text-gray-600">Empowering creators through smart, intuitive platforms</span>
+                <span className="text-gray-400">Empowering creators through smart, intuitive platforms</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full border-2 border-brand-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
                 </div>
-                <span className="text-gray-600">Driving meaningful change with every project</span>
+                <span className="text-gray-400">Driving meaningful change with every project</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full border-2 border-brand-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
                 </div>
-                <span className="text-gray-600">Making digital innovation accessible to everyone</span>
+                <span className="text-gray-400">Making digital innovation accessible to everyone</span>
               </li>
             </ul>
           </div>
@@ -379,15 +334,15 @@ export default function About() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="bg-[#f7fff0] py-20 sm:py-24 lg:py-32 overflow-hidden">
+      <section className="bg-black py-20 sm:py-24 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 bg-black rounded-full shadow-[0_0_8px_rgba(0,0,0,0.1)]" />
-              <span className="text-xl font-medium tracking-tight text-gray-900">Our Approach</span>
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
+              <span className="text-xl font-medium tracking-tight text-white">Our Approach</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 leading-[1.1] max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.1] max-w-4xl">
               First step to solving a problem is recognizing there is one.
             </h2>
           </div>
@@ -397,20 +352,20 @@ export default function About() {
             {approachSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[2rem] p-6 lg:p-7 flex flex-col justify-between aspect-square shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group"
+                className="bg-[#0a0a0a] rounded-[2rem] p-6 lg:p-7 flex flex-col justify-between aspect-square border border-white/10 hover:border-brand-500/50 transition-all duration-500 group"
               >
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-black rounded-full" />
-                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 tracking-tight leading-tight">{step.title}</h3>
+                  <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
+                  <h3 className="text-lg lg:text-xl font-bold text-white tracking-tight leading-tight">{step.title}</h3>
                 </div>
 
                 <div className="mt-auto">
-                  <div className="w-full h-[1px] bg-gray-100 mb-4 group-hover:bg-gray-200 transition-colors" />
+                  <div className="w-full h-[1px] bg-white/5 mb-4 group-hover:bg-brand-500/20 transition-colors" />
                   <div className="flex justify-between items-end gap-2">
-                    <p className="text-gray-500 text-[13px] lg:text-sm leading-snug">
+                    <p className="text-gray-400 text-[13px] lg:text-sm leading-snug">
                       {step.description}
                     </p>
-                    <span className="text-gray-300 text-base lg:text-lg font-medium tabular-nums group-hover:text-gray-900 transition-colors duration-500 shrink-0">
+                    <span className="text-gray-600 text-base lg:text-lg font-medium tabular-nums group-hover:text-brand-500 transition-colors duration-500 shrink-0">
                       {step.number}
                     </span>
                   </div>
@@ -422,21 +377,21 @@ export default function About() {
       </section>
 
       {/* Our Expertise Section */}
-      <section ref={sectionRef} className="relative h-[400vh] bg-[#f7fff0]">
+      <section ref={sectionRef} className="relative h-[400vh] bg-black">
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 bg-black rounded-full" />
-              <span className="text-xl font-medium tracking-tight text-gray-900">Our Expertise</span>
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full" />
+              <span className="text-xl font-medium tracking-tight text-white">Our Expertise</span>
             </div>
           </div>
 
           <motion.div style={{ x }} className="flex gap-8 px-8 sm:px-16 lg:px-24">
             {/* Card 1: 20+ Team */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-white rounded-[3rem] p-10 flex flex-col shadow-xl">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl">
               <div className="mb-8">
-                <h3 className="text-6xl font-bold text-gray-900 mb-2">20+</h3>
-                <p className="text-xl text-gray-500 font-medium">Team of talented creative experts</p>
+                <h3 className="text-6xl font-bold text-white mb-2">20+</h3>
+                <p className="text-xl text-gray-400 font-medium">Team of talented creative experts</p>
               </div>
               <div className="flex-grow">
                 <CircularTeam />
@@ -444,10 +399,10 @@ export default function About() {
             </div>
 
             {/* Card 2: 5+ Years */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-white rounded-[3rem] p-10 flex flex-col shadow-xl overflow-hidden group">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl overflow-hidden group">
               <div className="mb-8">
-                <h3 className="text-6xl font-bold text-gray-900 mb-2">5+ Years</h3>
-                <p className="text-xl text-gray-500 font-medium">Experience in transforming businesses</p>
+                <h3 className="text-6xl font-bold text-white mb-2">5+ Years</h3>
+                <p className="text-xl text-gray-400 font-medium">Experience in transforming businesses</p>
               </div>
               <div className="flex-grow flex items-end justify-center">
                 <motion.img
@@ -459,10 +414,10 @@ export default function About() {
             </div>
 
             {/* Card 3: 100+ Projects */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-white rounded-[3rem] p-10 flex flex-col shadow-xl overflow-hidden group">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl overflow-hidden group">
               <div className="mb-8">
-                <h3 className="text-6xl font-bold text-gray-900 mb-2">100+</h3>
-                <p className="text-xl text-gray-500 font-medium">Successfully completed projects</p>
+                <h3 className="text-6xl font-bold text-white mb-2">100+</h3>
+                <p className="text-xl text-gray-400 font-medium">Successfully completed projects</p>
               </div>
               <div className="flex-grow flex items-end justify-center">
                 <motion.img
@@ -474,7 +429,7 @@ export default function About() {
             </div>
 
             {/* Card 4: 15+ Industries (Dark Mode & Slideshow) */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#1A1A1A] rounded-[3rem] p-10 flex flex-col shadow-2xl overflow-hidden group">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#1A1A1A] rounded-[3rem] p-10 flex flex-col shadow-2xl overflow-hidden group border border-white/10">
               <div className="mb-8">
                 <h3 className="text-6xl font-bold text-white mb-2">15+ Industries</h3>
                 <p className="text-xl text-gray-400 font-medium">Diverse experience across multiple sectors</p>
@@ -488,22 +443,22 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-[#f7fff0] py-20 sm:py-24 lg:py-32">
+      <section className="bg-black py-20 sm:py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header to match reference image */}
           <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 bg-black rounded-full shadow-[0_0_8px_rgba(0,0,0,0.15)]" />
-              <span className="text-xl font-medium tracking-tight text-gray-900">Who we are</span>
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
+              <span className="text-xl font-medium tracking-tight text-white">Who we are</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 leading-[1.1] max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.1] max-w-4xl">
               We are explorers. We constantly seek ways to make an impact towards solving problems through creativity.
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-[2.5rem] p-4 sm:p-5 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] border border-black/5 hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.15)] transition-all duration-500 group">
+              <div key={index} className="bg-[#0a0a0a] rounded-[2.5rem] p-4 sm:p-5 border border-white/5 hover:border-brand-500/30 transition-all duration-500 group">
                 <div className="aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 relative">
                   <img
                     src={member.img}
@@ -513,8 +468,8 @@ export default function About() {
                 </div>
                 <div className="px-3 pb-4 flex items-end justify-between">
                   <div className="space-y-1">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">{member.name}</h3>
-                    <p className="text-gray-400 text-base sm:text-lg font-medium tracking-tight">( {member.role} )</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{member.name}</h3>
+                    <p className="text-gray-500 text-base sm:text-lg font-medium tracking-tight">( {member.role} )</p>
                   </div>
                   <a
                     href={member.linkedin}
@@ -539,10 +494,10 @@ export default function About() {
       {/* Values Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             The Values That Drive Us
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
             In 2025, Techno Vanam was born from a simple idea—why just design for others when we can design for impact? We build with purpose, create with clarity, and craft experiences that matter.
           </p>
         </div>
@@ -551,7 +506,7 @@ export default function About() {
           {values.map((value, idx) => (
             <div
               key={idx}
-              className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow"
+              className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-brand-500/50 transition-all"
             >
               <div className={`w-14 h-14 ${value.bgColor} rounded-xl flex items-center justify-center mb-4`}>
                 {(() => {
@@ -559,10 +514,10 @@ export default function About() {
                   return <IconComponent className={`w-7 h-7 ${value.color}`} />;
                 })()}
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
                 {value.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 {value.description}
               </p>
             </div>

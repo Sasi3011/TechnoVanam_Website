@@ -67,7 +67,7 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="bg-[#fdfffb] py-16 sm:py-24 w-full overflow-hidden">
+        <section className="bg-black py-16 sm:py-24 w-full overflow-hidden">
             {/* Header */}
             <div className="flex items-center gap-3 mb-10 px-4 sm:px-6 md:px-8 lg:px-12 text-brand-600 max-w-7xl mx-auto">
                 <div className="w-2 h-2 rounded-full bg-brand-600" />
@@ -94,22 +94,22 @@ export default function Testimonials() {
                                 key={t.id}
                                 className="flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start h-full"
                             >
-                                <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 min-h-[300px] h-full
+                                <div className="bg-[#0a0a0a] rounded-[2rem] p-6 sm:p-8 md:p-10 min-h-[300px] h-full
                                   flex flex-col justify-between
-                                  shadow-[0_4px_20px_rgba(0,0,0,0.01)]
-                                  hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)]
-                                  transition-all duration-500 border border-gray-50">
-                                    <p className="text-[#1A1A1A] text-sm md:text-base leading-[1.6]">
+                                  shadow-[0_4px_20px_rgba(0,0,0,0.2)]
+                                  hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)]
+                                  transition-all duration-500 border border-white/5">
+                                    <p className="text-gray-400 text-sm md:text-base leading-[1.6]">
                                         {t.content}
                                     </p>
 
                                     <div className="flex items-center justify-between mt-6">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                                            <div className="w-10 h-10 rounded-full overflow-hidden bg-white/5">
                                                 <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
                                             </div>
                                             <div>
-                                                <h4 className="font-bold text-sm md:text-base text-[#1A1A1A]">
+                                                <h4 className="font-bold text-sm md:text-base text-white">
                                                     {t.author}
                                                 </h4>
                                                 <p className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider">
@@ -123,7 +123,7 @@ export default function Testimonials() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-11 h-11 rounded-full flex items-center justify-center
-                                   border border-blue-600 bg-white hover:bg-blue-600 hover:text-white transition shadow-sm text-blue-600"
+                                   border border-white/10 bg-white/5 hover:bg-blue-600 hover:text-white transition shadow-sm text-blue-400"
                                         >
                                             <LinkedinIcon />
                                         </a>
@@ -141,7 +141,7 @@ export default function Testimonials() {
             <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
                 <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
                     {/* Progress Bar */}
-                    <div className="w-full sm:flex-1 h-[3px] bg-brand-100 rounded-full overflow-hidden relative">
+                    <div className="w-full sm:flex-1 h-[3px] bg-white/5 rounded-full overflow-hidden relative">
                         <motion.div
                             className="absolute top-0 left-0 h-full bg-brand-600"
                             style={{ scaleX, originX: 0, width: "100%" }}
