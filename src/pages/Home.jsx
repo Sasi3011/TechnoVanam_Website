@@ -446,7 +446,7 @@ const Home = () => {
 
       {/* Who We Are Section */}
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-white/10 shadow-sm">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
           {/* Left Column */}
           <div className="w-full lg:w-1/3 flex flex-col">
             {/* Top Label */}
@@ -456,7 +456,7 @@ const Home = () => {
             </div>
 
             {/* Logo Card */}
-            <div className="bg-brand-50 rounded-3xl p-4 mt-auto border border-brand-100/50">
+            <div className="bg-brand-50 rounded-3xl p-4 mt-auto border border-brand-100/50 card-glow">
               {/* White Inner Card with Logo */}
               <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 hover:shadow-md border border-gray-50">
                 <img
@@ -507,7 +507,7 @@ const Home = () => {
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
-          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10 shadow-sm">
+          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10 shadow-sm card-glow">
 
             {/* Header Section - Parallel Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
@@ -768,7 +768,7 @@ const Home = () => {
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Container with dark background and rounded corners */}
-          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10">
+          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10 card-glow">
 
             {/* Section Header - Parallel Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
@@ -793,7 +793,7 @@ const Home = () => {
                 <div key={step.id} className="group h-[320px] lg:h-[320px] perspective-1000">
                   <div className="flip-card-inner rounded-[2rem]">
                     {/* Card Front */}
-                    <div className="flip-card-front bg-white/5 border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10">
+                    <div className="flip-card-front bg-white/5 border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10 card-glow card-glow-hover">
                       <div className="flex justify-between items-start">
                         <span className="text-6xl font-black text-brand-500 group-hover:text-brand-200 transition-all duration-700 select-none leading-none inline-block">
                           {String(index + 1).padStart(2, '0')}
@@ -808,7 +808,7 @@ const Home = () => {
                     </div>
 
                     {/* Card Back */}
-                    <div className="flip-card-back bg-[#0a0a0a] border border-brand-500/50 p-8 flex flex-col justify-between text-left">
+                    <div className="flip-card-back bg-[#0a0a0a] border border-brand-500/50 p-8 flex flex-col justify-between text-left card-glow card-glow-hover">
                       <div className="flex flex-col gap-2">
                         <span className="text-4xl font-black text-brand-200/50">
                           {String(index + 1).padStart(2, '0')}
@@ -904,7 +904,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-white/10 flex flex-col gap-10 sm:gap-14 lg:gap-16">
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-white/10 flex flex-col gap-10 sm:gap-14 lg:gap-16 card-glow">
             {/* Athlixir Product Section */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left Content Column */}
@@ -937,7 +937,7 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
+              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
                   alt="Athlixir Platform Interface"
@@ -979,7 +979,7 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px]">
+              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
                   alt="Platform Interface"

@@ -15,6 +15,51 @@ const MainLayout = ({ children }) => {
   }, [location.pathname]);
 
   useEffect(() => {
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+    // Deter right-click and inspection shortcuts on production
+    if (!isLocalhost) {
+      const preventDefault = (e) => e.preventDefault();
+
+      const handleKeydown = (e) => {
+        // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C
+        if (
+          e.keyCode === 123 ||
+          (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+          (e.ctrlKey && e.keyCode === 85)
+        ) {
+          e.preventDefault();
+        }
+      };
+
+      document.addEventListener("contextmenu", preventDefault);
+      document.addEventListener("keydown", handleKeydown);
+
+      // Deter DevTools when opened via menu using debugger trap
+      const trap = setInterval(() => {
+        const startTime = performance.now();
+        debugger;
+        const endTime = performance.now();
+        // If debugger paused execution, the time difference will be large
+        if (endTime - startTime > 100) {
+          console.clear();
+          console.log(
+            "%cSTOP! %cThis is a browser feature intended for developers. If someone told you to copy-paste something here to 'hack' something, it is a scam.",
+            "color: #71d300; font-size: 3rem; font-weight: bold; text-shadow: 2px 2px black;",
+            "color: white; font-size: 1.5rem;"
+          );
+        }
+      }, 1000);
+
+      return () => {
+        document.removeEventListener("contextmenu", preventDefault);
+        document.removeEventListener("keydown", handleKeydown);
+        clearInterval(trap);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowScrollTop(true);
@@ -35,7 +80,7 @@ const MainLayout = ({ children }) => {
     <>
       <CursorFollower />
       <Header />
-      <main className="pt-0">{children}</main>
+      <main className="pt-0" onDragStart={(e) => e.preventDefault()}>{children}</main>
       <Footer />
 
       {/* Fixed Scroll to Top Button */}

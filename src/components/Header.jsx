@@ -111,7 +111,7 @@ const Header = () => {
     { name: "About", to: "/about" },
     { name: "Services", to: "/services" },
     { name: "Products", to: "/product1" },
-    // { name: "Portfolio", to: "/portfolio" },
+    { name: "Careers", to: "/careers" },
   ];
 
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);

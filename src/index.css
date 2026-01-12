@@ -21,6 +21,15 @@
   --font-mono: "Archivo";
 }
 
+/* Card Glow Utilities */
+.card-glow {
+  box-shadow: 0 0 20px rgba(113, 211, 0, 0.05);
+}
+
+.card-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(113, 211, 0, 0.15);
+}
+
 /* Archivo Font for Entire Website - Explicitly remove all other fonts */
 body:not(.is-localhost) * {
   user-select: none;

@@ -125,7 +125,7 @@ const HomeContact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-white/10 overflow-hidden"
+                    className="relative bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-white/10 overflow-hidden card-glow"
                 >
 
                     <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
@@ -295,8 +295,8 @@ const HomeContact = () => {
                                                     type="button"
                                                     onClick={() => toggleService(service.name)}
                                                     className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${isSelected
-                                                        ? "bg-brand-500 border-brand-500 text-black shadow-lg shadow-brand-500/20 scale-105"
-                                                        : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50"
+                                                        ? "bg-brand-500 border-brand-500 text-black shadow-lg shadow-brand-500/20 scale-105 card-glow"
+                                                        : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50 card-glow-hover"
                                                         }`}
                                                 >
                                                     <img

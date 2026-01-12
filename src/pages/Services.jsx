@@ -277,7 +277,7 @@ const Services = () => {
 
       {/* Core Creative Offerings Section */}
       <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[3rem] p-10 sm:p-16 border border-white/10 card-glow">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
             <div className="flex items-center gap-2">
@@ -294,7 +294,7 @@ const Services = () => {
               <div key={service.id} className="group h-[320px] perspective-1000">
                 <div className="flip-card-inner rounded-[2rem]">
                   {/* Card Front */}
-                  <div className="flip-card-front bg-[#0a0a0a] border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10">
+                  <div className="flip-card-front bg-[#0a0a0a] border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10 card-glow card-glow-hover">
                     <div className="flex justify-between items-start">
                       <motion.span
                         initial={{ fontSize: "1.5rem" }}
@@ -315,7 +315,7 @@ const Services = () => {
                   </div>
 
                   {/* Card Back */}
-                  <div className="flip-card-back bg-brand-600 p-8 flex flex-col justify-between text-left">
+                  <div className="flip-card-back bg-brand-600 p-8 flex flex-col justify-between text-left card-glow card-glow-hover">
                     <div className="flex flex-col gap-2">
                       <span className="text-4xl font-black text-brand-200/50">
                         {service.id}
@@ -367,7 +367,7 @@ const Services = () => {
 
       {/* Expertise Section */}
       <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-12  flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-12  flex flex-col lg:flex-row items-center gap-12 lg:gap-20 card-glow">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 space-y-8 py-8 sm:py-12 md:py-16">
             <div className="flex items-center gap-2">
@@ -400,7 +400,7 @@ const Services = () => {
 
       {/* Numbers Section */}
       <section className="w-full bg-black pb-24 sm:pb-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-16 py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-16 py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 card-glow">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 space-y-4 pb-32">
             <div className="flex items-center gap-2 pb-6">
@@ -433,7 +433,7 @@ const Services = () => {
           {/* Right Content - Stats Grid */}
           <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-6">
             {stats.map((stat) => (
-              <div key={stat.id} className="bg-black/40 rounded-[2rem] p-6 flex flex-col justify-between h-[240px] relative group border border-white/5 hover:border-brand-500/30 transition-colors duration-300">
+              <div key={stat.id} className="bg-black/40 rounded-[2rem] p-6 flex flex-col justify-between h-[240px] relative group border border-white/5 hover:border-brand-500/30 transition-colors duration-300 card-glow card-glow-hover">
                 <span className="absolute top-8 right-8 text-sm font-medium text-gray-600 group-hover:text-gray-400 transition-colors">{stat.id}</span>
                 <div className="mt-auto space-y-2">
                   <h3 className="text-5xl font-medium text-white leading-none">{stat.value}</h3>
@@ -463,7 +463,7 @@ const Services = () => {
               {testimonials.map((t, i) => (
                 <div
                   key={i}
-                  className="min-w-full sm:min-w-[450px] lg:min-w-[500px] bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 flex flex-col justify-between h-[500px] snap-start shadow-sm"
+                  className="min-w-full sm:min-w-[450px] lg:min-w-[500px] bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 flex flex-col justify-between h-[500px] snap-start shadow-sm card-glow card-glow-hover"
                 >
                   <p className="text-white text-xl sm:text-xl leading-relaxed font-medium">
                     {t.text}
@@ -567,7 +567,7 @@ const Services = () => {
 
       {/* Final CTA Section */}
       <section className="w-full bg-black py-24 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-16 py-16 sm:py-20 lg:py-24 flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-[40px] px-8 sm:px-12 md:px-16 py-16 sm:py-20 lg:py-24 flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20 card-glow">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="flex items-center gap-2">

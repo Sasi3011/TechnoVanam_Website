@@ -41,7 +41,7 @@ const projects = [
 const ProjectCard = ({ project, reverse }) => (
   <Link
     to={project.link}
-    className={`flex flex-row ${reverse ? "flex-row-reverse" : ""} rounded-3xl overflow-hidden shadow-sm bg-[#1a1a1a] hover:shadow-lg transition duration-300 w-full max-w-[1200px] mx-auto border border-white/5`}
+    className={`flex flex-row ${reverse ? "flex-row-reverse" : ""} rounded-3xl overflow-hidden shadow-sm bg-[#1a1a1a] hover:shadow-lg transition duration-300 w-full max-w-[1200px] mx-auto border border-white/5 card-glow card-glow-hover`}
   >
     {/* Text Section */}
     <div className="p-8 w-1/2 flex flex-col justify-center">
@@ -121,7 +121,7 @@ export default function Portfolio() {
           {/* Cards Container */}
           <div className="w-full flex flex-row justify-center gap-7">
             {/* Card 1 */}
-            <div className="w-[calc(50%-14px)] max-w-[622px] bg-[#0a0a0a] border border-white/5 rounded-[32px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] p-[55px_41px] flex flex-col min-h-[462px]">
+            <div className="w-[calc(50%-14px)] max-w-[622px] bg-[#0a0a0a] border border-white/5 rounded-[32px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] p-[55px_41px] flex flex-col min-h-[462px] card-glow">
               {/* Logo */}
               <div className="mb-6">
                 <div className="w-[80px] h-[80px] flex justify-center items-center mb-6">
@@ -169,7 +169,7 @@ export default function Portfolio() {
             </div>
 
             {/* Card 2 */}
-            <div className="w-[calc(50%-14px)] max-w-[622px] bg-[#0a0a0a] border border-white/5 rounded-[32px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] p-[55px_41px] flex flex-col min-h-[462px]">
+            <div className="w-[calc(50%-14px)] max-w-[622px] bg-[#0a0a0a] border border-white/5 rounded-[32px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] p-[55px_41px] flex flex-col min-h-[462px] card-glow">
               {/* Logo */}
               <div className="mb-6">
                 <div className="w-[80px] h-[80px] flex justify-center items-center mb-6">

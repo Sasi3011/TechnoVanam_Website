@@ -255,7 +255,7 @@ export default function About() {
 
 
       {/* What Drives Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 bg-[#0a0a0a] rounded-[2.5rem] border border-white/10 card-glow my-16">
         {/* <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             What Drives Us
@@ -281,7 +281,7 @@ export default function About() {
         {/* Mission & Vision Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10">
+          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10 card-glow">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Our Mission
             </h3>
@@ -315,7 +315,7 @@ export default function About() {
           </div>
 
           {/* Vision */}
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10">
+          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10 card-glow">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Our Vision
             </h3>
@@ -365,7 +365,7 @@ export default function About() {
             {approachSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-[#0a0a0a] rounded-[2rem] p-6 lg:p-7 flex flex-col justify-between aspect-square border border-white/10 hover:border-brand-500/50 transition-all duration-500 group"
+                className="bg-[#0a0a0a] rounded-[2rem] p-6 lg:p-7 flex flex-col justify-between aspect-square border border-white/10 hover:border-brand-500/50 transition-all duration-500 group card-glow card-glow-hover"
               >
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
@@ -401,7 +401,7 @@ export default function About() {
 
           <motion.div style={{ x }} className="flex gap-8 px-8 sm:px-16 lg:px-24">
             {/* Card 1: 20+ Team */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl card-glow">
               <div className="mb-8">
                 <h3 className="text-6xl font-bold text-white mb-2">20+</h3>
                 <p className="text-xl text-gray-400 font-medium">Team of talented creative experts</p>
@@ -412,7 +412,7 @@ export default function About() {
             </div>
 
             {/* Card 2: 5+ Years */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl overflow-hidden group">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl overflow-hidden group card-glow">
               <div className="mb-8">
                 <h3 className="text-6xl font-bold text-white mb-2">5+ Years</h3>
                 <p className="text-xl text-gray-400 font-medium">Experience in transforming businesses</p>
@@ -427,7 +427,7 @@ export default function About() {
             </div>
 
             {/* Card 3: 100+ Projects */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl overflow-hidden group">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#0a0a0a] rounded-[3rem] p-10 flex flex-col border border-white/10 shadow-xl overflow-hidden group card-glow">
               <div className="mb-8">
                 <h3 className="text-6xl font-bold text-white mb-2">100+</h3>
                 <p className="text-xl text-gray-400 font-medium">Successfully completed projects</p>
@@ -442,7 +442,7 @@ export default function About() {
             </div>
 
             {/* Card 4: 15+ Industries (Dark Mode & Slideshow) */}
-            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#1A1A1A] rounded-[3rem] p-10 flex flex-col shadow-2xl overflow-hidden group border border-white/10">
+            <div className="flex-shrink-0 w-[350px] sm:w-[450px] h-[550px] bg-[#1A1A1A] rounded-[3rem] p-10 flex flex-col shadow-2xl overflow-hidden group border border-white/10 card-glow">
               <div className="mb-8">
                 <h3 className="text-6xl font-bold text-white mb-2">15+ Industries</h3>
                 <p className="text-xl text-gray-400 font-medium">Diverse experience across multiple sectors</p>
@@ -471,7 +471,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-[#0a0a0a] rounded-[2.5rem] p-4 sm:p-5 border border-white/5 hover:border-brand-500/30 transition-all duration-500 group">
+              <div key={index} className="bg-[#0a0a0a] rounded-[2.5rem] p-4 sm:p-5 border border-white/5 hover:border-brand-500/30 transition-all duration-500 group card-glow card-glow-hover">
                 <div className="aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 relative">
                   <img
                     src={member.img}
@@ -519,7 +519,7 @@ export default function About() {
           {values.map((value, idx) => (
             <div
               key={idx}
-              className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-brand-500/50 transition-all"
+              className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-brand-500/50 transition-all card-glow card-glow-hover"
             >
               <div className={`w-14 h-14 ${value.bgColor} rounded-xl flex items-center justify-center mb-4`}>
                 {(() => {

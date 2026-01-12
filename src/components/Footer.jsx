@@ -25,6 +25,7 @@ const Footer = () => {
       { name: "Our Services", to: "/services" },
       { name: "Portfolio", to: "/portfolio" },
       { name: "Contact Us", to: "/contact" },
+      { name: "Careers", to: "/careers" },
       { name: "Privacy Policy", to: "/privacy" },
     ],
     services: [
