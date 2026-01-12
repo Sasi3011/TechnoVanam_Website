@@ -35,21 +35,32 @@ const MainLayout = ({ children }) => {
       document.addEventListener("contextmenu", preventDefault);
       document.addEventListener("keydown", handleKeydown);
 
-      // Deter DevTools when opened via menu using debugger trap
+      // Max Protection: Hide content and spam debugger
       const trap = setInterval(() => {
         const startTime = performance.now();
         debugger;
         const endTime = performance.now();
-        // If debugger paused execution, the time difference will be large
-        if (endTime - startTime > 100) {
+
+        const isDevToolsOpen = endTime - startTime > 100;
+
+        if (isDevToolsOpen) {
+          // Hide content if DevTools is open
+          document.body.style.display = "none";
+          // Clear and spam console
           console.clear();
-          console.log(
-            "%cSTOP! %cThis is a browser feature intended for developers. If someone told you to copy-paste something here to 'hack' something, it is a scam.",
-            "color: #71d300; font-size: 3rem; font-weight: bold; text-shadow: 2px 2px black;",
-            "color: white; font-size: 1.5rem;"
-          );
+          for (let i = 0; i < 100; i++) {
+            console.log("%cSTOP!", "color:red; font-size:40px; font-weight:bold;");
+          }
+          alert("Developer Tools are disabled on this site to protect intellectual property.");
+          window.location.href = "about:blank"; // Redirect them away
+        } else {
+          document.body.style.display = "block";
         }
-      }, 1000);
+      }, 500);
+
+      // Disable text selection and dragging globally
+      document.body.style.userSelect = "none";
+      document.body.style.webkitUserSelect = "none";
 
       return () => {
         document.removeEventListener("contextmenu", preventDefault);
@@ -80,7 +91,13 @@ const MainLayout = ({ children }) => {
     <>
       <CursorFollower />
       <Header />
-      <main className="pt-0" onDragStart={(e) => e.preventDefault()}>{children}</main>
+      <main
+        className="pt-0"
+        onDragStart={(e) => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
+      >
+        {children}
+      </main>
       <Footer />
 
       {/* Fixed Scroll to Top Button */}
