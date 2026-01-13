@@ -11,29 +11,26 @@ import { Link } from "react-router-dom";
 const projects = [
   {
     logo: ParadoxLogo,
-    title: "Paradox.ai",
-    description:
-      "Paradox.ai is an AI-driven assistant that simplifies recruitment with applicant reviewing, interview booking, and automatic HR query responses.",
-    link: "/portfolio/paradox",
-    image: ParadoxImage,
-    linkColor: "text-[#23A094]",
+    title: "Athlixir",
+    description: "Athlixir is an AI-powered athlete ecosystem built to protect potential, prevent setbacks, and prove talent—uniting performance tracking, injury intelligence, and verified recognition to ensure no athlete is ever overlooked.",
+    link: "/product1",
+    image: "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop",
+    linkColor: "text-brand-500",
   },
   {
-    logo: TeachableLogo,
-    title: "Teachable",
-    description:
-      "Teachable is the leading online platform for creating and selling online courses.",
-    link: "/portfolio/teachable",
-    image: TeachableImage,
-    linkColor: "text-[#3AB1C8]",
+    logo: ParadoxLogo,
+    title: "Youth Entrepreneurship Platform",
+    description: "An interactive ecosystem built to empower the next generation of founders — connecting mentorship, startup resources, and real-world business tools to turn ideas into impactful ventures.",
+    link: "/product2",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+    linkColor: "text-brand-500",
   },
   {
-    logo: UpsideLogo,
-    title: "Upside",
-    description:
-      "Upside is the perfect way to earn cash back on over 50,000 locations.",
-    link: "/portfolio/upside",
-    image: UpsideImage,
+    logo: ParadoxLogo,
+    title: "WebBrain — Your Second Brain",
+    description: "A living memory layer for your browser that understands what you explore, remembers what matters, and brings it back when you need it. WebBrain turns scattered browsing into structured knowledge — so every idea, insight, and discovery stays with you.",
+    link: "/contact",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
     linkColor: "text-brand-500",
   },
 ];
