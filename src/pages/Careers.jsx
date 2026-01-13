@@ -13,6 +13,7 @@ import {
     Users
 } from "lucide-react";
 import HomeContact from "../components/HomeContact";
+import JobApplicationModal from "../components/JobApplicationModal";
 
 const rolesData = [
     {
@@ -65,6 +66,8 @@ const rolesData = [
 const Careers = () => {
     const [activeCategory, setActiveCategory] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
+    const [selectedRole, setSelectedRole] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const categories = ["All", "Design", "Development", "Intern"];
 
@@ -73,6 +76,11 @@ const Careers = () => {
         const matchesSearch = role.title.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
     });
+
+    const handleApplyClick = (role) => {
+        setSelectedRole(role);
+        setIsModalOpen(true);
+    };
 
     return (
         <div className="min-h-screen bg-black text-white pt-24">
@@ -221,15 +229,15 @@ const Careers = () => {
                                         </div>
 
                                         <div>
-                                            <Link
-                                                to="/contact"
+                                            <button
+                                                onClick={() => handleApplyClick(role)}
                                                 className="btn-primary flex items-center justify-center px-10"
                                             >
                                                 <span className="relative z-10 flex items-center gap-2">
                                                     Apply Now <ArrowRight size={18} />
                                                 </span>
                                                 <div className="btn-primary-shine"></div>
-                                            </Link>
+                                            </button>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -305,6 +313,14 @@ const Careers = () => {
             </section>
 
             <HomeContact />
+
+            {selectedRole && (
+                <JobApplicationModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    role={selectedRole}
+                />
+            )}
         </div>
     );
 };
