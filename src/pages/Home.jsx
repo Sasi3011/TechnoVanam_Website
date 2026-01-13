@@ -3,17 +3,27 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Layout, Palette, PanelsTopLeft, Video, TrendingUp, PenTool, Smartphone, Globe, ArrowRight,
-  Lightbulb, Search, Paintbrush, Cog, Rocket, MessageCircle
+  Lightbulb, Search, Paintbrush, Cog, Rocket, MessageCircle,
+  Monitor, Code2, Cpu, FileText, User, Box, Layers, RefreshCw, Settings
 } from "lucide-react";
 import Testimonials from "../components/Testimonials";
 import HomeContact from "../components/HomeContact";
 
+const servicesList = [
+  { title: "UI/UX Design", icon: PanelsTopLeft },
+  { title: "Web Development", icon: Code2 },
+  { title: "App Development", icon: Smartphone },
+  { title: "Branding & Visual Identity", icon: Palette },
+  { title: "SEO & Performance Optimization", icon: TrendingUp },
+  { title: "Product Design (Startups & SaaS)", icon: Box },
+  { title: "Website Maintenance & Support", icon: Settings },
+];
+
 const steps = [
   {
     id: 1,
-    title: "1. Idea",
-    description:
-      "We start by understanding your goals, vision, and challenges. Then, we create a clear action plan tailored to your project's needs.",
+    title: "Idea",
+    description: "We understand your vision, goals, and challenges to define a clear direction for your project.",
     bgColor: "bg-[#FFEFA8]",
     icon: Lightbulb,
     color: "text-amber-500",
@@ -21,9 +31,8 @@ const steps = [
   },
   {
     id: 2,
-    title: "2. Research",
-    description:
-      "Through a detailed questionnaire and business analysis, we learn what makes your brand unique — so we can design solutions that truly fit.",
+    title: "Research",
+    description: "We analyze your business, audience, and competitors to uncover insights that guide smart decisions.",
     bgColor: "bg-brand-50",
     icon: Search,
     color: "text-brand-500",
@@ -31,9 +40,8 @@ const steps = [
   },
   {
     id: 3,
-    title: "3. Design",
-    description:
-      "Whether it's a website, app, or creative poster, our designers craft intuitive interfaces and eye-catching visuals that reflect your brand identity.",
+    title: "Design",
+    description: "We create intuitive user experiences and visually compelling designs that reflect your brand.",
     bgColor: "bg-[#FFDADE]",
     icon: Paintbrush,
     color: "text-rose-500",
@@ -41,9 +49,8 @@ const steps = [
   },
   {
     id: 4,
-    title: "4. Development",
-    description:
-      "Our developers bring your project to life with fast, responsive, and SEO-optimized websites built using the latest technologies and best practices.",
+    title: "Development",
+    description: "We build fast, responsive, and scalable digital products using modern technologies.",
     bgColor: "bg-brand-50",
     icon: Cog,
     color: "text-brand-500",
@@ -51,9 +58,8 @@ const steps = [
   },
   {
     id: 5,
-    title: "5. Launch",
-    description:
-      "We ensure a smooth launch with thorough testing and optimization, delivering a product that's ready to make an impact from day one.",
+    title: "Launch",
+    description: "We test, optimize, and deploy your product to ensure a smooth and impactful launch.",
     bgColor: "bg-[#A79BF4]",
     icon: Rocket,
     color: "text-fuchsia-500",
@@ -61,9 +67,8 @@ const steps = [
   },
   {
     id: 6,
-    title: "6. Support",
-    description:
-      "Post-launch, we provide ongoing support to keep your project running smoothly, with updates, maintenance, and enhancements as needed.",
+    title: "Support",
+    description: "We provide ongoing support and maintenance to keep your product performing at its best.",
     bgColor: "bg-[#E9FDE4]",
     icon: MessageCircle,
     color: "text-lime-500",
@@ -99,7 +104,7 @@ const projects = [
   },
   {
     title: "Project 6",
-    image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825628/Project17_v5wnno.webp",
+    image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825628/Project17_n6x2i5.webp",
     alt: "Project 6 - Techno Vanam Portfolio",
   },
   {
@@ -363,15 +368,15 @@ const Home = () => {
       {/* Hero Section - Fully Responsive */}
       <section className="relative px-4 sm:px-6 md:px-8 lg:px-12 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="text-center max-w-5xl mx-auto">
+          <div className="text-center max-w-screen-xl mx-auto">
             <p className="text-[#71d300] text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-semibold uppercase tracking-wider mb-4">
               DESIGN & DEVELOPMENT STUDIO
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight lg:whitespace-nowrap">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight text-center lg:whitespace-nowrap">
               Building Premium Digital Brands
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-xl text-white leading-relaxed mb-10 max-w-3xl lg:max-w-none mx-auto lg:whitespace-nowrap">
-              We deliver UI/UX, Branding, and Digital <span className="block lg:inline">Development that transforms ambitious</span> <span className="block lg:inline">visions into reality</span>
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl text-white leading-relaxed mb-10 mx-auto text-center lg:whitespace-nowrap">
+              We deliver UI/UX, Branding, and Digital Development that transforms ambitious visions into reality
             </p>
             <Link
               to="/contact"
@@ -479,10 +484,10 @@ const Home = () => {
           {/* Right Column */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] mb-6 leading-tight">
-              We are design-first creative studio
+              We are a design-first creative studio
             </h2>
             <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
-              We believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
+              At Techno Vanam, we believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
             </p>
             <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
               For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
@@ -518,15 +523,15 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-7 lg:col-start-6">
+              <div className="lg:col-span-8 lg:col-start-6">
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
-                  We create solutions but most importantly we identify problems.
+                  Strategy-led services that transform vision into measurable impact.
                 </h2>
               </div>
             </div>
 
             {/* Service Animation Styles */}
-            <style jsx>{`
+            <style>{`
               .grid-standart-services {
                 position: relative;
                 overflow: hidden;
@@ -583,169 +588,34 @@ const Home = () => {
               }
             `}</style>
 
-            {/* Services List */}
+            {/* Services List - Dynamically Mapped */}
             <div className="space-y-0 mb-12">
-              {/* Service 01 - Website Design */}
-              <Link to="/services" className="grid-standart-services group block border-b border-gray-200">
-                {/* Background animation layer */}
-                <div className="h-service-bg"></div>
+              {servicesList.map((service, index) => (
+                <Link
+                  key={index}
+                  to="/services"
+                  className={`grid-standart-services group block border-b ${index === servicesList.length - 1 ? 'border-transparent' : 'border-white/5'}`}
+                >
+                  {/* Background animation layer */}
+                  <div className="h-service-bg"></div>
 
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <Layout size={24} />
+                  <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
+                    <div className="flex items-center gap-6 flex-1">
+                      <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
+                        <service.icon size={24} />
+                      </div>
+                      <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
+                        {service.title}
+                      </h3>
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      Website Design
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 02 - Branding */}
-              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <Palette size={24} />
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      Branding
-                    </h3>
                   </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 03 - UX/UI */}
-              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <PanelsTopLeft size={24} />
-                    </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      UX/UI
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 04 - Motion Design */}
-              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <Video size={24} />
-                    </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      Motion Design
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 05 - SEO */}
-              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <TrendingUp size={24} />
-                    </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      SEO
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 06 - Content Creation */}
-              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <PenTool size={24} />
-                    </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      Content Creation
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 07 - Landing Page */}
-              <Link to="/services" className="grid-standart-services group block border-b border-white/5">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <Smartphone size={24} />
-                    </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      Landing Page
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Service 08 - Webflow Development */}
-              <Link to="/services" className="grid-standart-services group block">
-                <div className="h-service-bg"></div>
-                <div className="flex items-center justify-between py-4 sm:py-6 px-4 relative z-10">
-                  <div className="flex items-center gap-6 flex-1">
-                    <div className="service-number text-white group-hover:text-brand-600 transition-colors w-8">
-                      <Globe size={24} />
-                    </div>
-                    <h3 className="service-title text-xl sm:text-2xl md:text-3xl font-normal text-white group-hover:text-brand-600 transition-colors">
-                      Webflow Development
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg className="s-arrow w-6 h-6 text-white group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              ))}
             </div>
 
             {/* All Services Button */}
@@ -779,10 +649,9 @@ const Home = () => {
               </div>
 
               {/* Right: Main Heading */}
-              <div className="lg:col-span-6 lg:col-start-7">
+              <div className="lg:col-span-7 lg:col-start-7">
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-brand-500 leading-tight">
-                  We guide you through <br />
-                  <span className="text-brand-500">every step of the way</span>
+                  From idea to launch, we guide you at every step.
                 </h2>
               </div>
             </div>
@@ -819,7 +688,7 @@ const Home = () => {
                       </div>
 
                       <div className="flex flex-col gap-6">
-                        <p className="text-brand-50 text-sm leading-relaxed font-medium">
+                        <p className="text-brand-50 text-lg leading-relaxed font-medium">
                           {step.description}
                         </p>
                       </div>
@@ -896,7 +765,7 @@ const Home = () => {
             </div>
 
             {/* Right: Main Heading */}
-            <div className="lg:col-span-6 lg:col-start-7">
+            <div className="lg:col-span-6 lg:col-start-9">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-[1.1]">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
@@ -922,13 +791,13 @@ const Home = () => {
                   </div>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
-                    Athlixir is an AI-powered smart living platform for athletes. It brings performance tracking, injury analysis, and talent recognition into one unified ecosystem — helping 50+ athlete communities grow more intelligently.
+                    Athlixir is an AI-powered athlete ecosystem built to protect potential, prevent setbacks, and prove talent—uniting performance tracking, injury intelligence, and verified recognition to ensure no athlete is ever overlooked.
                   </p>
                 </div>
 
                 <div className="flex justify-between items-center sm:mt-4">
                   <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
-                    Web Design
+                    Sports Platform
                   </div>
                   <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
                     01
@@ -939,7 +808,7 @@ const Home = () => {
               {/* Right Image/Mockup Column */}
               <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
-                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825608/Athlixir_srv8w4.png"
+                  src="https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop"
                   alt="Athlixir Platform Interface"
                   className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
@@ -964,13 +833,13 @@ const Home = () => {
                   </div>
 
                   <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
-                    An interactive ecosystem designed to empower the next generation of leaders. It provides mentorship, resource mapping, and business simulation tools to bridge the gap between education and real-world impact.
+                    An interactive ecosystem built to empower the next generation of founders — connecting mentorship, startup resources, and real-world business tools to turn ideas into impactful ventures.
                   </p>
                 </div>
 
                 <div className="flex justify-between items-center sm:mt-4">
                   <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
-                    LMS Platform
+                    Startup Ecosystem Platform
                   </div>
                   <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
                     02
@@ -981,8 +850,50 @@ const Home = () => {
               {/* Right Image/Mockup Column */}
               <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
-                  src="https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825629/Project20_pokpes.webp"
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
                   alt="Platform Interface"
+                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* WebBrain Product Section */}
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+              {/* Left Content Column */}
+              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-2 h-2 rounded-full bg-brand-600"></div>
+                    <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Productivity, Global</span>
+                  </div>
+
+                  <div className="relative inline-block mb-4 group">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+                      WebBrain — Your Second Brain
+                    </h3>
+                  </div>
+
+                  <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
+                    A living memory layer for your browser that understands what you explore, remembers what matters, and brings it back when you need it. WebBrain turns scattered browsing into structured knowledge.
+                  </p>
+                </div>
+
+                <div className="flex justify-between items-center sm:mt-4">
+                  <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
+                    Browser Extension
+                  </div>
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
+                    03
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Image/Mockup Column */}
+              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+                <img
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
+                  alt="WebBrain Interface"
                   className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -996,7 +907,7 @@ const Home = () => {
                 className="btn-primary"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  All Products
+                  Explore Full Products
                   <ArrowRight size={20} />
                 </span>
                 <div className="btn-primary-shine"></div>
