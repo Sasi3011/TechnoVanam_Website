@@ -218,9 +218,9 @@ export default function About() {
     <div className="bg-transparent">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            We are design-first<br />creative studio
+        <div className="text-center max-w-7xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-6 leading-tight">
+            We are a <span className="text-brand-500">design-led digital studio</span> focused on crafting purposeful experiences
           </h1>
         </div>
 
@@ -250,98 +250,245 @@ export default function About() {
         </button>
       </section>
 
+      {/* Who We Are Section (Redesigned: Content Left, Logo Right) */}
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row-reverse gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
+          {/* Right Column (Logo Card) */}
+          <div className="w-full lg:w-1/3 flex flex-col justify-center">
+            {/* Logo Card */}
+            <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow">
+              <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 hover:shadow-md border border-gray-50">
+                <img
+                  src="/Logo.png"
+                  alt="Techno Vanam Logo"
+                  className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <div className="flex items-center justify-between px-2 pb-1">
+                <span className="font-bold text-brand-950 text-xs sm:text-sm tracking-tight uppercase">Designing Digital Future</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Left Column (Text Content) */}
+          <div className="w-full lg:w-2/3 flex flex-col justify-center">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-brand-500 mb-6 leading-tight">
+              We are a design-first creative studio
+            </h2>
+            <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
+              At Techno Vanam, we believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
+            </p>
+            <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
+              For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
+            </p>
+          </div>
+        </div>
+
+        {/* Team Header */}
+        <div className="max-w-4xl mx-auto text-center mt-20 lg:mt-32 mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Meet the Collective
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            A specialized group of designers and developers united by a single goal: creating digital experiences that leave a lasting impact.
+          </p>
+        </div>
+
+        {/* Team Grid - Larger & Centered (Optimized for 2 members) */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 lg:mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="group relative">
+                {/* Photo Container */}
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden mb-4 relative bg-[#0a0a0a] border border-white/5 group-hover:border-brand-500/30 transition-all duration-500">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-110"
+                  />
+
+                  {/* Subtle Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Hover LinkedIn Link */}
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 w-8 h-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 hover:bg-brand-500 hover:border-brand-500 hover:text-white text-gray-300"
+                  >
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                </div>
+
+                {/* Info */}
+                <div className="space-y-1 text-center lg:text-left px-1">
+                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-500 text-sm sm:text-base font-medium font-mono">
+                    {member.role.toUpperCase()}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Join Our Team CTA - Dark Theme & Optimized Height */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 lg:mt-24 pb-16 sm:pb-20">
+          <div className="bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 border border-white/5 items-center overflow-hidden card-glow">
+
+            {/* Left Content */}
+            <div className="w-full flex flex-col items-start text-left order-2 lg:order-1">
+              <div className="flex items-center gap-2 mb-6 sm:mb-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+                <span className="text-sm sm:text-base font-medium text-white tracking-wide">Careers</span>
+              </div>
+
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+                Join Our Team
+              </h3>
+
+              <p className="text-base sm:text-lg text-gray-400 mb-10 leading-relaxed max-w-sm">
+                We are explorers. We constantly seek ways to make an impact towards solving problems through creativity.
+              </p>
+
+              <Link
+                to="/careers"
+                className="bg-white text-black px-8 py-3.5 rounded-full font-bold flex items-center gap-3 hover:scale-105 transition-transform group shadow-xl"
+              >
+                <span>See Job Openings</span>
+                <div className="w-2 h-2 rounded-full bg-brand-500 group-hover:animate-pulse"></div>
+              </Link>
+            </div>
+
+            {/* Right Logo Card - Compact & Refined */}
+            <div className="w-full h-full min-h-[200px] sm:min-h-[280px] lg:min-h-[400px] bg-[#050505] rounded-[2.5rem] flex items-center justify-center relative overflow-hidden group border border-white/5 order-1 lg:order-2">
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/10 via-transparent to-transparent opacity-40"></div>
+
+              <div className="relative z-10 p-10">
+                <img
+                  src="/Logo.png"
+                  alt="Techno Vanam Logo"
+                  className="w-28 sm:w-36 h-auto object-contain transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute top-8 right-8 w-1.5 h-1.5 rounded-full bg-white/20"></div>
+              <div className="absolute bottom-12 left-8 w-3 h-3 rounded-full border border-white/10"></div>
+              <div className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white/5 text-[7rem] lg:text-[10rem] font-black select-none pointer-events-none uppercase">
+                TV
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
 
 
 
 
       {/* What Drives Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 bg-[#0a0a0a] rounded-[2.5rem] border border-white/10 card-glow my-16">
-        {/* <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            What Drives Us
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-            In 2025, we began building our own digital products—driven by the same vision and purpose that fuel everything we do: turning ideas into impactful, user-centered experiences.
-          </p>
-        </div> */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
-          {/* Left: Label */}
-          <div className="lg:col-span-4 flex items-start gap-3">
-            <div className="w-2 h-2 rounded-full bg-brand-500 mt-2.5"></div>
-            <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">What Drives Us</span>
-          </div>
-
-          {/* Right: Main Heading */}
-          <div className="lg:col-span-8 lg:col-start-7">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-brand-950 leading-tight">
-              In 2025, we started building digital products designed to make ideas come alive.
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-20 mb-20 lg:mb-32">
+          {/* Section Heading */}
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
+              <span className="text-brand-500 font-bold tracking-widest uppercase text-sm">What Drives Us</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-[1.1]">
+              Crafting design that speaks, products that scale.
             </h2>
           </div>
-        </div>
-        {/* Mission & Vision Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Mission */}
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10 card-glow">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Our Mission
-            </h3>
-            <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-8">
-              We believe great design is the foundation of every successful brand. At Techno Vanam, we craft intuitive user experiences, build high-performance websites, and design graphics that leave a lasting impression.
+
+          <div className="lg:col-span-1 lg:col-start-6 hidden lg:block">
+            <div className="w-[1px] h-full bg-white/10 mx-auto" />
+          </div>
+
+          {/* Intro Text */}
+          <div className="lg:col-span-6">
+            <p className="text-xl sm:text-2xl text-gray-400 leading-relaxed font-light">
+              Founded in 2025, <span className="text-white font-normal">Techno Vanam</span> was created to turn ideas into thoughtful digital experiences. We believe every product should have purpose, clarity, and impact—bringing brands and users closer through meaningful design.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+          </div>
+        </div>
+
+        {/* Mission & Vision Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Mission Card */}
+          <div className="group relative bg-[#0a0a0a] border border-white/5 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+              <h4 className="text-9xl font-black text-white pointer-events-none select-none">M</h4>
+            </div>
+
+            <div className="relative z-10">
+              <h3 className="text-4xl font-bold text-white mb-8">Our Mission</h3>
+              <p className="text-xl text-gray-400 leading-relaxed mb-12">
+                We believe design is more than visuals—it’s a <span className="text-white underline decoration-brand-500 underline-offset-8">strategic tool for growth</span>. We craft intuitive user experiences and build scalable products that help brands succeed.
+              </p>
+
+              <div className="space-y-8">
+                <div className="flex gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-brand-500/50 transition-colors">
+                    <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9l-.707.707M12 21v-1m0-8c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="text-lg font-bold text-white mb-2 underline decoration-brand-500/20 underline-offset-4">Design-Led Development</h5>
+                    <p className="text-gray-500 leading-relaxed">Blending creativity with tech to build functional and elegant products.</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Design-led Development</h4>
-                  <p className="text-gray-400 text-sm">We blend aesthetics and technology to create products users love.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Scalable & Creative</h4>
-                  <p className="text-gray-400 text-sm">From startups to enterprises, we deliver flexible and impactful solutions.</p>
+
+                <div className="flex gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-brand-500/50 transition-colors">
+                    <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="text-lg font-bold text-white mb-2 underline decoration-brand-500/20 underline-offset-4">Scalable Solutions</h5>
+                    <p className="text-gray-500 leading-relaxed">Adaptable digital solutions designed to evolve with your business.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Vision */}
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 sm:p-10 card-glow">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Our Vision
-            </h3>
-            <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-8">
-              To build a digital ecosystem where design, technology, and human-centric thinking shape better experiences for all. We envision a future where businesses can access high-quality digital tools that drive growth.
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full border-2 border-brand-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
-                </div>
-                <span className="text-gray-400">Empowering creators through smart, intuitive platforms</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full border-2 border-brand-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
-                </div>
-                <span className="text-gray-400">Driving meaningful change with every project</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full border-2 border-brand-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
-                </div>
-                <span className="text-gray-400">Making digital innovation accessible to everyone</span>
-              </li>
-            </ul>
+          {/* Vision Card */}
+          <div className="group relative bg-[#0a0a0a] border border-white/5 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+              <h4 className="text-9xl font-black text-white pointer-events-none select-none">V</h4>
+            </div>
+
+            <div className="relative z-10">
+              <h3 className="text-4xl font-bold text-white mb-8">Our Vision</h3>
+              <p className="text-xl text-gray-400 leading-relaxed mb-12">
+                Building a <span className="text-white underline decoration-brand-500 underline-offset-8">connected ecosystem</span> where design and tech shape better experiences for everyone, at every scale.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  "Empowering creators and businesses through clarity",
+                  "Driving meaningful change with every project",
+                  "Making innovation accessible and purposeful"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 group/item">
+                    <div className="w-8 h-[1px] bg-brand-500 group-hover/item:w-12 transition-all duration-500" />
+                    <span className="text-lg text-gray-400 group-hover/item:text-white transition-colors">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Abstract visual element */}
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
           </div>
         </div>
       </section>
@@ -455,54 +602,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="bg-black py-20 sm:py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header to match reference image */}
-          <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
-            <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
-              <span className="text-xl font-medium tracking-tight text-white">Who we are</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.1] max-w-4xl">
-              We are explorers. We constantly seek ways to make an impact towards solving problems through creativity.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-[#0a0a0a] rounded-[2.5rem] p-4 sm:p-5 border border-white/5 hover:border-brand-500/30 transition-all duration-500 group card-glow card-glow-hover">
-                <div className="aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 relative">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
-                  />
-                </div>
-                <div className="px-3 pb-4 flex items-end justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{member.name}</h3>
-                    <p className="text-gray-500 text-base sm:text-lg font-medium tracking-tight">( {member.role} )</p>
-                  </div>
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#0077b5] rounded-xl flex items-center justify-center hover:bg-[#005885] transition-all duration-300 transform group-hover:scale-110 shadow-lg"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-5 h-5 text-white fill-current"
-                    >
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Values Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
@@ -562,6 +661,6 @@ export default function About() {
 
       <HomeContact />
 
-    </div>
+    </div >
   );
 }
