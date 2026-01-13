@@ -148,7 +148,7 @@ body {
 
 /* ======= GLOBAL BUTTON STYLES ======= */
 .btn-primary {
-  @apply relative inline-block px-8 py-4 bg-brand-500 font-extrabold text-black rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 active:scale-95 shadow-sm;
+  @apply relative inline-flex items-center justify-center px-8 py-4 bg-brand-500 font-extrabold text-black rounded-full text-base sm:text-lg overflow-hidden transition-all duration-300 hover:bg-brand-600 active:scale-95 shadow-sm;
 }
 
 .btn-primary-shine {

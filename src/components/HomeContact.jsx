@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Monitor, Smartphone, Code2, Palette, Layout, MoreHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
 const servicesList = [
-    { name: "Web Design", color: "border-red-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/Web_Design_Service_Contact_lbyojo.png" },
-    { name: "UI/UX Design", color: "border-green-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/UX_Design_Service_Contact_pxltn3.png" },
-    { name: "Development", color: "border-brand-500", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825593/Development_Service_Contact_f3lrum.png" },
-    { name: "Branding", color: "border-yellow-400", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/Branding_Service_Contact_y7thya.png" },
+    { name: "UI/UX Design", color: "text-brand-500", icon: Layout },
+    { name: "Web Development", color: "text-brand-500", icon: Code2 },
+    { name: "App Development", color: "text-brand-500", icon: Smartphone },
+    { name: "Others", color: "text-brand-500", icon: MoreHorizontal },
 ];
 
 const HomeContact = () => {
@@ -21,6 +21,7 @@ const HomeContact = () => {
     const [projectType, setProjectType] = useState("");
     const [deadline, setDeadline] = useState("");
     const [submissionStatus, setSubmissionStatus] = useState(null);
+    const [otherServiceText, setOtherServiceText] = useState("");
     const [isSecret, setIsSecret] = useState(window.isSecretEnabled || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
     const location = useLocation();
 
@@ -77,7 +78,7 @@ const HomeContact = () => {
             email,
             company,
             website,
-            services: selectedServices.join(", "),
+            services: selectedServices.map(s => s === "Others" ? `Others: ${otherServiceText}` : s).join(", "),
             projectType,
             deadline,
             message
@@ -102,6 +103,7 @@ const HomeContact = () => {
                 setCompany("");
                 setWebsite("");
                 setSelectedServices([]);
+                setOtherServiceText("");
                 setProjectType("");
                 setDeadline("");
                 setMessage("");
@@ -166,7 +168,7 @@ const HomeContact = () => {
 
                         {/* Form Right */}
                         <div className="w-full lg:w-2/3">
-                            <form onSubmit={handleSubmit} className="space-y-8" autoComplete="off">
+                            <form onSubmit={handleSubmit} className="space-y-10" autoComplete="off">
                                 {/* Decoy inputs for browsers */}
                                 <input type="text" style={{ display: "none" }} tabIndex="-1" />
                                 <input type="email" style={{ display: "none" }} tabIndex="-1" />
@@ -199,7 +201,7 @@ const HomeContact = () => {
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     {/* Name Input */}
-                                    <div className="space-y-2">
+                                    <div className="space-y-3">
                                         <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             What's your name? <span className="text-red-500">*</span>
                                         </label>
@@ -213,7 +215,7 @@ const HomeContact = () => {
                                             onCut={(e) => !isSecret && e.preventDefault()}
                                             autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
-                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !name.trim()
+                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 mt-2 ${formSubmitted && !name.trim()
                                                 ? "border-red-500 bg-red-500/10"
                                                 : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
                                                 }`}
@@ -221,7 +223,7 @@ const HomeContact = () => {
                                     </div>
 
                                     {/* Email Input */}
-                                    <div className="space-y-2">
+                                    <div className="space-y-3">
                                         <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             What's your email? <span className="text-red-500">*</span>
                                         </label>
@@ -235,7 +237,7 @@ const HomeContact = () => {
                                             onCut={(e) => !isSecret && e.preventDefault()}
                                             autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
-                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 ${formSubmitted && !email.trim()
+                                            className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none text-white placeholder-gray-600 mt-2 ${formSubmitted && !email.trim()
                                                 ? "border-red-500 bg-red-500/10"
                                                 : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
                                                 }`}
@@ -243,7 +245,7 @@ const HomeContact = () => {
                                     </div>
 
                                     {/* Company Input */}
-                                    <div className="space-y-2">
+                                    <div className="space-y-3">
                                         <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             What's your company?
                                         </label>
@@ -257,12 +259,12 @@ const HomeContact = () => {
                                             onCut={(e) => !isSecret && e.preventDefault()}
                                             autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
-                                            className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
+                                            className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600 mt-2"
                                         />
                                     </div>
 
                                     {/* Website Input */}
-                                    <div className="space-y-2">
+                                    <div className="space-y-3">
                                         <label className="text-sm sm:text-base font-bold text-white ml-1">
                                             Current website URL
                                         </label>
@@ -276,17 +278,17 @@ const HomeContact = () => {
                                             onCut={(e) => !isSecret && e.preventDefault()}
                                             autoComplete={isSecret ? "on" : "new-password"}
                                             data-lpignore={isSecret ? "false" : "true"}
-                                            className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
+                                            className="w-full px-6 py-4 rounded-2xl border-2 border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600 mt-2"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Services Section */}
-                                <div className="space-y-4">
+                                <div className="space-y-3">
                                     <label className="text-sm sm:text-base font-bold text-white ml-1">
                                         What services are you looking for? <span className="text-red-500">*</span>
                                     </label>
-                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
                                         {servicesList.map((service, index) => {
                                             const isSelected = selectedServices.includes(service.name);
                                             return (
@@ -294,16 +296,14 @@ const HomeContact = () => {
                                                     key={index}
                                                     type="button"
                                                     onClick={() => toggleService(service.name)}
-                                                    className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${isSelected
+                                                    className={`flex flex-col items-center justify-center p-6 rounded-2xl border-2 transition-all duration-300 ${isSelected
                                                         ? "bg-brand-500 border-brand-500 text-black shadow-lg shadow-brand-500/20 scale-105 card-glow"
                                                         : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50 card-glow-hover"
                                                         }`}
                                                 >
-                                                    <img
-                                                        src={service.image}
-                                                        alt={service.name}
-                                                        className={`w-12 h-12 mb-3 object-contain rounded-lg transition-all ${isSelected ? "brightness-0 invert" : ""}`}
-                                                    />
+                                                    <div className={`mb-3 transition-all ${isSelected ? "text-black scale-110" : service.color}`}>
+                                                        <service.icon size={32} strokeWidth={2.5} />
+                                                    </div>
                                                     <span className={`text-xs sm:text-sm font-bold text-center ${isSelected ? 'text-black' : 'text-gray-400'}`}>
                                                         {service.name}
                                                     </span>
@@ -311,23 +311,41 @@ const HomeContact = () => {
                                             );
                                         })}
                                     </div>
+                                    <AnimatePresence>
+                                        {selectedServices.includes("Others") && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: "auto" }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="mt-4"
+                                            >
+                                                <input
+                                                    type="text"
+                                                    placeholder="Specify the service you're looking for..."
+                                                    value={otherServiceText}
+                                                    onChange={(e) => setOtherServiceText(e.target.value)}
+                                                    className="w-full px-6 py-4 rounded-2xl border-2 border-brand-500/30 bg-white/5 focus:bg-white/10 focus:border-brand-500 transition-all outline-none text-white placeholder-gray-600"
+                                                />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                     {formSubmitted && selectedServices.length === 0 && (
                                         <p className="text-red-500 text-xs mt-1 ml-1 font-medium">Please select at least one service.</p>
                                     )}
                                 </div>
 
                                 {/* Project Type Section */}
-                                <div className="space-y-4">
+                                <div className="space-y-3">
                                     <label className="text-sm sm:text-base font-bold text-white ml-1">
-                                        What kind of project is this?
+                                        What's the nature of your project?
                                     </label>
-                                    <div className="flex flex-wrap gap-4">
-                                        {["One-time project", "Ongoing maintenance", "Both"].map((type) => (
+                                    <div className="flex flex-wrap gap-4 mt-2">
+                                        {["Full Project", "Design & UI/UX", "Development", "Strategic Retainer"].map((type) => (
                                             <button
                                                 key={type}
                                                 type="button"
                                                 onClick={() => setProjectType(type)}
-                                                className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${projectType === type
+                                                className={`px-4 sm:px-6 py-3 rounded-full border-2 text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${projectType === type
                                                     ? "bg-brand-500 border-brand-500 text-black shadow-md"
                                                     : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50"
                                                     }`}
@@ -339,17 +357,17 @@ const HomeContact = () => {
                                 </div>
 
                                 {/* Deadline Section */}
-                                <div className="space-y-4">
+                                <div className="space-y-3">
                                     <label className="text-sm sm:text-base font-bold text-white ml-1">
-                                        What is your project deadline?
+                                        What's your preferred timeline?
                                     </label>
-                                    <div className="flex flex-wrap gap-4">
-                                        {["ASAP", "1 month", "2 – 3 months", "3+ months"].map((option) => (
+                                    <div className="flex flex-wrap gap-4 mt-2">
+                                        {["Immediate", "1 – 2 Months", "3 – 6 Months", "Flexible"].map((option) => (
                                             <button
                                                 key={option}
                                                 type="button"
                                                 onClick={() => setDeadline(option)}
-                                                className={`px-6 py-3 rounded-full border-2 text-sm font-bold transition-all ${deadline === option
+                                                className={`px-4 sm:px-6 py-3 rounded-full border-2 text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${deadline === option
                                                     ? "bg-brand-500 border-brand-500 text-black shadow-md"
                                                     : "bg-white/5 border-white/5 text-gray-400 hover:border-brand-500/50"
                                                     }`}
@@ -361,7 +379,7 @@ const HomeContact = () => {
                                 </div>
 
                                 {/* Message Textarea */}
-                                <div className="space-y-2">
+                                <div className="space-y-3">
                                     <label className="text-sm sm:text-base font-bold text-white ml-1">
                                         Project Details <span className="text-red-500">*</span>
                                     </label>
@@ -375,7 +393,7 @@ const HomeContact = () => {
                                         onCut={(e) => !isSecret && e.preventDefault()}
                                         autoComplete={isSecret ? "on" : "new-password"}
                                         data-lpignore={isSecret ? "false" : "true"}
-                                        className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-white placeholder-gray-600 ${formSubmitted && message.trim() === ""
+                                        className={`w-full px-6 py-4 rounded-2xl border-2 transition-all outline-none resize-none text-white placeholder-gray-600 mt-2 ${formSubmitted && message.trim() === ""
                                             ? "border-red-500 bg-red-500/10"
                                             : "border-white/5 bg-white/5 focus:bg-white/10 focus:border-brand-500"
                                             }`}
