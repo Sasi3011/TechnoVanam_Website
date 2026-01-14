@@ -39,10 +39,9 @@ const Footer = () => {
       { name: "Webflow Development", to: "/services" },
     ],
     products: [
-      { name: "Athlixir", to: "/product1" },
-      { name: "Youth Platform", to: "/product2" },
-      { name: "Creative Suite", to: "/" },
-      { name: "Digital Tools", to: "/" },
+      { name: "Athlixir", to: "/products" },
+      { name: "Youth Platform", to: "/products" },
+      { name: "WebBrain", to: "/products" },
     ]
   };
 

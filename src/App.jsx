@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import Product1 from "./pages/Products/Product1";
+import Products from "./pages/Products/Products";
 import Product2 from "./pages/Products/Product2";
 import Portfolio from "./pages/Portfolio";
 import Maintenance from "./pages/Maintenance";
@@ -17,6 +17,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import MainLayout from "./layout/MainLayout";
 
 import Connect from "./pages/Connect";
+import CareerAdmin from "./pages/CareerAdmin";
 
 const App = () => {
   const [offline, setOffline] = useState(!navigator.onLine);
@@ -47,8 +48,13 @@ const App = () => {
   // Offline check takes priority
   if (offline) return <SplashScreen />;
 
-  // Maintenance check: allow if authorized or if currently on /preview
-  if (!isAuthorized && location.pathname !== "/preview" && location.pathname !== "/connect") {
+  // Maintenance check: allow if authorized or if currently on certain public/admin paths
+  const bypassMaintenance =
+    location.pathname === "/preview" ||
+    location.pathname === "/connect" ||
+    location.pathname === "/admin/careers";
+
+  if (!isAuthorized && !bypassMaintenance) {
     return <Maintenance />;
   }
 
@@ -61,17 +67,20 @@ const App = () => {
       <Route path="/services/:serviceId" element={<ServiceDetail />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/product1" element={<Product1 />} />
+      <Route path="/products" element={<Products />} />
       <Route path="/product2" element={<Product2 />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/careers" element={<Careers />} />
+      <Route path="/admin/careers" element={<CareerAdmin />} />
       <Route path="/connect" element={<Connect />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 
-  // Exclude /connect from MainLayout
-  if (location.pathname === "/connect") {
+  // Exclude specific routes from MainLayout
+  const isExcluded = location.pathname === "/connect" || location.pathname === "/admin/careers";
+
+  if (isExcluded) {
     return routes;
   }
 

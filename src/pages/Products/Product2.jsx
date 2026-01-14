@@ -7,7 +7,7 @@ export default function Products2() {
   const navigate = useNavigate();
 
   const handleLatestReleasesClick = () => {
-    navigate("/product1");
+    navigate("/products");
   };
 
   const handleWhatWeWorkingOnClick = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -15,7 +15,7 @@ import {
 import HomeContact from "../components/HomeContact";
 import JobApplicationModal from "../components/JobApplicationModal";
 
-const rolesData = [
+const DEFAULT_ROLES = [
     {
         id: 1,
         title: "UI/UX Designer",
@@ -24,54 +24,45 @@ const rolesData = [
         category: "Design",
         description: "We are looking for a creative UI/UX Designer to craft beautiful, intuitive, and user-centered digital experiences.",
         perks: ["Remote Work", "Creative Freedom", "Growth Opportunity"],
-    },
-    {
-        id: 2,
-        title: "Frontend Developer",
-        type: "Full-time",
-        location: "Remote / Hybrid",
-        category: "Development",
-        description: "Join our tech team to build high-performance, responsive websites and web applications using modern frameworks.",
-        perks: ["Latest Tech Stack", "Modern Workflow", "Collaborative Team"],
-    },
-    {
-        id: 3,
-        title: "Graphic Design Intern",
-        type: "Internship",
-        location: "Remote",
-        category: "Intern",
-        description: "A 3-month internship for aspiring graphic designers to work on real-world branding and social media projects.",
-        perks: ["Mentorship", "Portfolio Building", "Stipend Provided"],
-    },
-    {
-        id: 4,
-        title: "Social Media Intern",
-        type: "Internship",
-        location: "Remote",
-        category: "Intern",
-        description: "Help us manage and grow our brand presence across social platforms through creative content and strategy.",
-        perks: ["Creative Projects", "Brand Exposure", "Skill Development"],
-    },
-    {
-        id: 5,
-        title: "Backend Development Intern",
-        type: "Internship",
-        location: "Remote",
-        category: "Intern",
-        description: "Work with our engineering team on server-side logic, database management, and API integrations.",
-        perks: ["Real-world Experience", "Backend Mastery", "Mentorship"],
     }
 ];
+
+
 
 const Careers = () => {
     const [activeCategory, setActiveCategory] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedRole, setSelectedRole] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [roles, setRoles] = useState([]);
+    const [isNoOpenings, setIsNoOpenings] = useState(false);
+
+    const loadData = () => {
+        const savedJobs = localStorage.getItem('technovanam_jobs');
+        const savedNoOpenings = localStorage.getItem('technovanam_no_openings');
+
+        if (savedJobs) {
+            setRoles(JSON.parse(savedJobs));
+        } else {
+            setRoles(DEFAULT_ROLES);
+        }
+
+        if (savedNoOpenings) {
+            setIsNoOpenings(JSON.parse(savedNoOpenings));
+        }
+    };
+
+    useEffect(() => {
+        loadData();
+
+        // Listen for updates from the admin page
+        window.addEventListener('jobsUpdated', loadData);
+        return () => window.removeEventListener('jobsUpdated', loadData);
+    }, []);
 
     const categories = ["All", "Design", "Development", "Intern"];
 
-    const filteredRoles = rolesData.filter(role => {
+    const filteredRoles = isNoOpenings ? [] : roles.filter(role => {
         const matchesCategory = activeCategory === "All" || role.category === activeCategory;
         const matchesSearch = role.title.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
@@ -244,7 +235,15 @@ const Careers = () => {
                             ))}
                         </AnimatePresence>
 
-                        {filteredRoles.length === 0 && (
+                        {isNoOpenings ? (
+                            <div className="text-center py-20 px-6 bg-[#0a0a0a] rounded-[2.5rem] border border-dashed border-white/10">
+                                <Search className="w-16 h-16 text-gray-700 mx-auto mb-6" />
+                                <h3 className="text-3xl font-black text-white mb-4">No Current Openings</h3>
+                                <p className="text-xl text-gray-500 font-medium max-w-2xl mx-auto">
+                                    We are not actively hiring at the moment, but we are always looking for exceptional talent. Feel free to check back later!
+                                </p>
+                            </div>
+                        ) : filteredRoles.length === 0 && (
                             <div className="text-center py-20 px-6 bg-[#0a0a0a] rounded-[2.5rem] border border-dashed border-white/10">
                                 <p className="text-xl text-gray-500 font-medium">No positions found matching your criteria.</p>
                                 <button
