@@ -1,34 +1,52 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import HomeContact from "../../components/HomeContact";
 
 const Products = () => {
   return (
-    <div className="flex flex-col items-center pt-24 md:pt-32 lg:pt-40 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8 bg-black">
-      {/* Section 1: Header */}
-      <div className="w-full max-w-7xl flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
-        {/* Heading + Logo Container */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6">
-            <span>Pr<span className="text-brand-500">o</span>ducts by</span>
-            <div className="flex items-center gap-3 md:gap-4">
-              <img
-                src="/Logo.png"
-                alt="Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
-                loading="lazy"
-              />
-              <span className="whitespace-nowrap">Techno Vanam</span>
+    <div className="min-h-screen bg-black text-white">
+      {/* Section 1: Hero Section - Full Viewport Height */}
+      <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center justify-center"
+          >
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-500/10 text-brand-500 text-sm font-bold rounded-full mb-8 tracking-wide border border-brand-500/20">
+              <Sparkles size={16} />
+              OUR DIGITAL ECOSYSTEM
+            </span>
+
+            {/* Heading + Logo Container */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6 leading-tight">
+                <span>Products by</span>
+                <div className="flex items-center gap-3 md:gap-4 mt-2 md:mt-0">
+                  <img
+                    src="/Logo.png"
+                    alt="Logo"
+                    className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
+                    loading="lazy"
+                  />
+                  <span className="whitespace-nowrap">Techno Vanam</span>
+                </div>
+              </h1>
             </div>
-          </h1>
+
+            {/* Description */}
+            <p className="text-center text-gray-400 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto px-4 font-medium opacity-80">
+              At Techno Vanam, we don't just create for clients—we build for ourselves too. Our digital products are crafted to enhance workflows, spark creativity, and solve real-world problems for designers, developers, and businesses alike.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Description */}
-        <p className="text-center text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto px-4 font-medium opacity-90">
-          At Techno Vanam, we don't just create for clients—we build for ourselves too. Our digital products are crafted to enhance workflows, spark creativity, and solve real-world problems for designers, developers, and businesses alike.
-        </p>
-      </div>
+        {/* Decorative Background Elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/10 rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-500/5 blur-[100px] rounded-full pointer-events-none" />
+      </section>
 
       {/* Our Products - Premium UI Section (Mirrored from Home) */}
       <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-0 w-full">
