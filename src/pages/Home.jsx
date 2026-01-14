@@ -903,7 +903,7 @@ const Home = () => {
             {/* All Products Button */}
             <div className="flex justify-center mt-6 sm:mt-8">
               <Link
-                to="/portfolio"
+                to="/products"
                 className="btn-primary"
               >
                 <span className="relative z-10 flex items-center gap-2">
