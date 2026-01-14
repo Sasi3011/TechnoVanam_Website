@@ -106,8 +106,14 @@ const MainLayout = ({ children }) => {
       <Header />
       <main
         className="pt-0"
-        onDragStart={(e) => e.preventDefault()}
-        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => {
+          const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+          if (!isLocal && !isSecret) e.preventDefault();
+        }}
+        onContextMenu={(e) => {
+          const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+          if (!isLocal && !isSecret) e.preventDefault();
+        }}
       >
         {children}
       </main>
