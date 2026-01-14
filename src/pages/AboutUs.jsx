@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile } from 'lucide-react';
+import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile, Plus, Minus } from 'lucide-react';
 
 
 
@@ -101,6 +101,67 @@ const approachSteps = [
 
 
 
+const ApproachSection = () => {
+  const [activeStep, setActiveStep] = useState(0);
+
+  return (
+    <div className="w-full border-t border-b border-white/10 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col md:flex-row relative">
+      {approachSteps.slice(0, 5).map((step, idx) => (
+        <div
+          key={idx}
+          onMouseEnter={() => setActiveStep(idx)}
+          className="flex-1 py-16 px-6 flex flex-col items-center text-center group transition-all duration-500 hover:bg-white/5 relative cursor-default"
+        >
+          {/* Vertical Divider (Desktop) - Does not touch top/bottom */}
+          {idx !== 4 && (
+            <div className="hidden md:block absolute right-0 top-12 bottom-12 w-[1px] bg-white/10" />
+          )}
+
+          {/* Horizontal Divider (Mobile) - Does not touch left/right */}
+          {idx !== 4 && (
+            <div className="md:hidden absolute bottom-0 left-8 right-8 h-[1px] bg-white/10" />
+          )}
+
+          {/* Step Number */}
+          <span className={`text-xs font-medium tracking-[0.2em] mb-6 uppercase transition-colors duration-300 ${activeStep === idx ? 'text-brand-500' : 'text-gray-500'}`}>
+            Step {step.number}
+          </span>
+
+          {/* Title */}
+          <h3 className={`text-xl font-medium mb-8 h-12 flex items-center justify-center transition-colors duration-300 ${activeStep === idx ? 'text-white' : 'text-gray-400'}`}>
+            {step.title}
+          </h3>
+
+          {/* Toggle Button (Pill) - Visual Only now since hover drives it */}
+          <div
+            className={`w-full py-2.5 rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden ${activeStep === idx ? 'bg-brand-500' : 'bg-white/5'
+              }`}
+          >
+            <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-300 ${activeStep === idx ? 'bg-black text-brand-500' : 'bg-white/20 text-white'
+              }`}>
+              {activeStep === idx ? <Minus size={14} /> : <Plus size={14} />}
+            </div>
+          </div>
+
+          {/* Description (Expandable) */}
+          <div
+            className={`grid transition-[grid-template-rows] duration-500 ease-out ${activeStep === idx ? 'grid-rows-[1fr] opacity-100 pt-6' : 'grid-rows-[0fr] opacity-0 pt-0'
+              }`}
+          >
+            <div className="overflow-hidden">
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+import { useState } from "react";
+
 export default function About() {
 
 
@@ -199,7 +260,7 @@ export default function About() {
         </div>
       </div>
       {/* Who We Are Section (Redesigned: Content Left, Logo Right) */}
-      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row-reverse gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
           {/* Right Column (Logo Card) */}
           <div className="w-full lg:w-1/3 flex flex-col justify-center">
@@ -241,24 +302,23 @@ export default function About() {
 
         {/* What Drives Us */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-20 mb-20 lg:mb-32">
-            {/* Section Heading */}
-            <div className="lg:col-span-5">
-              <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col gap-12 lg:gap-20 mb-20 lg:mb-32">
+            {/* Top Row: Label Left, Heading Right */}
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+              <div className="flex items-center gap-3 shrink-0">
                 <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
-                <span className="text-brand-500 font-bold tracking-widest uppercase text-sm">What Drives Us</span>
+                <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">
+                  What Drives Us</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-[1.1]">
+              <div className="lg:col-span-8 lg:col-start-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
                 Crafting design that speaks, products that scale.
               </h2>
+              </div>
             </div>
 
-            <div className="lg:col-span-1 lg:col-start-6 hidden lg:block">
-              <div className="w-[1px] h-full bg-white/10 mx-auto" />
-            </div>
-
-            {/* Intro Text */}
-            <div className="lg:col-span-6">
+            {/* Intro Text - Full Width */}
+            <div className="w-full">
               <p className="text-xl sm:text-2xl text-gray-400 leading-relaxed font-light">
                 Founded in 2025, <span className="text-white font-normal">Techno Vanam</span> was created to turn ideas into thoughtful digital experiences. We believe every product should have purpose, clarity, and impact—bringing brands and users closer through meaningful design.
               </p>
@@ -346,39 +406,17 @@ export default function About() {
             <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
-                <span className="text-xl font-medium tracking-tight text-white">Our Approach</span>
+                <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Our Approach</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.1] max-w-4xl">
-                First step to solving a problem is recognizing there is one.
-              </h2>
+              <div className="lg:col-span-8 lg:col-start-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
+                  First step to solving a problem is recognizing there is one.
+                </h2>
+              </div>
             </div>
 
-            {/* Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
-              {approachSteps.map((step, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#0a0a0a] rounded-[2rem] p-6 lg:p-7 flex flex-col justify-between aspect-square border border-white/10 hover:border-brand-500/50 transition-all duration-500 group card-glow card-glow-hover"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
-                    <h3 className="text-lg lg:text-xl font-bold text-white tracking-tight leading-tight">{step.title}</h3>
-                  </div>
-
-                  <div className="mt-auto">
-                    <div className="w-full h-[1px] bg-white/5 mb-4 group-hover:bg-brand-500/20 transition-colors" />
-                    <div className="flex justify-between items-end gap-2">
-                      <p className="text-gray-400 text-[13px] lg:text-sm leading-snug">
-                        {step.description}
-                      </p>
-                      <span className="text-gray-600 text-base lg:text-lg font-medium tabular-nums group-hover:text-brand-500 transition-colors duration-500 shrink-0">
-                        {step.number}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Cards Grid (Replaced with new ApproachSection) */}
+            <ApproachSection />
           </div>
         </section>
 
