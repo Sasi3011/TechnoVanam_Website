@@ -7,27 +7,25 @@ const Products = () => {
   return (
     <div className="flex flex-col items-center pt-24 md:pt-32 lg:pt-40 gap-8 md:gap-12 lg:gap-16 min-h-screen px-4 md:px-6 lg:px-8 bg-black">
       {/* Section 1: Header */}
-      <div className="w-full max-w-7xl flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
-        {/* Heading + Logo */}
-        <div className="flex flex-col sm:flex-row items-center justify-center text-center text-white font-bold gap-2 sm:gap-3 lg:gap-4">
-          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl">
-            Products by
-          </span>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <img
-              src="/Logo.png"
-              alt="Logo"
-              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain"
-              loading="lazy"
-            />
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl whitespace-nowrap">
-              Techno Vanam
-            </span>
-          </div>
+      <div className="w-full max-w-7xl flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
+        {/* Heading + Logo Container */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6">
+            <span>Pr<span className="text-brand-500">o</span>ducts by</span>
+            <div className="flex items-center gap-3 md:gap-4">
+              <img
+                src="/Logo.png"
+                alt="Logo"
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                loading="lazy"
+              />
+              <span className="whitespace-nowrap">Techno Vanam</span>
+            </div>
+          </h1>
         </div>
 
         {/* Description */}
-        <p className="text-justify sm:text-justify md:text-justify lg:text-center text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-5xl px-2">
+        <p className="text-center text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto px-4 font-medium opacity-90">
           At Techno Vanam, we don't just create for clients—we build for ourselves too. Our digital products are crafted to enhance workflows, spark creativity, and solve real-world problems for designers, developers, and businesses alike.
         </p>
       </div>
