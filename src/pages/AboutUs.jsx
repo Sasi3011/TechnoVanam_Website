@@ -27,43 +27,31 @@ const values = [
     title: "Innovation",
     description: "We constantly challenge norms by turning creative ideas into practical, high-impact digital solutions.",
     icon: Lightbulb,
-    color: "text-yellow-500",
-    bgColor: "bg-yellow-50",
   },
   {
     title: "Growth",
     description: "We believe growth is continuous—for our team, our clients, and the communities we support.",
     icon: TrendingUp,
-    color: "text-green-500",
-    bgColor: "bg-green-50",
   },
   {
     title: "Ownership",
     description: "Every project we take on is our responsibility. We lead with accountability and integrity.",
     icon: Shield,
-    color: "text-brand-500",
-    bgColor: "bg-brand-50",
   },
   {
     title: "Team Work",
     description: "Collaboration is at the heart of our process. We thrive on sharing ideas and celebrating wins.",
     icon: Users,
-    color: "text-purple-500",
-    bgColor: "bg-purple-50",
   },
   {
     title: "Commitment",
     description: "We commit deeply to our clients' visions and to our craft through consistency and passion.",
     icon: Heart,
-    color: "text-red-500",
-    bgColor: "bg-red-50",
   },
   {
     title: "Positivity",
     description: "A positive attitude shapes everything we do—from communication to creativity.",
     icon: Smile,
-    color: "text-orange-500",
-    bgColor: "bg-orange-50",
   },
 ];
 
@@ -102,28 +90,34 @@ const approachSteps = [
 
 
 const ApproachSection = () => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(null);
 
   return (
-    <div className="w-full border-t border-b border-white/10 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col md:flex-row relative">
+    <div
+      className="w-full border border-white/20 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col md:flex-row relative min-h-[550px]"
+      onMouseLeave={() => setActiveStep(null)}
+    >
       {approachSteps.slice(0, 5).map((step, idx) => (
         <div
           key={idx}
           onMouseEnter={() => setActiveStep(idx)}
-          className="flex-1 py-16 px-6 flex flex-col items-center text-center group transition-all duration-500 hover:bg-white/5 relative cursor-default"
+          className="flex-1 py-24 px-6 flex flex-col items-center text-center group transition-all duration-500 relative cursor-default"
         >
-          {/* Vertical Divider (Desktop) - Does not touch top/bottom */}
-          {idx !== 4 && (
-            <div className="hidden md:block absolute right-0 top-12 bottom-12 w-[1px] bg-white/10" />
+          {/* Vertical Divider (Right) - For all steps */}
+          <div className="hidden md:block absolute right-0 top-16 bottom-16 w-[1px] bg-white/20" />
+
+          {/* Vertical Divider (Left) - Only for first step */}
+          {idx === 0 && (
+            <div className="hidden md:block absolute left-0 top-16 bottom-16 w-[1px] bg-white/20" />
           )}
 
           {/* Horizontal Divider (Mobile) - Does not touch left/right */}
           {idx !== 4 && (
-            <div className="md:hidden absolute bottom-0 left-8 right-8 h-[1px] bg-white/10" />
+            <div className="md:hidden absolute bottom-0 left-8 right-8 h-[1px] bg-white/20" />
           )}
 
           {/* Step Number */}
-          <span className={`text-xs font-medium tracking-[0.2em] mb-6 uppercase transition-colors duration-300 ${activeStep === idx ? 'text-brand-500' : 'text-gray-500'}`}>
+          <span className={`text-xs font-medium tracking-[0.2em] uppercase transition-all duration-500 ease-out ${activeStep === idx ? 'mb-20 text-brand-500' : 'mb-16 text-gray-500'}`}>
             Step {step.number}
           </span>
 
@@ -145,7 +139,7 @@ const ApproachSection = () => {
 
           {/* Description (Expandable) */}
           <div
-            className={`grid transition-[grid-template-rows] duration-500 ease-out ${activeStep === idx ? 'grid-rows-[1fr] opacity-100 pt-6' : 'grid-rows-[0fr] opacity-0 pt-0'
+            className={`grid transition-[grid-template-rows] duration-500 ease-out ${activeStep === idx ? 'grid-rows-[1fr] opacity-100 pt-8' : 'grid-rows-[0fr] opacity-0 pt-0'
               }`}
           >
             <div className="overflow-hidden">
@@ -311,9 +305,9 @@ export default function About() {
                   What Drives Us</span>
               </div>
               <div className="lg:col-span-8 lg:col-start-6">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
-                Crafting design that speaks, products that scale.
-              </h2>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
+                  Crafting design that speaks, products that scale.
+                </h2>
               </div>
             </div>
 
@@ -328,15 +322,13 @@ export default function About() {
           {/* Mission & Vision Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission Card */}
-            <div className="group relative bg-[#0a0a0a] border border-white/5 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                <h4 className="text-9xl font-black text-white pointer-events-none select-none">M</h4>
-              </div>
+            <div className="group relative bg-[#0a0a0a] border border-white/20 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
+
 
               <div className="relative z-10">
-                <h3 className="text-4xl font-bold text-white mb-8">Our Mission</h3>
+                <h3 className="text-4xl font-bold text-[#71d300] mb-8">Our Mission</h3>
                 <p className="text-xl text-gray-400 leading-relaxed mb-12">
-                  We believe design is more than visuals—it’s a <span className="text-white underline decoration-brand-500 underline-offset-8">strategic tool for growth</span>. We craft intuitive user experiences and build scalable products that help brands succeed.
+                  We believe design is more than visuals—it’s a <span className="text-white font-semibold">strategic tool for growth</span>. We craft intuitive user experiences and build scalable products that help brands succeed.
                 </p>
 
                 <div className="space-y-8">
@@ -368,15 +360,13 @@ export default function About() {
             </div>
 
             {/* Vision Card */}
-            <div className="group relative bg-[#0a0a0a] border border-white/5 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                <h4 className="text-9xl font-black text-white pointer-events-none select-none">V</h4>
-              </div>
+            <div className="group relative bg-[#0a0a0a] border border-white/20 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
+
 
               <div className="relative z-10">
-                <h3 className="text-4xl font-bold text-white mb-8">Our Vision</h3>
+                <h3 className="text-4xl font-bold text-[#71d300] mb-8">Our Vision</h3>
                 <p className="text-xl text-gray-400 leading-relaxed mb-12">
-                  Building a <span className="text-white underline decoration-brand-500 underline-offset-8">connected ecosystem</span> where design and tech shape better experiences for everyone, at every scale.
+                  Building a <span className="text-white font-semibold">connected ecosystem</span> where design and tech shape better experiences for everyone, at every scale.
                 </p>
 
                 <div className="space-y-6">
@@ -401,7 +391,7 @@ export default function About() {
 
         {/* Our Approach Section */}
         <section className="bg-black py-20 sm:py-24 lg:py-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[90rem] mx-auto px-2 sm:px-4 lg:px-6">
             {/* Header */}
             <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
               <div className="flex items-center gap-3">
@@ -438,18 +428,18 @@ export default function About() {
             {values.map((value, idx) => (
               <div
                 key={idx}
-                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-brand-500/50 transition-all card-glow card-glow-hover"
+                className="bg-[#0a0a0a] border border-white/20 rounded-2xl p-6 sm:p-8 hover:border-[#71d300] transition-all duration-300 card-glow group"
               >
-                <div className={`w-14 h-14 ${value.bgColor} rounded-xl flex items-center justify-center mb-4`}>
+                <div className="w-14 h-14 bg-[#71d300]/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {(() => {
                     const IconComponent = value.icon;
-                    return <IconComponent className={`w-7 h-7 ${value.color}`} />;
+                    return <IconComponent className="w-7 h-7 text-[#71d300]" />;
                   })()}
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#71d300] mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed group-hover:text-white/90 transition-colors">
                   {value.description}
                 </p>
               </div>
@@ -457,17 +447,17 @@ export default function About() {
           </div>
         </section>
         {/* Join Our Team CTA - Dark Theme & Optimized Height */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 lg:mt-24 pb-16 sm:pb-20">
-          <div className="bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 border border-white/5 items-center overflow-hidden card-glow">
+        <div className="max-w-7xl mx-auto mt-20 lg:mt-24 sm:pb-4 md:pb-8 lg:pb-12">
+          <div className="bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 border border-white/20 items-center overflow-hidden card-glow">
 
             {/* Left Content */}
             <div className="w-full flex flex-col items-start text-left order-2 lg:order-1">
               <div className="flex items-center gap-2 mb-6 sm:mb-10">
                 <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
-                <span className="text-sm sm:text-base font-medium text-white tracking-wide">Careers</span>
+                <span className="text-sm sm:text-base font-medium text-brand-500 tracking-wide">Careers</span>
               </div>
 
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-500 mb-6 tracking-tight">
                 Join Our Team
               </h3>
 
@@ -485,22 +475,24 @@ export default function About() {
             </div>
 
             {/* Right Logo Card - Compact & Refined */}
-            <div className="w-full h-full min-h-[200px] sm:min-h-[280px] lg:min-h-[400px] bg-[#050505] rounded-[2.5rem] flex items-center justify-center relative overflow-hidden group border border-white/5 order-1 lg:order-2">
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/10 via-transparent to-transparent opacity-40"></div>
+            {/* Right Logo Card (Redesigned) */}
+            <div className="w-full flex items-center justify-center order-1 lg:order-2">
+              <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow w-full max-w-md mx-auto transform transition-all hover:scale-[1.02]">
+                {/* Dark Inner Card with Logo */}
+                <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 hover:shadow-md border border-gray-50/10">
+                  <img
+                    src="/Logo.png"
+                    alt="Techno Vanam Logo"
+                    className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
 
-              <div className="relative z-10 p-10">
-                <img
-                  src="/Logo.png"
-                  alt="Techno Vanam Logo"
-                  className="w-28 sm:w-36 h-auto object-contain transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute top-8 right-8 w-1.5 h-1.5 rounded-full bg-white/20"></div>
-              <div className="absolute bottom-12 left-8 w-3 h-3 rounded-full border border-white/10"></div>
-              <div className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white/5 text-[7rem] lg:text-[10rem] font-black select-none pointer-events-none uppercase">
-                TV
+                {/* Bottom Label */}
+                <div className="flex items-center justify-between px-2 pb-1">
+                  <span className="font-bold text-brand-950 text-xs sm:text-sm tracking-tight uppercase">Designing Digital Future</span>
+                </div>
               </div>
             </div>
 
