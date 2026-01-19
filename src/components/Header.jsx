@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, ArrowRight, Monitor, PenTool, Layout, Layers, Lightbulb, Smartphone, Search, FileText, Users, Share2, Laptop, ShoppingBag, Megaphone, MousePointer2, Grid, Presentation, Box, FileCheck, Brush } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Monitor, PenTool, Layout, Layers, Lightbulb, Smartphone, Search, FileText, Share2, Laptop, Grid, Presentation, Box, Brush, Code, Server, Wrench, TrendingUp, Zap, Package, Megaphone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../assets/logo.png"; // Import the logo image
 
@@ -58,53 +58,97 @@ const Header = () => {
     };
   }, []);
 
-  const servicesData = {
-    services: {
-      title: "Services",
-      bgColor: "bg-brand-100", // Light green background
-      textColor: "text-black", // Black text
-      items: [
-        { name: "Web Design", desc: "Engaging assets for all platforms", icon: <Monitor size={20} />, to: "/services/web-design" },
-        { name: "Branding", desc: "Memorable & Strategic identities", icon: <PenTool size={20} />, to: "/services/branding" },
-        { name: "UX/UI Design", desc: "Seamless & intuitive experiences", icon: <Layout size={20} />, to: "/services/ux-ui" },
-        { name: "Webflow Development", desc: "Functional & interactive websites", icon: <Smartphone size={20} />, to: "/services/webflow" },
-        { name: "SEO", desc: "Boosting search rankings and traffic", icon: <Search size={20} />, to: "/services/seo" },
-        { name: "Landing Page", desc: "High converting landing pages", icon: <FileText size={20} />, to: "/services/landing-page" },
-      ]
-    },
-    retainer: {
-      title: "Retainer Services",
-      bgColor: "bg-brand-100", // Light green background
-      textColor: "text-black", // Black text
-      items: [
-        { name: "Creative Design Subscription", desc: "Web design, ux/ui, branding services", icon: <Users size={20} />, to: "/services/subscription" },
-        { name: "Content Design & Socials", desc: "Engaging assets for all platforms", icon: <Share2 size={20} />, to: "/services/content-socials" },
-        { name: "Website as a Service", desc: "Complete Turnkey WAAS solution", icon: <Laptop size={20} />, to: "/services/waas" },
-        { name: "Marketing Content", desc: "Content creation for your marketing", icon: <ShoppingBag size={20} />, to: "/services/marketing-content" },
-      ]
-    },
-    readyMade: {
-      title: "Ready Made Solutions",
-      bgColor: "bg-brand-100", // Light green background
-      textColor: "text-black", // Black text
-      items: [
-        { name: "Branding Pack", desc: "Customizable marketing assets", icon: <Megaphone size={20} />, to: "/services/branding-pack" },
-        // { name: "Superdesign.space", desc: "Ready to use custom websites", icon: <MousePointer2 size={20} />, to: "/services/superdesign" },
-      ]
-    },
-    other: {
-      title: "Other Creative Services",
-      bgColor: "bg-brand-100", // Light green background
-      textColor: "text-black", // Black text
-      items: [
-        { name: "Creative Direction", desc: "Art direction in branding, web & motion design.", icon: <Grid size={20} />, to: "/services/creative-direction" },
-        { name: "Presentation Design", desc: "Captivating decks that tell your story", icon: <Presentation size={20} />, to: "/services/presentation" },
-        { name: "Packaging Design", desc: "Production ready packaging designs", icon: <Box size={20} />, to: "/services/packaging" },
-        { name: "Landing Page", desc: "Engaging assets for all platforms", icon: <FileCheck size={20} />, to: "/services/landing-page-other" },
-        { name: "Grey-Label Design", desc: "Flexible design support for agencies.", icon: <Brush size={20} />, to: "/services/grey-label" },
-      ]
-    }
-  };
+  const serviceColumns = [
+    [
+      {
+        title: "UI / UX Design",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Website Design", desc: "Visually engaging, conversion-focused websites", icon: <Monitor size={16} />, to: "/services/website-design" },
+          { name: "App Design", desc: "Seamless, modern mobile app interfaces", icon: <Smartphone size={16} />, to: "/services/app-design" },
+          { name: "Wireframing & Prototyping", desc: "Structured layouts and user flows", icon: <Layers size={16} />, to: "/services/wireframing" },
+          { name: "Landing Page Design", desc: "High-impact pages built to convert", icon: <FileText size={16} />, to: "/services/landing-page-design" },
+          { name: "Portfolio Website Design", desc: "Personal brands presented professionally", icon: <Layout size={16} />, to: "/services/portfolio-design" },
+          { name: "Design Systems", desc: "Scalable, consistent UI frameworks", icon: <Grid size={16} />, to: "/services/design-systems" },
+        ]
+      },
+      {
+        title: "App Development",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "App Development", desc: "End-to-end mobile app development", icon: <Smartphone size={16} />, to: "/services/app-development" },
+          { name: "Android/iOS App Development", desc: "Native and scalable Android apps", icon: <Smartphone size={16} />, to: "/services/android-ios-development" },
+          // { name: "iOS App Development", desc: "Smooth, high-performance iOS apps", icon: <Smartphone size={16} />, to: "/services/ios-development" },
+        ]
+      },
+
+    ],
+    [
+      {
+        title: "Web Development",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Web Development", desc: "Fast, secure, scalable web solutions", icon: <Code size={16} />, to: "/services/web-development" },
+          { name: "Frontend/Backend Development", desc: "Clean, interactive user interfaces", icon: <Layout size={16} />, to: "/services/frontend-backend-development" },
+          // { name: "Backend Development", desc: "Robust systems powering applications", icon: <Server size={16} />, to: "/services/backend-development" },
+          { name: "Website Redesign / Revamp", desc: "Modernizing performance and visuals", icon: <Monitor size={16} />, to: "/services/website-redesign" },
+        ]
+      },
+      {
+        title: "Product Services",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Product Design", desc: "Designing scalable digital products", icon: <Box size={16} />, to: "/services/product-design" },
+          { name: "Presentation Design", desc: "Clear, compelling visual storytelling", icon: <Presentation size={16} />, to: "/services/presentation-design" },
+        ]
+      },
+      {
+        title: "SEO & Performance",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "SEO Optimization", desc: "Search-ready content and structure", icon: <TrendingUp size={16} />, to: "/services/seo-optimization" },
+          { name: "Performance Optimization", desc: "Faster sites with better rankings", icon: <Zap size={16} />, to: "/services/performance-optimization" },
+        ]
+      }
+    ],
+    [
+      {
+        title: "Branding & Visual Identity",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Brand Identity Design", desc: "Distinct, memorable brand presence", icon: <PenTool size={16} />, to: "/services/branding-visual-identity" },
+          { name: "Graphic Design", desc: "Visual assets aligned with strategy", icon: <PenTool size={16} />, to: "/services/branding-graphic-design" },
+          { name: "Logo Design", desc: "Simple, timeless brand marks", icon: <PenTool size={16} />, to: "/services/logo-design" },
+          // { name: "Poster & Marketing Creatives", desc: "Eye-catching promotional visuals", icon: <Megaphone size={16} />, to: "/services/posters-marketing" },
+          { name: "Packaging Design", desc: "Product-ready, shelf-ready packaging", icon: <Package size={16} />, to: "/services/packaging-design" },
+        ]
+      },
+      {
+        title: "Social Media & Content",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Social Media Design", desc: "Consistent visuals across platforms", icon: <Share2 size={16} />, to: "/services/social-media-design" },
+          { name: "Social Media Handling", desc: "Content planning, posting, and branding", icon: <Share2 size={16} />, to: "/services/social-media-handling" },
+        ]
+      },
+      {
+        title: "Maintenance & Support",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Maintenance & Support", desc: "Reliable updates and ongoing care", icon: <Wrench size={16} />, to: "/services/maintenance-support" },
+        ]
+      }
+
+    ]
+  ];
 
   const navItems = [
     { name: "Home", to: "/" },
@@ -183,112 +227,41 @@ const Header = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 15, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute mt-4 left-1/2 -translate-x-1/2 top-full w-[max(800px,calc(100vw-120px))] max-w-[1100px] bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2.5rem] overflow-hidden p-8"
+                            className="absolute mt-4 left-1/2 -translate-x-1/2 top-full w-[max(1000px,calc(100vw-60px))] max-w-[1300px] bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2rem] overflow-hidden p-4"
                           >
-                            <div className="grid grid-cols-3 gap-8">
-                              {/* Column 1: Services */}
-                              <div className="space-y-6">
-                                <div className={`flex items-center justify-between px-4 py-3 ${servicesData.services.bgColor} rounded-2xl`}>
-                                  <span className={`font-bold ${servicesData.services.textColor} text-lg`}>{servicesData.services.title}</span>
-                                  <ArrowRight className={`w-5 h-5 text-gray-400`} />
-                                </div>
-                                <div className="grid grid-cols-1 gap-2">
-                                  {servicesData.services.items.map((service, idx) => (
-                                    <Link
-                                      key={idx}
-                                      to={service.to}
-                                      className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-colors group"
-                                      onClick={() => setIsServicesOpen(false)}
-                                    >
-                                      <div className="p-2 bg-white/5 rounded-xl border border-white/10 text-gray-500 group-hover:text-brand-600 transition-colors">
-                                        {service.icon}
+                            <div className="grid grid-cols-3 gap-6">
+                              {serviceColumns.map((column, colIdx) => (
+                                <div key={colIdx} className="space-y-3">
+                                  {column.map((category, catIdx) => (
+                                    <div key={catIdx} className="space-y-3">
+                                      <div className={`flex items-center justify-between px-3 py-2 ${category.bgColor} rounded-xl`}>
+                                        <span className={`font-bold ${category.textColor} text-sm uppercase`}>{category.title}</span>
+                                        <ArrowRight className={`w-4 h-4 text-gray-500`} />
                                       </div>
-                                      <div>
-                                        <div className="font-medium text-white leading-tight">{service.name}</div>
-                                        <div className="text-xs text-gray-400 mt-1 group-hover:text-white transition-colors duration-300">{service.desc}</div>
+                                      <div className="grid grid-cols-1 gap-1">
+                                        {category.items.map((service, itemIdx) => (
+                                          <Link
+                                            key={itemIdx}
+                                            to={service.to}
+                                            className="flex items-start gap-3 p-2 rounded-xl hover:bg-brand-500/10 transition-colors group"
+                                            onClick={() => setIsServicesOpen(false)}
+                                          >
+                                            <div className="p-1.5 bg-white/5 rounded-lg border border-white/10 text-gray-500 group-hover:text-brand-600 transition-colors mt-0.5">
+                                              {service.icon}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                              <div className="font-medium text-white text-sm leading-tight truncate group-hover:text-brand-400 transition-colors">{service.name}</div>
+                                              <div className="text-[11px] text-gray-400 mt-0.5 leading-snug line-clamp-2 group-hover:text-gray-300 transition-colors">
+                                                {service.desc}
+                                              </div>
+                                            </div>
+                                          </Link>
+                                        ))}
                                       </div>
-                                    </Link>
+                                    </div>
                                   ))}
                                 </div>
-                              </div>
-
-                              {/* Column 2: Retainer & Ready Made */}
-                              <div className="space-y-8">
-                                <div className="space-y-6">
-                                  <div className={`flex items-center justify-between px-4 py-3 ${servicesData.retainer.bgColor} rounded-2xl`}>
-                                    <span className={`font-bold ${servicesData.retainer.textColor} text-lg`}>{servicesData.retainer.title}</span>
-                                    <ArrowRight className={`w-5 h-5 text-gray-400`} />
-                                  </div>
-                                  <div className="grid grid-cols-1 gap-2">
-                                    {servicesData.retainer.items.map((service, idx) => (
-                                      <Link
-                                        key={idx}
-                                        to={service.to}
-                                        className="flex items-start gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors group"
-                                        onClick={() => setIsServicesOpen(false)}
-                                      >
-                                        <div className="p-2 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-400 group-hover:text-brand-600 transition-colors">
-                                          {service.icon}
-                                        </div>
-                                        <div>
-                                          <div className="font-medium text-gray-900 leading-tight">{service.name}</div>
-                                          <div className="text-xs text-gray-500 mt-1 group-hover:text-black transition-colors duration-300">{service.desc}</div>
-                                        </div>
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-
-                                <div className="space-y-6">
-                                  <div className={`flex items-center px-4 py-3 ${servicesData.readyMade.bgColor} rounded-2xl`}>
-                                    <span className={`font-bold ${servicesData.readyMade.textColor} text-lg`}>{servicesData.readyMade.title}</span>
-                                  </div>
-                                  <div className="grid grid-cols-1 gap-2">
-                                    {servicesData.readyMade.items.map((service, idx) => (
-                                      <Link
-                                        key={idx}
-                                        to={service.to}
-                                        className="flex items-start gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors group"
-                                        onClick={() => setIsServicesOpen(false)}
-                                      >
-                                        <div className="p-2 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-400 group-hover:text-brand-600 transition-colors">
-                                          {service.icon}
-                                        </div>
-                                        <div>
-                                          <div className="font-medium text-gray-900 leading-tight">{service.name}</div>
-                                          <div className="text-xs text-gray-500 mt-1 group-hover:text-black transition-colors duration-300">{service.desc}</div>
-                                        </div>
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Column 3: Other */}
-                              <div className="space-y-6">
-                                <div className={`flex items-center justify-between px-4 py-3 ${servicesData.other.bgColor} rounded-2xl`}>
-                                  <span className={`font-bold ${servicesData.other.textColor} text-lg`}>{servicesData.other.title}</span>
-                                  <ArrowRight className={`w-5 h-5 text-gray-400`} />
-                                </div>
-                                <div className="grid grid-cols-1 gap-2">
-                                  {servicesData.other.items.map((service, idx) => (
-                                    <Link
-                                      key={idx}
-                                      to={service.to}
-                                      className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-colors group"
-                                      onClick={() => setIsServicesOpen(false)}
-                                    >
-                                      <div className="p-2 bg-white/5 rounded-xl border border-white/10 text-gray-500 group-hover:text-brand-600 transition-colors">
-                                        {service.icon}
-                                      </div>
-                                      <div>
-                                        <div className="font-medium text-white leading-tight">{service.name}</div>
-                                        <div className="text-xs text-gray-400 mt-1 group-hover:text-white transition-colors duration-300">{service.desc}</div>
-                                      </div>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
+                              ))}
                             </div>
                           </motion.div>
                         )}
@@ -297,6 +270,7 @@ const Header = () => {
                   );
                 }
                 return (
+
                   <NavLink
                     key={item.name}
                     to={item.to}
@@ -369,73 +343,29 @@ const Header = () => {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden bg-gray-50/50 rounded-2xl mt-2 p-4 space-y-6"
                           >
-                            <div>
-                              <div className="font-bold text-black text-xs mb-3 px-3 py-1 bg-brand-100 rounded-full inline-block">SERVICES</div>
-                              <div className="grid grid-cols-1 gap-1">
-                                {servicesData.services.items.map((svc) => (
-                                  <Link
-                                    key={svc.name}
-                                    to={svc.to}
-                                    onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
-                                  >
-                                    <div className="text-gray-500">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
-                                  </Link>
-                                ))}
+                            {serviceColumns.flat().map((category, idx) => (
+                              <div key={idx}>
+                                <div className="font-bold text-black text-xs mb-3 px-3 py-1 bg-brand-100 rounded-full inline-block uppercase">
+                                  {category.title}
+                                </div>
+                                <div className="grid grid-cols-1 gap-1">
+                                  {category.items.map((svc, sIdx) => (
+                                    <Link
+                                      key={sIdx}
+                                      to={svc.to}
+                                      onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
+                                      className="flex items-start gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
+                                    >
+                                      <div className="text-gray-500 mt-1">{svc.icon}</div>
+                                      <div>
+                                        <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</div>
+                                        <div className="text-xs text-gray-500 mt-0.5">{svc.desc}</div>
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-
-                            <div>
-                              <div className="font-bold text-black text-xs mb-3 px-3 py-1 bg-brand-100 rounded-full inline-block">RETAINER SERVICES</div>
-                              <div className="grid grid-cols-1 gap-1">
-                                {servicesData.retainer.items.map((svc) => (
-                                  <Link
-                                    key={svc.name}
-                                    to={svc.to}
-                                    onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
-                                  >
-                                    <div className="text-gray-500">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div>
-                              <div className="font-bold text-black text-xs mb-3 px-3 py-1 bg-brand-100 rounded-full inline-block">READY MADE</div>
-                              <div className="grid grid-cols-1 gap-1">
-                                {servicesData.readyMade.items.map((svc) => (
-                                  <Link
-                                    key={svc.name}
-                                    to={svc.to}
-                                    onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
-                                  >
-                                    <div className="text-gray-500">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div>
-                              <div className="font-bold text-black text-xs mb-3 px-3 py-1 bg-brand-100 rounded-full inline-block">OTHER CREATIVE SERVICES</div>
-                              <div className="grid grid-cols-1 gap-1">
-                                {servicesData.other.items.map((svc) => (
-                                  <Link
-                                    key={svc.name}
-                                    to={svc.to}
-                                    onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
-                                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors group"
-                                  >
-                                    <div className="text-gray-500">{svc.icon}</div>
-                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{svc.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
+                            ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
