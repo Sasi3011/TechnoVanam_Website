@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import HomeContact from "../../components/HomeContact";
 
 const Products = () => {
@@ -62,11 +63,11 @@ const Products = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
                   </div>
 
-                  <div className="relative inline-block mb-4 group">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  <Link to="/products/athlixir" className="relative inline-block mb-4 group">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       Athlixir
                     </h3>
-                  </div>
+                  </Link>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     Athlixir is an AI-powered athlete ecosystem built to protect potential, prevent setbacks, and prove talent—uniting performance tracking, injury intelligence, and verified recognition to ensure no athlete is ever overlooked.
@@ -104,11 +105,11 @@ const Products = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
                   </div>
 
-                  <div className="relative inline-block mb-4 group">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  <Link to="/products/youth-platform" className="relative inline-block mb-4 group">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       Youth Entrepreneurship Platform
                     </h3>
-                  </div>
+                  </Link>
 
                   <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
                     An interactive ecosystem built to empower the next generation of founders — connecting mentorship, startup resources, and real-world business tools to turn ideas into impactful ventures.
@@ -146,11 +147,11 @@ const Products = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Productivity, Global</span>
                   </div>
 
-                  <div className="relative inline-block mb-4 group">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  <Link to="/products/webbrain" className="relative inline-block mb-4 group">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       WebBrain — Your Second Brain
                     </h3>
-                  </div>
+                  </Link>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     A living memory layer for your browser that understands what you explore, remembers what matters, and brings it back when you need it. WebBrain turns scattered browsing into structured knowledge.

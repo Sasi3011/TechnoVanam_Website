@@ -13,6 +13,7 @@ import Maintenance from "./pages/Maintenance";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Careers from "./pages/Careers";
 import ServiceDetail from "./pages/ServiceDetail";
+import ProductDetail from "./pages/Products/ProductDetail";
 
 import MainLayout from "./layout/MainLayout";
 
@@ -68,6 +69,7 @@ const App = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/products/:productId" element={<ProductDetail />} />
       <Route path="/product2" element={<Product2 />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/careers" element={<Careers />} />
