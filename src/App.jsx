@@ -7,7 +7,6 @@ import About from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Products from "./pages/Products/Products";
-import Product2 from "./pages/Products/Product2";
 import Portfolio from "./pages/Portfolio";
 import Maintenance from "./pages/Maintenance";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -70,7 +69,6 @@ const App = () => {
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:productId" element={<ProductDetail />} />
-      <Route path="/product2" element={<Product2 />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/careers" element={<Careers />} />
       <Route path="/admin/careers" element={<CareerAdmin />} />
