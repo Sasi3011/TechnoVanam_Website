@@ -24,19 +24,19 @@ const Footer = () => {
       { name: "About Us", to: "/about" },
       { name: "Our Services", to: "/services" },
       { name: "Portfolio", to: "/portfolio" },
-      { name: "Contact Us", to: "/contact" },
+      { name: "Contact Us", to: "/", state: { scrollTo: "contact" } },
       { name: "Careers", to: "/careers" },
       { name: "Privacy Policy", to: "/privacy" },
     ],
     services: [
-      { name: "Web Design", to: "/services/website-design" },
-      { name: "Branding", to: "/services/branding" },
-      { name: "UX/UI Design", to: "/services/ux-ui-design" },
-      { name: "Motion Design", to: "/services/motion-design" },
-      { name: "App Design", to: "/services/app-design" },
-      { name: "Web Development", to: "/services/web-development" },
-      { name: "Social Media", to: "/services/social-media" },
-      { name: "Posters & Prints", to: "/services/posters-prints" },
+      { name: "UI/UX Design", to: "/services" },
+      { name: "Web Development", to: "/services" },
+      { name: "App Development", to: "/services" },
+      { name: "Branding & Identity", to: "/services" },
+      { name: "Product Design", to: "/services" },
+      { name: "SEO Optimization", to: "/services" },
+      { name: "Social Media", to: "/services" },
+      { name: "Maintenance & Support", to: "/services" },
     ],
     products: [
       { name: "Athlixir", to: "/products/athlixir" },
@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white pt-20 pb-10 px-6 sm:px-10 lg:px-20 border-t border-white/5">
+    <footer className="bg-black text-white pt-20 pb-10 px-4 sm:px-6 lg:px-16 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Company Column */}
@@ -55,7 +55,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.to} className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg">
+                  <Link to={link.to} state={link.state} className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg">
                     {link.name}
                   </Link>
                 </li>

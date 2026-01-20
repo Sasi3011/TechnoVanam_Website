@@ -21,7 +21,7 @@ const Header = () => {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/contact");
+      navigate("/", { state: { scrollTo: "contact" } });
     }
     setIsOpen(false);
   };
@@ -59,18 +59,35 @@ const Header = () => {
   }, []);
 
   const serviceColumns = [
+    // Column 1: UI/UX & Design (8 items)
     [
       {
-        title: "UI / UX Design",
+        title: "UI / UX & Design Services",
         bgColor: "bg-white/5",
         textColor: "text-brand-400",
         items: [
-          { name: "Website Design", desc: "Visually engaging, conversion-focused websites", icon: <Monitor size={16} />, to: "/services/website-design" },
-          { name: "App Design", desc: "Seamless, modern mobile app interfaces", icon: <Smartphone size={16} />, to: "/services/app-design" },
-          { name: "Wireframing & Prototyping", desc: "Structured layouts and user flows", icon: <Layers size={16} />, to: "/services/wireframing" },
-          { name: "Landing Page Design", desc: "High-impact pages built to convert", icon: <FileText size={16} />, to: "/services/landing-page-design" },
-          { name: "Portfolio Website Design", desc: "Personal brands presented professionally", icon: <Layout size={16} />, to: "/services/portfolio-design" },
-          { name: "Design Systems", desc: "Scalable, consistent UI frameworks", icon: <Grid size={16} />, to: "/services/design-systems" },
+          { name: "UI / UX Design", desc: "User-centered design experiences", icon: <Monitor size={16} />, to: "/services" },
+          { name: "Website Design", desc: "Visually engaging websites", icon: <Monitor size={16} />, to: "/services" },
+          { name: "App Design", desc: "Modern mobile interfaces", icon: <Smartphone size={16} />, to: "/services" },
+          { name: "Wireframing & Prototyping", desc: "Structured user flows", icon: <Layers size={16} />, to: "/services" },
+          { name: "Landing Page Design", desc: "High-impact conversion pages", icon: <FileText size={16} />, to: "/services" },
+          { name: "Portfolio Website Design", desc: "Professional brand presentation", icon: <Layout size={16} />, to: "/services" },
+          { name: "Design Systems", desc: "Scalable UI frameworks", icon: <Grid size={16} />, to: "/services" },
+          { name: "Creative Direction", desc: "Strategic visual leadership", icon: <Lightbulb size={16} />, to: "/services" },
+        ]
+      },
+    ],
+    // Column 2: Web Development + App Development (7 items)
+    [
+      {
+        title: "Web Development",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Web Development", desc: "Full-stack web solutions", icon: <Code size={16} />, to: "/services" },
+          { name: "Frontend Development", desc: "Interactive user interfaces", icon: <Layout size={16} />, to: "/services" },
+          { name: "Backend Development", desc: "Robust server systems", icon: <Server size={16} />, to: "/services" },
+          { name: "Website Redesign / Revamp", desc: "Modernizing digital presence", icon: <Monitor size={16} />, to: "/services" },
         ]
       },
       {
@@ -78,23 +95,24 @@ const Header = () => {
         bgColor: "bg-white/5",
         textColor: "text-brand-400",
         items: [
-          { name: "App Development", desc: "End-to-end mobile app development", icon: <Smartphone size={16} />, to: "/services/app-development" },
-          { name: "Android/iOS App Development", desc: "Native and scalable Android apps", icon: <Smartphone size={16} />, to: "/services/android-ios-development" },
-          // { name: "iOS App Development", desc: "Smooth, high-performance iOS apps", icon: <Smartphone size={16} />, to: "/services/ios-development" },
+          { name: "App Development", desc: "End-to-end mobile solutions", icon: <Smartphone size={16} />, to: "/services" },
+          { name: "Android App Development", desc: "Native Android apps", icon: <Smartphone size={16} />, to: "/services" },
+          { name: "iOS App Development", desc: "High-performance iOS apps", icon: <Smartphone size={16} />, to: "/services" },
         ]
       },
-
     ],
+    // Column 3: Branding + Product Services (7 items)
     [
       {
-        title: "Web Development",
+        title: "Branding & Visual Identity",
         bgColor: "bg-white/5",
         textColor: "text-brand-400",
         items: [
-          { name: "Web Development", desc: "Fast, secure, scalable web solutions", icon: <Code size={16} />, to: "/services/web-development" },
-          { name: "Frontend/Backend Development", desc: "Clean, interactive user interfaces", icon: <Layout size={16} />, to: "/services/frontend-backend-development" },
-          // { name: "Backend Development", desc: "Robust systems powering applications", icon: <Server size={16} />, to: "/services/backend-development" },
-          { name: "Website Redesign / Revamp", desc: "Modernizing performance and visuals", icon: <Monitor size={16} />, to: "/services/website-redesign" },
+          { name: "Brand Identity Design", desc: "Memorable brand presence", icon: <PenTool size={16} />, to: "/services" },
+          { name: "Branding & Graphic Design", desc: "Strategic visual assets", icon: <Brush size={16} />, to: "/services" },
+          { name: "Logo Design", desc: "Timeless brand marks", icon: <PenTool size={16} />, to: "/services" },
+          { name: "Poster & Marketing Creatives", desc: "Eye-catching promotions", icon: <Megaphone size={16} />, to: "/services" },
+          { name: "Packaging Design", desc: "Product-ready packaging", icon: <Package size={16} />, to: "/services" },
         ]
       },
       {
@@ -102,8 +120,20 @@ const Header = () => {
         bgColor: "bg-white/5",
         textColor: "text-brand-400",
         items: [
-          { name: "Product Design", desc: "Designing scalable digital products", icon: <Box size={16} />, to: "/services/product-design" },
-          { name: "Presentation Design", desc: "Clear, compelling visual storytelling", icon: <Presentation size={16} />, to: "/services/presentation-design" },
+          { name: "Product Design (Startups & SaaS)", desc: "Scalable digital products", icon: <Box size={16} />, to: "/services" },
+          { name: "Presentation Design", desc: "Compelling visual storytelling", icon: <Presentation size={16} />, to: "/services" },
+        ]
+      },
+    ],
+    // Column 4: Social, SEO + Maintenance (5 items)
+    [
+      {
+        title: "Social Media & Content",
+        bgColor: "bg-white/5",
+        textColor: "text-brand-400",
+        items: [
+          { name: "Social Media Design", desc: "Consistent platform visuals", icon: <Share2 size={16} />, to: "/services" },
+          { name: "Social Media Handling", desc: "Content planning & posting", icon: <Share2 size={16} />, to: "/services" },
         ]
       },
       {
@@ -111,31 +141,8 @@ const Header = () => {
         bgColor: "bg-white/5",
         textColor: "text-brand-400",
         items: [
-          { name: "SEO Optimization", desc: "Search-ready content and structure", icon: <TrendingUp size={16} />, to: "/services/seo-optimization" },
-          { name: "Performance Optimization", desc: "Faster sites with better rankings", icon: <Zap size={16} />, to: "/services/performance-optimization" },
-        ]
-      }
-    ],
-    [
-      {
-        title: "Branding & Visual Identity",
-        bgColor: "bg-white/5",
-        textColor: "text-brand-400",
-        items: [
-          { name: "Brand Identity Design", desc: "Distinct, memorable brand presence", icon: <PenTool size={16} />, to: "/services/branding-visual-identity" },
-          { name: "Graphic Design", desc: "Visual assets aligned with strategy", icon: <PenTool size={16} />, to: "/services/branding-graphic-design" },
-          { name: "Logo Design", desc: "Simple, timeless brand marks", icon: <PenTool size={16} />, to: "/services/logo-design" },
-          // { name: "Poster & Marketing Creatives", desc: "Eye-catching promotional visuals", icon: <Megaphone size={16} />, to: "/services/posters-marketing" },
-          { name: "Packaging Design", desc: "Product-ready, shelf-ready packaging", icon: <Package size={16} />, to: "/services/packaging-design" },
-        ]
-      },
-      {
-        title: "Social Media & Content",
-        bgColor: "bg-white/5",
-        textColor: "text-brand-400",
-        items: [
-          { name: "Social Media Design", desc: "Consistent visuals across platforms", icon: <Share2 size={16} />, to: "/services/social-media-design" },
-          { name: "Social Media Handling", desc: "Content planning, posting, and branding", icon: <Share2 size={16} />, to: "/services/social-media-handling" },
+          { name: "SEO Optimization", desc: "Search-ready structure", icon: <TrendingUp size={16} />, to: "/services" },
+          { name: "Performance Optimization", desc: "Faster, better rankings", icon: <Zap size={16} />, to: "/services" },
         ]
       },
       {
@@ -143,10 +150,9 @@ const Header = () => {
         bgColor: "bg-white/5",
         textColor: "text-brand-400",
         items: [
-          { name: "Maintenance & Support", desc: "Reliable updates and ongoing care", icon: <Wrench size={16} />, to: "/services/maintenance-support" },
+          { name: "Website Maintenance & Support", desc: "Reliable ongoing care", icon: <Wrench size={16} />, to: "/services" },
         ]
       }
-
     ]
   ];
 
@@ -162,7 +168,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isVisible ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-16 pt-4 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
     >
       <div className="max-w-9xl mx-auto">
@@ -205,20 +211,25 @@ const Header = () => {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <NavLink
-                        to={item.to}
-                        className={({ isActive }) =>
-                          `flex items-center gap-1 px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
-                            ? "text-brand-600 bg-white/20"
-                            : isServicesOpen
-                              ? "text-brand-600 bg-white/5"
-                              : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
-                          }`
-                        }
+                      <div
+                        className={`flex items-center gap-1 px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full cursor-default ${location.pathname.startsWith(item.to)
+                          ? "text-brand-600 bg-white/20"
+                          : isServicesOpen
+                            ? "text-brand-600 bg-white/5"
+                            : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
+                          }`}
                       >
-                        {item.name}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                      </NavLink>
+                        <Link
+                          to={item.to}
+                          onClick={() => setIsServicesOpen(false)}
+                          className="hover:text-brand-500 transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                        <div className="flex items-center justify-center">
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                        </div>
+                      </div>
 
                       <AnimatePresence>
                         {isServicesOpen && (
@@ -227,9 +238,9 @@ const Header = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 15, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute mt-4 left-1/2 -translate-x-1/2 top-full w-[max(1000px,calc(100vw-60px))] max-w-[1300px] bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2rem] overflow-hidden p-4"
+                            className="absolute mt-4 left-1/2 -translate-x-1/2 top-full w-screen max-w-[calc(100vw-4rem)] bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2rem] overflow-hidden p-6 max-h-[85vh] overflow-y-auto custom-scrollbar"
                           >
-                            <div className="grid grid-cols-3 gap-6">
+                            <div className="grid grid-cols-4 gap-6">
                               {serviceColumns.map((column, colIdx) => (
                                 <div key={colIdx} className="space-y-3">
                                   {column.map((category, catIdx) => (
@@ -323,16 +334,30 @@ const Header = () => {
                 if (item.name === "Services") {
                   return (
                     <div key={item.name} className="flex flex-col">
-                      <button
-                        onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                      <div
                         className={`flex items-center justify-between px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${isMobileServicesOpen
                           ? "text-brand-600 bg-white/20"
                           : "text-gray-300 hover:text-brand-600 hover:bg-white/5"
                           }`}
                       >
-                        {item.name}
-                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
-                      </button>
+                        <Link
+                          to={item.to}
+                          onClick={() => setIsOpen(false)}
+                          className="flex-1"
+                        >
+                          {item.name}
+                        </Link>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setIsMobileServicesOpen(!isMobileServicesOpen);
+                          }}
+                          className="p-2 -mr-2"
+                        >
+                          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                      </div>
 
                       <AnimatePresence>
                         {isMobileServicesOpen && (
@@ -341,11 +366,11 @@ const Header = () => {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="overflow-hidden bg-gray-50/50 rounded-2xl mt-2 p-4 space-y-6"
+                            className="overflow-hidden bg-white/5 rounded-2xl mt-2 p-4 space-y-6"
                           >
                             {serviceColumns.flat().map((category, idx) => (
                               <div key={idx}>
-                                <div className="font-bold text-black text-xs mb-3 px-3 py-1 bg-brand-100 rounded-full inline-block uppercase">
+                                <div className={`font-bold ${category.textColor} text-xs mb-3 px-3 py-1 ${category.bgColor} rounded-full inline-block uppercase`}>
                                   {category.title}
                                 </div>
                                 <div className="grid grid-cols-1 gap-1">
