@@ -91,7 +91,7 @@ const JobApplicationModal = ({ role, isOpen, onClose }) => {
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="relative w-full max-w-2xl bg-[#0a0a0a] rounded-[2.5rem] border border-white/10 shadow-2xl overflow-hidden card-glow"
+                        className="relative w-full max-w-2xl max-h-[85vh] sm:max-h-[90vh] lg:max-h-none overflow-y-auto lg:overflow-visible scrollbar-hide bg-[#0a0a0a] rounded-[2.5rem] border border-brand-500/30 shadow-2xl card-glow"
                     >
                         <div className="p-8 sm:p-10">
                             {/* Header */}
