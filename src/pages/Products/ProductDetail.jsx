@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Rocket, Sparkles } from "lucide-react";
 import { products } from "../../data/productData";
+import HomeContact from "../../components/HomeContact";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -14,7 +15,7 @@ const ProductDetail = () => {
     }, [productId]);
 
     return (
-        <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden px-6">
+        <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-16">
             {/* Background Effects */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -46,19 +47,23 @@ const ProductDetail = () => {
                             Back to Products
                         </Link>
 
-                        <Link
-                            to="/contact"
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-500 text-black font-bold hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(113,211,0,0.3)] hover:shadow-[0_0_30px_rgba(113,211,0,0.5)] transform hover:scale-105"
                         >
                             <Sparkles size={20} />
                             Get Early Access
-                        </Link>
+                        </button>
                     </div>
                 </motion.div>
             </div>
 
+            <div className="relative z-10 w-full mt-20">
+                <HomeContact />
+            </div>
+
             {/* Footer minimal */}
-            <div className="absolute bottom-8 left-0 w-full text-center">
+            <div className="relative w-full text-center mt-12 mb-8">
                 <p className="text-gray-600 text-sm font-medium">© 2026 Techno Vanam. All rights reserved.</p>
             </div>
         </div>
