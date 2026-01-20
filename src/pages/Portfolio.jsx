@@ -7,6 +7,7 @@ import UpsideImage from "../assets/logo.png";
 import CardLogo1 from "../assets/logo.png";
 import CardLogo2 from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import HomeContact from "../components/HomeContact";
 
 const projects = [
   {
@@ -85,7 +86,7 @@ const ProjectCard = ({ project, reverse }) => (
 export default function Portfolio() {
   return (
     <>
-      <section className="w-full flex flex-col items-center py-20 px-8 bg-black text-white">
+      <section className="w-full min-h-screen flex flex-col justify-center items-center py-20 px-4 sm:px-6 lg:px-16 bg-black text-white">
         <div className="w-full max-w-7xl text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
             Portfolio
@@ -102,7 +103,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center py-20 px-8 bg-black">
+      <section className="w-full min-h-screen flex flex-col justify-center items-center py-20 px-4 sm:px-6 lg:px-16 bg-black">
         <div className="w-full max-w-[1320px] flex flex-col items-center gap-10">
           {/* Header */}
           <div className="w-full max-w-[580px] text-center">
@@ -149,23 +150,24 @@ export default function Portfolio() {
               </div>
 
               {/* Button */}
-              <Link to="/contact">
-                <button className="relative group overflow-hidden flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-500 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-500 w-[259.81px] h-[72px] transition-all hover:bg-brand-600 active:scale-95">
-                  <span className="relative z-10 flex items-center gap-1">
-                    Let’s Build Together
-                    <svg
-                      className="w-5 h-5 transform -scale-y-100"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
-                    </svg>
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
-                </button>
-              </Link>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="relative group overflow-hidden flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-500 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-500 w-[259.81px] h-[72px] transition-all hover:bg-brand-600 active:scale-95"
+              >
+                <span className="relative z-10 flex items-center gap-1">
+                  Let’s Build Together
+                  <svg
+                    className="w-5 h-5 transform -scale-y-100"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+              </button>
             </div>
 
             {/* Card 2 */}
@@ -197,27 +199,29 @@ export default function Portfolio() {
               </div>
 
               {/* Button */}
-              <Link to="/contact">
-                <button className="relative group overflow-hidden flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-500 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-500 w-[240px] h-[72px] transition-all hover:bg-brand-600 active:scale-95">
-                  <span className="relative z-10 flex items-center gap-1">
-                    Start Your Journey
-                    <svg
-                      className="w-5 h-5 transform -scale-y-100"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
-                    </svg>
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
-                </button>
-              </Link>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="relative group overflow-hidden flex items-center justify-center gap-1 px-[39px] py-[27px] bg-brand-500 text-white font-bold text-[18px] rounded-full shadow-brand border border-brand-500 w-[240px] h-[72px] transition-all hover:bg-brand-600 active:scale-95"
+              >
+                <span className="relative z-10 flex items-center gap-1">
+                  Start Your Journey
+                  <svg
+                    className="w-5 h-5 transform -scale-y-100"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+              </button>
             </div>
           </div>
         </div>
       </section>
+      <HomeContact />
     </>
   );
 };
