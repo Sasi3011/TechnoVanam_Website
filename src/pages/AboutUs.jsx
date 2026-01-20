@@ -167,7 +167,7 @@ export default function About() {
   return (
     <div className="bg-transparent">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24">
+      <section className="relative px-4 sm:px-6 lg:px-16 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
         <div className="text-center max-w-7xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight text-white text-center">
             We are a <span className="text-brand-500">Design-led Digital Studio</span> focused on crafting purposeful experiences
@@ -200,7 +200,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section id="next-section" className="min-h-screen flex flex-col justify-center py-16 px-4 sm:px-6 lg:px-8">
+      <section id="next-section" className="min-h-screen flex flex-col justify-center py-16 px-4 sm:px-6 lg:px-16">
         <div className="max-w-4xl mx-auto text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Meet the Collective
@@ -211,7 +211,7 @@ export default function About() {
         </div>
 
         {/* Team Grid - 2x2 Horizontal Cards */}
-        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
             {teamMembers.map((member, index) => (
               <div key={index} className="group flex flex-row items-center gap-6 sm:gap-8">
@@ -273,7 +273,7 @@ export default function About() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="bg-transparent min-h-screen flex items-center px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-24">
+      <section className="bg-transparent min-h-screen flex items-center px-4 sm:px-6 lg:px-16 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row-reverse items-center justify-between gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
           <div className="w-full lg:w-1/3 flex flex-col justify-center">
             <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow">
@@ -306,7 +306,7 @@ export default function About() {
       </section>
 
       {/* What Drives Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center py-16 sm:py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 min-h-screen flex flex-col justify-center py-16 sm:py-24">
         <div className="flex flex-col gap-12 lg:gap-20 mb-20 lg:mb-32">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
             <div className="flex items-center gap-3 shrink-0">
@@ -391,7 +391,7 @@ export default function About() {
 
       {/* Our Approach Section */}
       <section className="bg-black min-h-screen flex flex-col justify-center py-16 sm:py-24 lg:py-32 overflow-hidden">
-        <div className="max-w-[90rem] mx-auto px-2 sm:px-4 lg:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
@@ -408,7 +408,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center py-16 sm:py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 min-h-screen flex flex-col justify-center py-16 sm:py-24">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             The Values That Drive Us
