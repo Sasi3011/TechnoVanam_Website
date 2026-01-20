@@ -33,7 +33,7 @@ const Maintenance = () => {
     ];
 
     return (
-        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-6 sm:p-12 overflow-hidden selection:bg-brand-500/30">
+        <div className="fixed inset-0 w-full h-full bg-[#020202] flex flex-col items-center justify-between py-10 px-4 sm:px-6 lg:px-16 overflow-hidden selection:bg-brand-500/30">
 
             {/* --- PREMIUM BACKDROPS --- */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
