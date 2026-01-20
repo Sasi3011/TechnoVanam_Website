@@ -69,7 +69,7 @@ export default function Testimonials() {
     return (
         <section className="bg-black py-16 sm:py-24 w-full overflow-hidden">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-10 px-4 sm:px-6 md:px-8 lg:px-12 text-brand-600 max-w-7xl mx-auto">
+            <div className="flex items-center gap-3 mb-10  text-brand-600 max-w-7xl mx-auto">
                 <div className="w-2 h-2 rounded-full bg-brand-600" />
                 <h2 className="text-xl sm:text-2xl font-semibold">
                     Testimonials
@@ -136,7 +136,7 @@ export default function Testimonials() {
             </div>
 
             {/* Footer: Progress Bar and Navigation Buttons */}
-            <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
+            <div className="px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
                 <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
                     {/* Progress Bar */}
                     <div className="w-full sm:flex-1 h-[3px] bg-brand-500/10 rounded-full overflow-hidden relative">
@@ -178,32 +178,24 @@ export default function Testimonials() {
         }
 
         .scroll-container-align {
-          padding-left: 1rem;
+          padding-left: 0.5rem;
           padding-right: 1rem;
-          scroll-padding-left: 1rem;
+          scroll-padding-left: 0.5rem;
         }
 
         @media (min-width: 640px) {
           .scroll-container-align {
-            padding-left: 1.5rem;
+            padding-left: 1rem;
             padding-right: 1.5rem;
-            scroll-padding-left: 1.5rem;
+            scroll-padding-left: 1rem;
           }
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1280px) {
           .scroll-container-align {
-            padding-left: 2rem;
+            padding-left: calc((100vw - 80rem) / 2);
             padding-right: 2rem;
-            scroll-padding-left: 2rem;
-          }
-        }
-
-        @media (min-width: 1024px) {
-          .scroll-container-align {
-            padding-left: max(3rem, calc((100vw - 80rem) / 2 + 3rem));
-            padding-right: 3rem;
-            scroll-padding-left: max(3rem, calc((100vw - 80rem) / 2 + 3rem));
+            scroll-padding-left: calc((100vw - 80rem) / 2);
           }
         }
       `}</style>
