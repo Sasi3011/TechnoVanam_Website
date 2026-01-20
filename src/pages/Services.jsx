@@ -10,75 +10,237 @@ const serviceCategories = [
     category: "UI / UX & Design Services",
     icon: Palette,
     items: [
-      { title: "UI / UX Design", icon: PanelsTopLeft, id: "ux-ui-design" },
-      { title: "Website Design", icon: Layout, id: "website-design" },
-      { title: "App Design", icon: Smartphone, id: "app-design" },
-      { title: "Wireframing & Prototyping", icon: Box, id: "wireframing" },
-      { title: "Landing Page Design", icon: Layout, id: "landing-page-design" },
-      { title: "Portfolio Website Design", icon: Globe, id: "portfolio-design" },
-      { title: "Design Systems", icon: Grid, id: "design-systems" },
-      { title: "Creative Direction", icon: Sparkles, id: "branding" }
+      {
+        title: "UI / UX Design",
+        icon: PanelsTopLeft,
+        id: "ux-ui-design",
+        description: "User-centric designs that balance aesthetics with functional excellence.",
+        features: ["User Research", "Information Architecture", "Visual Design"]
+      },
+      {
+        title: "Website Design",
+        icon: Layout,
+        id: "website-design",
+        description: "Modern, responsive websites tailored to your brand's unique identity.",
+        features: ["Responsive Layouts", "Brand Integration", "Interactive Elements"]
+      },
+      {
+        title: "App Design",
+        icon: Smartphone,
+        id: "app-design",
+        description: "Intuitive mobile interfaces designed for seamless user interaction.",
+        features: ["Mobile-First Design", "Platform Specific UI", "Prototyping"]
+      },
+      {
+        title: "Wireframing & Prototyping",
+        icon: Box,
+        id: "wireframing",
+        description: "Structural blueprints and interactive models to visualize your ideas.",
+        features: ["Low-Fi Sketches", "High-Fi Prototypes", "User Flow Maps"]
+      },
+      {
+        title: "Landing Page Design",
+        icon: Layout,
+        id: "landing-page-design",
+        description: "High-conversion landing pages focused on driving results.",
+        features: ["A/B Testing Ready", "Conversion Optimization", "Engaging Copy"]
+      },
+      {
+        title: "Portfolio Website Design",
+        icon: Globe,
+        id: "portfolio-design",
+        description: "Elegant platforms to showcase your work and professional journey.",
+        features: ["Custom Galleries", "Clean Typography", "Minimalist Style"]
+      },
+      {
+        title: "Design Systems",
+        icon: Grid,
+        id: "design-systems",
+        description: "Scalable design libraries to maintain consistency across all products.",
+        features: ["Component Libraries", "Brand Guidelines", "Style Tokens"]
+      },
+      {
+        title: "Creative Direction",
+        icon: Sparkles,
+        id: "branding",
+        description: "Strategic visual leadership to define and elevate your brand voice.",
+        features: ["Brand Strategy", "Visual Identity", "Art Direction"]
+      }
     ]
   },
   {
     category: "Web Development",
     icon: Code2,
     items: [
-      { title: "Web Development", icon: Code2, id: "web-development" },
-      { title: "Frontend Development", icon: Layout, id: "web-development" },
-      { title: "Backend Development", icon: Server, id: "web-development" },
-      { title: "Website Redesign / Revamp", icon: RefreshCw, id: "website-design" }
+      {
+        title: "Web Development",
+        icon: Code2,
+        id: "web-development",
+        description: "Robust and scalable web applications built with modern technologies.",
+        features: ["React / Next.js", "Performance Optimised", "Secure Code"]
+      },
+      {
+        title: "Frontend Development",
+        icon: Layout,
+        id: "web-development",
+        description: "Pixel-perfect frontend implementations with smooth animations.",
+        features: ["Modern CSS / Tailwind", "State Management", "Animation Hooks"]
+      },
+      {
+        title: "Backend Development",
+        icon: Server,
+        id: "web-development",
+        description: "Powerful server-side solutions and efficient API architectures.",
+        features: ["Node.js / Express", "Database Design", "Cloud Integration"]
+      },
+      {
+        title: "Website Redesign / Revamp",
+        icon: RefreshCw,
+        id: "website-design",
+        description: "Giving your existing website a fresh look and improved performance.",
+        features: ["UI Overhaul", "Code Refactoring", "SEO Boost"]
+      }
     ]
   },
   {
     category: "App Development",
     icon: Smartphone,
     items: [
-      { title: "App Development", icon: Smartphone, id: "app-design" },
-      { title: "Android App Development", icon: Smartphone, id: "app-design" },
-      { title: "iOS App Development", icon: Smartphone, id: "app-design" }
+      {
+        title: "App Development",
+        icon: Smartphone,
+        id: "app-design",
+        description: "End-to-end mobile app development for Android and iOS platforms.",
+        features: ["Cross-Platform Dev", "Native Performance", "App Store Support"]
+      },
+      {
+        title: "Android App Development",
+        icon: Smartphone,
+        id: "app-design",
+        description: "Customized Android applications optimized for specific screen sizes.",
+        features: ["UI Optimization", "Play Store Listing", "System Integration"]
+      },
+      {
+        title: "iOS App Development",
+        icon: Smartphone,
+        id: "app-design",
+        description: "Premium iOS applications following Apple's human interface guidelines.",
+        features: ["Swift & SwiftUI", "FaceID / Apple Pay", "Smooth UX"]
+      }
     ]
   },
   {
     category: "Product Services",
     icon: Box,
     items: [
-      { title: "Product Design (Startups & SaaS)", icon: Box, id: "ux-ui-design" },
-      { title: "Presentation Design", icon: Presentation, id: "branding" }
+      {
+        title: "Product Design (Startups & SaaS)",
+        icon: Box,
+        id: "ux-ui-design",
+        description: "Holistic product design tailored for early-stage startups and SaaS.",
+        features: ["MVP Strategy", "Scalable UI", "User Retention Fokus"]
+      },
+      {
+        title: "Presentation Design",
+        icon: Presentation,
+        id: "branding",
+        description: "Impactful presentation decks that effectively communicate your message.",
+        features: ["Pitch Decks", "Investor Presentations", "Data Visualization"]
+      }
     ]
   },
   {
     category: "Branding & Visual Identity",
     icon: Palette,
     items: [
-      { title: "Brand Identity Design", icon: Palette, id: "branding" },
-      { title: "Branding & Graphic Design", icon: PenTool, id: "branding" },
-      { title: "Logo Design", icon: Sparkles, id: "branding" },
-      { title: "Poster & Marketing Creatives", icon: Layout, id: "posters-prints" },
-      { title: "Packaging Design", icon: Package, id: "branding" }
+      {
+        title: "Brand Identity Design",
+        icon: Palette,
+        id: "branding",
+        description: "Creating a cohesive visual language that represents your brand values.",
+        features: ["Logo Suites", "Color Palettes", "Typography Sets"]
+      },
+      {
+        title: "Branding & Graphic Design",
+        icon: PenTool,
+        id: "branding",
+        description: "Comprehensive branding solutions including all marketing collateral.",
+        features: ["Marketing Assets", "Social Media Graphics", "Print Design"]
+      },
+      {
+        title: "Logo Design",
+        icon: Sparkles,
+        id: "branding",
+        description: "Memorable and unique logos that stand out in crowded markets.",
+        features: ["Vector Formats", "Brand Consistency", "Iconic Marks"]
+      },
+      {
+        title: "Poster & Marketing Creatives",
+        icon: Layout,
+        id: "posters-prints",
+        description: "Eye-catching poster designs for events and marketing campaigns.",
+        features: ["High-Res Files", "Print Ready", "Event Branding"]
+      },
+      {
+        title: "Packaging Design",
+        icon: Package,
+        id: "branding",
+        description: "Exceptional packaging designs that enhance the product experience.",
+        features: ["Box Templates", "Label Design", "Print Management"]
+      }
     ]
   },
   {
     category: "Social Media & Content",
     icon: Megaphone,
     items: [
-      { title: "Social Media Design", icon: Palette, id: "social-media" },
-      { title: "Social Media Handling", icon: Megaphone, id: "social-media" }
+      {
+        title: "Social Media Design",
+        icon: Palette,
+        id: "social-media",
+        description: "Engaging visual content for all social media platforms.",
+        features: ["Content Calendar", "Story Templates", "Reel Graphics"]
+      },
+      {
+        title: "Social Media Handling",
+        icon: Megaphone,
+        id: "social-media",
+        description: "Strategic management of your brand's social media presence.",
+        features: ["Copywriting", "Audience Growth", "Analytics Reports"]
+      }
     ]
   },
   {
     category: "SEO & Performance",
     icon: TrendingUp,
     items: [
-      { title: "SEO Optimization", icon: Search, id: "web-development" },
-      { title: "Performance Optimization", icon: Zap, id: "web-development" }
+      {
+        title: "SEO Optimization",
+        icon: Search,
+        id: "web-development",
+        description: "Data-driven SEO strategies to improve search engine rankings.",
+        features: ["Keyword Research", "On-Page SEO", "Technical Audit"]
+      },
+      {
+        title: "Performance Optimization",
+        icon: Zap,
+        id: "web-development",
+        description: "Speed up your website for better user experience and conversion.",
+        features: ["Core Web Vitals", "Lighthouse Audit", "Code Minification"]
+      }
     ]
   },
   {
     category: "Maintenance & Support",
     icon: Settings,
     items: [
-      { title: "Website Maintenance & Support", icon: Settings, id: "web-development" }
+      {
+        title: "Website Maintenance & Support",
+        icon: Settings,
+        id: "web-development",
+        description: "Ongoing technical support to keep your website running smoothly.",
+        features: ["Security Updates", "Bug Fixes", "Content Updates"]
+      }
     ]
   }
 ];
@@ -322,10 +484,30 @@ const Services = () => {
                             </div>
 
                             <div className="space-y-4">
-                              <p className="text-gray-400 text-xs leading-relaxed line-clamp-4">
+                              <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
                                 {service.description}
                               </p>
+                              <ul className="space-y-1.5">
+                                {service.features?.map((feature, idx) => (
+                                  <li key={idx} className="flex items-center gap-2 text-[10px] text-gray-300">
+                                    <div className="w-1 h-1 rounded-full bg-brand-500" />
+                                    {feature}
+                                  </li>
+                                ))}
+                                {!service.features && (
+                                  <li className="flex items-center gap-2 text-[10px] text-gray-300">
+                                    <div className="w-1 h-1 rounded-full bg-brand-500" />
+                                    Custom Solutions
+                                  </li>
+                                )}
+                              </ul>
 
+                              <Link
+                                to="/contact"
+                                className="inline-flex items-center gap-2 text-brand-500 text-[10px] font-bold hover:gap-3 transition-all mt-2 group/btn"
+                              >
+                                GET STARTED <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
+                              </Link>
                             </div>
                           </div>
                         </div>
