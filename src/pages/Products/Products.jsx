@@ -1,11 +1,32 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import HomeContact from "../../components/HomeContact";
+import LaunchingSoonModal from "../../components/LaunchingSoonModal";
 
 const Products = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState({ name: null, image: null });
+
+  const openProductModal = (productName, productImage) => {
+    setSelectedProduct({ name: productName, image: productImage });
+    setShowPopup(true);
+  };
+
+  const closeProductModal = () => {
+    setShowPopup(false);
+    setSelectedProduct({ name: null, image: null });
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <LaunchingSoonModal
+        isOpen={showPopup}
+        onClose={closeProductModal}
+        productName={selectedProduct.name}
+        productImage={selectedProduct.image}
+      />
       {/* Section 1: Hero Section - Full Viewport Height */}
       <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative z-10">
@@ -44,13 +65,42 @@ const Products = () => {
           </motion.div>
         </div>
 
+        <button
+          onClick={() => {
+            const nextSection = document.getElementById('products-grid');
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group cursor-pointer z-20"
+          aria-label="Scroll to next section"
+        >
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <div className="w-10 h-10 rounded-full border-2 border-brand-500 flex items-center justify-center hover:bg-brand-500 transition-all duration-300">
+              <svg
+                className="w-5 h-5 text-brand-500 group-hover:text-white transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+
         {/* Decorative Background Elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/10 rounded-full blur-[160px] pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-500/5 blur-[100px] rounded-full pointer-events-none" />
       </section>
 
       {/* Our Products - Premium UI Section (Mirrored from Home) */}
-      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-0 w-full">
+      <section id="products-grid" className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-0 w-full">
         <div className="max-w-7xl mx-auto">
           <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-white/10 flex flex-col gap-10 sm:gap-14 lg:gap-16 card-glow">
             {/* Athlixir Product Section */}
@@ -63,11 +113,14 @@ const Products = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
                   </div>
 
-                  <Link to="/products/athlixir" className="relative inline-block mb-4 group">
+                  <button
+                    onClick={() => openProductModal("Athlixir", "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop")}
+                    className="relative inline-block mb-4 group text-left w-full"
+                  >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       Athlixir
                     </h3>
-                  </Link>
+                  </button>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     Athlixir is an AI-powered athlete ecosystem built to protect potential, prevent setbacks, and prove talent—uniting performance tracking, injury intelligence, and verified recognition to ensure no athlete is ever overlooked.
@@ -105,11 +158,14 @@ const Products = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
                   </div>
 
-                  <Link to="/products/youth-platform" className="relative inline-block mb-4 group">
+                  <button
+                    onClick={() => openProductModal("Youth Entrepreneurship Platform", "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop")}
+                    className="relative inline-block mb-4 group text-left w-full"
+                  >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       Youth Entrepreneurship Platform
                     </h3>
-                  </Link>
+                  </button>
 
                   <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
                     An interactive ecosystem built to empower the next generation of founders — connecting mentorship, startup resources, and real-world business tools to turn ideas into impactful ventures.
@@ -147,11 +203,14 @@ const Products = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Productivity, Global</span>
                   </div>
 
-                  <Link to="/products/webbrain" className="relative inline-block mb-4 group">
+                  <button
+                    onClick={() => openProductModal("WebBrain", "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop")}
+                    className="relative inline-block mb-4 group text-left w-full"
+                  >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       WebBrain — Your Second Brain
                     </h3>
-                  </Link>
+                  </button>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     A living memory layer for your browser that understands what you explore, remembers what matters, and brings it back when you need it. WebBrain turns scattered browsing into structured knowledge.

@@ -8,6 +8,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     historyApiFallback: true,
+    watch: {
+      ignored: ['**/.firebase/**', '**/dist/**']
+    }
   },
   base: '/',
   publicDir: 'public',
@@ -18,7 +21,7 @@ export default defineConfig({
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: false, // Keep logs for debugging
         drop_debugger: true,
       },
     },

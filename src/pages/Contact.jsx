@@ -11,6 +11,9 @@ const servicesList = [
   { name: "Branding", color: "border-yellow-400", image: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757825592/Branding_Service_Contact_y7thya.png" },
 ];
 
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 export default function Contact() {
   const [selectedServices, setSelectedServices] = useState([]);
   const [message, setMessage] = useState("");
@@ -23,6 +26,7 @@ export default function Contact() {
   const [deadline, setDeadline] = useState("");
   const [submissionStatus, setSubmissionStatus] = useState(null);
   const [isSecret, setIsSecret] = useState(window.isSecretEnabled || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
+  const location = useLocation();
 
   useEffect(() => {
     const handleSecretChange = (e) => {
@@ -62,11 +66,7 @@ export default function Contact() {
     e.preventDefault();
     setFormSubmitted(true);
 
-    if (scrollContainer) {
-      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (
       !name.trim() ||
@@ -86,10 +86,16 @@ export default function Contact() {
       services: selectedServices.join(", "),
       projectType,
       deadline,
-      message
+      message,
+      submittedAt: serverTimestamp(),
+      source: "Contact Page"
     };
 
     try {
+      // Store in Firebase
+      await addDoc(collection(db, "inquiries"), formData);
+
+      // Send to Mail
       const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
         method: "POST",
         headers: {

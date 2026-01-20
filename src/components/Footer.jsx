@@ -29,19 +29,19 @@ const Footer = () => {
       { name: "Privacy Policy", to: "/privacy" },
     ],
     services: [
-      { name: "Web Design", to: "/services" },
-      { name: "Branding", to: "/services" },
-      { name: "UX/UI Design", to: "/services" },
-      { name: "Motion Design", to: "/services" },
-      { name: "SEO Optimization", to: "/services" },
-      { name: "Content Creation", to: "/services" },
-      { name: "Landing Pages", to: "/services" },
-      { name: "Webflow Development", to: "/services" },
+      { name: "Web Design", to: "/services/website-design" },
+      { name: "Branding", to: "/services/branding" },
+      { name: "UX/UI Design", to: "/services/ux-ui-design" },
+      { name: "Motion Design", to: "/services/motion-design" },
+      { name: "App Design", to: "/services/app-design" },
+      { name: "Web Development", to: "/services/web-development" },
+      { name: "Social Media", to: "/services/social-media" },
+      { name: "Posters & Prints", to: "/services/posters-prints" },
     ],
     products: [
-      { name: "Athlixir", to: "/products" },
-      { name: "Youth Platform", to: "/products" },
-      { name: "WebBrain", to: "/products" },
+      { name: "Athlixir", to: "/products/athlixir" },
+      { name: "Youth Platform", to: "/products/youth-platform" },
+      { name: "WebBrain", to: "/products/webbrain" },
     ]
   };
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, CheckCircle2, AlertCircle, Upload, Link as LinkIcon } from "lucide-react";
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { X, Send, CheckCircle2, AlertCircle, Link as LinkIcon } from "lucide-react";
 
 const JobApplicationModal = ({ role, isOpen, onClose }) => {
     const [name, setName] = useState("");
@@ -29,10 +31,15 @@ const JobApplicationModal = ({ role, isOpen, onClose }) => {
             type: role.type,
             portfolio,
             resume_link: resume,
-            note
+            note,
+            submittedAt: serverTimestamp()
         };
 
         try {
+            // Save to Firebase Firestore
+            await addDoc(collection(db, "applications"), formData);
+
+            // Send via FormSubmit
             const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
                 method: "POST",
                 headers: {
@@ -47,11 +54,19 @@ const JobApplicationModal = ({ role, isOpen, onClose }) => {
                 setTimeout(() => {
                     onClose();
                     setSubmissionStatus(null);
+                    // Reset form
+                    setName("");
+                    setEmail("");
+                    setPhone("");
+                    setPortfolio("");
+                    setResume("");
+                    setNote("");
                 }, 3000);
             } else {
                 setSubmissionStatus("error");
             }
         } catch (error) {
+            console.error("Error submitting application:", error);
             setSubmissionStatus("error");
         } finally {
             setIsSubmitting(false);

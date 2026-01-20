@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Job postings - public read, admin write
+    match /jobs/{jobId} {
+      allow read: if true;
+      allow write: if true; // Protect with Auth later
+    }
+    
+    // Career page settings
+    match /settings/careers {
+      allow read: if true;
+      allow write: if true;
+    }
+    
+    // Contact form inquiries - public create
+    match /inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, delete: if true; 
+    }
+    
+    // Job applications - public create
+    match /applications/{appId} {
+      allow create: if true;
+      allow read, delete: if true;
+    }
+  }
+}

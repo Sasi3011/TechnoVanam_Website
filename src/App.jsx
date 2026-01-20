@@ -50,8 +50,8 @@ const App = () => {
 
   // Maintenance check: allow if authorized or if currently on certain public/admin paths
   const bypassMaintenance =
-    location.pathname === "/preview" ||
     location.pathname === "/connect" ||
+    location.pathname === "/careers" ||
     location.pathname === "/admin/careers";
 
   if (!isAuthorized && !bypassMaintenance) {

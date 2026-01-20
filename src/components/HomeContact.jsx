@@ -10,6 +10,9 @@ const servicesList = [
     { name: "Others", color: "text-brand-500", icon: MoreHorizontal },
 ];
 
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 const HomeContact = () => {
     const [selectedServices, setSelectedServices] = useState([]);
     const [message, setMessage] = useState("");
@@ -81,10 +84,15 @@ const HomeContact = () => {
             services: selectedServices.map(s => s === "Others" ? `Others: ${otherServiceText}` : s).join(", "),
             projectType,
             deadline,
-            message
+            message,
+            submittedAt: serverTimestamp()
         };
 
         try {
+            // Save to Firebase Firestore
+            await addDoc(collection(db, "inquiries"), formData);
+
+            // Send via FormSubmit
             const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
                 method: "POST",
                 headers: {

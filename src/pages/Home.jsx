@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Testimonials from "../components/Testimonials";
 import HomeContact from "../components/HomeContact";
+import LaunchingSoonModal from "../components/LaunchingSoonModal";
 
 const servicesList = [
   { title: "UI/UX Design", icon: PanelsTopLeft },
@@ -182,8 +183,18 @@ const projects = [
 const Home = () => {
   const serviceScrollRef = useRef(null);
   const cardRefs = useRef([]);
-  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState({ name: null, image: null });
+
+  const openProductModal = (productName, productImage) => {
+    setSelectedProduct({ name: productName, image: productImage });
+    setShowPopup(true);
+  };
+
+  const closeProductModal = () => {
+    setShowPopup(false);
+    setSelectedProduct({ name: null, image: null });
+  };
 
   const scrollHorizontally = (ref, direction) => {
     if (ref.current) {
@@ -247,6 +258,12 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full max-w-full overflow-hidden bg-black text-white">
+      <LaunchingSoonModal
+        isOpen={showPopup}
+        onClose={closeProductModal}
+        productName={selectedProduct.name}
+        productImage={selectedProduct.image}
+      />
       {/* Inline styles with responsive adjustments */}
       <style>
         {`
@@ -784,11 +801,14 @@ const Home = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Sports Tech, India</span>
                   </div>
 
-                  <Link to="/products/athlixir" className="relative inline-block mb-4 group">
+                  <button
+                    onClick={() => openProductModal("Athlixir", "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop")}
+                    className="relative inline-block mb-4 group text-left w-full"
+                  >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       Athlixir
                     </h3>
-                  </Link>
+                  </button>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     Athlixir is an AI-powered athlete ecosystem built to protect potential, prevent setbacks, and prove talent—uniting performance tracking, injury intelligence, and verified recognition to ensure no athlete is ever overlooked.
@@ -826,11 +846,14 @@ const Home = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
                   </div>
 
-                  <Link to="/products/youth-platform" className="relative inline-block mb-4 group">
+                  <button
+                    onClick={() => openProductModal("Youth Entrepreneurship Platform", "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop")}
+                    className="relative inline-block mb-4 group text-left w-full"
+                  >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       Youth Entrepreneurship Platform
                     </h3>
-                  </Link>
+                  </button>
 
                   <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
                     An interactive ecosystem built to empower the next generation of founders — connecting mentorship, startup resources, and real-world business tools to turn ideas into impactful ventures.
@@ -868,11 +891,14 @@ const Home = () => {
                     <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Productivity, Global</span>
                   </div>
 
-                  <Link to="/products/webbrain" className="relative inline-block mb-4 group">
+                  <button
+                    onClick={() => openProductModal("WebBrain", "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop")}
+                    className="relative inline-block mb-4 group text-left w-full"
+                  >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
                       WebBrain — Your Second Brain
                     </h3>
-                  </Link>
+                  </button>
 
                   <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
                     A living memory layer for your browser that understands what you explore, remembers what matters, and brings it back when you need it. WebBrain turns scattered browsing into structured knowledge.

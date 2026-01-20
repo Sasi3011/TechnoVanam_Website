@@ -15,6 +15,9 @@ import {
 import HomeContact from "../components/HomeContact";
 import JobApplicationModal from "../components/JobApplicationModal";
 
+import { db } from "../firebase";
+import { collection, onSnapshot, doc } from "firebase/firestore";
+
 const DEFAULT_ROLES = [
     {
         id: 1,
@@ -37,30 +40,33 @@ const Careers = () => {
     const [roles, setRoles] = useState([]);
     const [isNoOpenings, setIsNoOpenings] = useState(false);
 
-    const loadData = () => {
-        const savedJobs = localStorage.getItem('technovanam_jobs');
-        const savedNoOpenings = localStorage.getItem('technovanam_no_openings');
-
-        if (savedJobs) {
-            setRoles(JSON.parse(savedJobs));
-        } else {
-            setRoles(DEFAULT_ROLES);
-        }
-
-        if (savedNoOpenings) {
-            setIsNoOpenings(JSON.parse(savedNoOpenings));
-        }
-    };
-
     useEffect(() => {
-        loadData();
+        // Real-time listener for jobs
+        const unsubscribeJobs = onSnapshot(collection(db, 'jobs'), (snapshot) => {
+            const jobsList = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            console.log("Fetched jobs:", jobsList);
+            setRoles(jobsList);
+        });
 
-        // Listen for updates from the admin page
-        window.addEventListener('jobsUpdated', loadData);
-        return () => window.removeEventListener('jobsUpdated', loadData);
+        // Real-time listener for settings
+        const unsubscribeSettings = onSnapshot(doc(db, 'settings', 'careers'), (doc) => {
+            if (doc.exists()) {
+                setIsNoOpenings(doc.data().isNoOpenings);
+            } else {
+                setIsNoOpenings(false);
+            }
+        });
+
+        return () => {
+            unsubscribeJobs();
+            unsubscribeSettings();
+        };
     }, []);
 
-    const categories = ["All", "Design", "Development", "Intern"];
+    const categories = ["All", "Design", "Development", "Intern", "Marketing"];
 
     const filteredRoles = isNoOpenings ? [] : roles.filter(role => {
         const matchesCategory = activeCategory === "All" || role.category === activeCategory;
@@ -211,7 +217,7 @@ const Careers = () => {
                                                 {role.description}
                                             </p>
                                             <div className="flex flex-wrap gap-2">
-                                                {role.perks.map(perk => (
+                                                {(role.perks || []).map(perk => (
                                                     <span key={perk} className="text-xs text-gray-500 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                                                         • {perk}
                                                     </span>
