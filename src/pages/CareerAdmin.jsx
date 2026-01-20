@@ -211,7 +211,7 @@ const CareerAdmin = () => {
 
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen bg-black flex items-center justify-center px-6">
+            <div className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-16">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-[100px]" />
                     <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-[100px]" />
@@ -266,7 +266,7 @@ const CareerAdmin = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-6">
+        <div className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-4 sm:px-6 lg:px-16">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
