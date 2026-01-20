@@ -128,14 +128,14 @@ const HomeContact = () => {
     };
 
     return (
-        <section id="contact" className="py-8 sm:py-10 px-4 sm:px-6 md:px-8 lg:px-12 bg-black overflow-hidden border-t border-white/5">
+        <section id="contact" className="min-h-screen flex flex-col justify-center py-8 sm:py-10 px-4 sm:px-6 lg:px-16 bg-black overflow-hidden border-t border-white/5">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-white/10 overflow-hidden card-glow"
+                    className="relative bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 md:p-16 border border-brand-500/30 overflow-hidden card-glow"
                 >
 
                     <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
