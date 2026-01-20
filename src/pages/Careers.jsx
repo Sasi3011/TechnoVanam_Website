@@ -10,7 +10,8 @@ import {
     Search,
     CheckCircle2,
     Sparkles,
-    Users
+    Users,
+    Filter
 } from "lucide-react";
 import HomeContact from "../components/HomeContact";
 import JobApplicationModal from "../components/JobApplicationModal";
@@ -39,6 +40,7 @@ const Careers = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [roles, setRoles] = useState([]);
     const [isNoOpenings, setIsNoOpenings] = useState(false);
+    const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
     useEffect(() => {
         // Real-time listener for jobs
@@ -47,7 +49,6 @@ const Careers = () => {
                 id: doc.id,
                 ...doc.data()
             }));
-            console.log("Fetched jobs:", jobsList);
             setRoles(jobsList);
         });
 
@@ -79,39 +80,56 @@ const Careers = () => {
         setIsModalOpen(true);
     };
 
+    const scrollToNextSection = () => {
+        const nextSection = document.getElementById('culture-section');
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
-        <div className="min-h-screen bg-black text-white pt-24">
+        <div className="min-h-screen bg-black text-white">
             {/* Hero Section */}
-            <section className="relative px-6 py-20 lg:py-32 overflow-hidden">
-                <div className="max-w-7xl mx-auto text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-500/10 text-brand-500 text-sm font-bold rounded-full mb-6 tracking-wide border border-brand-500/20">
-                            <Sparkles size={16} />
-                            JOIN OUR MISSION
-                        </span>
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
-                            Grow Your Career at <br />
-                            <span className="text-brand-500">Techno Vanam</span>
-                        </h1>
-                        <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                            We're a team of designers, developers, and creators on a mission to build the digital future. Join us and make an impact.
-                        </p>
-                    </motion.div>
+            <section className="relative px-4 sm:px-6 lg:px-16 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
+                <div className="text-center max-w-7xl mx-auto">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 tracking-tight text-white text-center">
+                        Grow Your Career at <span className="text-brand-500">Techno Vanam</span>
+                    </h1>
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                        We're a team of designers, developers, and creators on a mission to build the digital future. Join us and make an impact.
+                    </p>
                 </div>
 
-                {/* Decorative Background Elements */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none" />
+                <button
+                    onClick={scrollToNextSection}
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group cursor-pointer"
+                    aria-label="Scroll to next section"
+                >
+                    <div className="flex flex-col items-center gap-2 animate-bounce">
+                        <div className="w-10 h-10 rounded-full border-2 border-brand-500 flex items-center justify-center hover:bg-brand-500 transition-all duration-300">
+                            <svg
+                                className="w-5 h-5 text-brand-500 group-hover:text-white transition-colors"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
             </section>
 
             {/* Culture Section */}
-            <section className="px-6 py-20 bg-transparent">
+            <section id="culture-section" className="px-4 sm:px-6 lg:px-16 py-16 md:py-20 lg:py-24 bg-transparent flex flex-col justify-center">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div className="bg-[#0a0a0a] p-10 rounded-[2.5rem] border border-white/10 card-glow">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                        <div className="bg-[#0a0a0a] p-6 sm:p-10 rounded-[2.5rem] border border-brand-500/30 card-glow">
                             <div className="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mb-6">
                                 <CheckCircle2 size={28} />
                             </div>
@@ -120,7 +138,7 @@ const Careers = () => {
                                 We push the boundaries of what's possible, encouraging our team to experiment with new ideas and technologies.
                             </p>
                         </div>
-                        <div className="bg-[#0a0a0a] p-10 rounded-[2.5rem] border border-white/10 card-glow">
+                        <div className="bg-[#0a0a0a] p-6 sm:p-10 rounded-[2.5rem] border border-brand-500/30 card-glow">
                             <div className="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mb-6">
                                 <Users size={28} />
                             </div>
@@ -129,7 +147,7 @@ const Careers = () => {
                                 We believe the best work happens when different perspectives come together in a supportive environment.
                             </p>
                         </div>
-                        <div className="bg-[#0a0a0a] p-10 rounded-[2.5rem] border border-white/10 card-glow">
+                        <div className="bg-[#0a0a0a] p-6 sm:p-10 rounded-[2.5rem] border border-brand-500/30 card-glow">
                             <div className="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mb-6">
                                 <ArrowRight size={28} />
                             </div>
@@ -143,9 +161,9 @@ const Careers = () => {
             </section>
 
             {/* Openings Section */}
-            <section className="px-6 py-20 lg:py-32 w-full" id="open-roles">
+            <section className="px-4 sm:px-6 lg:px-16 py-16 md:py-20 lg:py-24 w-full" id="open-roles">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-8 md:mb-16">
                         <div>
                             <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
                                 Open <span className="text-brand-500">Positions</span>
@@ -155,7 +173,7 @@ const Careers = () => {
 
                         {/* Filter & Search */}
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <div className="relative">
+                            <div className="relative w-full sm:w-auto">
                                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                                 <input
                                     type="text"
@@ -165,7 +183,9 @@ const Careers = () => {
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                 />
                             </div>
-                            <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+
+                            {/* Desktop Filters */}
+                            <div className="hidden xl:flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
                                 {categories.map(cat => (
                                     <button
                                         key={cat}
@@ -178,6 +198,54 @@ const Careers = () => {
                                         {cat}
                                     </button>
                                 ))}
+                            </div>
+
+                            {/* Mobile Filter Button */}
+                            <div className="xl:hidden relative">
+                                <button
+                                    onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+                                    className="w-full flex items-center justify-between px-6 py-3 bg-white/5 border border-white/10 rounded-full text-gray-300 font-bold"
+                                >
+                                    <span className="flex items-center gap-2">
+                                        <Filter size={18} />
+                                        {activeCategory === "All" ? "Filter by Category" : activeCategory}
+                                    </span>
+                                    <div className={`transition-transform duration-300 ${isMobileFilterOpen ? "rotate-180" : ""}`}>
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <AnimatePresence>
+                                    {isMobileFilterOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 10 }}
+                                            className="absolute top-full left-0 right-0 mt-2 bg-[#111] border border-white/10 rounded-2xl p-2 z-50 shadow-xl overflow-hidden"
+                                        >
+                                            <div className="flex flex-col gap-1">
+                                                {categories.map(cat => (
+                                                    <button
+                                                        key={cat}
+                                                        onClick={() => {
+                                                            setActiveCategory(cat);
+                                                            setIsMobileFilterOpen(false);
+                                                        }}
+                                                        className={`px-4 py-3 rounded-xl text-sm font-bold text-left transition-colors flex items-center justify-between ${activeCategory === cat
+                                                            ? "bg-brand-500/10 text-brand-500"
+                                                            : "text-gray-400 hover:bg-white/5 hover:text-white"
+                                                            }`}
+                                                    >
+                                                        {cat}
+                                                        {activeCategory === cat && <CheckCircle2 size={16} />}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         </div>
                     </div>
@@ -192,7 +260,7 @@ const Careers = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     transition={{ duration: 0.3 }}
-                                    className="bg-[#0a0a0a] rounded-[2.5rem] p-8 sm:p-10 border border-white/10 hover:border-brand-500/40 transition-colors group card-glow card-glow-hover"
+                                    className="bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-brand-500/20 hover:border-brand-500/40 transition-colors group card-glow card-glow-hover"
                                 >
                                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                                         <div className="flex-1">
@@ -225,10 +293,10 @@ const Careers = () => {
                                             </div>
                                         </div>
 
-                                        <div>
+                                        <div className="w-full lg:w-auto">
                                             <button
                                                 onClick={() => handleApplyClick(role)}
-                                                className="btn-primary flex items-center justify-center px-10"
+                                                className="btn-primary w-full sm:w-auto flex items-center justify-center px-10"
                                             >
                                                 <span className="relative z-10 flex items-center gap-2">
                                                     Apply Now <ArrowRight size={18} />
@@ -265,9 +333,9 @@ const Careers = () => {
             </section>
 
             {/* Intern Section CTA */}
-            <section className="px-6 py-20 bg-transparent">
+            <section className="px-4 sm:px-6 lg:px-16 py-16 md:py-20 lg:py-24 bg-transparent">
                 <div className="max-w-7xl mx-auto">
-                    <div className="bg-[#0a0a0a] rounded-[3rem] p-10 sm:p-20 border border-white/10 relative overflow-hidden card-glow">
+                    <div className="bg-[#0a0a0a] rounded-[3rem] p-6 sm:p-10 md:p-16 lg:p-20 border border-brand-500/30 relative overflow-hidden card-glow">
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div>
                                 <span className="inline-block px-4 py-1.5 bg-brand-500/10 text-brand-500 text-sm font-bold rounded-full mb-6 tracking-wide border border-brand-500/20">
@@ -315,17 +383,19 @@ const Careers = () => {
                         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-500/10 blur-[100px] rounded-full" />
                     </div>
                 </div>
-            </section>
+            </section >
 
             <HomeContact />
 
-            {selectedRole && (
-                <JobApplicationModal
-                    isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                    role={selectedRole}
-                />
-            )}
+            {
+                selectedRole && (
+                    <JobApplicationModal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        role={selectedRole}
+                    />
+                )
+            }
         </div>
     );
 };
