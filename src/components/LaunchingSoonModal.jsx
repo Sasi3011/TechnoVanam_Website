@@ -71,9 +71,13 @@ const LaunchingSoonModal = ({ isOpen, onClose, productName, productImage }) => {
                             We're crafting an extraordinary experience. Join the waitlist to be the first to know when we launch.
                         </p>
 
-                        <Link
-                            to="/contact"
-                            onClick={onClose}
+                        <button
+                            onClick={() => {
+                                onClose();
+                                setTimeout(() => {
+                                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                                }, 100);
+                            }}
                             className="btn-primary w-fit !rounded-md"
                         >
                             <span className="relative z-10 flex items-center gap-2">
@@ -81,7 +85,7 @@ const LaunchingSoonModal = ({ isOpen, onClose, productName, productImage }) => {
                                 Get Early Access
                             </span>
                             <div className="btn-primary-shine"></div>
-                        </Link>
+                        </button>
                     </div>
                 </motion.div>
             </div>
