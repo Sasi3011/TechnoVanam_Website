@@ -5,19 +5,22 @@ import SplashScreen from "./components/SplashScreen";
 import Home from "./pages/Home";
 import About from "./pages/AboutUs";
 import Services from "./pages/Services";
-import Contact from "./pages/Contact";
+
 import Products from "./pages/Products/Products";
 import Portfolio from "./pages/Portfolio";
 import Maintenance from "./pages/Maintenance";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Careers from "./pages/Careers";
-import ServiceDetail from "./pages/ServiceDetail";
 import ProductDetail from "./pages/Products/ProductDetail";
 
 import MainLayout from "./layout/MainLayout";
 
 import Connect from "./pages/Connect";
 import CareerAdmin from "./pages/CareerAdmin";
+
+// Error pages
+import NotFound from "./pages/NotFound";
+import ServerError from "./pages/ServerError";
 
 const App = () => {
   const [offline, setOffline] = useState(!navigator.onLine);
@@ -64,8 +67,7 @@ const App = () => {
       <Route path="/preview" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
-      <Route path="/services/:serviceId" element={<ServiceDetail />} />
-      <Route path="/contact" element={<Contact />} />
+
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:productId" element={<ProductDetail />} />
@@ -73,7 +75,8 @@ const App = () => {
       <Route path="/careers" element={<Careers />} />
       <Route path="/admin/careers" element={<CareerAdmin />} />
       <Route path="/connect" element={<Connect />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="/error" element={<ServerError />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 
