@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile, Plus, Minus, Linkedin } from 'lucide-react';
+import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile, Plus, Minus, Linkedin, Github } from 'lucide-react';
 import { useState } from "react";
 import HomeContact from "../components/HomeContact";
 
@@ -12,6 +12,8 @@ const teamMembers = [
     instagram: "https://www.instagram.com/sasi_._06/",
     linkedin: "https://www.linkedin.com/in/sasikiran-3031s/",
     whatsapp: "https://wa.me/918610500527",
+    quote: "Designing the future, one pixel at a time. Impact over everything.",
+    github: "https://github.com"
   },
   {
     name: "Sanjana B",
@@ -20,26 +22,32 @@ const teamMembers = [
     instagram: "http://instagram.com/sanjudarla07/",
     linkedin: "https://www.linkedin.com/in/sanjana-0831s/",
     whatsapp: "https://wa.me/916382993891",
+    quote: "Building robust architectures that stay ahead of the curve.",
+    github: "https://github.com"
   },
   {
     name: "Vasanth R",
-    role: "Lead Software Developer",
+    role: "Technical Advisor",
     company: "Lesoko Technologies Private Limited",
     location: "Chennai",
     experience: "5+ Yrs Exp",
     isAdvisor: true,
     img: "/advisor_vasanth_r_portrait_1768755459275.png",
     linkedin: "https://www.linkedin.com/in/vasanth-rv",
+    quote: "Expert guidance in scaling engineering teams and architectures.",
+    github: "https://github.com"
   },
   {
     name: "Sankar T",
-    role: "Lead Data Engineer",
+    role: "Business Advisor",
     company: "Landmark Groups",
     location: "Dubai",
     experience: "11+ Yrs Exp",
     isAdvisor: true,
-    img: "/sankar_t_portrait_1768755912216.png",
+    img: "/Sankar T - Advisor.jpeg",
     linkedin: "https://www.linkedin.com/in/sankarthulasimani/",
+    quote: "Leveraging data to drive strategic growth and innovation.",
+    github: "https://github.com"
   }
 ];
 
@@ -210,60 +218,61 @@ export default function About() {
           </p>
         </div>
 
-        {/* Team Grid - 2x2 Horizontal Cards */}
-        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+        {/* Team Grid - Portrait Cards */}
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="group flex flex-row items-center gap-6 sm:gap-8">
-                {/* Left: Photo - Square */}
-                <div className="rounded-[24px] overflow-hidden relative bg-[#0a0a0a] border-[6px] sm:border-[8px] border-white shadow-2xl aspect-square w-32 h-32 sm:w-44 sm:h-44 shrink-0">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Hover Overlay for Advisors Alone */}
-                  {member.isAdvisor && (
-                    <div className="absolute inset-0 bg-black/90 flex flex-col justify-center p-4 sm:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-md">
-                      <h4 className="text-brand-500 text-sm sm:text-base font-bold mb-1 leading-tight">
+              <div key={index} className="group relative">
+                {/* Main Card Container */}
+                <div className="relative w-full rounded-tl-[40px] rounded-br-[40px] bg-[#0a0a0a] overflow-hidden transition-all duration-500 shadow-2xl">
+                  {/* Default State Content */}
+                  <div className="flex flex-col h-full">
+                    {/* Image Area */}
+                    <div className="relative w-full aspect-[4/5] overflow-hidden rounded-tl-[40px] rounded-br-[40px]">
+                      <img
+                        src={member.img}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+
+                    {/* Static Info Area (Lower Part) */}
+                    <div className="p-4 py-10 flex flex-col items-center text-center">
+                      <div className="px-2 py-1">
+                        <span className="text-brand-500 text-[22px] font-black uppercase whitespace-nowrap">
+                          {member.name}
+                        </span>
+                      </div>
+                      <p className="text-white text-[16px] uppercase tracking-wide">
                         {member.role}
-                      </h4>
-                      <p className="text-gray-300 text-[10px] sm:text-xs font-medium mb-1">
-                        @{member.company}
-                      </p>
-                      <p className="text-brand-500 text-[10px] sm:text-xs uppercase tracking-wider italic font-bold">
-                        {member.location}
                       </p>
                     </div>
-                  )}
-                </div>
-
-                {/* Right: Info Section */}
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-brand-500 tracking-tight leading-none">
-                      {member.name}
-                    </h3>
-                    {/* Static LinkedIn Icon */}
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 hover:text-black transition-all duration-300 shadow-sm shrink-0"
-                    >
-                      <Linkedin size={16} />
-                    </a>
                   </div>
 
-                  <p className="text-white text-xs sm:text-sm font-bold font-mono uppercase tracking-widest mb-3">
-                    {member.isAdvisor ? "Company Advisor" : member.role}
-                  </p>
+                  {/* Hover Overlay: Lime Green Box covering EVERYTHING */}
+                  {/* Starts from top (-translate-y-full) and slides down (translate-y-0) */}
+                  <div className="absolute inset-0 bg-[#71d300] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col p-10 transform -translate-y-full group-hover:translate-y-0 rounded-tl-[40px] rounded-br-[40px] ">
+                    {/* Social Icons */}
+                    <div className="flex gap-3 mb-10">
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:scale-110 transition-transform shadow-md">
+                        <Linkedin size={20} fill="white" />
+                      </a>
+                    </div>
 
-                  {/* Static Experience/Tag */}
-                  <div>
-                    <p className="text-brand-500 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase italic">
-                      {member.experience || "Strategist"}
+                    {/* Personal Quote (Visible for all) */}
+                    <p className="text-black text-lg font-medium leading-[1.4] italic mb-6">
+                      "{member.quote}"
                     </p>
+
+                    {/* Bottom pill-style name in hover */}
+                    <div className="mt-auto">
+                      <div className="inline-block px-5 py-1.5 rounded-full border-2 border-black text-black text-sm font-bold mb-3">
+                        "{member.name.split(' ')[0]}"
+                      </div>
+                      <p className="text-black/80 text-[10px] font-bold uppercase tracking-[0.2em]">
+                        {member.role}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

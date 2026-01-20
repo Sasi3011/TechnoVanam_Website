@@ -502,12 +502,7 @@ const Services = () => {
                                 )}
                               </ul>
 
-                              <Link
-                                to="/contact"
-                                className="inline-flex items-center gap-2 text-brand-500 text-[10px] font-bold hover:gap-3 transition-all mt-2 group/btn"
-                              >
-                                GET STARTED <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
-                              </Link>
+
                             </div>
                           </div>
                         </div>
@@ -634,9 +629,9 @@ const Services = () => {
           <div className="flex flex-col gap-12 mb-20 px-8 sm:px-12 md:px-16 lg:px-0">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-brand-500"></div>
-              <span className="text-sm font-semibold text-white uppercase tracking-wider">FAQ</span>
+              <span className="text-xl font-semibold text-brand-500 uppercase tracking-wider">FAQ</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-tight">
               Frequently<br />Asked Questions
             </h2>
           </div>
