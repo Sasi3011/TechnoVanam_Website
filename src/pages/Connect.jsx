@@ -77,7 +77,7 @@ const Connect = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-start px-6 pt-10 pb-20 font-sans selection:bg-brand-500/30 overflow-x-hidden scrollbar-hide">
+        <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-16 pt-10 pb-20 font-sans selection:bg-brand-500/30 overflow-x-hidden scrollbar-hide">
 
             {/* Dynamic Background Noise & Grid */}
             <div className="fixed inset-0 pointer-events-none z-0">
