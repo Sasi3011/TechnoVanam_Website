@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import HomeContact from "../components/HomeContact";
 import JobApplicationModal from "../components/JobApplicationModal";
+import SEO from "../components/SEO";
 
 import { db } from "../firebase";
 import { collection, onSnapshot, doc } from "firebase/firestore";
@@ -89,6 +90,11 @@ const Careers = () => {
 
     return (
         <div className="min-h-screen bg-black text-white">
+            <SEO
+                title="Careers | Join the Collective"
+                description="Think you've got what it takes? Join a team of passionate creators, designers, and developers building the future of digital brands."
+                keywords="Techno Vanam Careers, Techno, Vanam, TechnoVanam, Remote Job Openings, UI UX Designer Jobs, Web Developer Vacancies, Internship Opportunities, Design Jobs India, Creative Studio Jobs"
+            />
             {/* Hero Section */}
             <section className="relative px-4 sm:px-6 lg:px-16 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
                 <div className="text-center max-w-7xl mx-auto">
@@ -190,10 +196,10 @@ const Careers = () => {
                                     <button
                                         key={cat}
                                         onClick={() => setActiveCategory(cat)}
-                                        className={`px-6 py-3 rounded-full text-sm font-bold transition-all whitespace-nowrap ${activeCategory === cat
+                                        className={`px - 6 py - 3 rounded - full text - sm font - bold transition - all whitespace - nowrap ${activeCategory === cat
                                             ? "bg-brand-500 text-black shadow-lg shadow-brand-500/20"
                                             : "bg-white/5 border border-white/10 text-gray-400 hover:border-brand-500/50"
-                                            }`}
+                                            } `}
                                     >
                                         {cat}
                                     </button>
@@ -210,7 +216,7 @@ const Careers = () => {
                                         <Filter size={18} />
                                         {activeCategory === "All" ? "Filter by Category" : activeCategory}
                                     </span>
-                                    <div className={`transition-transform duration-300 ${isMobileFilterOpen ? "rotate-180" : ""}`}>
+                                    <div className={`transition - transform duration - 300 ${isMobileFilterOpen ? "rotate-180" : ""} `}>
                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
@@ -233,10 +239,10 @@ const Careers = () => {
                                                             setActiveCategory(cat);
                                                             setIsMobileFilterOpen(false);
                                                         }}
-                                                        className={`px-4 py-3 rounded-xl text-sm font-bold text-left transition-colors flex items-center justify-between ${activeCategory === cat
+                                                        className={`px - 4 py - 3 rounded - xl text - sm font - bold text - left transition - colors flex items - center justify - between ${activeCategory === cat
                                                             ? "bg-brand-500/10 text-brand-500"
                                                             : "text-gray-400 hover:bg-white/5 hover:text-white"
-                                                            }`}
+                                                            } `}
                                                     >
                                                         {cat}
                                                         {activeCategory === cat && <CheckCircle2 size={16} />}
@@ -265,8 +271,8 @@ const Careers = () => {
                                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                                         <div className="flex-1">
                                             <div className="flex flex-wrap items-center gap-3 mb-4">
-                                                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${role.type === "Internship" ? "bg-purple-500/10 text-purple-400 border border-purple-500/20" : "bg-brand-500/10 text-brand-500 border border-brand-500/20"
-                                                    }`}>
+                                                <span className={`px - 3 py - 1 rounded - full text - [10px] font - bold uppercase tracking - wider ${role.type === "Internship" ? "bg-purple-500/10 text-purple-400 border border-purple-500/20" : "bg-brand-500/10 text-brand-500 border border-brand-500/20"
+                                                    } `}>
                                                     {role.type}
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-gray-500 text-xs font-medium">

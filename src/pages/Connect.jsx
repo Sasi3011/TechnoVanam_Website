@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Instagram, MessageCircle, Phone, ArrowUpRight, Linkedin, ChevronRight, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "../components/SEO";
 
 const WhatsAppIcon = ({ size = 24, className = "" }) => (
     <svg
@@ -78,6 +79,11 @@ const Connect = () => {
 
     return (
         <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-16 pt-10 pb-20 font-sans selection:bg-brand-500/30 overflow-x-hidden scrollbar-hide">
+            <SEO
+                title="Connect With Us | Techno Vanam"
+                description="Get in touch with Techno Vanam. Whether you're starting a project, seeking a consultation, or just want to say hi, we're here to talk."
+                keywords="Contact Techno Vanam, Techno, Vanam, TechnoVanam, Studio Inquiries, Project Consultation, Digital Strategy Dubai, Techno Vanam WhatsApp, Get in Touch"
+            />
 
             {/* Dynamic Background Noise & Grid */}
             <div className="fixed inset-0 pointer-events-none z-0">
