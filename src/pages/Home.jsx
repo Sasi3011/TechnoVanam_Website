@@ -9,6 +9,7 @@ import {
 import Testimonials from "../components/Testimonials";
 import HomeContact from "../components/HomeContact";
 import LaunchingSoonModal from "../components/LaunchingSoonModal";
+import SEO from "../components/SEO";
 
 const servicesList = [
   { title: "UI/UX Design", icon: PanelsTopLeft },
@@ -268,8 +269,23 @@ const Home = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleRequestQuote = (e) => {
+    e.preventDefault();
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/", { state: { scrollTo: "contact" } });
+    }
+  };
+
   return (
     <div className="min-h-screen w-full max-w-full overflow-hidden bg-black text-white">
+      <SEO
+        title="Premium Digital Design & Development Studio"
+        description="Techno Vanam is a world-class digital studio crafting premium UI/UX, Scalable Web Apps, and Branding for global startups and visionaries."
+        keywords="Techno Vanam, Techno, Vanam, TechnoVanam, Athlixir, WebBrain, Youth Platform, Youth Entrepreneurship Platform, Digital Studio India, Premium Web Development, UI/UX Design Agency, Startup Product Design, Branding Agency, Creative Studio Chennai, Design Agency Dubai, UI Design, UX Design, User Experience Design, User Interface Design, Web Design Services, Mobile App Design, App Development India, Website Development, Frontend Development, Backend Development, Full Stack Development, React Development, Next.js Development, Node.js Development, Product Design Services, SaaS Design, Startup Design Agency, Brand Identity Design, Logo Design Services, Visual Identity, Corporate Branding, Graphic Design, Marketing Design, Social Media Design, SEO Optimization Services, Performance Optimization, Website Redesign, Landing Page Design, Portfolio Website Design, E-commerce Design, Dashboard Design, Admin Panel Design, Design System Development, Component Library, Wireframing Services, Prototyping, Figma Design, Adobe XD, Sketch Design, Design Thinking, Creative Direction, Art Direction, Sports Technology, AI Sports Platform, Athlete Management System, Performance Analytics, Browser Extension Development, Productivity Tools, Knowledge Management, EdTech Platform, Mentorship Platform, Startup Resources, Business Tools, Digital Products, Tech Solutions, Innovation Studio, Creative Agency India, Design Studio Chennai, Web Development Agency Dubai, Global Design Studio, Remote Design Team, Freelance Designers, UI/UX Experts, Web Developers India, App Developers Chennai, Branding Experts, Digital Marketing Agency, Growth Strategy, Conversion Optimization, Mobile First Design, Responsive Web Design, Accessible Design, Modern Web Design, Premium Websites, Luxury Branding, Startup Branding Services, Tech Branding, SaaS Branding, B2B Design, B2C Design, Enterprise Design, SME Solutions, Scalable Design, Agile Development, Design Sprint, MVP Development, Product Launch, Digital Transformation, Innovation Consulting, Technology Partners, Design Partners, Best Design Studio India, Top Web Development Company, Award Winning Design Agency"
+      />
       <LaunchingSoonModal
         isOpen={showPopup}
         onClose={closeProductModal}
@@ -407,15 +423,16 @@ const Home = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-xl text-white leading-relaxed mb-10 mx-auto text-center lg:whitespace-nowrap">
               We deliver UI/UX, Branding, and Digital Development that transforms ambitious visions into reality
             </p>
-            <Link
-              to="/contact"
-              className="btn-primary flex items-center justify-center mx-auto w-fit"
+            <a
+              href="/contact"
+              onClick={handleRequestQuote}
+              className="btn-primary flex items-center justify-center mx-auto w-fit cursor-pointer"
             >
               <span className="relative z-10">
                 Request a quote <span className="text-2xl ml-1">👋</span>
               </span>
               <div className="btn-primary-shine"></div>
-            </Link>
+            </a>
           </div>
         </div>
         {/* Horizontal Scrolling Text */}
@@ -757,6 +774,7 @@ const Home = () => {
                     alt={project.alt}
                     className="rounded-2xl sm:rounded-3xl lg:rounded-3xl border border-gray-200 shadow-md"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -844,6 +862,7 @@ const Home = () => {
                   alt="Athlixir Platform Interface"
                   className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
