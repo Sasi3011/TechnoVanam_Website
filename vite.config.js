@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'Logo.png', 'robots.txt'],
+      includeAssets: ['Icon@4x-8.ico', 'robots.txt'],
       manifest: {
         name: 'Techno Vanam | Premium Digital Studio',
         short_name: 'Techno Vanam',
@@ -21,19 +21,19 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: 'Logo.png',
+            src: 'Icon@4x-8.ico',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/x-icon'
           },
           {
-            src: 'Logo.png',
+            src: 'Icon@4x-8.ico',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/x-icon'
           },
           {
-            src: 'Logo.png',
+            src: 'Icon@4x-8.ico',
             sizes: '512x512',
-            type: 'image/png',
+            type: 'image/x-icon',
             purpose: 'any maskable'
           }
         ]
@@ -41,6 +41,9 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3 MB
+        cleanupOutdatedCaches: true,
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
