@@ -304,7 +304,7 @@ const faqData = {
 
 const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   return (
-    <div className="border-t border-white/10">
+    <div className="border-t border-brand-500/30">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-8 text-left group"
@@ -391,7 +391,7 @@ const Services = () => {
       <section id="next-section" className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           {/* Container with white background and rounded corners */}
-          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-white/10 shadow-sm card-glow">
+          <div className="bg-[#0a0a0a] rounded-[40px] p-8 sm:p-10 md:p-12 lg:p-16 border border-brand-500/30 shadow-sm card-glow">
 
             {/* Header Section - Parallel Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
@@ -455,7 +455,7 @@ const Services = () => {
                       <div key={index} className="group aspect-square h-auto perspective-1000">
                         <div className="flip-card-inner rounded-[2rem]">
                           {/* Card Front */}
-                          <div className="flip-card-front bg-[#0a0a0a] border border-white/10 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/5 card-glow card-glow-hover">
+                          <div className="flip-card-front bg-[#0a0a0a] border border-brand-500/30 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/5 card-glow card-glow-hover">
                             <div className="flex justify-between items-start">
                               <div className="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 group-hover:scale-110 transition-transform">
                                 <service.icon size={28} />
@@ -473,7 +473,7 @@ const Services = () => {
                           </div>
 
                           {/* Card Back */}
-                          <div className="flip-card-back bg-[#0a0a0a] p-6 flex flex-col justify-between text-left border border-white/10 card-glow overflow-hidden">
+                          <div className="flip-card-back bg-[#0a0a0a] p-6 flex flex-col justify-between text-left border border-brand-500/30 card-glow overflow-hidden">
                             <div className="flex flex-col gap-3">
                               <div className="w-10 h-10 bg-brand-500/10 rounded-xl flex items-center justify-center text-brand-500">
                                 <service.icon size={20} />
@@ -520,7 +520,7 @@ const Services = () => {
       {/* Expertise Section */}
       {/* Expertise Section - Who We Are Style */}
       <section className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-brand-500/30 shadow-sm card-glow">
           {/* Left Column - Logo Card */}
           <div className="w-full lg:w-1/3 flex flex-col">
             {/* Top Label */}
@@ -576,12 +576,12 @@ const Services = () => {
       {/* Numbers Section */}
       {/* Numbers Section - Refined Style */}
       <section className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-brand-500/30 shadow-sm card-glow">
           {/* Left Column - Content */}
           <div className="w-full lg:w-1/3 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-[#71d300]"></div>
-              <span className="text-xl sm:text-2xl font-semibold text-[#71d300] tracking-wide">What makes us different?</span>
+              <div className="w-2 h-2 rounded-full bg-brand-500"></div>
+              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">What makes us different?</span>
             </div>
 
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-6 leading-tight">
@@ -656,7 +656,7 @@ const Services = () => {
                   onToggle={() => toggleFaq(`right-${index}`)}
                 />
               ))}
-              <div className="hidden lg:block border-t border-white/10"></div>
+              <div className="hidden lg:block border-t border-brand-500/30"></div>
             </div>
           </div>
         </div>

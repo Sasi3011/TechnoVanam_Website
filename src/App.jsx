@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import SplashScreen from "./components/SplashScreen";
 
 import Home from "./pages/Home";
 import About from "./pages/AboutUs";
@@ -23,33 +22,18 @@ import NotFound from "./pages/NotFound";
 import ServerError from "./pages/ServerError";
 
 const App = () => {
-  const [offline, setOffline] = useState(!navigator.onLine);
   const [isAuthorized, setIsAuthorized] = useState(
     sessionStorage.getItem("preview_authorized") === "true"
   );
   const location = useLocation();
 
   useEffect(() => {
-    const handleOnline = () => setOffline(false);
-    const handleOffline = () => setOffline(true);
-
-    window.addEventListener("online", handleOnline);
-    window.addEventListener("offline", handleOffline);
-
     // Maintenance Bypass Logic
     if (location.pathname === "/preview") {
       sessionStorage.setItem("preview_authorized", "true");
       setIsAuthorized(true);
     }
-
-    return () => {
-      window.removeEventListener("online", handleOnline);
-      window.removeEventListener("offline", handleOffline);
-    };
   }, [location.pathname]);
-
-  // Offline check takes priority
-  if (offline) return <SplashScreen />;
 
   // Maintenance check: allow if authorized or if currently on certain public/admin paths
   const bypassMaintenance =

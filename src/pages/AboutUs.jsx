@@ -19,7 +19,7 @@ const teamMembers = [
   {
     name: "Sanjana B",
     role: "Co-founder & CTO",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757826375/Sanju_kqcvvo.png",
+    img: "public/Sanjana B - Co-Founder.jpeg",
     instagram: "http://instagram.com/sanjudarla07/",
     linkedin: "https://www.linkedin.com/in/sanjana-0831s/",
     whatsapp: "https://wa.me/916382993891",
@@ -89,27 +89,27 @@ const approachSteps = [
   {
     number: "01",
     title: "Deep Dive",
-    description: "In-depth exploration of business and the product."
+    description: "Understanding goals, users, and project requirements."
   },
   {
     number: "02",
     title: "Pre-Production",
-    description: "Identification of the core problems, pain points, and art direction."
+    description: "Research, planning, and defining the creative direction."
   },
   {
     number: "03",
     title: "Design Proposition",
-    description: "Presenting concept solutions."
+    description: "Presenting initial concepts and design direction."
   },
   {
     number: "04",
     title: "Design Development",
-    description: "Further development of the concept to final product."
+    description: "Refining designs into detailed, production-ready outputs."
   },
   {
     number: "05",
-    title: "Delivery and Testing",
-    description: "Design finalization, testing, delivery and handover."
+    title: "Delivery & Testing",
+    description: "Design finalization, testing, delivery, and smooth handover."
   }
 ];
 
@@ -118,14 +118,14 @@ const ApproachSection = () => {
 
   return (
     <div
-      className="w-full border border-white/20 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col md:flex-row relative min-h-[550px]"
+      className="w-full border border-brand-500/20 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col md:flex-row relative min-h-[450px]"
       onMouseLeave={() => setActiveStep(null)}
     >
       {approachSteps.slice(0, 5).map((step, idx) => (
         <div
           key={idx}
           onMouseEnter={() => setActiveStep(idx)}
-          className="flex-1 py-12 md:py-24 px-6 flex flex-col items-center text-center group transition-all duration-500 relative cursor-default"
+          className="flex-1 py-10 md:py-16 px-6 flex flex-col items-center text-center group transition-all duration-500 relative cursor-default"
         >
           <div className="hidden md:block absolute right-0 top-16 bottom-16 w-[1px] bg-white/20" />
           {idx === 0 && (
@@ -134,17 +134,17 @@ const ApproachSection = () => {
           {idx !== 4 && (
             <div className="md:hidden absolute bottom-0 left-8 right-8 h-[1px] bg-white/20" />
           )}
-          <span className={`text-xs font-medium tracking-[0.2em] uppercase transition-all duration-500 ease-out ${activeStep === idx ? 'mb-20 text-brand-500' : 'mb-16 text-gray-500'}`}>
+          <span className={`text-xs font-medium tracking-[0.2em] uppercase transition-all duration-500 ease-out ${activeStep === idx ? 'mb-12 text-brand-500' : 'mb-10 text-gray-500'}`}>
             Step {step.number}
           </span>
-          <h3 className={`text-xl font-medium mb-8 h-12 flex items-center justify-center transition-colors duration-300 ${activeStep === idx ? 'text-white' : 'text-gray-400'}`}>
+          <h3 className={`text-xl font-medium mb-6 h-12 flex items-center justify-center transition-colors duration-300 ${activeStep === idx ? 'text-white' : 'text-gray-400'}`}>
             {step.title}
           </h3>
           <div
-            className={`w-full py-2.5 rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden ${activeStep === idx ? 'bg-brand-500' : 'bg-white/5'
+            className={`w-full py-2.5 rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden ${activeStep === idx ? 'bg-brand-500 shadow-[0_0_20px_rgba(113,211,0,0.3)]' : 'bg-brand-500/10'
               }`}
           >
-            <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-300 ${activeStep === idx ? 'bg-black text-brand-500' : 'bg-white/20 text-white'
+            <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-300 ${activeStep === idx ? 'bg-black text-brand-500' : 'bg-brand-500/20 text-brand-500'
               }`}>
               {activeStep === idx ? <Minus size={14} /> : <Plus size={14} />}
             </div>
@@ -209,19 +209,23 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section id="next-section" className="min-h-screen flex flex-col justify-center py-16 px-4 sm:px-6 lg:px-16">
-        <div className="max-w-4xl mx-auto text-center mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Meet the Collective
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            A specialized group of designers and developers united by a single goal: creating digital experiences that leave a lasting impact.
-          </p>
-        </div>
+      <section id="next-section" className="min-h-screen flex flex-col justify-center py-16 px-4 sm:px-6 lg:px-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
+          {/* Section Header */}
+          <div className="flex flex-col md:grid md:grid-cols-[250px_1fr] lg:grid-cols-[350px_1fr] gap-8 mb-20 lg:mb-32 items-start">
+            <div className="flex items-center gap-3 mt-2">
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
+              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Meet the Collective</span>
+            </div>
+            <div className="md:justify-self-end text-left max-w-xl">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
+                A specialized group of designers and developers united by a single goal.
+              </h2>
+            </div>
+          </div>
 
-        {/* Team Grid - Portrait Cards */}
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Team Grid - Portrait Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-16">
             {teamMembers.map((member, index) => (
               <div key={index} className="group relative">
                 {/* Main Card Container */}
@@ -283,84 +287,101 @@ export default function About() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="bg-transparent min-h-screen flex items-center px-4 sm:px-6 lg:px-16 py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row-reverse items-center justify-between gap-10 lg:gap-20 border border-white/10 shadow-sm card-glow">
-          <div className="w-full lg:w-1/3 flex flex-col justify-center">
-            <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow">
-              <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 border border-gray-50">
+      <section className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-brand-500/30 shadow-sm card-glow">
+          {/* Left Column: Logo & Label */}
+          <div className="w-full lg:w-1/3 flex flex-col">
+            {/* Top Label */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-2.5 h-2.5 rounded-full bg-brand-500 shadow-[0_0_8px_rgba(113,211,0,0.4)]"></div>
+              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Who we are</span>
+            </div>
+
+            {/* Logo Card */}
+            <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow w-full max-w-md mx-auto lg:mt-auto">
+              {/* White Inner Card with Logo */}
+              <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 border border-gray-50/10 hover:shadow-md">
                 <img
                   src="/Logo.png"
                   alt="Techno Vanam Logo"
-                  className="w-24 sm:w-32 h-auto object-contain"
+                  className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
                 />
+
+                {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
+
+              {/* Bottom Label */}
               <div className="flex items-center justify-between px-2 pb-1">
                 <span className="font-bold text-brand-950 text-xs sm:text-sm tracking-tight uppercase">Designing Digital Future</span>
               </div>
             </div>
           </div>
 
+          {/* Right Column: Text Content */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-brand-500 mb-6 leading-tight">
-              We are a design-first creative studio
+              A design-led digital studio crafting purposeful experiences
             </h2>
             <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-6">
-              At Techno Vanam, we believe in the power of purposeful design to solve real business challenges. Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
+              Every line, color, and interaction is crafted with intent, creating experiences that connect and drive impact. Our mission is to turn ideas into strategic, visual solutions that resonate deeply and support our clients' goals.
             </p>
-            <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
+            <p className="text-gray-400 text-base sm:text-lg lg:text-xl leading-relaxed mb-10">
               For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
             </p>
+
+            <Link
+              to="/contact"
+              className="btn-primary w-fit group"
+            >
+              <span className="relative z-10 font-bold flex items-center gap-3">
+                Work with us
+                <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="btn-primary-shine"></div>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* What Drives Us */}
       <section className="w-full bg-transparent py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
           {/* Section Header */}
-          <div className="flex flex-col gap-8 mb-16">
-            <div className="flex items-center gap-3">
-              <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
-              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">
-                What Drives Us</span>
+          <div className="flex flex-col md:grid md:grid-cols-[250px_1fr] lg:grid-cols-[350px_1fr] gap-8 mb-20 lg:mb-32 items-start">
+            <div className="flex items-center gap-3 mt-2">
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
+              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">What Drives Us</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] leading-tight max-w-4xl">
-              Crafting design that speaks, products that scale.
-            </h2>
+            <div className="md:justify-self-end text-left max-w-xl">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
+                Crafting design that speaks. Building products that scale.
+              </h2>
+            </div>
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
             {/* Left Card: Story of Techno Vanam */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] overflow-hidden flex flex-col h-full card-glow"
+              className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] overflow-hidden flex flex-col h-full card-glow"
             >
-              {/* Decorative Watermark */}
-              <div className="absolute -top-10 -right-10 text-[120px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-brand-500/[0.04] transition-colors duration-700">
-                2025
-              </div>
-
               {/* Image / Logo Section - Re-imagined */}
               <div className="relative h-72 sm:h-80 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-50" />
 
-                {/* Logo with interesting frame */}
-                <div className="absolute inset-0 flex items-center justify-center p-12">
-                  <div className="relative group/logo">
-                    {/* Animated rings */}
-                    <div className="absolute -inset-8 bg-brand-500/20 rounded-full blur-2xl opacity-0 group-hover/logo:opacity-100 transition-opacity duration-700" />
-                    <div className="relative w-32 h-32 sm:w-40 sm:h-40 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center p-8 shadow-2xl transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:border-brand-500/30">
-                      <img
-                        src="/Logo.png"
-                        alt="Techno Vanam Logo"
-                        className="w-full h-auto object-contain transition-transform duration-700 group-hover/logo:rotate-[360deg]"
-                      />
-                    </div>
+                {/* Logo Section */}
+                <div className="absolute inset-0 flex items-center justify-center p-12 pt-32">
+                  <div className="relative w-36 h-36 sm:w-44 sm:h-44 flex items-center justify-center">
+                    <img
+                      src="/Logo.png"
+                      alt="Techno Vanam Logo"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
                 </div>
 
@@ -392,20 +413,31 @@ export default function About() {
 
                   <div className="pl-6 border-l-2 border-brand-500/30 space-y-4">
                     <p className="text-base text-gray-400 leading-relaxed">
-                      In 2025, <span className="text-white font-semibold">Techno Vanam</span> was founded with a singular conviction: that digital products should be as beautiful as they are functional.
+                      Founded in 2025, <span className="text-white font-semibold">Techno Vanam</span> was built on a singular belief — digital products should be as beautiful as they are functional.
                     </p>
                     <p className="text-base text-gray-400 leading-relaxed italic opacity-80">
-                      "We don't just build products; we craft legacies for brands in the digital wilderness."
+                      "We don’t just build products; we craft lasting legacies for brands in the digital landscape."
                     </p>
                   </div>
 
-                  {/* Highlight Tags */}
-                  <div className="flex flex-wrap gap-2 pt-6">
-                    {["Design-Led", "Impact-Focused", "Future-Ready"].map((tag, i) => (
-                      <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold text-gray-400 uppercase tracking-widest group-hover:border-brand-500/30 group-hover:text-white transition-all">
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Our Principles */}
+                  <div className="pt-8 mt-4">
+                    <h5 className="text-xs font-bold text-white uppercase tracking-[0.2em] mb-4">Our Principles</h5>
+                    <div className="space-y-4">
+                      {[
+                        { title: "Design-Led", desc: "Purposeful design at the core of everything we build" },
+                        { title: "Impact-Focused", desc: "Solutions that create meaningful, measurable results" },
+                        { title: "Future-Ready", desc: "Products designed to adapt, scale, and evolve" }
+                      ].map((item, i) => (
+                        <div key={i} className="flex gap-3 group/principle">
+                          <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
+                          <p className="text-sm leading-relaxed">
+                            <span className="text-white font-bold">{item.title} — </span>
+                            <span className="text-gray-400 group-hover/principle:text-gray-300 transition-colors">{item.desc}</span>
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -419,7 +451,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
+                className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
               >
                 {/* Background Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 blur-[100px] -mr-32 -mt-32 transition-colors group-hover:bg-brand-500/10" />
@@ -437,13 +469,13 @@ export default function About() {
                   </h3>
 
                   <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
-                    We combine <span className="text-white font-medium">technical precision</span> with creative intuition to build digital products that scale and resonate.
+                    We combine <span className="text-white font-medium">technical precision</span> with creative intuition to craft digital products that scale, perform, and resonate with users.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
-                      { title: "Design-First", desc: "User-centric approach", icon: Heart },
-                      { title: "Scale-Ready", desc: "Built for growth", icon: TrendingUp }
+                      { title: "Design-First", desc: "A human-centered, experience-driven approach", icon: Heart },
+                      { title: "Scale-Ready", desc: "Built for growth and long-term success", icon: TrendingUp }
                     ].map((item, i) => (
                       <div key={i} className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-500/30 transition-all duration-300 group/item">
                         <item.icon className="w-5 h-5 text-brand-500 mb-3 group-hover/item:scale-110 transition-transform" />
@@ -461,7 +493,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
+                className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
               >
                 {/* Background Glow */}
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-500/5 blur-[100px] -ml-32 -mb-32 transition-colors group-hover:bg-brand-500/10" />
@@ -495,9 +527,15 @@ export default function About() {
 
                 <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between relative z-10">
                   <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Est. 2025</span>
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="w-6 h-6 rounded-full bg-brand-500/20 border border-brand-500/30 backdrop-blur-sm" />
+                  <div className="flex -space-x-3">
+                    {teamMembers.map((member, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0a0a0a] overflow-hidden transition-all duration-300 ring-1 ring-brand-500/30">
+                        <img
+                          src={member.img}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -509,13 +547,13 @@ export default function About() {
 
       {/* Our Approach Section */}
       <section className="bg-black min-h-screen flex flex-col justify-center py-16 sm:py-24 lg:py-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-8 mb-20 lg:mb-32">
-            <div className="flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
+          <div className="flex flex-col md:grid md:grid-cols-[250px_1fr] lg:grid-cols-[350px_1fr] gap-8 mb-20 lg:mb-32 items-start">
+            <div className="flex items-center gap-3 mt-2">
               <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
               <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Our Approach</span>
             </div>
-            <div className="lg:col-span-8 lg:col-start-6">
+            <div className="md:justify-self-end text-left max-w-xl">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
                 First step to solving a problem is recognizing there is one.
               </h2>
@@ -526,80 +564,106 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 min-h-screen flex flex-col justify-center py-16 sm:py-24">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            The Values That Drive Us
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-            In 2025, Techno Vanam was born from a simple idea—why just design for others when we can design for impact? We build with purpose, create with clarity, and craft experiences that matter.
-          </p>
-        </div>
+      <section className="bg-transparent min-h-screen flex flex-col justify-center py-16 px-4 sm:px-6 lg:px-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
+          {/* Section Header */}
+          <div className="flex flex-col md:grid md:grid-cols-[250px_1fr] lg:grid-cols-[350px_1fr] gap-8 mb-20 lg:mb-32 items-start">
+            <div className="flex items-center gap-3 mt-2">
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
+              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Our Values</span>
+            </div>
+            <div className="md:justify-self-end text-left max-w-xl">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
+                Design for impact. Build with purpose. Create with clarity.
+              </h2>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {values.map((value, idx) => (
-            <div
-              key={idx}
-              className="bg-[#0a0a0a] border border-white/20 rounded-2xl p-6 sm:p-8 hover:border-[#71d300] transition-all duration-300 card-glow group"
-            >
-              <div className="w-14 h-14 bg-[#71d300]/10 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
-                {(() => {
-                  const IconComponent = value.icon;
-                  return <IconComponent className="w-7 h-7 text-[#71d300]" />;
-                })()}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {values.map((value, idx) => (
+              <div
+                key={idx}
+                className="p-8 rounded-[2rem] border border-brand-500/20 bg-white/[0.02] hover:border-brand-500/50 transition-all duration-500 group"
+              >
+                <div className="mb-6">
+                  {(() => {
+                    const IconComponent = value.icon;
+                    return <IconComponent className="w-7 h-7 text-brand-500 opacity-80 group-hover:opacity-100 transition-opacity" />;
+                  })()}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brand-500 transition-colors">
+                  {value.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                  {value.description}
+                </p>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#71d300] mb-3">
-                {value.title}
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Careers Section */}
+      <section className="bg-transparent py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
+          {/* Section Header */}
+          <div className="flex flex-col md:grid md:grid-cols-[250px_1fr] lg:grid-cols-[350px_1fr] gap-8 mb-12 lg:mb-16 items-start">
+            <div className="flex items-center gap-3 mt-2">
+              <span className="w-2.5 h-2.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(113,211,0,0.4)]" />
+              <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">Careers</span>
+            </div>
+            <div className="md:justify-self-end text-left max-w-xl">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
+                We are explorers. We constantly seek ways to make an impact towards solving problems through creativity.
+              </h2>
+            </div>
+          </div>
+
+          {/* Careers Card */}
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-brand-500/30 card-glow">
+            {/* Left Column: Content */}
+            <div className="w-full lg:w-2/3 flex flex-col justify-center">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                Join Our Team
               </h3>
-              <p className="text-gray-400 leading-relaxed group-hover:text-white/90 transition-colors">
-                {value.description}
+              <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl">
+                We're always looking for talented individuals who share our passion for digital excellence and purposeful design.
               </p>
+              <Link
+                to="/careers"
+                className="btn-primary w-fit group"
+              >
+                <span className="relative z-10 font-bold flex items-center gap-3">
+                  See Job Openings
+                  <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+                </span>
+                <div className="btn-primary-shine"></div>
+              </Link>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Join Our Team CTA */}
-      <section className="max-w-7xl mx-auto min-h-screen flex items-center py-16 lg:py-24 sm:pb-4 md:pb-8 lg:pb-12">
-        <div className="bg-[#0a0a0a] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 border border-white/20 items-center overflow-hidden card-glow w-full">
-          <div className="w-full flex flex-col items-start text-left order-2 lg:order-1">
-            <div className="flex items-center gap-2 mb-6 sm:mb-10">
-              <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
-              <span className="text-sm sm:text-base font-medium text-brand-500 tracking-wide">Careers</span>
-            </div>
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-500 mb-6 tracking-tight">
-              Join Our Team
-            </h3>
-            <p className="text-base sm:text-lg text-gray-400 mb-10 leading-relaxed max-w-sm">
-              We are explorers. We constantly seek ways to make an impact towards solving problems through creativity.
-            </p>
-            <Link
-              to="/careers"
-              className="bg-white text-black px-8 py-3.5 rounded-full font-bold flex items-center gap-3 transition-transform group shadow-xl"
-            >
-              <span>See Job Openings</span>
-              <div className="w-2 h-2 rounded-full bg-brand-500 group-hover:animate-pulse"></div>
-            </Link>
-          </div>
+            {/* Right Column: Visual Element */}
+            <div className="w-full lg:w-1/3 flex items-center justify-center">
+              <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow w-full max-w-md mx-auto">
+                {/* White Inner Card with Logo */}
+                <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 border border-gray-50/10 hover:shadow-md">
+                  <img
+                    src="/Logo.png"
+                    alt="Techno Vanam Logo"
+                    className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
 
-          <div className="w-full flex items-center justify-center order-1 lg:order-2">
-            <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow w-full max-w-md mx-auto transform transition-all">
-              <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 border border-gray-50/10">
-                <img
-                  src="/Logo.png"
-                  alt="Techno Vanam Logo"
-                  className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="flex items-center justify-between px-2 pb-1">
-                <span className="font-bold text-brand-950 text-xs sm:text-sm tracking-tight uppercase">Designing Digital Future</span>
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+
+                {/* Bottom Label */}
+                <div className="flex items-center justify-between px-2 pb-1">
+                  <span className="font-bold text-brand-950 text-xs sm:text-sm tracking-tight uppercase">Designing Digital Future</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       <HomeContact />
     </div>
   );

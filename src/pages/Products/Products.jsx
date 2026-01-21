@@ -89,7 +89,7 @@ const Products = () => {
       {/* Our Products - Premium UI Section (Mirrored from Home) */}
       <section id="products-grid" className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16 w-full">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-white/10 flex flex-col gap-10 sm:gap-14 lg:gap-16 card-glow">
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-brand-500/30 flex flex-col gap-10 sm:gap-14 lg:gap-16 card-glow">
             {/* Athlixir Product Section */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left Content Column */}
