@@ -6,13 +6,14 @@ import About from "./pages/AboutUs";
 import Services from "./pages/Services";
 
 import Products from "./pages/Products/Products";
-import Portfolio from "./pages/Portfolio";
 import Maintenance from "./pages/Maintenance";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 import Careers from "./pages/Careers";
 import ProductDetail from "./pages/Products/ProductDetail";
 
 import MainLayout from "./layout/MainLayout";
+import CookieConsent from "./components/CookieConsent";
 
 import Connect from "./pages/Connect";
 import CareerAdmin from "./pages/CareerAdmin";
@@ -52,10 +53,10 @@ const App = () => {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
 
-      <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:productId" element={<ProductDetail />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<Terms />} />
       <Route path="/careers" element={<Careers />} />
       <Route path="/admin/careers" element={<CareerAdmin />} />
       <Route path="/connect" element={<Connect />} />
@@ -74,6 +75,7 @@ const App = () => {
   return (
     <MainLayout>
       {routes}
+      <CookieConsent />
     </MainLayout>
   );
 };

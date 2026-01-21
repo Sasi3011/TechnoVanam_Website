@@ -23,10 +23,10 @@ const Footer = () => {
       { name: "Home", to: "/" },
       { name: "About Us", to: "/about" },
       { name: "Our Services", to: "/services" },
-      { name: "Portfolio", to: "/portfolio" },
       { name: "Contact Us", to: "/", state: { scrollTo: "contact" } },
       { name: "Careers", to: "/careers" },
       { name: "Privacy Policy", to: "/privacy" },
+      { name: "Terms & Conditions", to: "/terms" },
     ],
     services: [
       { name: "UI/UX Design", to: "/services" },
@@ -208,7 +208,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 group">
             <img
               src="/Logo.png"
-              alt="Techno Vanam Logo"
+              alt="Techno Vanam - Premium Digital Studio Logo"
               className="w-8 h-8 object-contain"
             />
             <span className="text-xl font-bold text-white">
@@ -220,7 +220,9 @@ const Footer = () => {
             <span className="text-gray-400 text-sm sm:text-base">© 2026 Techno Vanam. All rights reserved</span>
             <div className="flex items-center gap-3 sm:gap-4">
               <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
-              <Link to="/privacy" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Privacy Policy</Link>
+              <Link to="/privacy" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Privacy</Link>
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+              <Link to="/terms" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Terms</Link>
             </div>
           </div>
         </div>
