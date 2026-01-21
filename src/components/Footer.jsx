@@ -5,18 +5,77 @@ import {
   Linkedin,
   MessageCircle,
   ArrowRight,
-  ChevronUp
+  ChevronUp,
+  CheckCircle2,
+  AlertCircle
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const Footer = () => {
   const [showWhatsAppOptions, setShowWhatsAppOptions] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState(null);
+  const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
 
   const whatsappActions = [
     { name: "Join Channel", link: "https://whatsapp.com/channel/0029VbAX2bwEVccNeg6nuP2i" },
     { name: "Join Community", link: "https://chat.whatsapp.com/GlO1FxNioCoAo15EiGYLYZ" },
     { name: "Send Message", link: "https://wa.me/918610500527" }
   ];
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    const email = newsletterEmail.trim().toLowerCase();
+    
+    if (!email || !email.includes("@")) {
+      setNewsletterStatus("error");
+      setTimeout(() => setNewsletterStatus(null), 3000);
+      return;
+    }
+
+    setIsSubmittingNewsletter(true);
+    const formData = {
+      email,
+      source: "Newsletter Subscription",
+      subscribedAt: serverTimestamp()
+    };
+
+    try {
+      // Save to Firebase Firestore
+      await addDoc(collection(db, "newsletter"), formData);
+
+      // Send via FormSubmit
+      const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          subject: "Newsletter Subscription",
+          email,
+          message: `New newsletter subscription from: ${email}`
+        }),
+      });
+
+      if (response.ok) {
+        setNewsletterStatus("success");
+        setNewsletterEmail("");
+        setTimeout(() => setNewsletterStatus(null), 3000);
+      } else {
+        setNewsletterStatus("error");
+        setTimeout(() => setNewsletterStatus(null), 3000);
+      }
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+      setNewsletterStatus("error");
+      setTimeout(() => setNewsletterStatus(null), 3000);
+    } finally {
+      setIsSubmittingNewsletter(false);
+    }
+  };
 
   const footerLinks = {
     company: [
@@ -96,15 +155,48 @@ const Footer = () => {
             <div className="w-full max-w-2xl lg:max-w-md text-left">
               <h4 className="font-bold text-2xl sm:text-3xl mb-6">Subscribe to our news and updates</h4>
 
-              <div className="flex flex-col gap-4">
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-4">
+                <AnimatePresence mode="wait">
+                  {newsletterStatus === "success" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="bg-brand-500/10 text-brand-500 p-3 rounded-xl flex items-center gap-2 border border-brand-500/20 text-sm"
+                    >
+                      <CheckCircle2 size={16} />
+                      <p className="font-bold">Successfully subscribed!</p>
+                    </motion.div>
+                  )}
+                  {newsletterStatus === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="bg-red-500/10 text-red-500 p-3 rounded-xl flex items-center gap-2 border border-red-500/20 text-sm"
+                    >
+                      <AlertCircle size={16} />
+                      <p className="font-bold">Please enter a valid email address.</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
                 <div className="relative border-b-2 border-white/20 pb-2 group hover:border-brand-500 transition-colors duration-300">
                   <input
                     type="email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
                     placeholder="Your email here"
                     className="bg-transparent w-full outline-none text-lg sm:text-xl border-none focus:ring-0 placeholder:text-gray-600 text-white py-2 text-left"
+                    required
+                    disabled={isSubmittingNewsletter}
                   />
                   {/* Circular button for Desktop */}
-                  <button className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 group overflow-hidden w-10 h-10 rounded-full bg-brand-500 items-center justify-center text-black shadow-sm transition-all duration-300 hover:bg-brand-600 active:scale-90">
+                  <button 
+                    type="submit"
+                    disabled={isSubmittingNewsletter}
+                    className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 group overflow-hidden w-10 h-10 rounded-full bg-brand-500 items-center justify-center text-black shadow-sm transition-all duration-300 hover:bg-brand-600 active:scale-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
                     <span className="relative z-10">
                       <ArrowRight size={20} />
                     </span>
@@ -113,13 +205,17 @@ const Footer = () => {
                 </div>
 
                 {/* Block button for Mobile/Tablet - Matches the UI model */}
-                <button className="lg:hidden w-full py-4 bg-brand-500 text-black font-extrabold rounded-full relative group overflow-hidden active:scale-[0.98] transition-all">
+                <button 
+                  type="submit"
+                  disabled={isSubmittingNewsletter}
+                  className="lg:hidden w-full py-4 bg-brand-500 text-black font-extrabold rounded-full relative group overflow-hidden active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
-                    Submit <ArrowRight size={20} />
+                    {isSubmittingNewsletter ? "Subscribing..." : "Submit"} <ArrowRight size={20} />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                 </button>
-              </div>
+              </form>
 
               <p className="text-sm text-gray-400 leading-relaxed mt-6 mb-10 max-w-sm lg:max-w-none">
                 By signing up, you agree to our <Link to="/privacy" className="underline hover:text-brand-500">Privacy Policy</Link>. We respect your data. Unsubscribe anytime.

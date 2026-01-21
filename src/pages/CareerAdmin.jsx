@@ -135,7 +135,22 @@ const CareerAdmin = () => {
             await signInWithEmailAndPassword(auth, email, password);
         } catch (error) {
             console.error("Login error:", error);
-            alert('Invalid credentials');
+            let errorMessage = 'Invalid credentials';
+            
+            // Provide more specific error messages
+            if (error.code === 'auth/user-not-found') {
+                errorMessage = 'User not found. Please create the admin user in Firebase Console first.';
+            } else if (error.code === 'auth/wrong-password') {
+                errorMessage = 'Incorrect password. Please check your password.';
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessage = 'Invalid email address.';
+            } else if (error.code === 'auth/too-many-requests') {
+                errorMessage = 'Too many failed attempts. Please try again later.';
+            } else if (error.code === 'auth/network-request-failed') {
+                errorMessage = 'Network error. Please check your internet connection.';
+            }
+            
+            alert(errorMessage);
         }
     };
 
