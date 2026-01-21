@@ -26,7 +26,12 @@ import {
     MessageSquare,
     Globe
 } from 'lucide-react';
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
+import {
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from 'firebase/auth';
 import {
     collection,
     addDoc,
@@ -42,7 +47,9 @@ import {
 
 const CareerAdmin = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('jobs'); // 'jobs', 'applications', 'inquiries'
     const [isNoOpenings, setIsNoOpenings] = useState(false);
     const [jobs, setJobs] = useState([]);
@@ -59,6 +66,18 @@ const CareerAdmin = () => {
         perks: []
     });
     const [perkInput, setPerkInput] = useState('');
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsAuthenticated(true);
+            } else {
+                setIsAuthenticated(false);
+            }
+            setIsLoading(false);
+        });
+        return () => unsubscribe();
+    }, []);
 
     // Load jobs and settings from Firestore
     useEffect(() => {
@@ -110,12 +129,13 @@ const CareerAdmin = () => {
         };
     }, [isAuthenticated]);
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        if (password === 'admin123') {
-            setIsAuthenticated(true);
-        } else {
-            alert('Incorrect password');
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            console.error("Login error:", error);
+            alert('Invalid credentials');
         }
     };
 
@@ -209,6 +229,14 @@ const CareerAdmin = () => {
         setNewJob({ ...newJob, perks: updatedPerks });
     };
 
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-brand-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        );
+    }
+
     if (!isAuthenticated) {
         return (
             <div className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-16">
@@ -232,6 +260,17 @@ const CareerAdmin = () => {
 
                     <form onSubmit={handleLogin} className="space-y-6">
                         <div>
+                            <label className="block text-sm font-bold text-gray-400 mb-2 px-1">Email</label>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand-500 outline-none transition-all text-white"
+                                placeholder="official@technovanam.in"
+                                required
+                            />
+                        </div>
+                        <div>
                             <label className="block text-sm font-bold text-gray-400 mb-2 px-1">Password</label>
                             <input
                                 type="password"
@@ -239,6 +278,7 @@ const CareerAdmin = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand-500 outline-none transition-all text-white"
                                 placeholder="••••••••"
+                                required
                             />
                         </div>
                         <button
@@ -311,7 +351,7 @@ const CareerAdmin = () => {
                         )}
 
                         <button
-                            onClick={() => setIsAuthenticated(false)}
+                            onClick={() => signOut(auth)}
                             className="p-3 bg-white/5 rounded-full text-gray-400 hover:text-white transition-colors"
                         >
                             <LogOut size={20} />

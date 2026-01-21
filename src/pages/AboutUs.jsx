@@ -4,6 +4,7 @@ import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile, Plus, Minus, Linked
 import { useState } from "react";
 import { motion } from "framer-motion";
 import HomeContact from "../components/HomeContact";
+import SEO from "../components/SEO";
 
 const teamMembers = [
   {
@@ -175,6 +176,11 @@ export default function About() {
 
   return (
     <div className="bg-transparent">
+      <SEO
+        title="About Our Studio"
+        description="Learn about Techno Vanam, a design-first creative studio. We combine purpose, passion, and precision to build the future of digital interaction."
+        keywords="About Techno Vanam, Techno, Vanam, TechnoVanam, Creative Studio Team, Digital Design Vision, Sasikiran TT, Sanjana B, Design Agency India, Athlixir, WebBrain"
+      />
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-16 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
         <div className="text-center max-w-7xl mx-auto">
@@ -534,6 +540,8 @@ export default function About() {
                           src={member.img}
                           alt={member.name}
                           className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                     ))}
