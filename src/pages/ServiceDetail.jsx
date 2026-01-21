@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { servicesData } from "../data/servicesData";
 import HomeContact from "../components/HomeContact";
 import Testimonials from "../components/Testimonials";
+import SEO from "../components/SEO";
 
 const ServiceDetail = () => {
     const { serviceId } = useParams();
@@ -29,11 +30,15 @@ const ServiceDetail = () => {
 
     return (
         <div className="min-h-screen bg-black text-white pt-8">
+            <SEO
+                title={service.title}
+                description={service.fullDesc || `Learn more about our ${service.title} services at Techno Vanam.`}
+            />
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-                <div className="max-w-9xl w-full text-center px-4">
+                <div className="max-w-7xl w-full text-center px-4">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mx-auto">
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-6 leading-tight whitespace-nowrap text-brand-500">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-6 leading-tight text-brand-500">
                             {service.heroTitle || service.title}
                         </h1>
                         <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">

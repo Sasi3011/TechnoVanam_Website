@@ -62,29 +62,39 @@ const HomeContact = () => {
         }
     };
 
+    const sanitizeInput = (str) => {
+        return str.replace(/[<>]/g, '').trim();
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
 
+        const sanitizedName = sanitizeInput(name);
+        const sanitizedEmail = email.trim().toLowerCase();
+        const sanitizedMessage = sanitizeInput(message);
+        const sanitizedCompany = sanitizeInput(company);
+        const sanitizedWebsite = sanitizeInput(website);
+
         if (
-            !name.trim() ||
-            !email.trim() ||
+            !sanitizedName ||
+            !sanitizedEmail ||
             selectedServices.length === 0 ||
-            message.trim() === ""
+            !sanitizedMessage
         ) {
             setSubmissionStatus("error");
             return;
         }
 
         const formData = {
-            name,
-            email,
-            company,
-            website,
-            services: selectedServices.map(s => s === "Others" ? `Others: ${otherServiceText}` : s).join(", "),
+            name: sanitizedName,
+            email: sanitizedEmail,
+            company: sanitizedCompany,
+            website: sanitizedWebsite,
+            services: selectedServices.map(s => s === "Others" ? `Others: ${sanitizeInput(otherServiceText)}` : s).join(", "),
             projectType,
             deadline,
-            message,
+            message: sanitizedMessage,
             submittedAt: serverTimestamp()
         };
 

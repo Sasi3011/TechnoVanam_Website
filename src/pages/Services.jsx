@@ -4,6 +4,7 @@ import { ArrowDown, ArrowLeft, ArrowRight, Plus, Sparkles, Layout, Palette, Pane
 import { motion, AnimatePresence } from "framer-motion";
 import HomeContact from "../components/HomeContact";
 import Testimonials from "../components/Testimonials";
+import SEO from "../components/SEO";
 
 const serviceCategories = [
   {
@@ -312,7 +313,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         <span className="text-xl sm:text-2xl font-medium text-white pr-8 group-hover:text-brand-500 transition-colors">
           {question}
         </span>
-        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-brand-500 text-black rotate-45' : 'bg-white/5 text-white'}`}>
+        <div className={`w - 12 h - 12 rounded - full flex items - center justify - center transition - all duration - 300 ${isOpen ? 'bg-brand-500 text-black rotate-45' : 'bg-white/5 text-white'} `}>
           <Plus className="w-6 h-6" />
         </div>
       </button>
@@ -351,6 +352,11 @@ const Services = () => {
 
   return (
     <>
+      <SEO
+        title="Our Creative Services"
+        description="Explore our full spectrum of digital services: UI/UX, Web Dev, Branding, and Growth strategies tailored for the modern startup."
+        keywords="Techno Vanam Services, Techno, Vanam, TechnoVanam, Web Development Services, UI UX Design Agency, Startup Branding, App Development, SEO Services India, Creative Studio Chennai"
+      />
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-16 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
         <div className="text-center max-w-7xl mx-auto">
@@ -411,31 +417,31 @@ const Services = () => {
 
             {/* Service Animation Styles */}
             <style>{`
-              .perspective-1000 {
-                perspective: 1000px;
-              }
-              .flip-card-inner {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-                transform-style: preserve-3d;
-              }
-              .group:hover .flip-card-inner {
-                transform: rotateY(180deg);
-              }
-              .flip-card-front, .flip-card-back {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                border-radius: 1.5rem;
-              }
-              .flip-card-back {
-                transform: rotateY(180deg);
-              }
-            `}</style>
+  .perspective - 1000 {
+  perspective: 1000px;
+}
+              .flip - card - inner {
+  position: relative;
+  width: 100 %;
+  height: 100 %;
+  transition: transform 0.8s cubic - bezier(0.23, 1, 0.32, 1);
+  transform - style: preserve - 3d;
+}
+              .group: hover.flip - card - inner {
+  transform: rotateY(180deg);
+}
+              .flip - card - front, .flip - card - back {
+  position: absolute;
+  width: 100 %;
+  height: 100 %;
+  -webkit - backface - visibility: hidden;
+  backface - visibility: hidden;
+  border - radius: 1.5rem;
+}
+              .flip - card - back {
+  transform: rotateY(180deg);
+}
+`}</style>
 
             {/* Services List - Categorized */}
             <div className="space-y-20 mb-12">
@@ -461,7 +467,7 @@ const Services = () => {
                                 <service.icon size={28} />
                               </div>
                               <span className="font-black text-white/5 text-5xl select-none leading-none">
-                                {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                                {index + 1 < 10 ? `0${index + 1} ` : index + 1}
                               </span>
                             </div>
                             <div>
@@ -640,20 +646,20 @@ const Services = () => {
             <div className="flex flex-col">
               {faqData.left.map((item, index) => (
                 <FAQItem
-                  key={`left-${index}`}
+                  key={`left - ${index} `}
                   {...item}
-                  isOpen={openFaq === `left-${index}`}
-                  onToggle={() => toggleFaq(`left-${index}`)}
+                  isOpen={openFaq === `left - ${index} `}
+                  onToggle={() => toggleFaq(`left - ${index} `)}
                 />
               ))}
             </div>
             <div className="flex flex-col border-b border-gray-200 lg:border-none">
               {faqData.right.map((item, index) => (
                 <FAQItem
-                  key={`right-${index}`}
+                  key={`right - ${index} `}
                   {...item}
-                  isOpen={openFaq === `right-${index}`}
-                  onToggle={() => toggleFaq(`right-${index}`)}
+                  isOpen={openFaq === `right - ${index} `}
+                  onToggle={() => toggleFaq(`right - ${index} `)}
                 />
               ))}
               <div className="hidden lg:block border-t border-brand-500/30"></div>
