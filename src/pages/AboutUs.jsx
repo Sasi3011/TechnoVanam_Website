@@ -33,7 +33,7 @@ const teamMembers = [
     location: "Chennai",
     experience: "5+ Yrs Exp",
     isAdvisor: true,
-    img: "/advisor_vasanth_r_portrait_1768755459275.png",
+    img: "/Vasanth R - Technical Advisior.png",
     linkedin: "https://www.linkedin.com/in/vasanth-rv",
     quote: "Expert guidance in scaling engineering teams and architectures.",
     github: "https://github.com"
@@ -233,11 +233,11 @@ export default function About() {
                   {/* Default State Content */}
                   <div className="flex flex-col h-full">
                     {/* Image Area */}
-                    <div className="relative w-full aspect-[4/5] overflow-hidden rounded-tl-[40px] rounded-br-[40px]">
+                    <div className="relative w-full aspect-[4/3] sm:aspect-[4/5] overflow-hidden rounded-tl-[40px] rounded-br-[40px]">
                       <img
                         src={member.img}
                         alt={member.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : "object-center"}`}
                       />
                     </div>
 
