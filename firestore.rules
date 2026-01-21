@@ -2,28 +2,33 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Utility function to check if user is admin (you can expand this with custom claims)
+    function isAdmin() {
+      return request.auth != null;
+    }
+
     // Job postings - public read, admin write
     match /jobs/{jobId} {
       allow read: if true;
-      allow write: if true; // Protect with Auth later
+      allow write: if isAdmin();
     }
     
     // Career page settings
     match /settings/careers {
       allow read: if true;
-      allow write: if true;
+      allow write: if isAdmin();
     }
     
-    // Contact form inquiries - public create
+    // Contact form inquiries - public create, admin read/delete
     match /inquiries/{inquiryId} {
       allow create: if true;
-      allow read, delete: if true; 
+      allow read, delete: if isAdmin();
     }
     
-    // Job applications - public create
+    // Job applications - public create, admin read/delete
     match /applications/{appId} {
       allow create: if true;
-      allow read, delete: if true;
+      allow read, delete: if isAdmin();
     }
   }
 }
