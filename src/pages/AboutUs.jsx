@@ -1,7 +1,8 @@
 
 import { Link } from "react-router-dom";
-import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile, Plus, Minus, Linkedin, Github } from 'lucide-react';
+import { Lightbulb, TrendingUp, Shield, Users, Heart, Smile, Plus, Minus, Linkedin, Github, Target, Rocket, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { useState } from "react";
+import { motion } from "framer-motion";
 import HomeContact from "../components/HomeContact";
 
 const teamMembers = [
@@ -315,85 +316,193 @@ export default function About() {
       </section>
 
       {/* What Drives Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 min-h-screen flex flex-col justify-center py-16 sm:py-24">
-        <div className="flex flex-col gap-12 lg:gap-20 mb-20 lg:mb-32">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-            <div className="flex items-center gap-3 shrink-0">
+      <section className="w-full bg-transparent py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+          {/* Section Header */}
+          <div className="flex flex-col gap-8 mb-16">
+            <div className="flex items-center gap-3">
               <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
               <span className="text-xl sm:text-2xl font-semibold text-brand-500 tracking-wide">
                 What Drives Us</span>
             </div>
-            <div className="lg:col-span-8 lg:col-start-6">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#71d300] leading-tight">
-                Crafting design that speaks, products that scale.
-              </h2>
-            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#71d300] leading-tight max-w-4xl">
+              Crafting design that speaks, products that scale.
+            </h2>
           </div>
 
-          <div className="w-full">
-            <p className="text-xl sm:text-2xl text-gray-400 leading-relaxed font-light">
-              Founded in 2025, <span className="text-white font-normal">Techno Vanam</span> was created to turn ideas into thoughtful digital experiences. We believe every product should have purpose, clarity, and impact—bringing brands and users closer through meaningful design.
-            </p>
-          </div>
-        </div>
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Card: Story of Techno Vanam */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] overflow-hidden flex flex-col h-full card-glow"
+            >
+              {/* Decorative Watermark */}
+              <div className="absolute -top-10 -right-10 text-[120px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-brand-500/[0.04] transition-colors duration-700">
+                2025
+              </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="group relative bg-[#0a0a0a] border border-white/20 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
-            <div className="relative z-10">
-              <h3 className="text-4xl font-bold text-[#71d300] mb-8">Our Mission</h3>
-              <p className="text-xl text-gray-400 leading-relaxed mb-12">
-                We believe design is more than visuals—it’s a <span className="text-white font-semibold">strategic tool for growth</span>. We craft intuitive user experiences and build scalable products that help brands succeed.
-              </p>
+              {/* Image / Logo Section - Re-imagined */}
+              <div className="relative h-72 sm:h-80 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-50" />
 
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-brand-500/50 transition-colors">
-                    <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9l-.707.707M12 21v-1m0-8c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="text-lg font-bold text-white mb-2 underline decoration-brand-500/20 underline-offset-4">Design-Led Development</h5>
-                    <p className="text-gray-500 leading-relaxed">Blending creativity with tech to build functional and elegant products.</p>
+                {/* Logo with interesting frame */}
+                <div className="absolute inset-0 flex items-center justify-center p-12">
+                  <div className="relative group/logo">
+                    {/* Animated rings */}
+                    <div className="absolute -inset-8 bg-brand-500/20 rounded-full blur-2xl opacity-0 group-hover/logo:opacity-100 transition-opacity duration-700" />
+                    <div className="relative w-32 h-32 sm:w-40 sm:h-40 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center p-8 shadow-2xl transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:border-brand-500/30">
+                      <img
+                        src="/Logo.png"
+                        alt="Techno Vanam Logo"
+                        className="w-full h-auto object-contain transition-transform duration-700 group-hover/logo:rotate-[360deg]"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-brand-500/50 transition-colors">
-                    <svg className="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="text-lg font-bold text-white mb-2 underline decoration-brand-500/20 underline-offset-4">Scalable Solutions</h5>
-                    <p className="text-gray-500 leading-relaxed">Adaptable digital solutions designed to evolve with your business.</p>
+                {/* Floating Tags */}
+                <div className="absolute top-8 left-8">
+                  <div className="flex items-center gap-2 px-3 py-1.5 bg-brand-500 text-black rounded-full shadow-lg">
+                    <Sparkles className="w-3 h-3" />
+                    <span className="text-[10px] font-black uppercase tracking-widest">The Beginning</span>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div className="group relative bg-[#0a0a0a] border border-white/20 rounded-[3rem] p-8 sm:p-12 overflow-hidden card-glow">
-            <div className="relative z-10">
-              <h3 className="text-4xl font-bold text-[#71d300] mb-8">Our Vision</h3>
-              <p className="text-xl text-gray-400 leading-relaxed mb-12">
-                Building a <span className="text-white font-semibold">connected ecosystem</span> where design and tech shape better experiences for everyone, at every scale.
-              </p>
-
-              <div className="space-y-6">
-                {[
-                  "Empowering creators and businesses through clarity",
-                  "Driving meaningful change with every project",
-                  "Making innovation accessible and purposeful"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 group/item">
-                    <div className="w-8 h-[1px] bg-brand-500 group-hover/item:w-12 transition-all duration-500" />
-                    <span className="text-lg text-gray-400 group-hover/item:text-white transition-colors">{item}</span>
+              {/* Text Section - Manifesto Style */}
+              <div className="p-8 sm:p-12 pt-0 flex-1 relative z-10">
+                <div className="mb-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="h-[2px] w-8 bg-brand-500" />
+                    <span className="text-xs font-bold text-brand-500 uppercase tracking-[0.3em]">Story</span>
                   </div>
-                ))}
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 leading-tight">
+                    Story of <span className="text-brand-500">Techno Vanam</span>
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-medium">
+                    Born from a passion to bridge the gap between <span className="text-white">human-centric design</span> and <span className="text-brand-500">robust engineering</span>.
+                  </p>
+
+                  <div className="pl-6 border-l-2 border-brand-500/30 space-y-4">
+                    <p className="text-base text-gray-400 leading-relaxed">
+                      In 2025, <span className="text-white font-semibold">Techno Vanam</span> was founded with a singular conviction: that digital products should be as beautiful as they are functional.
+                    </p>
+                    <p className="text-base text-gray-400 leading-relaxed italic opacity-80">
+                      "We don't just build products; we craft legacies for brands in the digital wilderness."
+                    </p>
+                  </div>
+
+                  {/* Highlight Tags */}
+                  <div className="flex flex-wrap gap-2 pt-6">
+                    {["Design-Led", "Impact-Focused", "Future-Ready"].map((tag, i) => (
+                      <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold text-gray-400 uppercase tracking-widest group-hover:border-brand-500/30 group-hover:text-white transition-all">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
+            </motion.div>
+
+            {/* Right Column: Mission + Vision */}
+            <div className="flex flex-col gap-8">
+              {/* Our Mission Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
+              >
+                {/* Background Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 blur-[100px] -mr-32 -mt-32 transition-colors group-hover:bg-brand-500/10" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="w-8 h-8 rounded-lg bg-brand-500/10 flex items-center justify-center">
+                      <Target className="w-4 h-4 text-brand-500" />
+                    </div>
+                    <span className="text-xs font-bold text-brand-500 tracking-[0.2em] uppercase">Our Mission</span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 group-hover:text-brand-500 transition-colors duration-300">
+                    Strategy-led design that drives results.
+                  </h3>
+
+                  <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
+                    We combine <span className="text-white font-medium">technical precision</span> with creative intuition to build digital products that scale and resonate.
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { title: "Design-First", desc: "User-centric approach", icon: Heart },
+                      { title: "Scale-Ready", desc: "Built for growth", icon: TrendingUp }
+                    ].map((item, i) => (
+                      <div key={i} className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-500/30 transition-all duration-300 group/item">
+                        <item.icon className="w-5 h-5 text-brand-500 mb-3 group-hover/item:scale-110 transition-transform" />
+                        <h5 className="text-sm font-bold text-white mb-1">{item.title}</h5>
+                        <p className="text-xs text-gray-500">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Our Vision Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="group relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
+              >
+                {/* Background Glow */}
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-500/5 blur-[100px] -ml-32 -mb-32 transition-colors group-hover:bg-brand-500/10" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="w-8 h-8 rounded-lg bg-brand-500/10 flex items-center justify-center">
+                      <Rocket className="w-4 h-4 text-brand-500" />
+                    </div>
+                    <span className="text-xs font-bold text-brand-500 tracking-[0.2em] uppercase">Our Vision</span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 group-hover:text-brand-500 transition-colors duration-300">
+                    Building the future of digital interaction.
+                  </h3>
+
+                  <div className="space-y-4">
+                    {[
+                      "Empowering global creators with clarity",
+                      "Redefining meaningful digital impact",
+                      "Making innovation accessible at scale"
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 group/item text-gray-400 hover:text-white transition-colors">
+                        <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0" />
+                        <span className="text-sm sm:text-base font-medium">{item}</span>
+                        <ArrowRight className="w-4 h-4 text-brand-500 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 ml-auto" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between relative z-10">
+                  <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Est. 2025</span>
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="w-6 h-6 rounded-full bg-brand-500/20 border border-brand-500/30 backdrop-blur-sm" />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
           </div>
         </div>
       </section>
