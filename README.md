@@ -1,12 +1,41 @@
-# React + Vite
+# 🌲 Techno Vanam | Premium Digital Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Techno Vanam is a premium digital studio crafting world-class UI/UX, web development, and branding solutions. This project is a production-ready Web Application built with React, Vite, and Firebase.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Install Dependencies**: `npm install`
+2. **Local Development**: `npm run dev`
+3. **Build for Production**: `npm run build`
+4. **Deploy to Firebase**: `firebase deploy`
 
-## Expanding the ESLint configuration
+## 🏗️ Architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React 19 + Vite + Framer Motion + Tailwind CSS 4.
+- **Backend**: Firebase Cloud Functions (Node.js).
+- **Database**: Firestore with strict schema validation.
+- **Hosting**: Firebase Hosting with global CDN and PWA (Offline) support.
+- **Security**: RBAC via Firestore Rules, Cloudflare Turnstile, and Secure CSP Headers.
+
+## 🛠️ Key Features
+
+- **Automated Backups**: Daily and Weekly Firestore exports to Cloud Storage.
+- **Migration System**: Admin-controlled database schema migrations.
+- **Monitoring**: Built-in Error Boundaries, Firebase Performance, and Analytics.
+- **PWA Ready**: Works offline and is installable on mobile/desktop.
+- **CI/CD**: Automatic deployments with PR previews via GitHub Actions.
+
+## 📁 Environment Configuration
+
+Use the provided `.env` files for configuration:
+- `.env.development`: Local development keys.
+- `.env.production`: Keys for the live production site.
+
+## 🛡️ DevOps & Rollback
+
+- **Zero-Downtime**: Every deployment is atomic via Firebase.
+- **Rollback**: One-click rollback available in the Firebase Console -> Hosting -> Release History.
+
+---
+
+© 2026 Techno Vanam. All rights reserved.
