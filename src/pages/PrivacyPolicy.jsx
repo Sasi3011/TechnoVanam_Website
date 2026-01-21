@@ -1,33 +1,44 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, FileText, Bell, Mail } from "lucide-react";
+import SEO from "../components/SEO";
 
 const PrivacyPolicy = () => {
     const sections = [
         {
             title: "Data Collection",
             icon: Eye,
-            content: "We collect information you provide directly to us, such as when you request a quote, subscribe to our newsletter, or communicate with us. This may include your name, email address, and project details."
+            content: "We collect information you provide directly to us, such as when you request a quote, subscribe to our newsletter, or communicate with us. This includes names, emails, and project context."
         },
         {
-            title: "How We Use Your Information",
-            icon: FileText,
-            content: "We use the collected information to provide, maintain, and improve our services, communicate with you about projects, and send updates that may be relevant to your business interests."
+            title: "Cookies & Tracking",
+            icon: Bell,
+            content: "We use essential cookies to ensure our website functions correctly. We also use analytics tools (Firebase) to understand how you interact with our studio, helping us improve your experience."
+        },
+        {
+            title: "GDPR Compliance",
+            icon: Shield,
+            content: "For users in the EU/EEA, we adhere to GDPR standards. You have the right to data portability, the right to be forgotten, and the right to object to processing of your personal data."
         },
         {
             title: "Data Security",
             icon: Lock,
-            content: "We implement robust security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. Your data is handled with the highest level of care."
+            content: "All data is encrypted and stored securely within Firebase's enterprise-grade infrastructure. We implement strict access controls and regular security audits."
         },
         {
             title: "Your Rights",
-            icon: Shield,
-            content: "You have the right to access, update, or delete your personal information at any time. We believe you should have full control over your digital footprint."
+            icon: FileText,
+            content: "You can request a copy of your data or its deletion at any time by contacting us. We believe in complete transparency regarding your digital footprint."
         }
     ];
 
     return (
         <div className="min-h-screen bg-black flex flex-col justify-center pt-40 pb-32 px-4 sm:px-6 lg:px-16">
+            <SEO
+                title="Privacy Policy"
+                description="Your privacy is our priority. Learn how Techno Vanam handles your data with the highest level of care and security."
+                keywords="Techno Vanam Privacy, Data Protection, Privacy Policy Studio"
+            />
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
                 <motion.div
