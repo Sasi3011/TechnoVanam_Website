@@ -47,8 +47,8 @@ import {
 
 const CareerAdmin = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('official@technovanam.in');
+    const [password, setPassword] = useState('TechnoVanam@123!@#');
     const [isLoading, setIsLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('jobs'); // 'jobs', 'applications', 'inquiries'
     const [isNoOpenings, setIsNoOpenings] = useState(false);
