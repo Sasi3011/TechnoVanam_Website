@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Rocket, Sparkles } from "lucide-react";
 import { products } from "../../data/productData";
 import HomeContact from "../../components/HomeContact";
+import LaunchingSoonModal from "../../components/LaunchingSoonModal";
+import SEO from "../../components/SEO";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -16,6 +18,10 @@ const ProductDetail = () => {
 
     return (
         <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-16">
+            <SEO
+                title={`${productName} | Launching Soon`}
+                description={`Get early access to ${productName} by Techno Vanam. We are crafting something extraordinary.`}
+            />
             {/* Background Effects */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px] pointer-events-none" />
 

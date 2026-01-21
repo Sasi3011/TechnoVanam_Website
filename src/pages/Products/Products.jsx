@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import HomeContact from "../../components/HomeContact";
 import LaunchingSoonModal from "../../components/LaunchingSoonModal";
+import SEO from "../../components/SEO";
 
 const Products = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -28,6 +29,11 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO
+        title="Our Products"
+        description="Discover the suite of digital tools and platforms built by Techno Vanam. From sports tech to entrepreneurship ecosystems."
+        keywords="Techno Vanam Products, Techno, Vanam, TechnoVanam, Athlixir, WebBrain, Youth Platform, Youth Entrepreneurship Platform, Startup Tools, Developer Resources, Sports Management Software, AI Sports Tech, Browser Extension"
+      />
       <LaunchingSoonModal
         isOpen={showPopup}
         onClose={closeProductModal}
@@ -41,8 +47,8 @@ const Products = () => {
             {/* Heading + Logo Container */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] tracking-tight text-white text-center flex flex-wrap items-center justify-center gap-x-4">
-                <span>Products by</span>
-                <div className="flex items-center gap-3 md:gap-4 mt-2 md:mt-0">
+                <span className="w-full md:w-auto">Products by</span>
+                <div className="flex items-center justify-center gap-3 md:gap-4 mt-2 md:mt-0">
                   <img
                     src="/Logo.png"
                     alt="Logo"
