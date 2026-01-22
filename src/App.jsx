@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/AboutUs";
 import Services from "./pages/Services";
 
 import Products from "./pages/Products/Products";
-import Maintenance from "./pages/Maintenance";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Careers from "./pages/Careers";
@@ -23,33 +22,11 @@ import NotFound from "./pages/NotFound";
 import ServerError from "./pages/ServerError";
 
 const App = () => {
-  const [isAuthorized, setIsAuthorized] = useState(
-    sessionStorage.getItem("preview_authorized") === "true"
-  );
   const location = useLocation();
-
-  useEffect(() => {
-    // Maintenance Bypass Logic
-    if (location.pathname === "/preview") {
-      sessionStorage.setItem("preview_authorized", "true");
-      setIsAuthorized(true);
-    }
-  }, [location.pathname]);
-
-  // Maintenance check: allow if authorized or if currently on certain public/admin paths
-  const bypassMaintenance =
-    location.pathname === "/connect" ||
-    location.pathname === "/careers" ||
-    location.pathname === "/admin/careers";
-
-  if (!isAuthorized && !bypassMaintenance) {
-    return <Maintenance />;
-  }
 
   const routes = (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/preview" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
 
