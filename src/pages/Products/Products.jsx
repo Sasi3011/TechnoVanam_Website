@@ -45,14 +45,14 @@ const Products = () => {
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="flex flex-col items-center justify-center">
             {/* Heading + Logo Container */}
-            <div className="flex flex-col xl:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] tracking-tight text-white text-center flex flex-wrap items-center justify-center gap-x-4">
-                <span className="w-full xl:w-auto">Products by</span>
-                <div className="flex items-center justify-center gap-3 md:gap-4 mt-2 xl:mt-0">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] tracking-tight text-white text-center flex flex-wrap items-center justify-center gap-x-4">
+                <span className="w-full md:w-auto">Products by</span>
+                <div className="flex items-center justify-center gap-3 md:gap-4 mt-2 md:mt-0">
                   <img
                     src="/Logo.png"
                     alt="Logo"
-                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                     loading="lazy"
                   />
                   <span className="whitespace-nowrap text-brand-500">Techno Vanam</span>
