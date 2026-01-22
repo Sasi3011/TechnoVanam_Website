@@ -20,7 +20,7 @@ const teamMembers = [
   {
     name: "Sanjana B",
     role: "Co-founder & CTO",
-    img: "public/Sanjana B - Co-Founder.jpeg",
+    img: "/Sanjana B - Co-Founder.jpeg",
     instagram: "http://instagram.com/sanjudarla07/",
     linkedin: "https://www.linkedin.com/in/sanjana-0831s/",
     whatsapp: "https://wa.me/916382993891",
@@ -171,6 +171,13 @@ export default function About() {
     const nextSection = document.getElementById('next-section');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -336,8 +343,8 @@ export default function About() {
               For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
             </p>
 
-            <Link
-              to="/contact"
+            <button
+              onClick={scrollToContact}
               className="btn-primary w-fit group"
             >
               <span className="relative z-10 font-bold flex items-center gap-3">
@@ -345,7 +352,7 @@ export default function About() {
                 <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </span>
               <div className="btn-primary-shine"></div>
-            </Link>
+            </button>
           </div>
         </div>
       </section>
