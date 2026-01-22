@@ -39,12 +39,11 @@ const JobApplicationModal = ({ role, isOpen, onClose }) => {
             // Save to Firebase Firestore
             await addDoc(collection(db, "applications"), formData);
 
-            // Send via FormSubmit
-            const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
+            // Send via our custom Vercel API
+            const response = await fetch("/api/apply", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Accept: "application/json",
                 },
                 body: JSON.stringify(formData),
             });
