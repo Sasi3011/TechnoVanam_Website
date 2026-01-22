@@ -47,9 +47,10 @@ import {
 
 const CareerAdmin = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [email, setEmail] = useState('official@technovanam.in');
-    const [password, setPassword] = useState('TechnoVanam@123!@#');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [loginError, setLoginError] = useState('');
     const [activeTab, setActiveTab] = useState('jobs'); // 'jobs', 'applications', 'inquiries'
     const [isNoOpenings, setIsNoOpenings] = useState(false);
     const [jobs, setJobs] = useState([]);
@@ -131,26 +132,31 @@ const CareerAdmin = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setLoginError('');
+
         try {
             await signInWithEmailAndPassword(auth, email, password);
+            // Authentication successful - state will be updated by onAuthStateChanged
         } catch (error) {
             console.error("Login error:", error);
-            let errorMessage = 'Invalid credentials';
-            
+            let errorMessage = 'Invalid credentials. Please try again.';
+
             // Provide more specific error messages
             if (error.code === 'auth/user-not-found') {
-                errorMessage = 'User not found. Please create the admin user in Firebase Console first.';
+                errorMessage = 'No account found with this email address.';
             } else if (error.code === 'auth/wrong-password') {
                 errorMessage = 'Incorrect password. Please check your password.';
             } else if (error.code === 'auth/invalid-email') {
-                errorMessage = 'Invalid email address.';
+                errorMessage = 'Invalid email address format.';
             } else if (error.code === 'auth/too-many-requests') {
-                errorMessage = 'Too many failed attempts. Please try again later.';
+                errorMessage = 'Too many failed login attempts. Please try again later.';
             } else if (error.code === 'auth/network-request-failed') {
                 errorMessage = 'Network error. Please check your internet connection.';
+            } else if (error.code === 'auth/invalid-credential') {
+                errorMessage = 'Invalid email or password. Please check your credentials.';
             }
-            
-            alert(errorMessage);
+
+            setLoginError(errorMessage);
         }
     };
 
@@ -274,6 +280,13 @@ const CareerAdmin = () => {
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-6">
+                        {loginError && (
+                            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 flex items-start gap-3">
+                                <AlertCircle size={20} className="text-red-500 flex-shrink-0 mt-0.5" />
+                                <p className="text-red-400 text-sm">{loginError}</p>
+                            </div>
+                        )}
+
                         <div>
                             <label className="block text-sm font-bold text-gray-400 mb-2 px-1">Email</label>
                             <input
@@ -281,7 +294,7 @@ const CareerAdmin = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand-500 outline-none transition-all text-white"
-                                placeholder="official@technovanam.in"
+                                placeholder="Enter your email"
                                 required
                             />
                         </div>
@@ -292,7 +305,7 @@ const CareerAdmin = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand-500 outline-none transition-all text-white"
-                                placeholder="••••••••"
+                                placeholder="Enter your password"
                                 required
                             />
                         </div>
