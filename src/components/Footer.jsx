@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   AlertCircle
 } from "lucide-react";
+import { FaXTwitter, FaFacebook } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { db } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -249,6 +250,22 @@ const Footer = () => {
                   >
                     <Linkedin size={20} />
                   </a>
+                  <a
+                    href="https://x.com/technovanam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 hover:text-black transition-all duration-300 shadow-sm shrink-0"
+                  >
+                    <FaXTwitter size={20} />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/technovanam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 hover:text-black transition-all duration-300 shadow-sm shrink-0"
+                  >
+                    <FaFacebook size={20} />
+                  </a>
 
                   {/* Interactive WhatsApp Selector */}
                   <div className="relative">
@@ -309,25 +326,30 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="relative pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3 group">
-            <img
-              src="/Logo.png"
-              alt="Techno Vanam - Premium Digital Studio Logo"
-              className="w-8 h-8 object-contain"
-            />
-            <span className="text-xl font-bold text-white">
-              Techno Vanam
-            </span>
-          </div>
+        <div className="relative pt-10 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+            {/* Left: Logo */}
+            <div className="flex items-center gap-3 group order-1 md:order-1">
+              <img
+                src="/Logo.png"
+                alt="Techno Vanam - Premium Digital Studio Logo"
+                className="w-8 h-8 object-contain"
+              />
+              <span className="text-xl font-bold text-white">
+                Techno Vanam<sup className="text-[10px] font-light ml-0.5">TM</sup>
+              </span>
+            </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center">
-            <span className="text-gray-400 text-sm sm:text-base">© 2026 Techno Vanam. All rights reserved</span>
-            <div className="flex items-center gap-3 sm:gap-4">
+            {/* Center: Copyright */}
+            <div className="order-3 md:order-2 flex-1 flex justify-center">
+              <span className="text-gray-400 text-sm sm:text-base text-center">© 2026 Techno Vanam. All rights reserved</span>
+            </div>
+
+            {/* Right: Links */}
+            <div className="flex items-center gap-3 sm:gap-4 order-2 md:order-3">
+              <Link to="/privacy" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Privacy Policy</Link>
               <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
-              <Link to="/privacy" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Privacy</Link>
-              <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
-              <Link to="/terms" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Terms</Link>
+              <Link to="/terms" className="text-brand-500 font-bold text-sm sm:text-base hover:text-white hover:underline transition-colors uppercase tracking-wider whitespace-nowrap">Terms and Conditions</Link>
             </div>
           </div>
         </div>

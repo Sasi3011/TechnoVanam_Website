@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Send, CheckCircle2, AlertCircle, Monitor, Smartphone, Code2, Palette, Layout, MoreHorizontal } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Monitor, Smartphone, Code2, Palette, Layout, MoreHorizontal, Phone, Mail, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
@@ -176,6 +176,48 @@ const HomeContact = () => {
                                     <div>
                                         <h4 className="font-bold text-white">Fast Response</h4>
                                         <p className="text-sm text-gray-400">We value your time and respond quickly.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] max-w-[3rem] max-h-[3rem] bg-white/5 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-white/10">
+                                        <Phone size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white">Phone</h4>
+                                        <p className="text-sm text-gray-400">
+                                            <a href="tel:+918610500527" className="hover:text-brand-500 transition-colors">+91 86105 00527</a>
+                                            {" / "}
+                                            <a href="tel:+916382993891" className="hover:text-brand-500 transition-colors">+91 63829 93891</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] max-w-[3rem] max-h-[3rem] bg-white/5 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-white/10">
+                                        <Mail size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white">Email</h4>
+                                        <p className="text-sm text-gray-400">
+                                            <a href="mailto:official@technovanam.in" className="hover:text-brand-500 transition-colors">official@technovanam.in</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 min-w-[3rem] min-h-[3rem] max-w-[3rem] max-h-[3rem] bg-white/5 rounded-2xl flex items-center justify-center text-brand-500 shadow-sm border border-white/10">
+                                        <MapPin size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white">Branch Office - IN</h4>
+                                        <p className="text-sm text-gray-400">
+                                            <a 
+                                                href="https://www.google.com/maps/place/Sri+Eshwar+College+of+Engineering,+Coimbatore/@10.827908,77.0605168,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba84ee37569ae7f:0x3c5b1824b6e79192!8m2!3d10.827908!4d77.0605168!16s%2Fg%2F1tdyp6pq?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="hover:text-brand-500 transition-colors"
+                                            >
+                                                Sri Eshwar College of Engineering, Coimbatore, Tamil Nadu 641202
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -188,11 +188,11 @@ const Maintenance = () => {
                 className="w-full flex flex-col items-center space-y-6 relative z-10 flex-shrink-0 pb-6 sm:pb-4"
             >
                 <a
-                    href="mailto:official@technovanam.com"
+                    href="mailto:official@technovanam.in"
                     className="group flex items-center gap-3 px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-brand-500/30 transition-all duration-500"
                 >
                     <Mail size={14} className="text-brand-500 sm:w-4 sm:h-4" />
-                    <span className="text-white text-xs sm:text-sm font-light group-hover:text-brand-400 transition-colors uppercase tracking-wider">official@technovanam.com</span>
+                    <span className="text-white text-xs sm:text-sm font-light group-hover:text-brand-400 transition-colors uppercase tracking-wider">official@technovanam.in</span>
                 </a>
 
                 <div className="flex flex-col items-center space-y-2">

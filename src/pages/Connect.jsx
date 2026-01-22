@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Instagram, MessageCircle, Phone, ArrowUpRight, Linkedin, ChevronRight, X, Globe } from "lucide-react";
+import { FaXTwitter, FaFacebook } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
 
@@ -65,6 +66,7 @@ const ConnectItem = ({ icon: Icon, label, sublabel, href, onClick }) => {
 
 const Connect = () => {
     const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
+    const [showPhoneModal, setShowPhoneModal] = useState(false);
 
     useEffect(() => {
         document.title = "Connect | Techno Vanam";
@@ -75,6 +77,11 @@ const Connect = () => {
         { name: "Join Channel", link: "https://whatsapp.com/channel/0029VbAX2bwEVccNeg6nuP2i", desc: "Digital Updates" },
         { name: "Join Community", link: "https://chat.whatsapp.com/GlO1FxNioCoAo15EiGYLYZ", desc: "Studio Network" },
         { name: "Direct Message", link: "https://wa.me/918610500527", desc: "Business Inquiry" }
+    ];
+
+    const phoneOptions = [
+        { name: "+91 86105 00527", link: "tel:+918610500527", desc: "Primary Number" },
+        { name: "+91 63829 93891", link: "tel:+916382993891", desc: "Secondary Number" }
     ];
 
     return (
@@ -146,7 +153,15 @@ const Connect = () => {
                     </motion.div>
 
                     <motion.div variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}>
-                        <ConnectItem icon={Phone} label="Voice Call" sublabel="+91 86105 00527" href="tel:+918610500527" />
+                        <ConnectItem icon={FaXTwitter} label="X (Twitter)" sublabel="@technovanam" href="https://x.com/technovanam" />
+                    </motion.div>
+
+                    <motion.div variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}>
+                        <ConnectItem icon={FaFacebook} label="Facebook" sublabel="Connect with us" href="https://www.facebook.com/technovanam" />
+                    </motion.div>
+
+                    <motion.div variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}>
+                        <ConnectItem icon={Phone} label="Voice Call" sublabel="Choose number" onClick={() => setShowPhoneModal(true)} />
                     </motion.div>
 
                     <motion.div variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}>
@@ -211,6 +226,49 @@ const Connect = () => {
                                     <motion.a
                                         key={opt.name} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 + 0.2 }}
                                         href={opt.link} target="_blank" rel="noopener noreferrer"
+                                        className="flex items-center justify-between p-6 bg-[#111] border border-white/[0.03] rounded-[24px] group hover:bg-brand-500/5 hover:border-brand-500/20 transition-all duration-500"
+                                    >
+                                        <div>
+                                            <span className="text-white font-extrabold text-lg block mb-0.5">{opt.name}</span>
+                                            <span className="text-white/20 text-[9px] font-black uppercase tracking-[0.15em] group-hover:text-brand-500 transition-colors">{opt.desc}</span>
+                                        </div>
+                                        <ChevronRight size={18} className="text-white/10 group-hover:text-brand-500 transition-all group-hover:translate-x-1" />
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* Phone Selection Modal */}
+            <AnimatePresence>
+                {showPhoneModal && (
+                    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6">
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setShowPhoneModal(false)} className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
+                        <motion.div
+                            initial={{ y: "100%", opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: "100%", opacity: 0 }}
+                            transition={{ type: "spring", damping: 28, stiffness: 220 }}
+                            className="relative w-full max-w-[380px] bg-[#0A0A0A] border-t sm:border border-white/10 rounded-t-[36px] sm:rounded-[36px] p-8 pb-12 sm:pb-8 shadow-3xl overflow-hidden"
+                        >
+                            <div className="absolute top-0 left-0 w-full h-[1px] bg-white/20" />
+                            <div className="w-10 h-1 bg-white/10 rounded-full mx-auto mb-8 sm:hidden" />
+
+                            <div className="flex justify-between items-center mb-10">
+                                <div>
+                                    <h2 className="text-white text-3xl font-black italic uppercase italic tracking-tighter mb-1">Voice Call</h2>
+                                    <p className="text-brand-500 text-[10px] font-black uppercase tracking-[0.25em]">Choose Number</p>
+                                </div>
+                                <button onClick={() => setShowPhoneModal(false)} className="w-11 h-11 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all">
+                                    <X size={22} />
+                                </button>
+                            </div>
+
+                            <div className="flex flex-col gap-3.5">
+                                {phoneOptions.map((opt, i) => (
+                                    <motion.a
+                                        key={opt.name} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 + 0.2 }}
+                                        href={opt.link}
                                         className="flex items-center justify-between p-6 bg-[#111] border border-white/[0.03] rounded-[24px] group hover:bg-brand-500/5 hover:border-brand-500/20 transition-all duration-500"
                                     >
                                         <div>
