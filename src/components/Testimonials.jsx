@@ -10,7 +10,7 @@ const testimonials = [
         author: "Sameeha",
         role: "Founder & CEO, Haven Tutors",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sameeha",
-        linkedin: "#",
+        
     },
     {
         id: 2,
@@ -19,32 +19,28 @@ const testimonials = [
         author: "Balasubramaniam R",
         role: "MD, ESA Engineering Works",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Balasubramaniam",
-        linkedin: "#",
+        
     },
     {
         id: 3,
         content:
-            "Techno Vanam delivered designs that were clearer and easier to navigate. The team was responsive, professional, and quick in their communication. Moreover, they shared multiple drafts and provided honest feedback. Overall, their fresh perspectives and creative breakthroughs impressed us.",
-        author: "Jill Li",
-        role: "Senior Designer, Jogg",
+            "The website development process was seamless and well-managed. The team was responsive, detail-oriented, and committed to quality. The final output exceeded our expectations, and we are very happy with the service provided.",
+        author: "Arun Kumar",
+        role: "Designer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jill",
-        linkedin: "#",
+       
     },
     {
         id: 4,
-        content: "The level of creativity and attention to detail that Techno Vanam brings to the table is unmatched. They transformed our abstract ideas into a tangible, beautiful digital product that exceeded our expectations in every way.",
-        author: "Alex Rivera",
-        role: "Product Manager, TechFlow",
+        content: "An excellent UI/UX design experience from start to finish. The team clearly understood user behavior and translated it into a clean, modern interface. Feedback was implemented quickly, and the final design significantly improved our user experience.",
+        author: "Karthikeyan",
+        role: "Web Developer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
-        linkedin: "#"
+        
     }
 ];
 
-const LinkedinIcon = () => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-    </svg>
-);
+
 
 export default function Testimonials() {
     const scrollRef = useRef(null);
@@ -116,15 +112,7 @@ export default function Testimonials() {
                                             </div>
                                         </div>
 
-                                        <a
-                                            href={t.linkedin}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-11 h-11 rounded-full flex items-center justify-center
-                                   border border-brand-500/20 bg-white/5 hover:bg-blue-600 hover:text-white transition shadow-sm text-blue-400"
-                                        >
-                                            <LinkedinIcon />
-                                        </a>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -45,14 +45,14 @@ const Products = () => {
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="flex flex-col items-center justify-center">
             {/* Heading + Logo Container */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] tracking-tight text-white text-center flex flex-wrap items-center justify-center gap-x-4">
-                <span className="w-full md:w-auto">Products by</span>
-                <div className="flex items-center justify-center gap-3 md:gap-4 mt-2 md:mt-0">
+            <div className="flex flex-col xl:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] tracking-tight text-white text-center flex flex-wrap items-center justify-center gap-x-4">
+                <span className="w-full xl:w-auto">Products by</span>
+                <div className="flex items-center justify-center gap-3 md:gap-4 mt-2 xl:mt-0">
                   <img
                     src="/Logo.png"
                     alt="Logo"
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
                     loading="lazy"
                   />
                   <span className="whitespace-nowrap text-brand-500">Techno Vanam</span>
@@ -93,13 +93,13 @@ const Products = () => {
       </section>
 
       {/* Our Products - Premium UI Section (Mirrored from Home) */}
-      <section id="products-grid" className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16 w-full">
+      <section id="products-grid" className="bg-transparent min-h-screen flex flex-col justify-center py-16 md:py-24 px-4 sm:px-6 lg:px-16 w-full">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-brand-500/30 flex flex-col gap-10 sm:gap-14 lg:gap-16 card-glow">
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 md:p-12 xl:p-20 border border-brand-500/30 flex flex-col gap-16 sm:gap-20 xl:gap-24 card-glow">
             {/* Athlixir Product Section */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 items-center">
               {/* Left Content Column */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
@@ -131,20 +131,20 @@ const Products = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop"
                   alt="Athlixir Platform Interface"
-                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
             </div>
 
             {/* Youth Entrepreneurship Section */}
-            <div className="flex flex-col lg:flex-row-reverse gap-10 lg:gap-16 items-center">
+            <div className="flex flex-col xl:flex-row-reverse gap-12 xl:gap-16 items-center">
               {/* Left Content Column (mirrored logic) */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
@@ -176,20 +176,20 @@ const Products = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
                   alt="Platform Interface"
-                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
             </div>
 
             {/* WebBrain Product Section */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 items-center">
               {/* Left Content Column */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
@@ -221,11 +221,11 @@ const Products = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
                   alt="WebBrain Interface"
-                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>

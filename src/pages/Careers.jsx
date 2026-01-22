@@ -169,34 +169,35 @@ const Careers = () => {
             {/* Openings Section */}
             <section className="px-4 sm:px-6 lg:px-16 py-16 md:py-20 lg:py-24 w-full" id="open-roles">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-8 md:mb-16">
-                        <div>
-                            <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 md:mb-16">
+                        <div className="max-w-xl">
+                            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
                                 Open <span className="text-brand-500">Positions</span>
                             </h2>
-                            <p className="text-gray-400 text-lg">Find the role that fits your passion.</p>
+                            <p className="text-gray-400 text-lg sm:text-xl">Find the role that fits your passion.</p>
                         </div>
 
-                        {/* Filter & Search */}
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <div className="relative w-full sm:w-auto">
+                        {/* Filter & Search Container */}
+                        <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-start sm:items-center lg:items-end xl:items-center gap-4 w-full lg:w-auto">
+                            {/* Search Bar */}
+                            <div className="relative w-full sm:w-64 lg:w-72">
                                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                                 <input
                                     type="text"
                                     placeholder="Search roles..."
-                                    className="bg-white/5 border border-white/10 rounded-full px-12 py-3 outline-none focus:border-brand-500 transition-all text-white w-full sm:w-64"
+                                    className="bg-white/5 border border-white/10 rounded-full px-12 py-3 outline-none focus:border-brand-500 transition-all text-white w-full"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                 />
                             </div>
 
-                            {/* Desktop Filters */}
-                            <div className="hidden xl:flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+                            {/* Filters */}
+                            <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide w-full sm:w-auto">
                                 {categories.map(cat => (
                                     <button
                                         key={cat}
                                         onClick={() => setActiveCategory(cat)}
-                                        className={`px-6 py-3 rounded-full text-sm font-bold transition-all whitespace-nowrap ${activeCategory === cat
+                                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all whitespace-nowrap ${activeCategory === cat
                                             ? "bg-brand-500 text-black shadow-lg shadow-brand-500/20"
                                             : "bg-white/5 border border-white/10 text-gray-400 hover:border-brand-500/50"
                                             }`}
@@ -204,54 +205,6 @@ const Careers = () => {
                                         {cat}
                                     </button>
                                 ))}
-                            </div>
-
-                            {/* Mobile Filter Button */}
-                            <div className="xl:hidden relative">
-                                <button
-                                    onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-                                    className="w-full flex items-center justify-between px-6 py-3 bg-white/5 border border-white/10 rounded-full text-gray-300 font-bold"
-                                >
-                                    <span className="flex items-center gap-2">
-                                        <Filter size={18} />
-                                        {activeCategory === "All" ? "Filter by Category" : activeCategory}
-                                    </span>
-                                    <div className={`transition-transform duration-300 ${isMobileFilterOpen ? "rotate-180" : ""}`}>
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>uni
-                                    </div>
-                                </button>
-
-                                <AnimatePresence>
-                                    {isMobileFilterOpen && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 10 }}
-                                            className="absolute top-full left-0 right-0 mt-2 bg-[#111] border border-white/10 rounded-2xl p-2 z-50 shadow-xl overflow-hidden"
-                                        >
-                                            <div className="flex flex-col gap-1">
-                                                {categories.map(cat => (
-                                                    <button
-                                                        key={cat}
-                                                        onClick={() => {
-                                                            setActiveCategory(cat);
-                                                            setIsMobileFilterOpen(false);
-                                                        }}
-                                                        className={`px-4 py-3 rounded-xl text-sm font-bold text-left transition-colors flex items-center justify-between ${activeCategory === cat
-                                                            ? "bg-brand-500/10 text-brand-500"
-                                                            : "text-gray-400 hover:bg-white/5 hover:text-white"
-                                                            }`}
-                                                    >
-                                                        {cat}
-                                                        {activeCategory === cat && <CheckCircle2 size={16} />}
-                                                    </button>
-                                                ))}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
                             </div>
                         </div>
                     </div>

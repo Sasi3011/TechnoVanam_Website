@@ -820,19 +820,19 @@ const Home = () => {
             </div>
 
             {/* Right: Main Heading */}
-            <div className="lg:col-span-6 lg:col-start-9">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-[1.1]">
+            <div className="lg:col-span-8 xl:col-span-6 xl:col-start-9 lg:text-right xl:text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-[1.1]">
                 Products by <br />
                 <span className="text-[#71d300]">Techno Vanam</span>
               </h2>
             </div>
           </div>
 
-          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 lg:p-20 border border-brand-500/30 flex flex-col gap-10 sm:gap-14 lg:gap-16 card-glow">
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 md:p-12 xl:p-20 border border-brand-500/30 flex flex-col gap-16 sm:gap-20 xl:gap-24 card-glow">
             {/* Athlixir Product Section */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 items-center">
               {/* Left Content Column */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
@@ -864,11 +864,11 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop"
                   alt="Athlixir Platform Interface"
-                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                   decoding="async"
                 />
@@ -876,9 +876,9 @@ const Home = () => {
             </div>
 
             {/* Youth Entrepreneurship Section */}
-            <div className="flex flex-col lg:flex-row-reverse gap-10 lg:gap-16 items-center">
+            <div className="flex flex-col xl:flex-row-reverse gap-12 xl:gap-16 items-center">
               {/* Left Content Column (mirrored logic) */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
@@ -910,20 +910,20 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
                   alt="Platform Interface"
-                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
             </div>
 
             {/* WebBrain Product Section */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 items-center">
               {/* Left Content Column */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-2 h-2 rounded-full bg-brand-600"></div>
@@ -955,11 +955,11 @@ const Home = () => {
               </div>
 
               {/* Right Image/Mockup Column */}
-              <div className="w-full lg:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 lg:p-12 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[400px] border border-white/5 card-glow-hover">
+              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
                 <img
                   src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
                   alt="WebBrain Interface"
-                  className="w-full h-auto max-w-[500px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>

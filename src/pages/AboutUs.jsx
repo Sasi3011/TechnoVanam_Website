@@ -119,21 +119,21 @@ const ApproachSection = () => {
 
   return (
     <div
-      className="w-full border border-brand-500/20 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col md:flex-row relative min-h-[450px]"
+      className="w-full border border-brand-500/20 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-3xl overflow-hidden flex flex-col xl:flex-row relative xl:min-h-[450px]"
       onMouseLeave={() => setActiveStep(null)}
     >
       {approachSteps.slice(0, 5).map((step, idx) => (
         <div
           key={idx}
           onMouseEnter={() => setActiveStep(idx)}
-          className="flex-1 py-10 md:py-16 px-6 flex flex-col items-center text-center group transition-all duration-500 relative cursor-default"
+          className="xl:flex-1 py-10 md:py-16 px-6 flex flex-col items-center text-center group transition-all duration-500 relative cursor-default"
         >
-          <div className="hidden md:block absolute right-0 top-16 bottom-16 w-[1px] bg-white/20" />
+          <div className="hidden xl:block absolute right-0 top-16 bottom-16 w-[1px] bg-white/20" />
           {idx === 0 && (
-            <div className="hidden md:block absolute left-0 top-16 bottom-16 w-[1px] bg-white/20" />
+            <div className="hidden xl:block absolute left-0 top-16 bottom-16 w-[1px] bg-white/20" />
           )}
           {idx !== 4 && (
-            <div className="md:hidden absolute bottom-0 left-8 right-8 h-[1px] bg-white/20" />
+            <div className="xl:hidden absolute bottom-0 left-8 right-8 h-[1px] bg-white/20" />
           )}
           <span className={`text-xs font-medium tracking-[0.2em] uppercase transition-all duration-500 ease-out ${activeStep === idx ? 'mb-12 text-brand-500' : 'mb-10 text-gray-500'}`}>
             Step {step.number}
@@ -238,7 +238,7 @@ export default function About() {
           </div>
 
           {/* Team Grid - Portrait Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-16">
             {teamMembers.map((member, index) => (
               <div key={index} className="group relative">
                 {/* Main Card Container */}
@@ -301,9 +301,9 @@ export default function About() {
 
       {/* Who We Are Section */}
       <section className="bg-transparent min-h-screen flex flex-col justify-center py-4 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-brand-500/30 shadow-sm card-glow">
+        <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col xl:flex-row gap-10 lg:gap-20 border border-brand-500/30 shadow-sm card-glow">
           {/* Left Column: Logo & Label */}
-          <div className="w-full lg:w-1/3 flex flex-col">
+          <div className="w-full xl:w-1/3 flex flex-col">
             {/* Top Label */}
             <div className="flex items-center gap-3 mb-8">
               <div className="w-2.5 h-2.5 rounded-full bg-brand-500 shadow-[0_0_8px_rgba(113,211,0,0.4)]"></div>
@@ -332,7 +332,7 @@ export default function About() {
           </div>
 
           {/* Right Column: Text Content */}
-          <div className="w-full lg:w-2/3 flex flex-col justify-center">
+          <div className="w-full xl:w-2/3 flex flex-col justify-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-brand-500 mb-6 leading-tight">
               A design-led digital studio crafting purposeful experiences
             </h2>
@@ -343,8 +343,8 @@ export default function About() {
               For us, design isn't just a visual; it's an influential tool that helps brands achieve lasting success.
             </p>
 
-            <button
-              onClick={scrollToContact}
+            <Link
+              to="/careers"
               className="btn-primary w-fit group"
             >
               <span className="relative z-10 font-bold flex items-center gap-3">
@@ -352,7 +352,7 @@ export default function About() {
                 <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </span>
               <div className="btn-primary-shine"></div>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -374,7 +374,7 @@ export default function About() {
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-9">
             {/* Left Card: Story of Techno Vanam */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -464,7 +464,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
+                className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden lg:flex-1 flex flex-col justify-between"
               >
                 {/* Background Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 blur-[100px] -mr-32 -mt-32 transition-colors group-hover:bg-brand-500/10" />
@@ -506,7 +506,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden flex-1 flex flex-col justify-between"
+                className="group relative bg-[#0a0a0a] border border-brand-500/30 rounded-[2.5rem] p-8 sm:p-10 overflow-hidden lg:flex-1 flex flex-col justify-between"
               >
                 {/* Background Glow */}
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-500/5 blur-[100px] -ml-32 -mb-32 transition-colors group-hover:bg-brand-500/10" />
@@ -634,9 +634,9 @@ export default function About() {
           </div>
 
           {/* Careers Card */}
-          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-10 lg:gap-20 border border-brand-500/30 card-glow">
+          <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[40px] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col xl:flex-row gap-10 lg:gap-20 border border-brand-500/30 card-glow">
             {/* Left Column: Content */}
-            <div className="w-full lg:w-2/3 flex flex-col justify-center">
+            <div className="w-full xl:w-2/3 flex flex-col justify-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                 Join Our Team
               </h3>
@@ -656,7 +656,7 @@ export default function About() {
             </div>
 
             {/* Right Column: Visual Element */}
-            <div className="w-full lg:w-1/3 flex items-center justify-center">
+            <div className="w-full xl:w-1/3 flex items-center justify-center">
               <div className="bg-brand-50 rounded-3xl p-4 border border-brand-100/50 card-glow w-full max-w-md mx-auto">
                 {/* White Inner Card with Logo */}
                 <div className="bg-[#0d2702] rounded-2xl w-full aspect-video sm:aspect-[4/3] flex items-center justify-center p-8 mb-4 shadow-sm relative group overflow-hidden transition-all duration-500 border border-gray-50/10 hover:shadow-md">
