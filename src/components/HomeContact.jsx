@@ -102,19 +102,16 @@ const HomeContact = () => {
             // Save to Firebase Firestore
             await addDoc(collection(db, "inquiries"), formData);
 
-            // Send via FormSubmit
-            const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
+            // Send via our custom Vercel API
+            const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Accept: "application/json",
                 },
                 body: JSON.stringify(formData),
             });
 
-            const result = await response.json();
-
-            if (result.success === "true" || response.ok) {
+            if (response.ok) {
                 setSubmissionStatus("success");
                 setName("");
                 setEmail("");
@@ -198,7 +195,7 @@ const HomeContact = () => {
                                             initial={{ opacity: 0, height: 0 }}
                                             animate={{ opacity: 1, height: "auto" }}
                                             exit={{ opacity: 0, height: 0 }}
-                                            className="bg-green-50 text-green-700 p-4 rounded-xl flex items-center gap-3 border border-green-100"
+                                            className="bg-green-500/10 text-green-400 p-4 rounded-xl flex items-center gap-3 border border-green-500/20"
                                         >
                                             <CheckCircle2 className="shrink-0" />
                                             <p className="font-medium text-sm sm:text-base">Message sent successfully! Our team will contact you soon.</p>
@@ -209,7 +206,7 @@ const HomeContact = () => {
                                             initial={{ opacity: 0, height: 0 }}
                                             animate={{ opacity: 1, height: "auto" }}
                                             exit={{ opacity: 0, height: 0 }}
-                                            className="bg-red-50 text-red-700 p-4 rounded-xl flex items-center gap-3 border border-red-100"
+                                            className="bg-red-500/10 text-red-400 p-4 rounded-xl flex items-center gap-3 border border-red-500/20"
                                         >
                                             <AlertCircle className="shrink-0" />
                                             <p className="font-medium text-sm sm:text-base">Please fill out all required fields or try again later.</p>
