@@ -134,7 +134,7 @@ const Connect = () => {
                 {/* Action Stack */}
                 <motion.div className="w-full flex flex-col gap-4" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } } }}>
                     <motion.div variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}>
-                        <ConnectItem icon={Instagram} label="Instagram" sublabel="@technovanam" href="https://www.instagram.com/technovanam?igsh=MTJwazIyMmhpeWtsdw==" />
+                        <ConnectItem icon={Instagram} label="Instagram" sublabel="@technovanam.in" href="https://www.instagram.com/technovanam.in/" />
                     </motion.div>
 
                     <motion.div variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}>
