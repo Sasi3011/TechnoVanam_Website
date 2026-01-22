@@ -219,7 +219,7 @@ const Careers = () => {
                                     <div className={`transition-transform duration-300 ${isMobileFilterOpen ? "rotate-180" : ""}`}>
                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
+                                        </svg>uni
                                     </div>
                                 </button>
 
@@ -352,7 +352,7 @@ const Careers = () => {
                                     <span className="text-brand-500">Journey Here.</span>
                                 </h2>
                                 <p className="text-lg text-gray-400 leading-relaxed mb-8">
-                                    We offer unique internship opportunities for students looking to gain hands-on experience in design, development, and social media strategy. Build your portfolio with real projects.
+                                    We offer internship opportunities for students looking to gain hands-on experience in design, development, and social media strategy. Build your portfolio with real projects.
                                 </p>
                                 <div className="flex items-center gap-6">
                                     <div className="flex flex-col">
