@@ -12,13 +12,13 @@ import LaunchingSoonModal from "../components/LaunchingSoonModal";
 import SEO from "../components/SEO";
 
 const servicesList = [
-  { title: "UI/UX Design", icon: PanelsTopLeft },
-  { title: "Web Development", icon: Code2 },
-  { title: "App Development", icon: Smartphone },
-  { title: "Branding & Visual Identity", icon: Palette },
-  { title: "SEO & Performance Optimization", icon: TrendingUp },
-  { title: "Product Design (Startups & SaaS)", icon: Box },
-  { title: "Website Maintenance & Support", icon: Settings },
+  { title: "UI/UX Design", icon: PanelsTopLeft, categoryId: "category-0" }, // UI / UX & Design Services
+  { title: "Web Development", icon: Code2, categoryId: "category-1" }, // Web Development
+  { title: "App Development", icon: Smartphone, categoryId: "category-2" }, // App Development
+  { title: "Branding & Visual Identity", icon: Palette, categoryId: "category-4" }, // Branding & Visual Identity
+  { title: "SEO & Performance Optimization", icon: TrendingUp, categoryId: "category-6" }, // SEO & Performance
+  { title: "Product Design (Startups & SaaS)", icon: Box, categoryId: "category-3" }, // Product Services
+  { title: "Website Maintenance & Support", icon: Settings, categoryId: "category-7" }, // Maintenance & Support
 ];
 
 const steps = [
@@ -402,7 +402,7 @@ const Home = () => {
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
-            border-radius: 2rem;
+            border-radius: 1rem;
           }
           .flip-card-back {
             transform: rotateY(180deg);
@@ -444,29 +444,37 @@ const Home = () => {
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex shrink-0">
                 <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
-                  CREATIVE SOLUTIONS
-                </span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
-                  BUSINESS VALUE
-                </span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
-                  PURPOSEFUL DESIGNS
-                </span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
-                  STRATEGIC EXPERIENCES
-                </span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
                   UI/UX DESIGN
                 </span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mx-4">
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
                   WEB DEVELOPMENT
                 </span>
-                <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
+                  APP DEVELOPMENT
+                </span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
+                  BRANDING & VISUAL IDENTITY
+                </span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
+                  PRODUCT SERVICE
+                </span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
+                  SOCIAL MEDIA & CONTENT
+                </span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
+                  SEO & PERFORMANCE
+                </span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-medium tracking-wide mx-4">
+                  MAINTENANCE & SUPPORT
+                </span>
+                <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-4xl mx-4">/</span>
               </div>
             ))}
           </div>
@@ -639,7 +647,7 @@ const Home = () => {
               {servicesList.map((service, index) => (
                 <Link
                   key={index}
-                  to="/services"
+                  to={`/services#${service.categoryId}`}
                   className={`grid-standart-services group block border-b ${index === servicesList.length - 1 ? 'border-transparent' : 'border-white/5'}`}
                 >
                   {/* Background animation layer */}
@@ -706,7 +714,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {steps.map((step, index) => (
                 <div key={step.id} className="group h-[320px] lg:h-[320px] perspective-1000">
-                  <div className="flip-card-inner rounded-[2rem]">
+                  <div className="flip-card-inner rounded-[1rem]">
                     {/* Card Front */}
                     <div className="flip-card-front bg-white/5 border border-brand-500/30 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/10 card-glow card-glow-hover">
                       <div className="flex justify-between items-start">

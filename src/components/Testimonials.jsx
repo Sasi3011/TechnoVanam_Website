@@ -6,19 +6,19 @@ const testimonials = [
     {
         id: 1,
         content:
-            "Techno Vanam did a great job understanding our business of being a platform that helps create AI influencers that spots trends and create show stopping videos. They came up with a design that is fresh and timeless. Can't wait for the world to see.",
-        author: "Mav",
-        role: "Founder, GEN",
-        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mav",
+            "I am very satisfied with the website built for me. The developer understood my needs, delivered beyond expectations, and responded promptly throughout. A smooth, professional experience—highly recommended!",
+        author: "Sameeha",
+        role: "Founder & CEO, Haven Tutors",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sameeha",
         linkedin: "#",
     },
     {
         id: 2,
         content:
-            "We would like to thank Techno Vanam for the work done on the rebranding of our Company. The new visual identity perfectly captures our vision and values, and we are confident it will resonate strongly with our shareholders and partners engagement.",
-        author: "Mohammed Al Abri",
-        role: "Investment Director",
-        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mohammed",
+            "Techno Vanam delivered an excellent billing software with great quality and attention to detail. They handled all our corrections patiently and implemented every change perfectly. Very professional, reliable team and highly recommended!",
+        author: "Balasubramaniam R",
+        role: "MD, ESA Engineering Works",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Balasubramaniam",
         linkedin: "#",
     },
     {
