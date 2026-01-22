@@ -246,7 +246,7 @@ export default function About() {
                   {/* Default State Content */}
                   <div className="flex flex-col h-full">
                     {/* Image Area */}
-                    <div className="relative w-full aspect-[4/3] sm:aspect-[4/5] overflow-hidden rounded-tl-[40px] rounded-br-[40px]">
+                    <div className="relative w-full aspect-[4/5] overflow-hidden rounded-tl-[40px] rounded-br-[40px]">
                       <img
                         src={member.img}
                         alt={member.name}

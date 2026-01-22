@@ -65,7 +65,7 @@ export default function Testimonials() {
     return (
         <section className="bg-black py-16 sm:py-24 w-full overflow-hidden">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-10  text-brand-600 max-w-7xl mx-auto">
+            <div className="flex items-center gap-3 mb-10 text-brand-600 max-w-7xl mx-auto px-6 sm:px-0">
                 <div className="w-2 h-2 rounded-full bg-brand-600" />
                 <h2 className="text-xl sm:text-2xl font-semibold">
                     Testimonials
@@ -166,9 +166,9 @@ export default function Testimonials() {
         }
 
         .scroll-container-align {
-          padding-left: 0.5rem;
+          padding-left: 1.5rem;
           padding-right: 1rem;
-          scroll-padding-left: 0.5rem;
+          scroll-padding-left: 1.5rem;
         }
 
         @media (min-width: 640px) {
