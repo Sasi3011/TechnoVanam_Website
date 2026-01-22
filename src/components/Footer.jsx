@@ -12,12 +12,15 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { db } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import LaunchingSoonModal from "./LaunchingSoonModal";
 
 const Footer = () => {
   const [showWhatsAppOptions, setShowWhatsAppOptions] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState(null);
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
+  const [showProductPopup, setShowProductPopup] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState({ name: null, image: null });
 
   const whatsappActions = [
     { name: "Join Channel", link: "https://whatsapp.com/channel/0029VbAX2bwEVccNeg6nuP2i" },
@@ -28,8 +31,11 @@ const Footer = () => {
   const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
     const email = newsletterEmail.trim().toLowerCase();
-    
-    if (!email || !email.includes("@")) {
+
+    // Simple and permissive email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailRegex.test(email)) {
       setNewsletterStatus("error");
       setTimeout(() => setNewsletterStatus(null), 3000);
       return;
@@ -43,31 +49,21 @@ const Footer = () => {
     };
 
     try {
-      // Save to Firebase Firestore
+      // Save to Firebase Firestore (keep this for data storage)
       await addDoc(collection(db, "newsletter"), formData);
 
-      // Send via FormSubmit
-      const response = await fetch("https://formsubmit.co/ajax/official@technovanam.in", {
+      // Call the Vercel API to send emails
+      await fetch("/api/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
-        body: JSON.stringify({
-          subject: "Newsletter Subscription",
-          email,
-          message: `New newsletter subscription from: ${email}`
-        }),
+        body: JSON.stringify({ email }),
       });
 
-      if (response.ok) {
-        setNewsletterStatus("success");
-        setNewsletterEmail("");
-        setTimeout(() => setNewsletterStatus(null), 3000);
-      } else {
-        setNewsletterStatus("error");
-        setTimeout(() => setNewsletterStatus(null), 3000);
-      }
+      setNewsletterStatus("success");
+      setNewsletterEmail("");
+      setTimeout(() => setNewsletterStatus(null), 5000);
     } catch (error) {
       console.error("Newsletter subscription error:", error);
       setNewsletterStatus("error");
@@ -75,6 +71,16 @@ const Footer = () => {
     } finally {
       setIsSubmittingNewsletter(false);
     }
+  };
+
+  const handleProductClick = (productName, productImage) => {
+    setSelectedProduct({ name: productName, image: productImage });
+    setShowProductPopup(true);
+  };
+
+  const closeProductModal = () => {
+    setShowProductPopup(false);
+    setSelectedProduct({ name: null, image: null });
   };
 
   const footerLinks = {
@@ -98,9 +104,9 @@ const Footer = () => {
       { name: "Maintenance & Support", to: "/services" },
     ],
     products: [
-      { name: "Athlixir", to: "/products/athlixir" },
-      { name: "Youth Platform", to: "/products/youth-platform" },
-      { name: "WebBrain", to: "/products/webbrain" },
+      { name: "Athlixir", image: "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop" },
+      { name: "Youth Platform", image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" },
+      { name: "WebBrain", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" },
     ]
   };
 
@@ -136,15 +142,18 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Industries Column */}
+          {/* Products Column */}
           <div className="lg:col-span-3">
             <h4 className="font-bold text-xl mb-6">Products:</h4>
             <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.name}>
-                  <Link to={link.to} className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg">
-                    {link.name}
-                  </Link>
+              {footerLinks.products.map((product) => (
+                <li key={product.name}>
+                  <button
+                    onClick={() => handleProductClick(product.name, product.image)}
+                    className="text-gray-400 hover:text-brand-500 transition-colors font-medium text-lg text-left cursor-pointer"
+                  >
+                    {product.name}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -183,7 +192,7 @@ const Footer = () => {
 
                 <div className="relative border-b-2 border-white/20 pb-2 group hover:border-brand-500 transition-colors duration-300">
                   <input
-                    type="email"
+                    type="text"
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
                     placeholder="Your email here"
@@ -192,7 +201,7 @@ const Footer = () => {
                     disabled={isSubmittingNewsletter}
                   />
                   {/* Circular button for Desktop */}
-                  <button 
+                  <button
                     type="submit"
                     disabled={isSubmittingNewsletter}
                     className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 group overflow-hidden w-10 h-10 rounded-full bg-brand-500 items-center justify-center text-black shadow-sm transition-all duration-300 hover:bg-brand-600 active:scale-90 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -205,7 +214,7 @@ const Footer = () => {
                 </div>
 
                 {/* Block button for Mobile/Tablet - Matches the UI model */}
-                <button 
+                <button
                   type="submit"
                   disabled={isSubmittingNewsletter}
                   className="lg:hidden w-full py-4 bg-brand-500 text-black font-extrabold rounded-full relative group overflow-hidden active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -225,7 +234,7 @@ const Footer = () => {
                 <h4 className="font-bold text-2xl mb-6">Follow us on:</h4>
                 <div className="flex flex-nowrap justify-start gap-4 pb-4">
                   <a
-                    href="https://www.instagram.com/technovanam?igsh=MTJwazIyMmhpeWtsdw=="
+                    href="https://www.instagram.com/technovanam.in/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 hover:text-black transition-all duration-300 shadow-sm shrink-0"
@@ -323,6 +332,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Launching Soon Modal */}
+      <LaunchingSoonModal
+        isOpen={showProductPopup}
+        onClose={closeProductModal}
+        productName={selectedProduct.name}
+        productImage={selectedProduct.image}
+      />
     </footer>
   );
 };
