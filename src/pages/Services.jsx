@@ -313,7 +313,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         <span className="text-xl sm:text-2xl font-medium text-white pr-8 group-hover:text-brand-500 transition-colors">
           {question}
         </span>
-        <div className={`w - 12 h - 12 rounded - full flex items - center justify - center transition - all duration - 300 ${isOpen ? 'bg-brand-500 text-black rotate-45' : 'bg-white/5 text-white'} `}>
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-brand-500 text-black rotate-45' : 'bg-white/5 text-white'}`}>
           <Plus className="w-6 h-6" />
         </div>
       </button>
@@ -349,6 +349,22 @@ const Services = () => {
       nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  // Handle hash navigation for service categories
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Remove the # from the hash
+      const targetId = hash.substring(1);
+      // Wait for the page to render, then scroll
+      setTimeout(() => {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
 
   return (
     <>
@@ -417,36 +433,36 @@ const Services = () => {
 
             {/* Service Animation Styles */}
             <style>{`
-  .perspective - 1000 {
-  perspective: 1000px;
-}
-              .flip - card - inner {
-  position: relative;
-  width: 100 %;
-  height: 100 %;
-  transition: transform 0.8s cubic - bezier(0.23, 1, 0.32, 1);
-  transform - style: preserve - 3d;
-}
-              .group: hover.flip - card - inner {
-  transform: rotateY(180deg);
-}
-              .flip - card - front, .flip - card - back {
-  position: absolute;
-  width: 100 %;
-  height: 100 %;
-  -webkit - backface - visibility: hidden;
-  backface - visibility: hidden;
-  border - radius: 1.5rem;
-}
-              .flip - card - back {
-  transform: rotateY(180deg);
-}
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+              .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+              .group:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+              .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+  }
+              .flip-card-back {
+    transform: rotateY(180deg);
+  }
 `}</style>
 
             {/* Services List - Categorized */}
             <div className="space-y-20 mb-12">
               {serviceCategories.map((category, catIndex) => (
-                <div key={catIndex}>
+                <div key={catIndex} id={`category-${catIndex}`}>
                   {/* Category Header */}
                   <div className="flex items-center gap-4 mb-8 px-4">
                     <div className="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 border border-brand-500/20">
@@ -459,7 +475,7 @@ const Services = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-white/5">
                     {category.items.map((service, index) => (
                       <div key={index} className="group aspect-square h-auto perspective-1000">
-                        <div className="flip-card-inner rounded-[2rem]">
+                        <div className="flip-card-inner rounded-[1rem]">
                           {/* Card Front */}
                           <div className="flip-card-front bg-[#0a0a0a] border border-brand-500/30 p-8 flex flex-col justify-between transition-colors group-hover:bg-brand-500/5 card-glow card-glow-hover">
                             <div className="flex justify-between items-start">
