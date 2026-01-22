@@ -9,11 +9,24 @@ const { onSchedule } = require("firebase-functions/v2/scheduler");
 const { onDocumentCreated } = require("firebase-functions/v2/firestore");
 const admin = require("firebase-admin");
 const logger = require("firebase-functions/logger");
+const nodemailer = require("nodemailer");
 
 admin.initializeApp();
 setGlobalOptions({
     maxInstances: 10,
-    region: 'asia-south1'
+    region: "asia-south1",
+});
+
+// Email transporter configuration
+// Note: Use environment variables or Secrets Manager for these values
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com", // Or your own SMTP host
+    port: 465,
+    secure: true,
+    auth: {
+        user: "official@technovanam.in", // Your email
+        pass: "pxqf ppsa whwb lskm", // Use App Password for Gmail
+    },
 });
 
 // ============================================
@@ -417,3 +430,111 @@ exports.healthCheck = onRequest({ cors: true }, async (req, res) => {
         });
     }
 });
+
+// Newsletter Subscription Trigger
+exports.onNewsletterSignup = onDocumentCreated(
+    "newsletter/{subscriptionId}",
+    async (event) => {
+        const snapshot = event.data;
+        if (!snapshot) {
+            console.log("No data associated with the event");
+            return;
+        }
+        const data = snapshot.data();
+        const email = data.email;
+
+        try {
+            // 1. Send notification to the company
+            await transporter.sendMail({
+                from: '"Techno Vanam System" <official@technovanam.in>',
+                to: "official@technovanam.in",
+                subject: "New Newsletter Subscription",
+                text: `New newsletter subscription from: ${email}`,
+                html: `
+                    <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                        <h2 style="color: #71d300;">New Subscriber Alert</h2>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Source:</strong> Website Footer</p>
+                        <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
+                    </div>
+                `,
+            });
+
+            // 2. Send welcome email to the subscriber
+            await transporter.sendMail({
+                from: '"Techno Vanam" <official@technovanam.in>',
+                to: email,
+                subject: "Welcome to the Future of Digital Excellence! ✨ Techno Vanam",
+                html: `
+                    <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333; line-height: 1.6;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h1 style="color: #71d300; margin: 0; font-size: 24px; letter-spacing: 2px;">✨ WELCOME TO TECHNO VANAM ✨</h1>
+                        </div>
+                        
+                        <p>Hi there!</p>
+                        
+                        <p>We're thrilled to have you join our exclusive circle of digital innovators! You’ve just taken the first step towards staying ahead in the rapidly evolving digital landscape.</p>
+                        
+                        <hr style="border: none; border-top: 1px solid #71d300; margin: 30px 0;">
+                        
+                        <h2 style="color: #71d300; font-size: 18px; text-transform: uppercase;">🚀 What to Expect:</h2>
+                        
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 15px;">
+                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
+                                <strong style="color: #000;">STUNNING DESIGN:</strong> Get insights into modern UI/UX trends.
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
+                                <strong style="color: #000;">CUTTING-EDGE TECH:</strong> Stay updated with the latest in Web & Mobile development.
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
+                                <strong style="color: #000;">INDUSTRY INSIGHTS:</strong> Deep dives into how we solve complex business challenges.
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
+                                <strong style="color: #000;">EARLY ACCESS:</strong> Be the first to know about our new product launches.
+                            </li>
+                        </ul>
+                        
+                        <hr style="border: none; border-top: 1px solid #71d300; margin: 30px 0;">
+                        
+                        <p>Stay tuned for our next update! In the meantime, feel free to explore our latest projects or connect with us on social media.</p>
+                        
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="https://technovanam.in/services" style="display: inline-block; padding: 12px 24px; background-color: #71d300; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 0 10px;">🌐 Explore Our Work</a>
+                        </div>
+                        
+                        <div style="margin-top: 40px; font-size: 14px; text-align: center; color: #777;">
+                            <p>Let's design the digital future together.</p>
+                            <p>Warm regards,<br><strong>The Techno Vanam Team</strong></p>
+                        </div>
+                        
+                        <div style="margin-top: 20px; font-size: 12px; text-align: center; color: #aaa;">
+                            <p>Techno Vanam - Designing Digital Future</p>
+                            <p><a href="https://www.instagram.com/technovanam.in/" style="color: #71d300; text-decoration: none;">📸 Follow us on Instagram</a></p>
+                        </div>
+                    </div>
+                `,
+            });
+
+            logger.info("Newsletter emails sent successfully", { email });
+        } catch (error) {
+            logger.error("Failed to send newsletter emails", {
+                error: error.message,
+                stack: error.stack,
+                code: error.code,
+                command: error.command,
+                email
+            });
+            // Log to Firestore for easy debugging
+            await admin.firestore().collection("mail_errors").add({
+                email,
+                error: error.message,
+                code: error.code || "unknown",
+                timestamp: admin.firestore.FieldValue.serverTimestamp()
+            });
+        }
+    }
+);
