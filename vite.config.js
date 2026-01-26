@@ -79,6 +79,13 @@ export default defineConfig({
   ],
   server: {
     historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      }
+    },
     watch: {
       ignored: ['**/.firebase/**', '**/dist/**']
     }

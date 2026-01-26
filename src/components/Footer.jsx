@@ -18,7 +18,8 @@ import LaunchingSoonModal from "./LaunchingSoonModal";
 const Footer = () => {
   const [showWhatsAppOptions, setShowWhatsAppOptions] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterStatus, setNewsletterStatus] = useState(null);
+  const [newsletterStatus, setNewsletterStatus] = useState(null); // 'success', 'error', 'exists'
+  const [newsletterMessage, setNewsletterMessage] = useState("");
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
   const [showProductPopup, setShowProductPopup] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState({ name: null, image: null });
@@ -38,23 +39,21 @@ const Footer = () => {
 
     if (!email || !emailRegex.test(email)) {
       setNewsletterStatus("error");
-      setTimeout(() => setNewsletterStatus(null), 3000);
+      setNewsletterMessage("Please enter a valid email address.");
+      setTimeout(() => {
+        setNewsletterStatus(null);
+        setNewsletterMessage("");
+      }, 3000);
       return;
     }
 
     setIsSubmittingNewsletter(true);
-    const formData = {
-      email,
-      source: "Newsletter Subscription",
-      subscribedAt: serverTimestamp()
-    };
+    setNewsletterStatus(null);
+    setNewsletterMessage("");
 
     try {
-      // Save to Firebase Firestore (keep this for data storage)
-      await addDoc(collection(db, "newsletter"), formData);
-
-      // Call the Vercel API to send emails
-      await fetch("/api/newsletter", {
+      // Call the API first to check if email exists
+      const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,13 +61,51 @@ const Footer = () => {
         body: JSON.stringify({ email }),
       });
 
-      setNewsletterStatus("success");
-      setNewsletterEmail("");
-      setTimeout(() => setNewsletterStatus(null), 5000);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to subscribe");
+      }
+
+      // Check if email already exists
+      if (data.alreadyExists) {
+        setNewsletterStatus("exists");
+        setNewsletterMessage(data.message || "This email is already subscribed.");
+        setNewsletterEmail("");
+        setTimeout(() => {
+          setNewsletterStatus(null);
+          setNewsletterMessage("");
+        }, 5000);
+      } else {
+        // New subscription - save to Firestore for backup
+        try {
+          const formData = {
+            email,
+            source: "Newsletter Subscription",
+            subscribedAt: serverTimestamp()
+          };
+          await addDoc(collection(db, "newsletter"), formData);
+        } catch (firestoreError) {
+          // Firestore save is optional - API already saved it
+          console.log("Firestore save skipped (already saved by API):", firestoreError);
+        }
+
+        setNewsletterStatus("success");
+        setNewsletterMessage(data.message || "Successfully subscribed!");
+        setNewsletterEmail("");
+        setTimeout(() => {
+          setNewsletterStatus(null);
+          setNewsletterMessage("");
+        }, 5000);
+      }
     } catch (error) {
       console.error("Newsletter subscription error:", error);
       setNewsletterStatus("error");
-      setTimeout(() => setNewsletterStatus(null), 3000);
+      setNewsletterMessage(error.message || "Something went wrong. Please try again.");
+      setTimeout(() => {
+        setNewsletterStatus(null);
+        setNewsletterMessage("");
+      }, 3000);
     } finally {
       setIsSubmittingNewsletter(false);
     }
@@ -175,7 +212,18 @@ const Footer = () => {
                       className="bg-brand-500/10 text-brand-500 p-3 rounded-xl flex items-center gap-2 border border-brand-500/20 text-sm"
                     >
                       <CheckCircle2 size={16} />
-                      <p className="font-bold">Successfully subscribed!</p>
+                      <p className="font-bold">{newsletterMessage || "Successfully subscribed!"}</p>
+                    </motion.div>
+                  )}
+                  {newsletterStatus === "exists" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="bg-yellow-500/10 text-yellow-500 p-3 rounded-xl flex items-center gap-2 border border-yellow-500/20 text-sm"
+                    >
+                      <AlertCircle size={16} />
+                      <p className="font-bold">{newsletterMessage || "This email is already subscribed."}</p>
                     </motion.div>
                   )}
                   {newsletterStatus === "error" && (
@@ -186,7 +234,7 @@ const Footer = () => {
                       className="bg-red-500/10 text-red-500 p-3 rounded-xl flex items-center gap-2 border border-red-500/20 text-sm"
                     >
                       <AlertCircle size={16} />
-                      <p className="font-bold">Please enter a valid email address.</p>
+                      <p className="font-bold">{newsletterMessage || "Please enter a valid email address."}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
