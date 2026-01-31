@@ -34,7 +34,7 @@ const teamMembers = [
     location: "Chennai",
     experience: "5+ Yrs Exp",
     isAdvisor: true,
-    img: "/Vasanth R - Technical Advisior.png",
+    img: "",
     linkedin: "https://www.linkedin.com/in/vasanth-rv",
     quote: "Expert guidance in scaling engineering teams and architectures.",
     github: "https://github.com"
@@ -247,11 +247,19 @@ export default function About() {
                   <div className="flex flex-col h-full">
                     {/* Image Area */}
                     <div className="relative w-full aspect-[4/5] overflow-hidden rounded-tl-[40px] rounded-br-[40px]">
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : "object-center"}`}
-                      />
+                      {member.img ? (
+                        <img
+                          src={member.img}
+                          alt={member.name}
+                          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : "object-center"}`}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-[#0d0d0d] border border-white/5 group-hover:bg-[#121212] transition-colors duration-500">
+                          <span className="text-2xl lg:text-3xl text-brand-500 font-black uppercase tracking-widest opacity-30 group-hover:opacity-100 transition-opacity duration-500">
+                            {member.name.split(' ')[0]}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Static Info Area (Lower Part) */}
