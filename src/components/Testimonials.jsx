@@ -24,10 +24,10 @@ const testimonials = [
     {
         id: 3,
         content:
-            "The website development process was seamless and well-managed. The team was responsive, detail-oriented, and committed to quality. The final output exceeded our expectations, and we are very happy with the service provided.",
-        author: "Arun Kumar",
+            "I’m extremely happy with the work! Every detail matched my expectations perfectly. The charges were very reasonable, and I loved the flexibility for customization. Thank you for the outstanding support and great results!",
+        author: "Eshani",
         role: "Designer",
-        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jill",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Eshani",
        
     },
     {
