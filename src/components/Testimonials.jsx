@@ -10,7 +10,7 @@ const testimonials = [
         author: "Sameeha",
         role: "Founder & CEO, Haven Tutors",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sameeha",
-        
+
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const testimonials = [
         author: "Balasubramaniam R",
         role: "MD, ESA Engineering Works",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Balasubramaniam",
-        
+
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ const testimonials = [
         author: "Eshani",
         role: "Founder, Aurora Waxlights",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Eshani",
-       
+
     },
     {
         id: 4,
@@ -36,7 +36,7 @@ const testimonials = [
         author: "Karthikeyan",
         role: "Web Developer",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
-        
+
     }
 ];
 
@@ -112,7 +112,7 @@ export default function Testimonials() {
                                             </div>
                                         </div>
 
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ export default function Testimonials() {
                 </div>
             </div>
 
-            <style jsx>{`
+            <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
