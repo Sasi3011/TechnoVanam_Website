@@ -325,6 +325,8 @@ export default function About() {
                 <img
                   src="/Logo.png"
                   alt="Techno Vanam Logo"
+                  width="128"
+                  height="128"
                   className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
                 />
 
@@ -401,6 +403,8 @@ export default function About() {
                     <img
                       src="/Logo.png"
                       alt="Techno Vanam Logo"
+                      width="176"
+                      height="176"
                       className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -550,14 +554,22 @@ export default function About() {
                   <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Est. 2025</span>
                   <div className="flex -space-x-3">
                     {teamMembers.map((member, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0a0a0a] overflow-hidden transition-all duration-300 ring-1 ring-brand-500/30">
-                        <img
-                          src={member.img}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                      <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0a0a0a] overflow-hidden transition-all duration-300 ring-1 ring-brand-500/30 bg-[#111] flex items-center justify-center">
+                        {member.img ? (
+                          <img
+                            src={member.img}
+                            alt={member.name}
+                            width="32"
+                            height="32"
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <span className="text-[10px] font-bold text-brand-500/50 uppercase">
+                            {member.name.charAt(0)}
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -671,6 +683,8 @@ export default function About() {
                   <img
                     src="/Logo.png"
                     alt="Techno Vanam Logo"
+                    width="128"
+                    height="128"
                     className="w-24 sm:w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
                   />
 

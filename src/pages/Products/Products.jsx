@@ -52,6 +52,8 @@ const Products = () => {
                   <img
                     src="/Logo.png"
                     alt="Logo"
+                    width="64"
+                    height="64"
                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                     loading="lazy"
                   />
@@ -135,6 +137,8 @@ const Products = () => {
                 <img
                   src="https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop"
                   alt="Athlixir Platform Interface"
+                  width="550"
+                  height="400"
                   className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -180,6 +184,8 @@ const Products = () => {
                 <img
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
                   alt="Platform Interface"
+                  width="550"
+                  height="400"
                   className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -225,6 +231,8 @@ const Products = () => {
                 <img
                   src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
                   alt="WebBrain Interface"
+                  width="550"
+                  height="400"
                   className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />

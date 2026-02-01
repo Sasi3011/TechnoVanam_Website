@@ -187,6 +187,8 @@ const Header = () => {
                 <img
                   src="/Logo.png"
                   alt="Techno Vanam Logo"
+                  width="32"
+                  height="32"
                   className="h-5 lg:h-8 w-auto object-contain relative z-10"
                   loading="lazy"
                 />

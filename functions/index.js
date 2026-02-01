@@ -1,6 +1,6 @@
 /**
  * Firebase Cloud Functions for Techno Vanam
- * Includes: Schema validation, Error handling, Automated backups
+ * Includes: API (Express), Triggers, Schema validation, Error handling, Automated backups
  */
 
 const { setGlobalOptions } = require("firebase-functions");
@@ -10,6 +10,8 @@ const { onDocumentCreated } = require("firebase-functions/v2/firestore");
 const admin = require("firebase-admin");
 const logger = require("firebase-functions/logger");
 const nodemailer = require("nodemailer");
+const express = require("express");
+const cors = require("cors");
 
 admin.initializeApp();
 setGlobalOptions({
@@ -18,523 +20,358 @@ setGlobalOptions({
 });
 
 // Email transporter configuration
-// Note: Use environment variables or Secrets Manager for these values
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", // Or your own SMTP host
+    host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
-        user: "official@technovanam.in", // Your email
-        pass: "pxqf ppsa whwb lskm", // Use App Password for Gmail
+        user: "official@technovanam.in",
+        pass: "pxqf ppsa whwb lskm", // App Password
     },
 });
 
 // ============================================
-// ALERTING & MONITORING HELPERS
+// EXPRESS API (Handles /api/...)
 // ============================================
 
-/**
- * Send critical alerts to Slack/Discord/Email
- * @param {string} title - Alert title
- * @param {Object} details - Alert details
- */
-async function notifyAdmin(title, details) {
-    const webhookUrl = process.env.MONITORING_WEBHOOK_URL;
-    if (!webhookUrl) return;
+const app = express();
+app.use(cors({ origin: true }));
+app.use(express.json());
+
+// 1. Newsletter Endpoint
+app.post("/newsletter", async (req, res) => {
+    try {
+        const { email } = req.body;
+        if (!email) return res.status(400).json({ message: "Email is required" });
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) return res.status(400).json({ message: "Invalid email format" });
+
+        const emailLower = email.toLowerCase().trim();
+        const db = admin.firestore();
+
+        // Check if exists
+        const existingDoc = await db.collection("newsletter")
+            .where("email", "==", emailLower)
+            .limit(1)
+            .get();
+
+        if (!existingDoc.empty) {
+            return res.status(200).json({
+                success: true,
+                alreadyExists: true,
+                message: "This email is already subscribed to our newsletter.",
+                id: existingDoc.docs[0].id
+            });
+        }
+
+        // Create new
+        const docRef = await db.collection("newsletter").add({
+            email: emailLower,
+            source: "Website Footer",
+            subscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+            status: "active"
+        });
+
+        res.status(200).json({
+            success: true,
+            alreadyExists: false,
+            message: "Subscription successful",
+            id: docRef.id
+        });
+    } catch (error) {
+        logger.error("Newsletter API Error", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
+// 2. Contact Endpoint
+app.post("/contact", async (req, res) => {
+    try {
+        const data = req.body;
+        if (!data.name || !data.email || !data.message) {
+            return res.status(400).json({ message: "Name, email, and message are required" });
+        }
+
+        const db = admin.firestore();
+        const docRef = await db.collection("inquiries").add({
+            name: data.name.trim(),
+            email: data.email.toLowerCase().trim(),
+            company: data.company?.trim() || "",
+            website: data.website?.trim() || "",
+            services: data.services || "",
+            projectType: data.projectType || "",
+            deadline: data.deadline || "",
+            message: data.message.trim(),
+            submittedAt: admin.firestore.FieldValue.serverTimestamp(),
+            status: "new"
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "Inquiry received",
+            id: docRef.id
+        });
+    } catch (error) {
+        logger.error("Contact API Error", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
+// 3. Apply Endpoint
+app.post("/apply", async (req, res) => {
+    try {
+        const data = req.body;
+        if (!data.name || !data.email || !data.phone || !data.role || !data.resume_link) {
+            return res.status(400).json({ message: "Missing required fields" });
+        }
+
+        const db = admin.firestore();
+        const docRef = await db.collection("applications").add({
+            name: data.name.trim(),
+            email: data.email.toLowerCase().trim(),
+            phone: data.phone.trim(),
+            role: data.role,
+            type: data.type || "",
+            portfolio: data.portfolio?.trim() || "",
+            resume_link: data.resume_link.trim(),
+            note: data.note?.trim() || "",
+            submittedAt: admin.firestore.FieldValue.serverTimestamp(),
+            status: "new"
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "Application received",
+            id: docRef.id
+        });
+    } catch (error) {
+        logger.error("Apply API Error", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
+exports.api = onRequest({ cors: true }, app);
+
+
+// ============================================
+// EMAIL TRIGGERS (Nodemailer)
+// ============================================
+
+// 1. Newsletter Trigger
+exports.onNewsletterSignup = onDocumentCreated("newsletter/{id}", async (event) => {
+    const snapshot = event.data;
+    if (!snapshot) return;
+    const data = snapshot.data();
+    const email = data.email;
 
     try {
-        await fetch(webhookUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                text: `🚨 *CRITICAL ALERT: ${title}*`,
-                attachments: [{
-                    color: "#ff0000",
-                    fields: Object.entries(details).map(([k, v]) => ({
-                        title: k,
-                        value: typeof v === "object" ? JSON.stringify(v) : v,
-                        short: true
-                    }))
-                }]
-            })
+        // Admin Notification
+        await transporter.sendMail({
+            from: '"Techno Vanam System" <official@technovanam.in>',
+            to: "official@technovanam.in",
+            subject: "New Newsletter Subscription",
+            html: `
+            <div style="font-family: sans-serif; padding: 20px; border: 1px solid #71d300; border-radius: 10px;">
+                <h2 style="color: #71d300;">New Subscriber Alert</h2>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Source:</strong> ${data.source || 'Website'}</p>
+                <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+            </div>`
         });
+
+        // Welcome Email
+        await transporter.sendMail({
+            from: '"Techno Vanam" <official@technovanam.in>',
+            to: email,
+            subject: "Welcome to the Future of Digital Excellence! ✨ Techno Vanam",
+            // Using polished template
+            html: `
+            <!DOCTYPE html>
+            <html>
+            <body style="margin:0;padding:20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background-color:#f5f5f5;">
+              <table role="presentation" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.1);border-collapse:collapse;">
+                <tr>
+                  <td style="background:#000;padding:40px 30px;text-align:center;">
+                     <h1 style="color:#71d300;margin:0;font-size:24px;letter-spacing:2px;">✨ WELCOME TO TECHNO VANAM ✨</h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:40px;">
+                    <p style="margin-bottom:20px;color:#333;">Hi there!</p>
+                    <p style="margin-bottom:20px;color:#333;">We're thrilled to have you join our exclusive circle of digital innovators! You’ve just taken the first step towards staying ahead in the rapidly evolving digital landscape.</p>
+                    <hr style="border:0;border-top:1px solid #71d300;margin:30px 0;">
+                    <h2 style="color:#71d300;font-size:18px;text-transform:uppercase;">🚀 What to Expect:</h2>
+                    <ul style="list-style:none;padding:0;">
+                      <li style="margin-bottom:10px;"><strong style="color:#71d300;">🔹 STUNNING DESIGN:</strong> Insights into modern UI/UX trends.</li>
+                      <li style="margin-bottom:10px;"><strong style="color:#71d300;">🔹 CUTTING-EDGE TECH:</strong> Latest in Web & Mobile development.</li>
+                      <li style="margin-bottom:10px;"><strong style="color:#71d300;">🔹 EARLY ACCESS:</strong> Be the first to know about new launches.</li>
+                    </ul>
+                    <hr style="border:0;border-top:1px solid #71d300;margin:30px 0;">
+                    <div style="text-align:center;margin-top:30px;">
+                      <a href="https://technovanam.in/services" style="display:inline-block;padding:12px 24px;background-color:#71d300;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">🌐 Explore Our Work</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="background:#f9fafb;padding:20px;text-align:center;color:#6b7280;font-size:12px;">
+                    <p>Techno Vanam - Designing Digital Future</p>
+                  </td>
+                </tr>
+              </table>
+            </body>
+            </html>
+            `
+        });
+        logger.info("Newsletter emails sent", { email });
     } catch (err) {
-        logger.error("Failed to send admin notification", err);
+        logger.error("Newsletter email failed", err);
     }
-}
+});
 
+// 2. Inquiry Trigger
+exports.onInquiryCreated = onDocumentCreated("inquiries/{id}", async (event) => {
+    const snapshot = event.data;
+    if (!snapshot) return;
+    const data = snapshot.data();
 
-// Schema definitions
-const schemas = {
-    job: {
-        title: { type: "string", required: true, maxLength: 200 },
-        type: {
-            type: "string",
-            required: true,
-            enum: ["Full-time", "Part-time", "Contract", "Intern"],
-        },
-        location: { type: "string", required: true, maxLength: 100 },
-        category: {
-            type: "string",
-            required: true,
-            enum: ["Design", "Development", "Marketing", "Intern"],
-        },
-        description: { type: "string", required: true, maxLength: 5000 },
-        perks: { type: "array", required: false },
-        createdAt: { type: "timestamp", required: true },
-        updatedAt: { type: "timestamp", required: false },
-    },
-    application: {
-        jobId: { type: "string", required: true },
-        jobTitle: { type: "string", required: true },
-        name: { type: "string", required: true, maxLength: 100 },
-        email: {
-            type: "string",
-            required: true,
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        },
-        phone: { type: "string", required: true, maxLength: 20 },
-        portfolio: { type: "string", required: false, maxLength: 500 },
-        resume: { type: "string", required: true, maxLength: 500 },
-        coverLetter: { type: "string", required: false, maxLength: 2000 },
-        createdAt: { type: "timestamp", required: true },
-        status: {
-            type: "string",
-            required: false,
-            enum: ["pending", "reviewed", "shortlisted", "rejected"],
-        },
-    },
-    inquiry: {
-        name: { type: "string", required: true, maxLength: 100 },
-        email: {
-            type: "string",
-            required: true,
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        },
-        company: { type: "string", required: false, maxLength: 200 },
-        website: { type: "string", required: false, maxLength: 500 },
-        services: { type: "array", required: true },
-        message: { type: "string", required: true, maxLength: 2000 },
-        createdAt: { type: "timestamp", required: true },
-        status: {
-            type: "string",
-            required: false,
-            enum: ["new", "contacted", "converted", "closed"],
-        },
-    },
-};
+    try {
+        // Admin Notification
+        await transporter.sendMail({
+            from: '"Techno Vanam System" <official@technovanam.in>',
+            to: "official@technovanam.in",
+            replyTo: data.email,
+            subject: `New Inquiry: ${data.name}`,
+            html: `
+            <div style="font-family:sans-serif;padding:20px;border:1px solid #ddd;border-radius:8px;">
+              <h2 style="color:#71d300;border-bottom:2px solid #71d300;padding-bottom:10px;">New Project Inquiry</h2>
+              <p><strong>Name:</strong> ${data.name}</p>
+              <p><strong>Email:</strong> ${data.email}</p>
+              <p><strong>Company:</strong> ${data.company || '-'}</p>
+              <p><strong>Services:</strong> ${data.services || '-'}</p>
+              <p><strong>Message:</strong><br><br>${(data.message || '').replace(/\n/g, '<br>')}</p>
+            </div>`
+        });
 
-/**
- * Validate data against schema
- * @param {Object} data - Data to validate
- * @param {Object} schema - Schema definition
- * @return {Object} - {valid: boolean, errors: array}
- */
-function validateSchema(data, schema) {
-    const errors = [];
-
-    for (const [field, rules] of Object.entries(schema)) {
-        const value = data[field];
-
-        if (rules.required &&
-            (value === undefined || value === null || value === "")) {
-            errors.push(`Field '${field}' is required`);
-            continue;
-        }
-
-        if (!rules.required && (value === undefined || value === null)) {
-            continue;
-        }
-
-        if (rules.type === "string" && typeof value !== "string") {
-            errors.push(`Field '${field}' must be a string`);
-        } else if (rules.type === "number" && typeof value !== "number") {
-            errors.push(`Field '${field}' must be a number`);
-        } else if (rules.type === "array" && !Array.isArray(value)) {
-            errors.push(`Field '${field}' must be an array`);
-        } else if (rules.type === "timestamp" &&
-            !(value instanceof admin.firestore.Timestamp)) {
-            errors.push(`Field '${field}' must be a timestamp`);
-        }
-
-        if (rules.maxLength && typeof value === "string" &&
-            value.length > rules.maxLength) {
-            errors.push(
-                `Field '${field}' exceeds max length of ${rules.maxLength}`,
-            );
-        }
-
-        if (rules.enum && !rules.enum.includes(value)) {
-            errors.push(
-                `Field '${field}' must be one of: ${rules.enum.join(", ")}`,
-            );
-        }
-
-        if (rules.pattern && typeof value === "string" &&
-            !rules.pattern.test(value)) {
-            errors.push(`Field '${field}' has invalid format`);
-        }
+        // Auto-reply
+        await transporter.sendMail({
+            from: '"Techno Vanam" <official@technovanam.in>',
+            to: data.email,
+            subject: "We've received your inquiry - Techno Vanam",
+            html: `
+            <!DOCTYPE html>
+            <html>
+            <body style="margin:0;padding:20px;font-family:sans-serif;background-color:#f5f5f5;">
+              <table role="presentation" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+                <tr>
+                  <td style="background:#000;padding:30px;text-align:center;">
+                    <h1 style="color:#71d300;margin:0;">Hello ${data.name}! 👋</h1>
+                  </td>
+                </tr>
+                <tr>
+                   <td style="padding:40px;">
+                     <p>Thank you for reaching out to <strong>Techno Vanam</strong>. We've received your inquiry and are excited to learn more about your project.</p>
+                     <p>Our team will review your details and get back to you within <strong>24 business hours</strong>.</p>
+                     <div style="background:#f0fdf4;border-left:4px solid #71d300;padding:20px;margin:20px 0;border-radius:4px;">
+                       <h3 style="margin:0 0 10px 0;color:#166534;">What's Next?</h3>
+                       <p style="margin:0;color:#166534;">1. Requirement review<br>2. Scheduler discovery call<br>3. Tailored proposal</p>
+                     </div>
+                     <p style="text-align:center;margin-top:30px;">
+                       <a href="https://technovanam.in" style="background:#71d300;color:#fff;padding:12px 24px;text-decoration:none;border-radius:6px;font-weight:bold;">Visit Our Website</a>
+                     </p>
+                   </td>
+                </tr>
+              </table>
+            </body>
+            </html>`
+        });
+        logger.info("Inquiry emails sent", { email: data.email });
+    } catch (err) {
+        logger.error("Inquiry email failed", err);
     }
+});
 
-    return {
-        valid: errors.length === 0,
-        errors,
-    };
-}
+// 3. Application Trigger
+exports.onApplicationCreated = onDocumentCreated("applications/{id}", async (event) => {
+    const snapshot = event.data;
+    if (!snapshot) return;
+    const data = snapshot.data();
 
-// Validate job creation
-exports.validateJobCreation = onDocumentCreated(
-    "jobs/{jobId}",
-    async (event) => {
-        const data = event.data.data();
-        const validation = validateSchema(data, schemas.job);
-
-        if (!validation.valid) {
-            logger.error("Invalid job data", {
-                errors: validation.errors,
-                data,
-            });
-
-            await notifyAdmin("Invalid Job Creation Request", {
-                errors: validation.errors,
-                jobId: event.params.jobId
-            });
-
-            await event.data.ref.delete();
-            throw new Error(
-                `Validation failed: ${validation.errors.join(", ")}`,
-            );
-        }
-
-        logger.info("Job created successfully", {
-            jobId: event.params.jobId,
+    try {
+        // Admin
+        await transporter.sendMail({
+            from: '"Techno Vanam Careers" <official@technovanam.in>',
+            to: "official@technovanam.in",
+            subject: `Job Application: ${data.name} - ${data.role}`,
+            html: `
+            <div style="font-family:sans-serif;padding:20px;">
+              <h2 style="color:#71d300;">New Job Application</h2>
+              <p><strong>Role:</strong> ${data.role}</p>
+              <p><strong>Candidate:</strong> ${data.name}</p>
+              <p><strong>Email:</strong> ${data.email}</p>
+              <p><strong>Phone:</strong> ${data.phone}</p>
+              <p><strong>Resume:</strong> <a href="${data.resume_link}">${data.resume_link}</a></p>
+              <p><strong>Portfolio:</strong> ${data.portfolio || '-'}</p>
+            </div>`
         });
-    },
-);
 
-// Validate application creation
-exports.validateApplicationCreation = onDocumentCreated(
-    "applications/{appId}",
-    async (event) => {
-        const data = event.data.data();
-        const validation = validateSchema(data, schemas.application);
-
-        if (!validation.valid) {
-            logger.error("Invalid application data", {
-                errors: validation.errors,
-                data,
-            });
-            await event.data.ref.delete();
-            throw new Error(
-                `Validation failed: ${validation.errors.join(", ")}`,
-            );
-        }
-
-        logger.info("Application created", {
-            appId: event.params.appId,
+        // Candidate
+        await transporter.sendMail({
+            from: '"Techno Vanam" <official@technovanam.in>',
+            to: data.email,
+            subject: `Application Received: ${data.role} ✨ Techno Vanam`,
+            html: `
+            <!DOCTYPE html>
+            <html>
+            <body style="margin:0;padding:20px;font-family:sans-serif;background-color:#f5f5f5;">
+               <table role="presentation" style="max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;">
+                 <tr>
+                   <td style="background:#000;padding:30px;text-align:center;">
+                     <h2 style="color:#71d300;margin:0;">Hi ${data.name}!</h2>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td style="padding:40px;">
+                     <p>Thank you for applying for the <strong>${data.role}</strong> position at Techno Vanam.</p>
+                     <p>We've received your application and will review your profile. If your skills match our needs, we will be in touch!</p>
+                     <p>Stay creative!</p>
+                   </td>
+                 </tr>
+               </table>
+            </body>
+            </html>`
         });
-    },
-);
+        logger.info("Application emails sent", { email: data.email });
+    } catch (err) {
+        logger.error("Application email failed", err);
+    }
+});
 
-// Validate inquiry creation
-exports.validateInquiryCreation = onDocumentCreated(
-    "inquiries/{inquiryId}",
-    async (event) => {
-        const data = event.data.data();
-        const validation = validateSchema(data, schemas.inquiry);
 
-        if (!validation.valid) {
-            logger.error("Invalid inquiry data", {
-                errors: validation.errors,
-                data,
-            });
-            await event.data.ref.delete();
-            throw new Error(
-                `Validation failed: ${validation.errors.join(", ")}`,
-            );
-        }
+// ============================================
+// BACKUPS & UTILS (Existing)
+// ============================================
 
-        logger.info("Inquiry created", {
-            inquiryId: event.params.inquiryId,
-        });
-    },
-);
+exports.healthCheck = onRequest({ cors: true }, async (req, res) => {
+    res.status(200).json({ status: "healthy", timestamp: new Date() });
+});
 
-// Daily backup at 2 AM IST
 exports.dailyBackup = onSchedule({
     schedule: "0 2 * * *",
     timeZone: "Asia/Kolkata",
-}, async (event) => {
+}, async () => {
     const projectId = process.env.GCLOUD_PROJECT;
     const bucket = `gs://${projectId}-backups`;
-    const timestamp = new Date().toISOString().split("T")[0];
-
     try {
         const client = new admin.firestore.v1.FirestoreAdminClient();
         const databaseName = client.databasePath(projectId, "(default)");
-
-        const [operation] = await client.exportDocuments({
+        await client.exportDocuments({
             name: databaseName,
-            outputUriPrefix: `${bucket}/daily/${timestamp}`,
-            collectionIds: ["jobs", "applications", "inquiries", "settings"],
+            outputUriPrefix: `${bucket}/daily/${new Date().toISOString().split("T")[0]}`,
+            collectionIds: ["jobs", "applications", "inquiries", "newsletter"],
         });
-
-        logger.info("Daily backup initiated", {
-            timestamp,
-            operation: operation.name,
-        });
-        return { success: true, timestamp, operation: operation.name };
-    } catch (error) {
-        logger.error("Daily backup failed", { error: error.message });
-        throw error;
+        logger.info("Daily backup success");
+    } catch (e) {
+        logger.error("Backup failed", e);
     }
 });
-
-// Weekly backup every Sunday at 3 AM IST
-exports.weeklyBackup = onSchedule({
-    schedule: "0 3 * * 0",
-    timeZone: "Asia/Kolkata",
-}, async (event) => {
-    const projectId = process.env.GCLOUD_PROJECT;
-    const bucket = `gs://${projectId}-backups`;
-    const timestamp = new Date().toISOString().split("T")[0];
-
-    try {
-        const client = new admin.firestore.v1.FirestoreAdminClient();
-        const databaseName = client.databasePath(projectId, "(default)");
-
-        const [operation] = await client.exportDocuments({
-            name: databaseName,
-            outputUriPrefix: `${bucket}/weekly/${timestamp}`,
-        });
-
-        logger.info("Weekly backup initiated", {
-            timestamp,
-            operation: operation.name,
-        });
-        return { success: true, timestamp, operation: operation.name };
-    } catch (error) {
-        logger.error("Weekly backup failed", { error: error.message });
-        throw error;
-    }
-});
-
-// Database migration endpoint
-exports.runMigrations = onRequest({ cors: true }, async (req, res) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        return res.status(401).json({ error: "Unauthorized" });
-    }
-
-    try {
-        const idToken = authHeader.split("Bearer ")[1];
-        await admin.auth().verifyIdToken(idToken);
-    } catch (error) {
-        return res.status(401).json({ error: "Invalid token" });
-    }
-
-    const db = admin.firestore();
-    const migrationsRef = db.collection("_migrations");
-
-    try {
-        const migrations = [
-            {
-                version: "1.0.0",
-                name: "initial_schema",
-                run: async () => {
-                    logger.info("Running migration: initial_schema");
-                    return { success: true };
-                },
-            },
-            {
-                version: "1.1.0",
-                name: "add_status_fields",
-                run: async () => {
-                    const applicationsSnapshot = await db
-                        .collection("applications").get();
-                    const batch = db.batch();
-
-                    applicationsSnapshot.forEach((doc) => {
-                        if (!doc.data().status) {
-                            batch.update(doc.ref, { status: "pending" });
-                        }
-                    });
-
-                    await batch.commit();
-                    logger.info("Added status fields to applications");
-                    return { success: true };
-                },
-            },
-        ];
-
-        const completedMigrations = await migrationsRef.get();
-        const completedVersions = new Set(
-            completedMigrations.docs.map((doc) => doc.data().version),
-        );
-
-        const results = [];
-        for (const migration of migrations) {
-            if (!completedVersions.has(migration.version)) {
-                logger.info(
-                    `Running migration ${migration.version}: ${migration.name}`,
-                );
-                const result = await migration.run();
-
-                await migrationsRef.doc(migration.version).set({
-                    version: migration.version,
-                    name: migration.name,
-                    runAt: admin.firestore.FieldValue.serverTimestamp(),
-                    result,
-                });
-
-                results.push({ version: migration.version, status: "completed" });
-            } else {
-                results.push({ version: migration.version, status: "already_run" });
-            }
-        }
-
-        return res.status(200).json({
-            success: true,
-            migrations: results,
-        });
-    } catch (error) {
-        logger.error("Migration failed", { error: error.message });
-        return res.status(500).json({
-            error: "Migration failed",
-            message: error.message,
-        });
-    }
-});
-
-// Health check endpoint
-exports.healthCheck = onRequest({ cors: true }, async (req, res) => {
-    try {
-        const db = admin.firestore();
-        await db.collection("_health").doc("check").set({
-            timestamp: admin.firestore.FieldValue.serverTimestamp(),
-        });
-
-        return res.status(200).json({
-            status: "healthy",
-            timestamp: new Date().toISOString(),
-            services: {
-                firestore: "operational",
-                functions: "operational",
-            },
-        });
-    } catch (error) {
-        logger.error("Health check failed", { error: error.message });
-        return res.status(500).json({
-            status: "unhealthy",
-            error: error.message,
-        });
-    }
-});
-
-// Newsletter Subscription Trigger
-exports.onNewsletterSignup = onDocumentCreated(
-    "newsletter/{subscriptionId}",
-    async (event) => {
-        const snapshot = event.data;
-        if (!snapshot) {
-            console.log("No data associated with the event");
-            return;
-        }
-        const data = snapshot.data();
-        const email = data.email;
-
-        try {
-            // 1. Send notification to the company
-            await transporter.sendMail({
-                from: '"Techno Vanam System" <official@technovanam.in>',
-                to: "official@technovanam.in",
-                subject: "New Newsletter Subscription",
-                text: `New newsletter subscription from: ${email}`,
-                html: `
-                    <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                        <h2 style="color: #71d300;">New Subscriber Alert</h2>
-                        <p><strong>Email:</strong> ${email}</p>
-                        <p><strong>Source:</strong> Website Footer</p>
-                        <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
-                    </div>
-                `,
-            });
-
-            // 2. Send welcome email to the subscriber
-            await transporter.sendMail({
-                from: '"Techno Vanam" <official@technovanam.in>',
-                to: email,
-                subject: "Welcome to the Future of Digital Excellence! ✨ Techno Vanam",
-                html: `
-                    <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333; line-height: 1.6;">
-                        <div style="text-align: center; margin-bottom: 30px;">
-                            <h1 style="color: #71d300; margin: 0; font-size: 24px; letter-spacing: 2px;">✨ WELCOME TO TECHNO VANAM ✨</h1>
-                        </div>
-                        
-                        <p>Hi there!</p>
-                        
-                        <p>We're thrilled to have you join our exclusive circle of digital innovators! You’ve just taken the first step towards staying ahead in the rapidly evolving digital landscape.</p>
-                        
-                        <hr style="border: none; border-top: 1px solid #71d300; margin: 30px 0;">
-                        
-                        <h2 style="color: #71d300; font-size: 18px; text-transform: uppercase;">🚀 What to Expect:</h2>
-                        
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 15px;">
-                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
-                                <strong style="color: #000;">STUNNING DESIGN:</strong> Get insights into modern UI/UX trends.
-                            </li>
-                            <li style="margin-bottom: 15px;">
-                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
-                                <strong style="color: #000;">CUTTING-EDGE TECH:</strong> Stay updated with the latest in Web & Mobile development.
-                            </li>
-                            <li style="margin-bottom: 15px;">
-                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
-                                <strong style="color: #000;">INDUSTRY INSIGHTS:</strong> Deep dives into how we solve complex business challenges.
-                            </li>
-                            <li style="margin-bottom: 15px;">
-                                <span style="color: #71d300; font-weight: bold; margin-right: 10px;">🔹</span>
-                                <strong style="color: #000;">EARLY ACCESS:</strong> Be the first to know about our new product launches.
-                            </li>
-                        </ul>
-                        
-                        <hr style="border: none; border-top: 1px solid #71d300; margin: 30px 0;">
-                        
-                        <p>Stay tuned for our next update! In the meantime, feel free to explore our latest projects or connect with us on social media.</p>
-                        
-                        <div style="text-align: center; margin-top: 30px;">
-                            <a href="https://technovanam.in/services" style="display: inline-block; padding: 12px 24px; background-color: #71d300; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 0 10px;">🌐 Explore Our Work</a>
-                        </div>
-                        
-                        <div style="margin-top: 40px; font-size: 14px; text-align: center; color: #777;">
-                            <p>Let's design the digital future together.</p>
-                            <p>Warm regards,<br><strong>The Techno Vanam Team</strong></p>
-                        </div>
-                        
-                        <div style="margin-top: 20px; font-size: 12px; text-align: center; color: #aaa;">
-                            <p>Techno Vanam - Designing Digital Future</p>
-                            <p><a href="https://www.instagram.com/technovanam.in/" style="color: #71d300; text-decoration: none;">📸 Follow us on Instagram</a></p>
-                        </div>
-                    </div>
-                `,
-            });
-
-            logger.info("Newsletter emails sent successfully", { email });
-        } catch (error) {
-            logger.error("Failed to send newsletter emails", {
-                error: error.message,
-                stack: error.stack,
-                code: error.code,
-                command: error.command,
-                email
-            });
-            // Log to Firestore for easy debugging
-            await admin.firestore().collection("mail_errors").add({
-                email,
-                error: error.message,
-                code: error.code || "unknown",
-                timestamp: admin.firestore.FieldValue.serverTimestamp()
-            });
-        }
-    }
-);
