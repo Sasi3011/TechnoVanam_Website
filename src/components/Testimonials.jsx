@@ -26,7 +26,7 @@ const testimonials = [
         content:
             "I’m extremely happy with the work! Every detail matched my expectations perfectly. The charges were very reasonable, and I loved the flexibility for customization. Thank you for the outstanding support and great results!",
         author: "Eshani",
-        role: "Designer",
+        role: "Founder, Aurora Waxlights",
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Eshani",
        
     },
