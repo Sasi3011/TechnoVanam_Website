@@ -27,7 +27,7 @@ const teamMembers = [
     quote: "Building robust architectures that stay ahead of the curve.",
     github: "https://github.com"
   },
-  {
+  /*{
     name: "Vasanth R",
     role: "Technical Advisor",
     company: "Lesoko Technologies Private Limited",
@@ -38,7 +38,7 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/vasanth-rv",
     quote: "Expert guidance in scaling engineering teams and architectures.",
     github: "https://github.com"
-  },
+  },*/
   {
     name: "Sankar T",
     role: "Business Advisor",
@@ -238,7 +238,7 @@ export default function About() {
           </div>
 
           {/* Team Grid - Portrait Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-16">
             {teamMembers.map((member, index) => (
               <div key={index} className="group relative">
                 {/* Main Card Container */}

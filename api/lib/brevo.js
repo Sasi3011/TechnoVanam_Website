@@ -36,24 +36,24 @@ async function sendEmail({
   replyTo,
 }) {
   const BREVO_API_KEY = getBrevoApiKey();
-  
+
   if (!BREVO_API_KEY) {
     throw new Error('BREVO_API_KEY environment variable is not set. Please add BREVO_API_KEY to your .env file.');
   }
 
   // Clean the API key (remove quotes, whitespace)
   const cleanApiKey = BREVO_API_KEY.trim().replace(/^["']|["']$/g, '');
-  
+
   // Validate API key format
   if (!cleanApiKey || cleanApiKey.length < 10) {
     throw new Error(`Invalid BREVO_API_KEY format. Key length: ${cleanApiKey.length}. Expected format: xkeysib-... or xsmtpsib-...`);
   }
-  
+
   // Validate that it starts with correct prefix
   if (!cleanApiKey.startsWith('xkeysib-') && !cleanApiKey.startsWith('xsmtpsib-')) {
     throw new Error(`Invalid BREVO_API_KEY format. Key should start with 'xkeysib-' or 'xsmtpsib-'. Got: ${cleanApiKey.substring(0, 10)}...`);
   }
-  
+
   // Warn if using SMTP key with REST API (may cause 401 errors)
   if (cleanApiKey.startsWith('xsmtpsib-')) {
     console.warn('⚠️  WARNING: You are using an SMTP key (xsmtpsib-) with the REST API.');
@@ -61,7 +61,7 @@ async function sendEmail({
     console.warn('   Please generate a new API key (not SMTP key) in Brevo dashboard:');
     console.warn('   Settings → SMTP & API → API Keys → Generate a new API key');
   }
-  
+
   // Log API key info for debugging (first 15 chars only for security)
   console.log('📧 Using Brevo API Key:', cleanApiKey.substring(0, 15) + '... (length: ' + cleanApiKey.length + ')');
 
@@ -109,7 +109,7 @@ async function sendEmail({
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
     const errorMessage = errorData.message || errorData.error || response.statusText;
-    
+
     // Log detailed error for debugging
     console.error('❌ Brevo API Error Details:');
     console.error('   Status:', response.status);
@@ -118,7 +118,7 @@ async function sendEmail({
     console.error('   API Key length:', cleanApiKey.length);
     console.error('   API Key format:', cleanApiKey.startsWith('xkeysib-') || cleanApiKey.startsWith('xsmtpsib-') ? '✅ Valid' : '❌ Invalid');
     console.error('   Full error response:', JSON.stringify(errorData, null, 2));
-    
+
     // Provide helpful error message
     if (response.status === 401) {
       console.error('   💡 Troubleshooting 401 error:');
@@ -134,7 +134,7 @@ async function sendEmail({
         console.error('      4. Try regenerating the API key in Brevo dashboard');
       }
     }
-    
+
     throw new Error(
       `Brevo API error: ${response.status} - ${errorMessage}`
     );
@@ -150,7 +150,7 @@ async function sendEmail({
  */
 async function sendAdminNotification(inquiryData) {
   const subject = `New Inquiry: ${inquiryData.name} - ${inquiryData.projectType || 'Project'}`;
-  
+
   const htmlContent = `
     <!DOCTYPE html>
     <html>
@@ -217,14 +217,14 @@ async function sendAdminNotification(inquiryData) {
 async function sendAutoReply(inquiryData) {
   // Use transactional subject line (no emojis, less promotional)
   const subject = "We've received your inquiry - Techno Vanam";
-  
+
   const htmlContent = getAutoReplyTemplate(inquiryData);
 
   return await sendEmail({
     to: inquiryData.email,
     subject,
     htmlContent,
-    fromEmail: 'official@technovanam.in',
+    fromEmail: 'noreply@technovanam.in',
     fromName: 'Techno Vanam',
   });
 }
@@ -236,7 +236,7 @@ async function sendAutoReply(inquiryData) {
  */
 function getAutoReplyTemplate(inquiryData) {
   const userName = inquiryData.name || 'there';
-  
+
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -368,7 +368,7 @@ function getAutoReplyTemplate(inquiryData) {
  */
 async function sendNewsletterEmails(subscriptionData) {
   const { email, isNew, id } = subscriptionData;
-  
+
   // Admin notification
   const adminSubject = "New Newsletter Subscription";
   const adminHtml = `
@@ -492,7 +492,7 @@ async function sendNewsletterEmails(subscriptionData) {
     to: email,
     subject: welcomeSubject,
     htmlContent: welcomeHtml,
-    fromEmail: 'official@technovanam.in',
+    fromEmail: 'noreply@technovanam.in',
     fromName: 'Techno Vanam',
   })
     .then(result => {
@@ -507,15 +507,15 @@ async function sendNewsletterEmails(subscriptionData) {
 
   // Wait for both emails to complete (even if one fails)
   const results = await Promise.all([adminEmailPromise, welcomeEmailPromise]);
-  
+
   // Log summary
   const adminSuccess = results[0].success;
   const welcomeSuccess = results[1].success;
-  
+
   console.log('📧 Newsletter email summary:');
   console.log('   Admin notification:', adminSuccess ? '✅ Sent' : '❌ Failed');
   console.log('   Welcome email (reply):', welcomeSuccess ? '✅ Sent' : '❌ Failed');
-  
+
   if (!welcomeSuccess) {
     console.error('⚠️  WARNING: Welcome/reply email was NOT sent to subscriber!');
     console.error('   This means the subscriber will not receive a confirmation email.');
@@ -531,7 +531,7 @@ async function sendNewsletterEmails(subscriptionData) {
  */
 async function sendApplicationEmails(applicationData) {
   const { name, email, role, type, phone, portfolio, resume_link, note, id } = applicationData;
-  
+
   // Admin notification
   const adminSubject = `Job Application: ${name} - ${role}`;
   const adminHtml = `
