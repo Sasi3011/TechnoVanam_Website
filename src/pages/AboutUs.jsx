@@ -50,6 +50,36 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/sankarthulasimani/",
     quote: "Leveraging data to drive strategic growth and innovation.",
     github: "https://github.com"
+  },
+  {
+    name: "Kavin Kumar C",
+    role: "MERN Stack Developer",
+    img: "/Kavin Kumar C - MERN Stack Developer.jpeg",
+    instagram: "",
+    linkedin: "",
+    whatsapp: "",
+    quote: "Building scalable web applications with modern technologies.",
+    github: "https://github.com"
+  },
+  {
+    name: "Keerthi Aanand K S",
+    role: "MERN Stack Developer",
+    img: "/Keerthi Aanand K S - MERN Stack Developer.jpeg",
+    instagram: "",
+    linkedin: "",
+    whatsapp: "",
+    quote: "Crafting elegant solutions for complex problems.",
+    github: "https://github.com"
+  },
+  {
+    name: "Manish Prakkash M S",
+    role: "App Developer",
+    img: "/Manish Prakkash M S - App Developer.png",
+    instagram: "",
+    linkedin: "",
+    whatsapp: "",
+    quote: "Creating mobile experiences that users love.",
+    github: "https://github.com"
   }
 ];
 
