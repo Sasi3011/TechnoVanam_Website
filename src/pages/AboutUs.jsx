@@ -10,7 +10,7 @@ const teamMembers = [
   {
     name: "Sasikiran TT",
     role: "Founder & CEO",
-    img: "https://res.cloudinary.com/dnmvriw3e/image/upload/v1757826413/Sasi_vpik2a.png",
+    img: "/Sasikiran TT - Founder & CEO.png",
     instagram: "https://www.instagram.com/sasi_._06/",
     linkedin: "https://www.linkedin.com/in/sasikiran-3031s/",
     whatsapp: "https://wa.me/918610500527",
@@ -20,7 +20,7 @@ const teamMembers = [
   {
     name: "Sanjana B",
     role: "Co-founder & CTO",
-    img: "/Sanjana B - Co-Founder.jpeg",
+    img: "/Sanjana B - Co Founder & CTO.png",
     instagram: "http://instagram.com/sanjudarla07/",
     linkedin: "https://www.linkedin.com/in/sanjana-0831s/",
     whatsapp: "https://wa.me/916382993891",
@@ -53,7 +53,7 @@ const teamMembers = [
   },
   {
     name: "Kavin Kumar C",
-    role: "MERN Stack Developer",
+    role: "MERN Stack Developer - Intern",
     img: "/Kavin Kumar C - MERN Stack Developer.jpeg",
     instagram: "",
     linkedin: "",
@@ -63,7 +63,7 @@ const teamMembers = [
   },
   {
     name: "Keerthi Aanand K S",
-    role: "MERN Stack Developer",
+    role: "MERN Stack Developer - Intern",
     img: "/Keerthi Aanand K S - MERN Stack Developer.jpeg",
     instagram: "",
     linkedin: "",
@@ -73,7 +73,7 @@ const teamMembers = [
   },
   {
     name: "Manish Prakkash M S",
-    role: "App Developer",
+    role: "App Developer - Intern",
     img: "/Manish Prakkash M S - App Developer.png",
     instagram: "",
     linkedin: "",
@@ -268,7 +268,7 @@ export default function About() {
           </div>
 
           {/* Team Grid - Portrait Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-16">
             {teamMembers.map((member, index) => (
               <div key={index} className="group relative">
                 {/* Main Card Container */}
