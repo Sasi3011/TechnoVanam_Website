@@ -8,16 +8,16 @@ import SEO from "../../components/SEO";
 
 const Products = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState({ name: null, image: null });
+  const [selectedProduct, setSelectedProduct] = useState({ name: null, image: null, isEarlyAccess: false, demoLink: null });
 
-  const openProductModal = (productName, productImage) => {
-    setSelectedProduct({ name: productName, image: productImage });
+  const openProductModal = (productName, productImage, isEarlyAccess = false, demoLink = null) => {
+    setSelectedProduct({ name: productName, image: productImage, isEarlyAccess, demoLink });
     setShowPopup(true);
   };
 
   const closeProductModal = () => {
     setShowPopup(false);
-    setSelectedProduct({ name: null, image: null });
+    setSelectedProduct({ name: null, image: null, isEarlyAccess: false, demoLink: null });
   };
 
   const scrollToNextSection = () => {
@@ -31,14 +31,16 @@ const Products = () => {
     <div className="min-h-screen bg-black text-white">
       <SEO
         title="Our Products"
-        description="Discover the suite of digital tools and platforms built by Techno Vanam. From sports tech to entrepreneurship ecosystems."
-        keywords="Techno Vanam Products, Techno, Vanam, TechnoVanam, Athlixir, WebBrain, Youth Platform, Youth Entrepreneurship Platform, Startup Tools, Developer Resources, Sports Management Software, AI Sports Tech, Browser Extension"
+        description="Discover Athlixir - an AI-powered athlete ecosystem built by Techno Vanam. Built to protect potential, prevent setbacks, and prove talent."
+        keywords="Techno Vanam Products, Techno, Vanam, TechnoVanam, Athlixir, Startup Tools, Developer Resources, Sports Management Software, AI Sports Tech, Sports Technology, Athlete Management System, Performance Analytics"
       />
       <LaunchingSoonModal
         isOpen={showPopup}
         onClose={closeProductModal}
         productName={selectedProduct.name}
         productImage={selectedProduct.image}
+        isEarlyAccess={selectedProduct.isEarlyAccess}
+        demoLink={selectedProduct.demoLink}
       />
       {/* Section 1: Hero Section - Full Viewport Height */}
       <section className="relative px-4 sm:px-6 lg:px-16 pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 lg:pt-44 lg:pb-36 bg-transparent flex items-center justify-center overflow-hidden h-[100dvh] lg:h-screen">
@@ -109,7 +111,7 @@ const Products = () => {
                   </div>
 
                   <button
-                    onClick={() => openProductModal("Athlixir", "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop")}
+                    onClick={() => openProductModal("Athlixir", "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2085&auto=format&fit=crop", true, "https://athlixir-fsd.vercel.app")}
                     className="relative inline-block mb-4 group text-left w-full"
                   >
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
@@ -122,13 +124,18 @@ const Products = () => {
                   </p>
                 </div>
 
-                <div className="flex justify-between items-center sm:mt-4">
+                <div className="flex justify-between items-center sm:mt-4 gap-3">
                   <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
                     Sports Platform
                   </div>
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
-                    01
-                  </span>
+                  <a
+                    href="https://athlixir-fsd.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 sm:px-5 py-2 bg-brand-500 text-black font-bold text-xs sm:text-sm rounded-lg hover:bg-brand-400 transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap"
+                  >
+                    Access Demo
+                  </a>
                 </div>
               </div>
 
@@ -145,99 +152,7 @@ const Products = () => {
               </div>
             </div>
 
-            {/* Youth Entrepreneurship Section */}
-            <div className="flex flex-col xl:flex-row-reverse gap-12 xl:gap-16 items-center">
-              {/* Left Content Column (mirrored logic) */}
-              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-brand-600"></div>
-                    <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Education, Global</span>
-                  </div>
 
-                  <button
-                    onClick={() => openProductModal("Youth Entrepreneurship Platform", "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop")}
-                    className="relative inline-block mb-4 group text-left w-full"
-                  >
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
-                      Youth Entrepreneurship Platform
-                    </h3>
-                  </button>
-
-                  <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
-                    An interactive ecosystem built to empower the next generation of founders — connecting mentorship, startup resources, and real-world business tools to turn ideas into impactful ventures.
-                  </p>
-                </div>
-
-                <div className="flex justify-between items-center sm:mt-4">
-                  <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
-                    Startup Ecosystem Platform
-                  </div>
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
-                    02
-                  </span>
-                </div>
-              </div>
-
-              {/* Right Image/Mockup Column */}
-              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
-                  alt="Platform Interface"
-                  width="550"
-                  height="400"
-                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            {/* WebBrain Product Section */}
-            <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 items-center">
-              {/* Left Content Column */}
-              <div className="w-full xl:w-1/2 flex flex-col gap-6 sm:gap-8">
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-brand-600"></div>
-                    <span className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest">Productivity, Global</span>
-                  </div>
-
-                  <button
-                    onClick={() => openProductModal("WebBrain", "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop")}
-                    className="relative inline-block mb-4 group text-left w-full"
-                  >
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight group-hover:text-brand-500 transition-colors">
-                      WebBrain — Your Second Brain
-                    </h3>
-                  </button>
-
-                  <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
-                    A living memory layer for your browser that understands what you explore, remembers what matters, and brings it back when you need it. WebBrain turns scattered browsing into structured knowledge.
-                  </p>
-                </div>
-
-                <div className="flex justify-between items-center sm:mt-4">
-                  <div className="px-4 sm:px-6 py-2 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm">
-                    Browser Extension
-                  </div>
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-500 select-none leading-none">
-                    03
-                  </span>
-                </div>
-              </div>
-
-              {/* Right Image/Mockup Column */}
-              <div className="w-full xl:w-1/2 bg-[#1a1a1a] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-8 xl:p-12 flex items-center justify-center overflow-hidden min-h-[250px] sm:min-h-[400px] border border-white/5 card-glow-hover">
-                <img
-                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
-                  alt="WebBrain Interface"
-                  width="550"
-                  height="400"
-                  className="w-full h-auto max-w-full md:max-w-[80%] xl:max-w-[550px] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10 hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
