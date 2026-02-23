@@ -281,7 +281,7 @@ export default function About() {
                         <img
                           src={member.img}
                           alt={member.name}
-                          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : member.name === "Sasikiran TT" ? "object-bottom" : "object-center"}`}
+                          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : member.name === "Sasikiran TT" ? "object-left" : "object-center"}`}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-[#0d0d0d] border border-white/5 group-hover:bg-[#121212] transition-colors duration-500">
