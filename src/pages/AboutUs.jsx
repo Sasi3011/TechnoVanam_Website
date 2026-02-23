@@ -281,7 +281,7 @@ export default function About() {
                         <img
                           src={member.img}
                           alt={member.name}
-                          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : "object-center"}`}
+                          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Vasanth R" ? "object-top" : member.name === "Sasikiran TT" ? "object-top" : "object-center"}`}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-[#0d0d0d] border border-white/5 group-hover:bg-[#121212] transition-colors duration-500">
@@ -295,8 +295,16 @@ export default function About() {
                     {/* Static Info Area (Lower Part) */}
                     <div className="p-4 py-10 flex flex-col items-center text-center">
                       <div className="px-2 py-1">
-                        <span className="text-brand-500 text-[22px] font-black uppercase whitespace-nowrap">
-                          {member.name}
+                        <span className="text-brand-500 text-[22px] font-black uppercase">
+                          {member.name === "Kavin Kumar C" ? (
+                            <>Kavin<br/>Kumar C</>
+                          ) : member.name === "Keerthi Aanand K S" ? (
+                            <>Keerthi<br/>Aanand K S</>
+                          ) : member.name === "Manish Prakkash M S" ? (
+                            <>Manish<br/>Prakkash M S</>
+                          ) : (
+                            member.name
+                          )}
                         </span>
                       </div>
                       <p className="text-white text-[16px] uppercase tracking-wide">
