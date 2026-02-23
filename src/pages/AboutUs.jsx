@@ -27,18 +27,18 @@ const teamMembers = [
     quote: "Building robust architectures that stay ahead of the curve.",
     github: "https://github.com"
   },
-  /*{
+  {
     name: "Vasanth R",
     role: "Technical Advisor",
     company: "Lesoko Technologies Private Limited",
     location: "Chennai",
     experience: "5+ Yrs Exp",
     isAdvisor: true,
-    img: "",
+    img: "/Vasanth R - Technical Advisior.png",
     linkedin: "https://www.linkedin.com/in/vasanth-rv",
     quote: "Expert guidance in scaling engineering teams and architectures.",
     github: "https://github.com"
-  },*/
+  },
   {
     name: "Sankar T",
     role: "Business Advisor",
