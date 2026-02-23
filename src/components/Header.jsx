@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowRight, Monitor, PenTool, Layout, Layers, Lightbulb, Smartphone, Search, FileText, Share2, Laptop, Grid, Presentation, Box, Brush, Code, Server, Wrench, TrendingUp, Zap, Package, Megaphone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "../assets/logo.png"; // Import the logo image
+
+const Logo = "/Logo.png"; // Import the logo image from public folder
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
